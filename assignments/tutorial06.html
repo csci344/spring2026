@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/spring2026/assets/images/favicon.ico" type="image/x-icon">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>JavaScript: Practice with higher-order iteration functions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
+">
+<link rel="stylesheet" href="/spring2026/assets/main.css">
+
+<!-- <script defer src="/spring2026/assets/js/fish-pond.js"></script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+</script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/spring2026/">CSCI 344: Spring 2026</a></h1>
+        <h2 class="desktop">Advanced Web Technology</h2>
+        <a class="mobile" href="#" title="Toggle Menu">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 344: Spring 2026</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" alt="UNCA Logo" />
+    <!-- <p class="kudos">
+        Fish by <a href="https://github.com/akeatk/fish-pond" target="_blank">@akeatk</a>
+    </p> -->
+    <!-- <canvas></canvas> -->
+</header>
+
+        <nav>
+    <ul>
+        <li ><a href="/spring2026/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/spring2026/">Schedule</a></li>
+        <li class="active" ><a
+                href="/spring2026/assignments/">Assignments</a></li>
+        <li ><a href="/spring2026/resources/">Web
+                Reference</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1LqUWReoyqDSOHq3PyGYZvbgdll0_SHl6?usp=sharing"
+                target="_blank">Lecture Recordings</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                <ol class="side-menu">
+  <li><a href="#i-implement-the-helper-functions">I. Implement the helper functions</a>
+    <ol>
+      <li><a href="#1-filter-functions">1. Filter functions</a></li>
+      <li><a href="#2-data-to-html-function">2. “Data to HTML” function</a></li>
+    </ol>
+  </li>
+  <li><a href="#ii-implement-the-showmatchingcourses-function--event-handler">II. Implement the showMatchingCourses function / event handler</a>
+    <ol>
+      <li><a href="#implement-the-showmatchingcourses-function">Implement the showMatchingCourses function</a></li>
+    </ol>
+  </li>
+  <li><a href="#iii-what-to-submit">III. What to Submit</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1>
+            <a href="../assignments/">Assignments</a> > 
+            Tutorial 6: JavaScript: Practice with higher-order iteration functions
+        </h1>
+    
+ 
+                <p>
+    
+        Due on Mon, 03/02 @ 11:59PM.
+    
+    
+        6 Points.
+    
+    
+</p>
+
+<style>
+    .screenshot {
+       width:60%;
+       min-width: 500px;
+    }
+</style>
+
+<p>For Tutorial 6, you will make a UNCA Course Search interface for the Computer Science Department that works like this:</p>
+
+<p><img class="frame screenshot" src="/spring2026/assets/images/tutorials/tutorial06/demo-course-search.gif" /></p>
+
+<p>Please download the starter files below and then complete the following tasks:</p>
+
+<p><a href="/spring2026/course-files/tutorials/tutorial06.zip" class="nu-button">Tutorial 6 Starter Files<i class="fas fa-download"></i></a></p>
+
+<h2 id="i-implement-the-helper-functions">I. Implement the helper functions</h2>
+
+<h3 id="1-filter-functions">1. Filter functions</h3>
+<p>Implement two filter functions (which should return either true or false):</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">isClassFull</code>: This function will take a course object as an argument and return <code class="language-plaintext highlighter-rouge">true</code> if the course is full, and <code class="language-plaintext highlighter-rouge">false</code> if it is not.</li>
+  <li><code class="language-plaintext highlighter-rouge">doesTermMatch</code>: This function will take a course object as an argument and return <code class="language-plaintext highlighter-rouge">true</code> if the course “matches” the search term, and <code class="language-plaintext highlighter-rouge">false</code> if it does not.
+    <ul>
+      <li>Use your discretion to determine a good matching algorithm. For instance, you could return <code class="language-plaintext highlighter-rouge">true</code> if the search string matches (or partially matches) one or more of the data fields (Code, CRN, Title, one of the instructor’s names, etc.).</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 1.1a</span>
+<span class="kd">const</span> <span class="nx">isClassFull</span> <span class="o">=</span> <span class="nx">course</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// modify this</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Part 1.1b</span>
+<span class="kd">const</span> <span class="nx">doesTermMatch</span> <span class="o">=</span> <span class="nx">course</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// modify this</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h4 id="tips">Tips</h4>
+  <p>Use some of the <a href="https://www.javascripttutorial.net/javascript-string-methods/" target="_blank">JavaScript built-in string methods</a>. It also might be useful to convert everything to uppercase / lowercase. Some particularly useful methods to checkout:</p>
+
+  <ul>
+    <li>includes()</li>
+    <li>toUpperCase()</li>
+    <li>toLowerCase()</li>
+  </ul>
+</blockquote>
+
+<h3 id="2-data-to-html-function">2. “Data to HTML” function</h3>
+<p>Implement the <code class="language-plaintext highlighter-rouge">dataToHTML</code> function, which takes a course object as an argument and returns an HTML string that represents the course.</p>
+<ul>
+  <li>See the <code class="language-plaintext highlighter-rouge">index.html</code> file to examine the structure of the HTML “card” that represents a course.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 1.2</span>
+<span class="kd">const</span> <span class="nx">dataToHTML</span> <span class="o">=</span> <span class="p">(</span><span class="nx">course</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// modify this to be more detailed</span>
+    <span class="k">return</span> <span class="s2">`
+        &lt;section class="course"&gt;
+            </span><span class="p">${</span><span class="nx">course</span><span class="p">.</span><span class="nx">Code</span><span class="p">}</span><span class="s2">
+        &lt;/section&gt;
+    `</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<blockquote class="info">
+  <h4 id="tips-1">Tips</h4>
+  <ul class="compact">
+    <li>Use a template literal (backticks).</li>
+    <li>Feel free to create some helper variables to format the string output.</li>
+  </ul>
+</blockquote>
+
+<h2 id="ii-implement-the-showmatchingcourses-function--event-handler">II. Implement the showMatchingCourses function / event handler</h2>
+
+<h3 id="implement-the-showmatchingcourses-function">Implement the showMatchingCourses function</h3>
+<p>To actually display relevant course “cards” to the screen, you will also need to implement a <code class="language-plaintext highlighter-rouge">showMatchingCourses</code> function. To do this, use the built-in <strong>filter</strong> and <strong>forEach</strong> higher-order array methods – and any relevant DOM methods – to build the interface. Specifically, you will:</p>
+
+<ol>
+  <li>Clear out the existing courses in the DOM.</li>
+  <li>Use the array’s built in “filter” method, which takes a filter function as an argument, to return an array of objects that match the search criteria.
+    <ul>
+      <li>You will make use of the  <code class="language-plaintext highlighter-rouge">isClassFull</code> and <code class="language-plaintext highlighter-rouge">doesTermMatch</code> functions.</li>
+      <li>Consider chaining multiple invocations of the filter method to progressively winnow down the courses matching the search criteria.<br />For instance: <code class="language-plaintext highlighter-rouge">const matches = courseList.filter(isClassFull).filter(doesTermMatch)</code>).</li>
+    </ul>
+  </li>
+  <li>Use the array’s built in “forEach” method to:
+    <ul>
+      <li>Generate an HTML snippet of the course (by invoking the <code class="language-plaintext highlighter-rouge">dataToHTML</code> function), and</li>
+      <li>Insert the HTML snippet into the DOM (suggestion: use the <code class="language-plaintext highlighter-rouge">insertAdjacentHTML</code> method).</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Part 2</span>
+<span class="kd">const</span> <span class="nx">showMatchingCourses</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Search term: </span><span class="p">${</span><span class="nx">searchTerm</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Only show open classes: </span><span class="p">${</span><span class="nx">openOnly</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="s2">`Course data: </span><span class="p">${</span><span class="nx">courseList</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+
+    <span class="c1">// output all of the matching courses to the screen:</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h2 id="iii-what-to-submit">III. What to Submit</h2>
+<p>When you’re done, please create a link from your homepage to your Tutorial 6 web page (see Sarah’s homepage for an example). Then, commit and push all of your edits to GitHub and, paste a link to your GitHub Repository and to your GitHub pages in the Moodle submission.</p>
+
+<p>If you collaborated with someone, please list your partner’s name in the comments section.</p>
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+            <script type="text/javascript" src="/spring2026/assets/js/main.js"></script>
+    
+    <!-- <script>
+        //little bit of a hack:
+        const scrollLeft = () => {
+            //console.log('scrollLeft');
+            document.documentElement.scrollLeft = 0;
+        };
+        setTimeout(scrollLeft, 100);
+    </script> -->
+        <script type="text/javascript" src="/spring2026/assets/js/expandable.js"></script>
+    </body>
+</html>

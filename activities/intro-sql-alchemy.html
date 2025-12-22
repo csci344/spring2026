@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/spring2026/assets/images/favicon.ico" type="image/x-icon">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>Intro to SQLAlchemy</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
+">
+<link rel="stylesheet" href="/spring2026/assets/main.css">
+
+<!-- <script defer src="/spring2026/assets/js/fish-pond.js"></script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+</script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/spring2026/">CSCI 344: Spring 2026</a></h1>
+        <h2 class="desktop">Advanced Web Technology</h2>
+        <a class="mobile" href="#" title="Toggle Menu">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 344: Spring 2026</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" alt="UNCA Logo" />
+    <!-- <p class="kudos">
+        Fish by <a href="https://github.com/akeatk/fish-pond" target="_blank">@akeatk</a>
+    </p> -->
+    <!-- <canvas></canvas> -->
+</header>
+
+        <nav>
+    <ul>
+        <li ><a href="/spring2026/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/spring2026/">Schedule</a></li>
+        <li ><a
+                href="/spring2026/assignments/">Assignments</a></li>
+        <li ><a href="/spring2026/resources/">Web
+                Reference</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1LqUWReoyqDSOHq3PyGYZvbgdll0_SHl6?usp=sharing"
+                target="_blank">Lecture Recordings</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                <ol class="side-menu">
+  <li><a href="#set-up-todays-exercises">Set Up Today’s Exercises</a>
+    <ol>
+      <li><a href="#what-just-happened">What just happened?</a></li>
+    </ol>
+  </li>
+  <li><a href="#what-is-an-object-relational-mapping-orm">What is an Object Relational Mapping (ORM)?</a>
+    <ol>
+      <li><a href="#post-model">Post Model</a></li>
+      <li><a href="#post-table">Post Table</a></li>
+    </ol>
+  </li>
+  <li><a href="#your-tasks">Your Tasks</a></li>
+  <li><a href="#challenge-problems">Challenge Problems</a>
+    <ol>
+      <li><a href="#sqlalchemy-queries-testerpy">SQLAlchemy Queries (<code class="language-plaintext highlighter-rouge">tester.py</code>)</a></li>
+      <li><a href="#flask-endpoints-apppy">Flask Endpoints (<code class="language-plaintext highlighter-rouge">app.py</code>)</a></li>
+    </ol>
+  </li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1>
+            <a href="../assignments/">Assignments</a> > 
+            Activity 6: Intro to SQLAlchemy
+        </h1>
+    
+ 
+                <p>As stated on the <a href="https://www.sqlalchemy.org/" target="_blank">SQL Alchemy project page</a>: “SQLAlchemy is the Python SQL toolkit and Object Relational Mapper that gives application developers the full power and flexibility of SQL.” In other words, SQL Alchemy is a python abstraction that makes communication with databases easier. It is database agnostic, meaning that you use the same commands, regardless of whether you’re interacting with PostgreSQL, SQLite, MySQL, or some other relational database.</p>
+
+<h2 id="set-up-todays-exercises">Set Up Today’s Exercises</h2>
+<ol>
+  <li><strong>Create a new database</strong> by opening your terminal. From any directory, type:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> psql -U postgres
+</code></pre></div>    </div>
+
+    <p>Once you’re on the psql command prompt, create a new database called <code class="language-plaintext highlighter-rouge">orm_test</code>:</p>
+
+    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">create</span> <span class="k">database</span> <span class="n">orm_test</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <p>Once you get a “Database Created” message, exit <code class="language-plaintext highlighter-rouge">psql</code> (<code class="language-plaintext highlighter-rouge">\q</code>).</p>
+  </li>
+  <li>
+    <p><strong>Download the files</strong>:</p>
+
+    <p>Download today’s lecture files, unzip them, and save the <code class="language-plaintext highlighter-rouge">orm_introduction</code> folder in your <code class="language-plaintext highlighter-rouge">csci344/lectures</code> directory. <br /><br /><a class="nu-button" href="/spring2026/course-files/activities/orm-introduction.zip">ORM Sample Files  <i class="fas fa-download"></i></a></p>
+  </li>
+  <li>
+    <p><strong>Set Up Your Virtual Environment</strong></p>
+
+    <p>Open VS Code. Then open the integrated VS Code terminal and navigate to your <code class="language-plaintext highlighter-rouge">orm-introduction</code> folder. From this directory, set up a virtual environment and install the dependencies as follows:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> poetry install
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Update your database connection string</strong></p>
+
+    <p>Open the <code class="language-plaintext highlighter-rouge">.env</code> file and modify your connection string so that your postgresql password is reflected (versus 12345). Replace “12345” with whatever your postgres password is:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> DB_URL=postgresql+psycopg://postgres:12345@localhost/orm_test
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Populate your database</strong></p>
+
+    <p>From the terminal, build your database as follows (from the command prompt from within the <code class="language-plaintext highlighter-rouge">orm-introduction</code> folder).</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> poetry run python populate.py
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Run the SQLAlchemy Tester</strong></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> poetry run python tester.py
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<blockquote class="info">
+  <h3 id="what-just-happened">What just happened?</h3>
+  <p>In the intructions above, we created a new database, installed and configured our python files / libraries to interact with our database and populated our database. The <code class="language-plaintext highlighter-rouge">tester.py</code> script that just ran contains a demo of different SQLAlchemy queries that you can do.</p>
+
+  <p>This infrastructure will allow your users to query a database from the web browser.</p>
+</blockquote>
+
+<h2 id="what-is-an-object-relational-mapping-orm">What is an Object Relational Mapping (ORM)?</h2>
+<p>ORMs allow a programmer to associate user-defined Python classes with database tables, and instances of those classes (objects) with rows in their corresponding tables (<a href="https://docs.sqlalchemy.org/en/14/orm/tutorial.html" target="_blank">more on ORM here</a>). In other words, rather than writing SQL directly, you interact with SQL Alchemy “models” that issue SQL queries under-the-hood.</p>
+
+<h3 id="post-model">Post Model</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Post</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+
+    <span class="c1"># name of table I want to connect to:
+</span>    <span class="n">__tablename__</span> <span class="o">=</span> <span class="sh">'</span><span class="s">posts</span><span class="sh">'</span>
+
+    <span class="c1"># reference to the columns with which I want the application
+</span>    <span class="c1"># to interact:
+</span>    <span class="nb">id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">image_url</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="nc">String</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">caption</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">alt_text</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Text</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">pub_date</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">DateTime</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">datetime</span><span class="p">.</span><span class="n">utcnow</span><span class="p">)</span>
+    <span class="n">user_id</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nc">Column</span><span class="p">(</span><span class="n">db</span><span class="p">.</span><span class="n">Integer</span><span class="p">,</span> <span class="n">db</span><span class="p">.</span><span class="nc">ForeignKey</span><span class="p">(</span><span class="sh">'</span><span class="s">users.id</span><span class="sh">'</span><span class="p">,</span> <span class="n">ondelete</span><span class="o">=</span><span class="sh">'</span><span class="s">cascade</span><span class="sh">'</span><span class="p">),</span>
+        <span class="n">nullable</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="c1"># read-only property for referencing User properties
+</span>    <span class="n">user</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nf">relationship</span><span class="p">(</span><span class="sh">'</span><span class="s">User</span><span class="sh">'</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="sh">"</span><span class="s">posts</span><span class="sh">"</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nf">relationship</span><span class="p">(</span><span class="sh">'</span><span class="s">Comment</span><span class="sh">'</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="sh">"</span><span class="s">all,delete-orphan</span><span class="sh">"</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="sh">'</span><span class="s">select</span><span class="sh">'</span><span class="p">,</span> 
+        <span class="n">order_by</span><span class="o">=</span><span class="sh">'</span><span class="s">Comment.pub_date</span><span class="sh">'</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="n">db</span><span class="p">.</span><span class="nf">backref</span><span class="p">(</span><span class="sh">'</span><span class="s">posts</span><span class="sh">'</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="sh">'</span><span class="s">joined</span><span class="sh">'</span><span class="p">))</span>
+    <span class="n">likes</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="nf">relationship</span><span class="p">(</span><span class="sh">'</span><span class="s">LikePost</span><span class="sh">'</span><span class="p">,</span> <span class="n">cascade</span><span class="o">=</span><span class="sh">"</span><span class="s">all,delete-orphan</span><span class="sh">"</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="sh">'</span><span class="s">select</span><span class="sh">'</span><span class="p">,</span>
+        <span class="n">order_by</span><span class="o">=</span><span class="sh">'</span><span class="s">LikePost.timestamp</span><span class="sh">'</span><span class="p">,</span> <span class="n">backref</span><span class="o">=</span><span class="n">db</span><span class="p">.</span><span class="nf">backref</span><span class="p">(</span><span class="sh">'</span><span class="s">posts</span><span class="sh">'</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="sh">'</span><span class="s">joined</span><span class="sh">'</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">image_url</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">caption</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">alt_text</span><span class="p">:</span><span class="nb">str</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">pub_date</span><span class="p">:</span><span class="n">datetime</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">image_url</span> <span class="o">=</span> <span class="n">image_url</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">user_id</span> <span class="o">=</span> <span class="n">user_id</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">caption</span> <span class="o">=</span> <span class="n">caption</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">alt_text</span> <span class="o">=</span> <span class="n">alt_text</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">pub_date</span> <span class="o">=</span> <span class="n">pub_date</span>
+</code></pre></div></div>
+
+<h3 id="post-table">Post Table</h3>
+<p><img src="/spring2026/assets/images/activities/sql-alchemy/posts.png" class="large frame" /></p>
+
+<p>With this <code class="language-plaintext highlighter-rouge">Post</code> model definition, I am able to create, read, update, and delete records from the <code class="language-plaintext highlighter-rouge">posts</code> table. Some examples of how you would perform each of these operations are listed below:</p>
+
+<h2 id="your-tasks">Your Tasks</h2>
+<p>We will go through each of the functions in <code class="language-plaintext highlighter-rouge">tester.py</code> to try and understand what each one is doing. Please try to follow along carefully to make sure you understand the basic idea, as you will need to do this for HW5 &amp; HW6.</p>
+
+<h2 id="challenge-problems">Challenge Problems</h2>
+
+<h3 id="sqlalchemy-queries-testerpy">SQLAlchemy Queries (<code class="language-plaintext highlighter-rouge">tester.py</code>)</h3>
+<ol>
+  <li>Create a function that creates a new fake user named “Walter” (make up their email, lastname, and username).</li>
+  <li>Create a function that allows Walter to follow a new user (by creating a new <code class="language-plaintext highlighter-rouge">Follow</code> object).</li>
+  <li>Create a function that allows Walter to like one of the posts of a user they’re following (by creating a new <code class="language-plaintext highlighter-rouge">LikePost</code> object).</li>
+  <li>Create a function that allows Walter to comment on a post of a user they’re following (by creating a new <code class="language-plaintext highlighter-rouge">Comment</code> object).</li>
+</ol>
+
+<h3 id="flask-endpoints-apppy">Flask Endpoints (<code class="language-plaintext highlighter-rouge">app.py</code>)</h3>
+<ol>
+  <li>Create a new endpoint that returns all of the <code class="language-plaintext highlighter-rouge">Post</code> objects that a user has liked.</li>
+  <li>Create an endpoint that allows a user to create a new <code class="language-plaintext highlighter-rouge">Comment</code> on a <code class="language-plaintext highlighter-rouge">Post</code>.</li>
+</ol>
+
+<blockquote class="info">
+  <p>To run the flask server, type: <code class="language-plaintext highlighter-rouge">poetry run flask run --debug</code></p>
+</blockquote>
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+            <script type="text/javascript" src="/spring2026/assets/js/main.js"></script>
+    
+    <!-- <script>
+        //little bit of a hack:
+        const scrollLeft = () => {
+            //console.log('scrollLeft');
+            document.documentElement.scrollLeft = 0;
+        };
+        setTimeout(scrollLeft, 100);
+    </script> -->
+        <script type="text/javascript" src="/spring2026/assets/js/expandable.js"></script>
+    </body>
+</html>

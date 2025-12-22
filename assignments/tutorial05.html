@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/spring2026/assets/images/favicon.ico" type="image/x-icon">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<title>JavaScript: Event Handlers</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
+">
+<link rel="stylesheet" href="/spring2026/assets/main.css">
+
+<!-- <script defer src="/spring2026/assets/js/fish-pond.js"></script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163192686-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163192686-1');
+</script>
+    </head>
+    <body class="two-column">
+        <!-- banner -->
+<header>
+    <section>
+        <h1 class="desktop"><a href="/spring2026/">CSCI 344: Spring 2026</a></h1>
+        <h2 class="desktop">Advanced Web Technology</h2>
+        <a class="mobile" href="#" title="Toggle Menu">
+            <i class="menu-toggle fas fa-bars"></i>
+        </a>
+        <h1 class="mobile">CSCI 344: Spring 2026</h1>
+    </section>
+    <img src="https://communication.unca.edu/wp-content/themes/tin/assets/logo.svg" alt="UNCA Logo" />
+    <!-- <p class="kudos">
+        Fish by <a href="https://github.com/akeatk/fish-pond" target="_blank">@akeatk</a>
+    </p> -->
+    <!-- <canvas></canvas> -->
+</header>
+
+        <nav>
+    <ul>
+        <li ><a href="/spring2026/syllabus/">Syllabus</a>
+        </li>
+        <li ><a
+                href="/spring2026/">Schedule</a></li>
+        <li class="active" ><a
+                href="/spring2026/assignments/">Assignments</a></li>
+        <li ><a href="/spring2026/resources/">Web
+                Reference</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1LqUWReoyqDSOHq3PyGYZvbgdll0_SHl6?usp=sharing"
+                target="_blank">Lecture Recordings</a></li>
+    </ul>
+</nav>
+        <main>
+            <aside>
+                <ol class="side-menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#">Cheatsheet</a>
+    <ol>
+      <li><a href="#">Selector Methods</a></li>
+      <li><a href="#">Some examples of HTML attributes you can modify</a></li>
+      <li><a href="#">Some examples of style properties you can modify</a></li>
+      <li><a href="#">Some useful helper functions</a></li>
+    </ol>
+  </li>
+  <li><a href="#your-tasks">Your Tasks</a>
+    <ol>
+      <li><a href="#1-theme-switcher">1. Theme Switcher</a></li>
+      <li><a href="#hints">Hints:</a></li>
+      <li><a href="#optional">Optional</a></li>
+      <li><a href="#2-hamburger-menu">2. Hamburger Menu</a></li>
+      <li><a href="#3-carousel">3. Carousel</a></li>
+    </ol>
+  </li>
+  <li><a href="#what-to-submit">What to Submit</a></li>
+</ol>
+
+            </aside>
+            <article>
+                
+
+    
+        <h1>
+            <a href="../assignments/">Assignments</a> > 
+            Tutorial 5: JavaScript: Event Handlers
+        </h1>
+    
+ 
+                <p>
+    
+        Due on Mon, 02/23 @ 11:59PM.
+    
+    
+        6 Points.
+    
+    
+</p>
+
+<style>
+    .container > * {
+        height: 400px;
+        width: auto;
+        max-width: 100% !important;
+    }
+
+    table {
+        width: 90%;
+        max-width: 100%;
+    }
+</style>
+
+<h2 id="introduction">Introduction</h2>
+<p>The goal of today’s tutorial is to:</p>
+<ol>
+  <li>Help you practice using JavaScript to target and modify HTML elements in your DOM Tree.</li>
+  <li>Continue practicing your CSS skills.</li>
+  <li>Exploring some common UX/UI widgets and how they’re implemented using JavaScript.</li>
+</ol>
+
+<blockquote class="info">
+<h2>Cheatsheet</h2>
+<p>Here are some examples of different selector methods and approaches to updating the DOM. You can also
+    try practicing with Sarah's interactive <a href="/spring2026/course-files/activities/dom-tester" target="_blank">DOM
+        manipulation tool</a>.</p>
+
+<h3>Selector Methods</h3>
+<table>
+    <tr>
+        <th>Method</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>getElementById()</td>
+        <td><code>document.getElementById("my_element")</code></td>
+    </tr>
+    <tr>
+        <td>querySelector()</td>
+        <td><code>document.querySelector("#my_element")<br />document.querySelector("p")<br />document.querySelector(".my-announcements")</code>
+        </td>
+    </tr>
+    <tr>
+        <td>querySelectorAll()</td>
+        <td><code>document.querySelectorAll("p")</code></td>
+    </tr>
+    <tr>
+        <td>getElementsByTagName()</td>
+        <td><code>document.getElementsByTagName("div")</code></td>
+    </tr>
+    <tr>
+        <td>getElementsByClassName()</td>
+        <td><code>document.getElementsByClassName(".panel")</code></td>
+    </tr>
+</table>
+
+<h3>Some examples of HTML attributes you can modify</h3>
+<table>
+    <tr>
+        <th>Attribute</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>className</td>
+        <td><code>el.className = "panel";</code></td>
+    </tr>
+    <tr>
+        <td>innerHTML</td>
+        <td><code>el.innerHTML = "&lt;p&gt;hi&lt;/p&gt;";</code></td>
+    </tr>
+    <tr>
+        <td>src (for images)</td>
+        <td><code>document.querySelector(".my_image").src = "sponge_bob.png";</code></td>
+    </tr>
+    <tr>
+        <td>href (for links)</td>
+        <td><code>document.querySelector(".my_link").href = 'https://www.wikipedia.org';</code></td>
+    </tr>
+</table>
+
+<h3>Some examples of style properties you can modify</h3>
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>width</td>
+        <td><code>el.style.width = "200px";</code></td>
+    </tr>
+    <tr>
+        <td>height</td>
+        <td><code>el.style.height = "200px";</code></td>
+    </tr>
+    <tr>
+        <td>background-color</td>
+        <td><code>el.style.backgroundColor = "hotpink";</code></td>
+    </tr>
+    <tr>
+        <td>border-width</td>
+        <td><code>el.style.borderWidth = "5px";</code></td>
+    </tr>
+    <tr>
+        <td>padding</td>
+        <td><code>el.style.padding = "10px";</code></td>
+    </tr>
+    <tr>
+        <td>display</td>
+        <td><code>el.style.display = "none";</code></td>
+    </tr>
+</table>
+
+<h3>Some useful helper functions</h3>
+<table>
+    <tr>
+        <th>Property</th>
+        <th>Example</th>
+    </tr>
+    <tr>
+        <td>insertAdjacentHTML(position, htmlString)</td>
+        <td>
+            <code>
+                el.insertAdjacentHTML("beforeend", 
+                    "&lt;p&gt;stuff&lt;/p&gt;");
+            </code><br />
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentHTML" target="_blank">insertAdjacentHTML docs</a>
+        </td>
+    </tr>
+    <tr>
+        <td>classList.add(className)</td>
+        <td>
+            <code>el.classList.add("highlight");</code><br />
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList" target="_blank">classList
+                docs</a>
+        </td>
+    </tr>
+    <tr>
+        <td>classList.remove(className)</td>
+        <td><code>el.classList.remove("highlight");</code></td>
+    </tr>
+    <tr>
+        <td>classList.toggle(className)</td>
+        <td><code>el.classList.toggle("highlight");</code></td>
+    </tr>
+</table>
+</blockquote>
+
+<h2 id="your-tasks">Your Tasks</h2>
+
+<p><a href="/spring2026/course-files/tutorials/tutorial05.zip" class="nu-button">Download Tutorial 5 <i class="fas fa-download"></i></a></p>
+
+<p>Please download the tutorial05.zip file, unzip it, and move the tutorials folder inside of your <code class="language-plaintext highlighter-rouge">csci344/tutorials</code> folder. Then complete the tasks:</p>
+
+<h3 id="1-theme-switcher">1. Theme Switcher</h3>
+<p>Open <code class="language-plaintext highlighter-rouge">styles.css</code> and scroll down to ~line 70. You will see three classes ( <code class="language-plaintext highlighter-rouge">ocean</code>, <code class="language-plaintext highlighter-rouge">desert</code>, and <code class="language-plaintext highlighter-rouge">high-contrast</code>) which correspond to three different themes. If you apply any of these classes to the <code class="language-plaintext highlighter-rouge">&lt;body&gt;&lt;/body&gt;</code> tag and preview your HTML, you will see that the theme changes. Try it out!</p>
+
+<p>You job is to make the buttons dynamically change the theme of the web page as pictured below. When you’re done, your web page should look like this:</p>
+
+<p><img class="large frame" src="/spring2026/assets/images/tutorials/tutorial05/theme-switcher.gif" /></p>
+
+<h3 id="hints">Hints:</h3>
+<ol>
+  <li>Inside of <code class="language-plaintext highlighter-rouge">index.js</code>, create a single function called <code class="language-plaintext highlighter-rouge">changeClass()</code> that has one parameter, which will store the name of the class as a string.</li>
+  <li>Within the <code class="language-plaintext highlighter-rouge">changeClass()</code> function body, set the body’s class attribute to the name of the class passed into the function. If the <code class="language-plaintext highlighter-rouge">default</code> button is clicked, just unset the class on the body tag.</li>
+  <li>Attach your <code class="language-plaintext highlighter-rouge">changeClass()</code> function to the click event of each button. Make sure you’re passing in the correct argument.</li>
+  <li>Use the cheatsheet associated with this tutorial to figure out how to modify the class attribute.</li>
+</ol>
+
+<h3 id="optional">Optional</h3>
+<p>If you have time, try creating your own theme in the <code class="language-plaintext highlighter-rouge">styles.css</code> file and creating another button so that when you click on the new button, your theme shows up.</p>
+
+<h3 id="2-hamburger-menu">2. Hamburger Menu</h3>
+<p>As you probably already know, a hamburger menu is a common design pattern for showing and hiding the navigation of your web page if you are on a mobile device. The logic of the hamburger menu implementation is as follows:</p>
+
+<h4 id="css-tasks-already-done-for-you">CSS Tasks (already done for you)</h4>
+<p>Preview the <code class="language-plaintext highlighter-rouge">index.html</code> and notices the responsive styling. Then take a look at the <code class="language-plaintext highlighter-rouge">styles.css</code> file and see what’s going on. Please note the following:</p>
+
+<ul>
+  <li><strong>Desktop View</strong>: Navigation is showing. Hamburger menu button is hidden.</li>
+  <li><strong>Mobile View</strong>: Navigation is hidden. Hamburger menu is showing.</li>
+  <li><strong>Additional Classes</strong>
+    <ul>
+      <li><strong>Button styling</strong>: If both the <code class="language-plaintext highlighter-rouge">menu-toggle</code> and <code class="language-plaintext highlighter-rouge">active</code> classes are added to the <code class="language-plaintext highlighter-rouge">button</code> element, the hamburger will morph into an “X”, indicating that the menu is open.</li>
+      <li><strong>Mobile navigation</strong>: If both the <code class="language-plaintext highlighter-rouge">nav-links</code> and <code class="language-plaintext highlighter-rouge">active</code> classes are added to the <code class="language-plaintext highlighter-rouge">ul</code> element, the menu will display on the right-hand side.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="javascript-your-task">JavaScript (your task)</h4>
+<p>Your job is to modify the JavaScript file so that it achieves the effect shown below. Specifically:</p>
+<ul>
+  <li>When the hamburger menu is clicked when the menu is hidden, the <code class="language-plaintext highlighter-rouge">active</code> class is <strong>added to</strong> both the <code class="language-plaintext highlighter-rouge">button</code> and <code class="language-plaintext highlighter-rouge">ul</code> elements.</li>
+  <li>When the hamburger menu is clicked when the menu is visible, the <code class="language-plaintext highlighter-rouge">active</code> class is <strong>removed from</strong> both the <code class="language-plaintext highlighter-rouge">button</code> and <code class="language-plaintext highlighter-rouge">ul</code> elements.</li>
+</ul>
+
+<p><strong>Hint</strong>: Consider using the <code class="language-plaintext highlighter-rouge">classList.toggle("some_class")</code> method (see cheatsheet above, or google it).</p>
+
+<h4 id="demo">Demo</h4>
+<div class="container">
+    <img class="small frame" src="/spring2026/assets/images/tutorials/tutorial05/hamburger.gif" />
+    <img class="small frame" src="/spring2026/assets/images/tutorials/tutorial05/desktop-hamburger.png" />
+</div>
+
+<h3 id="3-carousel">3. Carousel</h3>
+<p>If you were on a front-end team and in need of a carousel, you would probably use a pre-made widget from an existing design system / UI kit. That said, it is useful to understand how these widgets work so that you understand the basic idea.</p>
+
+<p>Given this, please open the <code class="language-plaintext highlighter-rouge">03-carousel</code> folder and make the following changes:</p>
+<ol>
+  <li>Add comments to the <code class="language-plaintext highlighter-rouge">index.js</code> file explaining what each of the statements does.</li>
+  <li><strong>[Optional]</strong>
+    <ul>
+      <li>Stylize the buttons using one of the font-awesome icons (or some other image or icon).</li>
+      <li>Change out the photos.</li>
+      <li>Make any additional stylistic changes you see fit.</li>
+    </ul>
+  </li>
+</ol>
+
+<blockquote>
+  <p>For this task, you may not use an AI assistant to comment the <code class="language-plaintext highlighter-rouge">index.js</code> code for you. YOU need to do it.</p>
+</blockquote>
+
+<h2 id="what-to-submit">What to Submit</h2>
+<p>Please make sure that you have completed the following:</p>
+
+<ul class="checkbox-list">
+  <li>Implemented the font size adjuster</li>
+  <li>Implemented the hamburger menu</li>
+  <li>Commented the carousel widget JavaScript code explaining how it works.</li>
+</ul>
+
+<p>When you’re done, please create a link from your homepage to each of your Tutorial 5 web pages (see <a href="https://vanwars.github.io/csci344" target="_blank">Sarah’s homepage</a> for an example). Then, commit and push all of your edits to GitHub and, paste a link to your GitHub Repository and to your GitHub pages in the Moodle submission.</p>
+
+<ul>
+  <li>If you collaborated with someone, please list your partner’s name in the comments section.</li>
+</ul>
+
+
+
+
+            </article>  
+        </main>
+        <footer>
+            <p>    
+                Department of Computer Science, UNC Asheville
+            </p>
+        </footer>
+        
+            <script type="text/javascript" src="/spring2026/assets/js/main.js"></script>
+    
+    <!-- <script>
+        //little bit of a hack:
+        const scrollLeft = () => {
+            //console.log('scrollLeft');
+            document.documentElement.scrollLeft = 0;
+        };
+        setTimeout(scrollLeft, 100);
+    </script> -->
+        <script type="text/javascript" src="/spring2026/assets/js/expandable.js"></script>
+    </body>
+</html>
