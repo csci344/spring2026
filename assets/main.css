@@ -308,11 +308,13 @@ header section h1 {
   margin-bottom: 0px;
   color: white;
   margin-top: 0px;
-  z-index: 100;
 }
 header section h1 a, header section h1 a:hover, header section h1 a:visited, header section h1 a:active {
   color: white;
   background: none;
+}
+header section h1 {
+  z-index: 100;
 }
 header section h2 {
   margin-top: 0px;
@@ -321,10 +323,12 @@ header section h2 {
   border-bottom: none;
   color: white;
   text-align: center;
-  z-index: 100;
 }
 header section h2 a, header section h2 a:hover, header section h2 a:visited, header section h2 a:active {
   color: white;
+}
+header section h2 {
+  z-index: 100;
 }
 header section a {
   z-index: 100;
@@ -762,8 +766,6 @@ table.medium.module td:nth-child(2) {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 15px;
-  padding: 0px;
-  margin: 0px;
 }
 .two-column .outline ol, .two-column .outline ul {
   padding: 10px 10px 5px 15px;
@@ -775,6 +777,10 @@ table.medium.module td:nth-child(2) {
 }
 .two-column .outline li a {
   border-bottom: dotted 1px #999;
+}
+.two-column .outline {
+  padding: 0px;
+  margin: 0px;
 }
 
 ol.white {
@@ -1033,9 +1039,6 @@ table.schedule-simple th, table.schedule-simple td {
   padding-right: 15vw;
 }
 
-.two-column {
-  padding: 0px;
-}
 .two-column footer {
   display: none;
 }
@@ -1045,10 +1048,15 @@ table.schedule-simple th, table.schedule-simple td {
 }
 .two-column main > article {
   padding: 20px 60px;
-  margin-bottom: 100px;
 }
 .two-column main > article h1 {
   font-size: 1.8em;
+}
+.two-column main > article {
+  margin-bottom: 100px;
+}
+.two-column {
+  padding: 0px;
 }
 .two-column .desktop {
   display: flex;
@@ -1672,9 +1680,6 @@ ol.compact li, ul.compact li {
   table.rubric td:nth-child(1), table.rubric th:nth-child(1) {
     min-width: auto;
   }
-  .two-column {
-    margin-bottom: 0px;
-  }
   .two-column main {
     grid-template-columns: auto;
   }
@@ -1691,6 +1696,9 @@ ol.compact li, ul.compact li {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+  }
+  .two-column {
+    margin-bottom: 0px;
   }
   table.medium {
     width: 100% !important;
@@ -1735,13 +1743,13 @@ ol.compact li, ul.compact li {
     color: white;
     grid-template-columns: 1fr;
   }
-  .one-column header p.kudos, .two-column header p.kudos {
-    left: 11px;
-    top: 34px;
-  }
   .one-column header p.kudos a, .one-column header p.kudos a:hover, .one-column header p.kudos a:visited, .one-column header p.kudos a:link, .one-column header p.kudos a:active, .two-column header p.kudos a, .two-column header p.kudos a:hover, .two-column header p.kudos a:visited, .two-column header p.kudos a:link, .two-column header p.kudos a:active {
     padding: 0;
     margin: 0;
+  }
+  .one-column header p.kudos, .two-column header p.kudos {
+    left: 11px;
+    top: 34px;
   }
   .one-column header i, .two-column header i {
     font-size: 24px;
@@ -1769,13 +1777,15 @@ ol.compact li, ul.compact li {
   }
   .one-column nav, .two-column nav {
     display: none;
-    top: 65px;
-    height: auto;
-    background: white;
   }
   .one-column nav.sticky, .two-column nav.sticky {
     height: auto;
     top: 65px;
+  }
+  .one-column nav, .two-column nav {
+    top: 65px;
+    height: auto;
+    background: white;
   }
   .one-column nav ul, .two-column nav ul {
     flex-direction: column;
