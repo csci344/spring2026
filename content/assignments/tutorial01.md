@@ -2,7 +2,7 @@
 title: "HTML Exercises"
 type: "tutorial"
 num: 1
-draft: 1
+draft: 0
 assigned_date: "2026-01-26"
 due_date: "2026-01-28"
 heading_max_level: 3
@@ -32,7 +32,7 @@ File management and organization are an essential part of programming and web de
 2. Create a **tutorials** folder inside of your csci344 folder.
 3. Download the `tutorial01.zip` file, unzip it (ask if you’re new to zipping / unzipping files and I will help you) and move the unzipped tutorial02 folder into the `csci344/tutorials` folder (see diagram below).
 
-```
+```bash
 csci344
     ├── tutorials
     │   └── tutorial01

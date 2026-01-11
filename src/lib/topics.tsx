@@ -66,6 +66,19 @@ function parseMeetingDate(meetingDate: string): string | null {
   return `${year}-${monthStr}-${dayStr}`;
 }
 
+// Helper function to convert YYYY-MM-DD to "Mo, Jan 12" format
+function formatDateToMeeting(dateStr: string): string {
+  const date = new Date(dateStr + 'T00:00:00');
+  const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  
+  const dayName = days[date.getDay()];
+  const monthName = months[date.getMonth()];
+  const day = date.getDate();
+  
+  return `${dayName}, ${monthName} ${day}`;
+}
+
 function normalizeDate(dateStr: string | undefined): string | null {
   if (!dateStr) return null;
   // Ensure YYYY-MM-DD format
@@ -176,62 +189,84 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
 const baseTopics = [
   {
     id: 1,
-    title: "Intro to the Course",
+    title: "Intro to the Web",
     description:
-      "Expectations, team norms, intro to the tech stack and course structure.",
+      "The web and the internet are interconnected systems that facilitate the exchange of data across computers worldwide. Web browsers communicate with servers using the HTTP/HTTPS protocol to fetch and display content, while the internet provides the infrastructure for this communication. Understanding IP addresses, DNS, and how websites are hosted provides a foundation for developing web applications.",
     meetings: [
       {
         date: "Mo, Jan 12",
-        topic: "Course intro + course arc + architecture overview",
+        topic: "Intro to the Course",
         description: (
           <>
             <ul>
-              <li>Course expectations, studio norms, and the course structure</li>
-              <li>Introduction to the software development lifecycle (SDLC)</li>
-              <li>High-level walkthrough of the starter system: backend layers, frontend structure, and where tests will live</li>
-              <li>Activity: trace a request end-to-end (login → API → DB → response)</li>
+              <li>Course introduction and overview</li>
+              <li>Understanding the web development landscape</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1OZNO79sDQ3uI1sypTpXfwVLs0MCQUp-x/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
-          { title: "Syllabus", url: "/syllabus/", draft: 0 },
-        ]
-      },
-      {
-        date: "We, Jan 14",
-        topic: "Teams + Working Agreement (Phase 1) + dev setup",
-        description: (
-          <>
-            <ul>
-              <li>Team formation, Phase 1 Working Agreement, and dev environment setup</li>
-              <li>Establish baseline workflow norms (feature branches + PRs + reviews)</li>
-              <li>Start building shared expectations for presence and studio participation</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1JdVt_AVQLOv6SPNCSnOCAG4TIgf4nYyX/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { title: "Pre-course assessment questions & answers", url: "/activities/pre-course-assessment", draft: 0 },
         ],
         readings: [
           {
             citation: (
               <>
-                Hunt, A., & Thomas, D. (1999). <em>The Pragmatic Programmer</em>. <a href="https://www.oreilly.com/library/view/the-pragmatic-programmer/9780135956977/f_0017.xhtml" target="_blank">Ch. 1: A Pragmatic Philosophy</a>
+                <a href="https://roadmap.sh/frontend" target="_blank">Front-end developer roadmap</a> (plus <a href="https://roadmap.sh/javascript" target="_blank">JavaScript roadmap</a>)
               </>
             ),
           },
           {
             citation: (
               <>
-                Rasmusson, J. (2010). <em>The Agile Samurai</em>. <a href="https://learning.oreilly.com/library/view/the-agile-samurai/9781680500066/f_0011.html" target="_blank">Ch. 1: Agile in a Nutshell</a>
+                <a href="https://roadmap.sh/backend" target="_blank">Back-end developer roadmap</a> (plus <a href="https://roadmap.sh/python" target="_blank">Python roadmap</a>)
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        date: "We, Jan 14",
+        topic: "Web & Internet Infrastructure",
+        description: (
+          <>
+            <ul>
+              <li>Understanding the Internet and how it works</li>
+              <li>Web infrastructure and protocols</li>
+              <li>How browsers and servers communicate</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1vOZvK4tq4ApRtzza6-lKKkKt7UsKFtt_/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { title: "Analyze a website", url: "https://docs.google.com/document/d/1yKOwkE8hyltWnhMJo0UDgqIVIxwtL1oWTEvvlYfOSNs/edit", draft: 0 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                Intro to the Internet: Watch <a href="https://www.youtube.com/watch?v=VPToE8vwKew" target="_blank">How We Made the Internet</a>. 2022. Nation Squid
               </>
             ),
           },
           {
             citation: (
               <>
-                Rasmusson, J. (2010). <em>The Agile Samurai</em>. <a href="https://learning.oreilly.com/library/view/the-agile-samurai/9781680500066/f_0016.html" target="_blank">Ch. 2: Meet Your Agile Team</a>
+                Intro to the Web: Watch <a href="https://www.youtube.com/watch?v=kBXQZMmiA4s" target="_blank">The Internet: HTTP & HTML</a>. Code.org
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.vox.com/2014/6/16/18076282/the-internet" target="_blank">The Internet Explained</a>. Timothy B. Lee, 2015.
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.vox.com/a/internet-maps" target="_blank">40 Maps That Explain the Internet</a>. Timothy B. Lee, 2014
               </>
             ),
           },
@@ -239,84 +274,237 @@ const baseTopics = [
       },
       {
         date: "Fr, Jan 16",
-        topic: "Lab"
+        topic: "The Internet & Society",
+        description: (
+          <>
+            <ul>
+              <li>Discussion of Internet and society issues</li>
+              <li>Net neutrality, privacy, and current events</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1fAUlJgp9mez7DDm9Y0hEMGgsfYF0CNKZ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { title: "The Internet and Society: Discussion Questions", url: "https://docs.google.com/document/d/1cmc07CHLTmd9b5SzmC_y6I9kHtTdVXE81YoJKzJNick/edit?usp=sharing", draft: 0 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                NPR's All Things Considered (January 6, 2025): <a href="https://www.npr.org/2025/01/06/nx-s1-5247750/what-may-be-next-after-a-federal-court-struck-down-the-fccs-net-neutrality-rules" target="_blank">What may be next after a federal court struck down the FCC's net neutrality rules</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                NPR's All Things Considered (January 7, 2025): <a href="https://www.npr.org/2025/01/07/nx-s1-5251151/meta-fact-checking-mark-zuckerberg-trump" target="_blank">Meta says it will end fact checking as Silicon Valley prepares for Trump</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                NPR's All Things Considered (January 10, 2025): <a href="https://www.npr.org/2025/01/10/nx-s1-5250165/tiktok-will-ask-the-supreme-court-to-strike-down-a-law-that-could-ban-the-app-in-days" target="_blank">TikTok will ask the Supreme Court to strike down a law that could ban the app in days</a>
+              </>
+            ),
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                NPR Podcast (26 minutes): <a href="https://www.npr.org/2022/11/18/1137657496/third-party-cookie-data-tracking-internet-user-privacy" target="_blank">The history and future of the cookie</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                NYT's Ezra Klein Show (1.5 hrs): "<a href="https://www.youtube.com/watch?v=8o9TQD5W1es" target="_blank">Will A.I. Break the Internet? Or Save It?</a>". Ezra Klein and Nilay Patel.
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                Erik Hoel Opinion Piece (Feb, 2024): <a href="https://www.theintrinsicperspective.com/p/here-lies-the-internet-murdered-by" target="_blank">Here lies the internet, murdered by generative AI</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                Wall Street Journal (7 mins): <a href="https://www.wsj.com/video/how-advertisers-use-internet-cookies-to-track-you/92E525EB-9E4A-4399-817D-8C4E6EF68F93.html" target="_blank">Third-party cookies, explained</a>
+              </>
+            ),
+          },
+        ],
+        assigned: {
+          titleShort: "HW1",
+          title: "The Internet and the News",
+          url: "/assignments/hw01/",
+          draft: 0,
+        },
       },
     ],
   },
 
   {
     id: 2,
-    title: "Backend Architecture + Testing as Specification",
+    title: "HTML",
     description:
-      "Deepen backend architectural understanding and introduce testing as behavioral specification (contract-level). SDLC concept: turning vague needs into testable behaviors.",
+      "HTML (HyperText Markup Language) is the backbone of web content, structuring information on web pages. HTML can be used to create semantic, accessible layouts using elements like headings, paragraphs, lists, links, and media. This topic emphasizes the role of HTML in the broader web development process and how it integrates with CSS and JavaScript.",
     meetings: [
       {
-        date: "Mo, Jan 19",
-        topic: "Backend deep dive: models, schemas, routes, dependencies",
+        date: "Mo, Jan 21",
+        topic: "Introduction to HTML",
         description: (
           <>
             <ul>
-              <li>Review backend structure (models vs schemas vs routes), dependency injection, and how requests flow</li>
-              <li>Activity: read an existing endpoint and write a short 'behavior contract' in plain language</li>
+              <li>HTML basics and structure</li>
+              <li>Text markup, images, and media tags</li>
+              <li>Form elements and compound tags</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1R_TTREM7v18VvzuWYZqFGCGvD2-weoSf/edit#slide=id.p1", draft: 1 },
+          { title: "Write your first HTML page", url: "https://docs.google.com/document/d/1Vu_bVKlnzeQceoxp7hRTXdyTeCcLDQIz/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                FastAPI Documentation. <em>Dependencies</em> (selected sections)
+                <a href="/resources/html-resources" target="_blank">HTML Resources</a>
               </>
             ),
-            url: "https://fastapi.tiangolo.com/tutorial/dependencies/",
+            url: "/resources/html-resources",
           },
           {
             citation: (
               <>
-                Beck, K. (2002). <em>Test-Driven Development</em>. (Ch. 1-2 – selected)
+                <a href="/resources/html-rules-of-thumb" target="_blank">Rules of Thumb</a>
               </>
             ),
-            url: "#",
+            url: "/resources/html-rules-of-thumb",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/text-tags" target="_blank">Text Markup Tags</a>
+              </>
+            ),
+            url: "/resources/text-tags",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/image-tags" target="_blank">Image Tags</a>
+              </>
+            ),
+            url: "/resources/image-tags",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/media-tags" target="_blank">Media Tags</a>
+              </>
+            ),
+            url: "/resources/media-tags",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/complex-tags" target="_blank">Compound Tags</a>
+              </>
+            ),
+            url: "/resources/complex-tags",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/form-tags" target="_blank">Form Tags</a>
+              </>
+            ),
+            url: "/resources/form-tags",
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                Tali Garsiel and Paul Irish. <a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">How Browsers Work: Behind the scenes of modern web browsers</a>. html5rocks.com, 2011
+              </>
+            ),
+            url: "https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/",
           },
         ],
       },
       {
-        date: "We, Jan 21",
-        topic: "Pytest workshop: contract-level tests (backend)",
+        date: "We, Jan 23",
+        topic: "Introduction to HTML (Continued)",
         description: (
           <>
             <ul>
-              <li>Testing workshop focused on contract-level API tests (not full coverage)</li>
-              <li>Studio: write tests for existing endpoints</li>
-              <li>Live critique of one test PR: clarity, naming, and what behavior is asserted</li>
+              <li>Hyperlinks and linking</li>
+              <li>Semantic HTML tags</li>
+              <li>Git and GitHub setup</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1kNOqFQyWuWcKUhh_XUjOXk0SASBDeWLO/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Linking (lecture files)", url: "/course-files/lectures/lecture05.zip", draft: 1 },
+          { title: "Configure git and GitHub", url: "/activities/github", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                pytest Documentation. <em>Getting Started</em> + <em>Fixtures</em> (selected)
+                <a href="/resources/linking" target="_blank">Hyperlinks</a>
               </>
             ),
-            url: "https://docs.pytest.org/en/stable/",
+            url: "/resources/linking",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/semantic-tags" target="_blank">Semantic Tags</a>
+              </>
+            ),
+            url: "/resources/semantic-tags",
           },
         ],
-        assigned: {
-          titleShort: "HW1",
-          title: "Backend Contract Tests for Existing Endpoints + 1 Peer Review",
-          url: "/assignments/hw01-backend-tests/",
-          draft: 1,
-        },
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                Tali Garsiel and Paul Irish. <a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">How Browsers Work: Behind the scenes of modern web browsers</a>. html5rocks.com, 2011
+              </>
+            ),
+            url: "https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://medium.com/the-underdog-writing-project/introduction-to-git-and-github-a5fdf5633923" target="_blank">Intro to git and GitHub</a>
+              </>
+            ),
+            url: "https://medium.com/the-underdog-writing-project/introduction-to-git-and-github-a5fdf5633923",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://youtu.be/i_23KUAEtUM" target="_blank">Using GitHub with Visual Studio Code</a>
+              </>
+            ),
+            url: "https://youtu.be/i_23KUAEtUM",
+          },
+        ],
       },
       {
-        date: "Fr, Jan 23",
+        date: "Fr, Jan 25",
         topic: "Lab"
       },
     ],
@@ -324,65 +512,180 @@ const baseTopics = [
 
   {
     id: 3,
-    title: "Data Modeling + API Design + Review-as-Learning",
+    title: "CSS",
     description:
-      "Design and implement a new backend model (including relationship design) with tests. SDLC concept: articulating tradeoffs and constraints in PRs and reviews.",
+      "CSS (Cascading Style Sheets) is used to control the layout and visual presentation of HTML elements. It allows developers to define styles such as colors, fonts, and spacing, enhancing user experience. CSS also includes techniques like Flexbox and Grid for responsive, modern web designs.",
     meetings: [
       {
-        date: "Mo, Jan 26",
-        topic: "Domain modeling + relationship tradeoffs (whiteboard first)",
+        date: "Mo, Jan 28",
+        topic: "Introduction to CSS",
         description: (
           <>
             <ul>
-              <li>Mini-lecture on relationship design and tradeoffs</li>
-              <li>Activity: whiteboard the domain model before coding</li>
-              <li>Begin implementation plan and test plan (what behavior must be true)</li>
+              <li>CSS basics and selectors</li>
+              <li>Color, fonts, and the box model</li>
+              <li>Styling HTML elements</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1JZVw7Z2TlChdp4YD2KMDl_2y5o-Fvoko/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Design a Photo Gallery", url: "/activities/intro-css", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                Martin, R. C. (2009). <em>Clean Code</em>. (Ch. 2–3 -- selected)
+                <a href="/resources/css-reference" target="_blank">Intro to CSS</a>
               </>
             ),
-            url: "https://www.oreilly.com/library/view/clean-code/9780136083238/",
+            url: "/resources/css-reference",
           },
           {
             citation: (
               <>
-                SQLAlchemy Documentation. <em>Relationships</em> (selected)
+                <a href="/resources/css-rules-of-thumb" target="_blank">CSS Rules of Thumb</a>
               </>
             ),
-            url: "https://docs.sqlalchemy.org/en/20/orm/basic_relationships.html",
+            url: "/resources/css-rules-of-thumb",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/selectors/" target="_blank">Selectors</a>
+              </>
+            ),
+            url: "/resources/selectors/",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/color/" target="_blank">Color</a>
+              </>
+            ),
+            url: "/resources/color/",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/fonts/" target="_blank">Text & fonts</a>
+              </>
+            ),
+            url: "/resources/fonts/",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/box-model/" target="_blank">The Box Model</a>
+              </>
+            ),
+            url: "/resources/box-model/",
           },
         ],
       },
       {
-        date: "We, Jan 28",
-        topic: "Implement model + API + tests + guided live code review",
+        date: "We, Jan 30",
+        topic: "CSS Layouts",
         description: (
           <>
             <ul>
-              <li>Studio implementation day</li>
-              <li>Open PRs using the required template</li>
-              <li>Guided live code review: reviewers practice substantive feedback (behavior, design, testing)</li>
+              <li>CSS units and media queries</li>
+              <li>Flexbox and CSS Grid</li>
+              <li>Responsive design techniques</li>
             </ul>
           </>
         ),
-        assigned: {
-          titleShort: "HW2",
-          title: "New Model + API + Tests (PR) + 1 Substantive Peer Review",
-          url: "/assignments/hw02-new-model-api/",
-          draft: 1,
-        },
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1LYXPi2izZ5ulCT8uJPQADP4uKqu7MlKt/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Lecture files", url: "/course-files/lectures/lecture07.zip", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="/resources/units/" target="_blank">Units</a>
+              </>
+            ),
+            url: "/resources/units/",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/media-queries/" target="_blank">Media Queries</a>
+              </>
+            ),
+            url: "/resources/media-queries/",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/flexbox/" target="_blank">CSS Flex</a>
+              </>
+            ),
+            url: "/resources/flexbox/",
+          },
+          {
+            citation: (
+              <>
+                <a href="/resources/css-grid/" target="_blank">CSS Grid</a>
+              </>
+            ),
+            url: "/resources/css-grid/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a> (Complete at least the first 10 levels)
+              </>
+            ),
+            url: "https://cssgridgarden.com/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> (Complete at least the first 10 levels)
+              </>
+            ),
+            url: "https://flexboxfroggy.com/",
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                <a href="https://university.webflow.com/lesson/flexbox-vs-grid" target="_blank">When to use Flex versus CSS Grid?</a>
+              </>
+            ),
+            url: "https://university.webflow.com/lesson/flexbox-vs-grid",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Tricks: A Complete Guide to Grid</a>
+              </>
+            ),
+            url: "https://css-tricks.com/snippets/css/complete-guide-grid/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks: A Complete Guide to Flexbox</a>
+              </>
+            ),
+            url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">W3 Schools Flexbox Guide</a>
+              </>
+            ),
+            url: "https://www.w3schools.com/css/css3_flexbox.asp",
+          },
+        ],
       },
       {
-        date: "Fr, Jan 30",
+        date: "Fr, Feb 1",
         topic: "Lab"
       },
     ],
@@ -390,65 +693,68 @@ const baseTopics = [
 
   {
     id: 4,
-    title: "Software Design Principles in Practice",
+    title: "Design and Accessibility",
     description:
-      "Apply design principles (cohesion, coupling, DRY, data minimization) directly to the starter architecture. Use tests to refactor safely. SDLC concept: design for change.",
+      "Design refers to the process of creating an aesthetically pleasing and functional user interface (UI) and user experience (UX). It encompasses layout, typography, color schemes, and interactivity to ensure the site is intuitive, visually appealing, and accessible. Good design is crucial for engaging users and meeting their needs effectively. While design is a huge topic in its own right, we will briefly review some important design principles, and take a quick look at some design tools and systems.",
     meetings: [
       {
-        date: "Mo, Feb 2",
-        topic: "Design principles (practical) + refactoring with tests",
+        date: "Mo, Feb 4",
+        topic: "Design with Accessibility in Mind",
         description: (
           <>
             <ul>
-              <li>Lecture using your codebase as examples: cohesion/coupling, DRY, function/class size, and data minimization</li>
-              <li>Studio: refactor or extend an existing API safely (tests as guardrails)</li>
+              <li>Design principles and visual design</li>
+              <li>Accessibility best practices</li>
+              <li>Color selection and style guides</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1JkWpMpOrohF30GFrM3zdyz-rqiOKGCsU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                Martin, R. C. (2009). <em>Clean Code</em>. (selected sections on readability and structure)
+                Williams, Robin (2015). <a href="https://drive.google.com/file/d/1lyeEZlnfo7QJ_SE059TrCgw8JUBiX6rV/view?usp=sharing" target="_blank">The Non-Designer's Design Book, Chapter 1</a>.
               </>
             ),
-            url: "https://www.oreilly.com/library/view/clean-code/9780136083238/",
+            url: "https://drive.google.com/file/d/1lyeEZlnfo7QJ_SE059TrCgw8JUBiX6rV/view?usp=sharing",
           },
           {
             citation: (
               <>
-                Short handout: <em>Designing for Change</em> (technical debt / changeability)
+                Groves, Karl (Sept., 2013). <a href="https://karlgroves.com/2013/09/05/the-6-simplest-web-accessibility-tests-anyone-can-do" target="_blank">The 6 Simplest Web Accessibility Tests Anyone Can Do</a>.
               </>
             ),
-            url: "/readings/design-for-change/",
+            url: "https://karlgroves.com/2013/09/05/the-6-simplest-web-accessibility-tests-anyone-can-do",
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                Williams, Robin (2015). <a href="https://drive.google.com/file/d/1Ps9kGmRrj7Uw2B38KM_SoTKHtPhY-a3L/view?usp=sharing" target="_blank">The Non-Designer's Design Book, Chapter 2</a>.
+              </>
+            ),
+            url: "https://drive.google.com/file/d/1Ps9kGmRrj7Uw2B38KM_SoTKHtPhY-a3L/view?usp=sharing",
+          },
+          {
+            citation: (
+              <>
+                Please skim the <a href="/spring2026/resources/accessibility" target="_blank">Accessibility Resources</a>.
+              </>
+            ),
+            url: "/spring2026/resources/accessibility",
           },
         ],
       },
       {
-        date: "We, Feb 4",
-        topic: "Design-oriented code review + iteration",
-        description: (
-          <>
-            <ul>
-              <li>Studio: finish refactor/extension</li>
-              <li>Review focus: 'What breaks if this changes?' and 'Are responsibilities clear?'</li>
-              <li>Instructor models high-signal review comments</li>
-              <li>Iteration based on review feedback</li>
-            </ul>
-          </>
-        ),
-        assigned: {
-          titleShort: "HW3",
-          title: "Refactor/Extension PR + Tests + 1 Peer Review (Design Focus)",
-          url: "/assignments/hw03-refactor-extension/",
-          draft: 1,
-        },
+        date: "We, Feb 6",
+        topic: "Lab"
       },
       {
-        date: "Fr, Feb 6",
+        date: "Fr, Feb 8",
         topic: "Lab"
       },
     ],
@@ -456,61 +762,40 @@ const baseTopics = [
 
   {
     id: 5,
-    title: "Frontend Architecture & System Boundaries",
+    title: "JavaScript: Foundational Concepts & Programming Review",
     description:
-      "Treat React as architecture: component responsibility, state ownership, and data flow. Connect UI to tested APIs. SDLC concept: mapping user needs to system behavior.",
+      "JavaScript is a versatile, high-level programming language that runs in web browsers, enabling interactivity and dynamic content. In this unit, we will review basic programming concepts using JavaScript.",
     meetings: [
       {
         date: "Mo, Feb 9",
-        topic: "React architecture review (state ownership + boundaries)",
+        topic: "Intro to JavaScript",
         description: (
           <>
             <ul>
-              <li>React as an architectural system: pages vs components, local vs global state, and data flow</li>
-              <li>Activity: map one backend feature to a UI flow and identify states/edge cases</li>
+              <li>JavaScript basics and syntax</li>
+              <li>Variables, functions, and control structures</li>
+              <li>Programming fundamentals review</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1tiK0vmA9JXhalSs2OQc6mlX9LEJAE6DI/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Intro to the language", url: "/course-files/lectures/lecture09.zip", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                React Team. <em>Thinking in React</em>. React Documentation.
+                Please read the <a href="/spring2026/resources/programming-review" target="_blank">Intro to Programming with JavaScript</a> page.
               </>
             ),
-            url: "https://react.dev/learn/thinking-in-react",
-          },
-          {
-            citation: (
-              <>
-                Short handout: <em>Mapping User Goals to UI State</em>
-              </>
-            ),
-            url: "/readings/user-goals-to-ui-state/",
+            url: "/spring2026/resources/programming-review",
           },
         ],
       },
       {
         date: "We, Feb 11",
-        topic: "Integration studio: connect frontend to backend feature",
-        description: (
-          <>
-            <ul>
-              <li>Studio: implement UI integration with a tested backend endpoint</li>
-              <li>Review focus: component responsibility and predictable data flow</li>
-              <li>Quick check: 'What can a user do now?'</li>
-            </ul>
-          </>
-        ),
-        assigned: {
-          titleShort: "HW4",
-          title: "Frontend Integration PR + 1 Peer Review (Frontend Focus)",
-          url: "/assignments/hw04-frontend-integration/",
-          draft: 1,
-        },
+        topic: "Lab"
       },
       {
         date: "Fr, Feb 13",
@@ -521,61 +806,165 @@ const baseTopics = [
 
   {
     id: 6,
-    title: "Mobile - React Native and Expo",
+    title: "JavaScript: Interacting with the DOM (Document Object Model)",
     description:
-      "Build mobile UI using React Native and Expo. Connect mobile app to backend API. SDLC concept: platform considerations and mobile-specific patterns.",
+      "In this unit, we will use JavaScript to manipulate the Document Object Model (DOM) and respond to user-initiated events, and dynamically generate content from data. By the end of this section, you will know enough to start building simple, interactive web applications.",
     meetings: [
       {
         date: "Mo, Feb 16",
-        topic: "React Native architecture + Expo setup",
+        topic: "Working with the DOM: Part I",
         description: (
           <>
             <ul>
-              <li>React Native vs React: similarities and differences</li>
-              <li>Expo: what it is, why we use it</li>
-              <li>Team activity: set up Expo project, understand structure</li>
-              <li>Discussion: "How is mobile different from web? What's the same?"</li>
+              <li>Introduction to the DOM</li>
+              <li>Accessing and modifying DOM elements</li>
+              <li>DOM manipulation basics</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1C0fzNWN-FpGB7h3FZ7D0jUbvjQHgR_7U/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "DOM manipulation practice (part 1)", url: "/course-files/lectures/lecture10.zip", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                Expo Documentation. <em>Getting Started</em>
+                <a href="https://www.digitalocean.com/community/tutorials/introduction-to-the-dom" target="_blank">Intro to the DOM</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://docs.expo.dev/",
+            url: "https://www.digitalocean.com/community/tutorials/introduction-to-the-dom",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/how-to-access-elements-in-the-dom" target="_blank">How To Access Elements in the DOM</a>. <em>Digital Ocean</em>
+              </>
+            ),
+            url: "https://www.digitalocean.com/community/tutorials/how-to-access-elements-in-the-dom",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/how-to-modify-attributes-classes-and-styles-in-the-dom" target="_blank">How to Modify Attributes, Classes, and Styles in the DOM</a>. <em>Digital Ocean</em>
+              </>
+            ),
+            url: "https://www.digitalocean.com/community/tutorials/how-to-modify-attributes-classes-and-styles-in-the-dom",
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                Sarah's interactive <a href="/spring2026/course-files/activities/dom-tester" target="_blank">DOM manipulation worksheet</a>
+              </>
+            ),
+            url: "/spring2026/course-files/activities/dom-tester",
           },
         ],
       },
       {
         date: "We, Feb 18",
-        topic: "Mobile UI + navigation + backend integration",
+        topic: "Working with the DOM: Part II",
         description: (
           <>
             <ul>
-              <li>Mobile UI patterns: navigation, screens, components</li>
-              <li>Team studio: build mobile UI for existing backend feature</li>
-              <li>Connect mobile app to same backend API</li>
-              <li>Pair programming: one codes, one reviews, then switch</li>
-              <li>Reflection: "What's hard about mobile? What's easier than web?"</li>
+              <li>Event handling in JavaScript</li>
+              <li>DOM traversal and manipulation</li>
+              <li>Creating and modifying DOM elements dynamically</li>
             </ul>
           </>
         ),
-        assigned: {
-          titleShort: "HW5",
-          title: "Mobile Integration PR + Peer Review + Reflection",
-          url: "/assignments/hw05-mobile-integration/",
-          draft: 1,
-        },
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1aoopafEiFjdhPdBbp5c711qxoudSHL2K/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "DOM manipulation practice (part 2)", url: "/course-files/lectures/lecture11.zip", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript" target="_blank">Understanding Events in JavaScript</a>. <em>Digital Ocean</em>
+              </>
+            ),
+            url: "https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript",
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/understanding-the-dom-tree-and-nodes" target="_blank">Understanding the DOM Tree and Nodes</a>. <em>Digital Ocean</em>
+              </>
+            ),
+            url: "https://www.digitalocean.com/community/tutorials/understanding-the-dom-tree-and-nodes",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/how-to-traverse-the-dom" target="_blank">How to Traverse the DOM</a>. <em>Digital Ocean</em>
+              </>
+            ),
+            url: "https://www.digitalocean.com/community/tutorials/how-to-traverse-the-dom",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/how-to-make-changes-to-the-dom" target="_blank">How to Make Changes to the DOM</a>. <em>Digital Ocean</em>
+              </>
+            ),
+            url: "https://www.digitalocean.com/community/tutorials/how-to-make-changes-to-the-dom",
+          },
+        ],
       },
       {
         date: "Fr, Feb 20",
-        topic: "Lab"
+        topic: "JavaScript Review",
+        description: (
+          <>
+            <ul>
+              <li>Review of JavaScript concepts covered so far</li>
+              <li>Practice problems and exercises</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1BsGKdRM09ZHerZyn6LGcs5nNNLhd9wn7/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="../resources/01-basic-programming/" target="_blank">Basic Programming in JavaScript</a>: Know this material well.
+              </>
+            ),
+            url: "../resources/01-basic-programming/",
+          },
+          {
+            citation: (
+              <>
+                <a href="../resources/02-basic-programming-practice/" target="_blank">Basic programming practice problems</a>
+              </>
+            ),
+            url: "../resources/02-basic-programming-practice/",
+          },
+          {
+            citation: (
+              <>
+                <a href="../resources/03-the-dom/" target="_blank">Working with the DOM</a>
+              </>
+            ),
+            url: "../resources/03-the-dom/",
+          },
+          {
+            citation: (
+              <>
+                <a href="../resources/04-dom-practice/" target="_blank">DOM practice problems</a>
+              </>
+            ),
+            url: "../resources/04-dom-practice/",
+          },
+        ],
       },
     ],
   },
