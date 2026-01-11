@@ -101,12 +101,12 @@ You may also talk to me about concerns about your progress in the course, person
 ## Grading
 Your course grade is calculated based on homework, quizzes, tutorials, and attendance / participation:
 
-| Category | Percentage |
+| | |
 |--|--|
-| Attendance & Participation | 10% |
-| Tutorials | 20% |
-| Quizzes | 30% |
-| Homework | 40% |
+| **Attendance & Participation** | 10% |
+| **Tutorials** | 20% |
+| **Quizzes** | 30% |
+| **Homework** | 40% |
 
 Final grades are assigned on a fixed scale: 93-100 is 
 an A, 90-92.99 is an A-, 87-89.99 is a B+, etc. Final course grades will not be rounded or curved.
@@ -133,6 +133,8 @@ Some example scenarios:
 ### Tutorial Grading
 Tutorials will be graded according to the following scale (from 0-3 points):
 
+| | |
+|--|--|
 | 0pts | Not attempted | Assignment not submitted. |
 | 1pt | Check Minus | Assignment attempted but less than half of it was completed correctly. |
 | 2pts | Check | Most of the assignment was completed; works as expected. |

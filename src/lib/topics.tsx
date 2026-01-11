@@ -1036,49 +1036,102 @@ const baseTopics = [
 
   {
     id: 8,
-    title: "Design Synthesis + Sprint 1 Demo + Phase 1 Reflection",
+    title: "JavaScript: HTTP requests and the Fetch API",
     description:
-      "Synthesize design work, stabilize Phase 1 contributions, and demo. Prepare for the Phase 2 shift from exploration to shared ownership.",
+      "The Fetch API is a modern JavaScript interface for making HTTP requests to servers and handling responses. It simplifies fetching resources like JSON data, files, or text from external APIs or web services using promises for asynchronous operations. Understanding how to use the Fetch API, handle response statuses, and work with data formats like JSON is key to building dynamic, data-driven web applications.",
     meetings: [
       {
         date: "Mo, Mar 2",
-        topic: "High-fi prototyping + demo prep",
+        topic: "Tutorial 6 Wrap; Intro to HTTP",
         description: (
           <>
             <ul>
-              <li>High-fidelity prototyping and alignment: confirm prototype behaviors map to system behaviors</li>
-              <li>Studio: prepare Sprint 1 demos and ensure PRs are reviewable and rebased (linear history)</li>
+              <li>Introduction to HTTP protocol</li>
+              <li>HTTP methods and status codes</li>
+              <li>Using Postman for API testing</li>
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1B5kWy0FPGEQihrzGNAuiIOphppY3hrBj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+        ],
         readings: [
           {
             citation: (
               <>
-                Short reading: <em>Agile Overview</em> (forward-looking; prepares for Phase 2)
+                <a href="https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/" target="_blank">An introduction to HTTP: everything you need to know</a>. Free Code Camp
               </>
             ),
-            url: "/readings/agile-overview/",
+            url: "https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/",
+          },
+          {
+            citation: (
+              <>
+                Sign for and download <a href="https://identity.getpostman.com/signup" target="_blank">Postman</a>.
+              </>
+            ),
+            url: "https://identity.getpostman.com/signup",
           },
         ],
       },
       {
         date: "We, Mar 4",
-        topic: "Sprint 1 demos + Phase 1 retrospective",
+        topic: "Asynchronous Functions and the JavaScript Fetch API",
         description: (
           <>
             <ul>
-              <li>Sprint 1 demos</li>
-              <li>Phase 1 retrospective: what improved (tests, reviews, design clarity), what remained hard, and what will change in Phase 2 (shared repo, vertical slices)</li>
+              <li>Async/await vs Promises</li>
+              <li>Using the Fetch API</li>
+              <li>Making GET, POST, PUT, DELETE requests</li>
             </ul>
           </>
         ),
-        assigned: {
-          titleShort: "HW7",
-          title: "Phase 1 Reflection + Phase 2 Preparation",
-          url: "/assignments/hw07-phase1-reflection/",
-          draft: 1,
-        },
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/12fe-Y6Vo_Vjtw3zEmdU2_bld4rI_P31s/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Fetch Examples", url: "/course-files/lectures/lecture15.zip", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                Hughes, Noah (2023). <a href="https://dev.to/paperbyte/async-await-vs-fetchthen-20oe" target="_blank">Async Await vs Fetch.Then()</a>.
+              </>
+            ),
+            url: "https://dev.to/paperbyte/async-await-vs-fetchthen-20oe",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2" target="_blank">fetch GET examples</a>. Note: this example (and subsequent ones) demonstrate both "then" "async/await" techniques.
+              </>
+            ),
+            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-2-4-post-by-silvenleaf-1kmh" target="_blank">fetch POST examples</a>
+              </>
+            ),
+            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-2-4-post-by-silvenleaf-1kmh",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-3-4-put-by-silvenleaf-3oe8" target="_blank">fetch PUT examples</a>. Note: PATCH works the same way as PUT. Recall that PATCH only updates specific attributes of a resource while PUT replaces the entire resource with a new version.
+              </>
+            ),
+            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-3-4-put-by-silvenleaf-3oe8",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376" target="_blank">fetch DELETE examples</a>.
+              </>
+            ),
+            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376",
+          },
+        ],
       },
       {
         date: "Fr, Mar 6",
@@ -1087,7 +1140,6 @@ const baseTopics = [
     ],
   },
 
-  // Keep everything after Week 8 as-is from your original file
   {
     id: 9,
     title: "Spring Break",
@@ -1098,117 +1150,166 @@ const baseTopics = [
       { date: "Fr, Mar 13", topic: "Spring Break - No class", holiday: true },
     ],
   },
+
   {
     id: 10,
-    title: "Phase 2: Agile and Vertical Features",
-    description: "Introduction to Agile. Form vertical teams. Begin feature development in shared repo.",
+    title: "React",
+    description:
+      "React is a popular JavaScript library for building user interfaces, especially single-page applications (SPAs). It allows developers to create reusable components and manage the state of an application efficiently through a virtual DOM. React's declarative approach simplifies UI development and is widely adopted in modern web development.",
     meetings: [
       {
-        date: "Mo, Mar 16",
-        topic: "Agile introduction + vertical team formation",
+        date: "Mo, Mar 20",
+        topic: "React I",
         description: (
           <>
             <ul>
-              <li>Agile principles: iterations, user stories, sprints</li>
-              <li>Form vertical teams: backend + web + mobile developers</li>
-              <li>Team working agreement for Phase 2 (collaboration, communication)</li>
-              <li>Discussion: "How is Phase 2 different? What skills do we need?"</li>
+              <li>Introduction to React</li>
+              <li>Components and JSX</li>
+              <li>Building user interfaces with React</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1neAphwkVry2vBG7mQN9552NgxjITfuGD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Hands-on React Activity", url: "/activities/react-activity", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://react.dev/learn/describing-the-ui" target="_blank">Describing the UI</a>
+              </>
+            ),
+            url: "https://react.dev/learn/describing-the-ui",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://beta.reactjs.org/learn/tutorial-tic-tac-toe" target="_blank">Tic Tac Toe</a>. You are strongly encouraged to do this on your own.
+              </>
+            ),
+            url: "https://beta.reactjs.org/learn/tutorial-tic-tac-toe",
+          },
+        ],
+      },
+      {
+        date: "We, Mar 23",
+        topic: "React II",
+        description: (
+          <>
+            <ul>
+              <li>Thinking in React</li>
+              <li>State management and component hierarchy</li>
+              <li>Sharing state between components</li>
+              <li>Effects and side effects</li>
             </ul>
           </>
         ),
         readings: [
           {
-            citation: "Schwaber, K., & Sutherland, J. The Scrum Guide.",
-            url: "https://scrumguides.org/scrum-guide.html",
+            citation: (
+              <>
+                <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>. Make note of the steps: Break the UI into a component hierarchy, Build a static version in React, Find the minimal but complete representation of UI state (noting the difference between "props" and "state"), Identify where your state should live, Adding "inverse data flow"
+              </>
+            ),
+            url: "https://beta.reactjs.org/learn/thinking-in-react",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://beta.reactjs.org/learn/sharing-state-between-components" target="_blank">Sharing state between components</a>
+              </>
+            ),
+            url: "https://beta.reactjs.org/learn/sharing-state-between-components",
+          },
+        ],
+        optionalReadings: [
+          {
+            citation: (
+              <>
+                <a href="https://beta.reactjs.org/learn/synchronizing-with-effects" target="_blank">Synchronizing with effects</a>
+              </>
+            ),
+            url: "https://beta.reactjs.org/learn/synchronizing-with-effects",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://beta.reactjs.org/learn/you-might-not-need-an-effect" target="_blank">You might not need an effect</a>
+              </>
+            ),
+            url: "https://beta.reactjs.org/learn/you-might-not-need-an-effect",
           },
         ],
       },
       {
-        date: "We, Mar 18",
-        topic: "Sprint 1 planning + feature assignment",
-        description: (
-          <>
-            <ul>
-              <li>Review shared repo structure and workflow</li>
-              <li>Assign features to vertical teams</li>
-              <li>Sprint 1 planning: break features into user stories and tasks</li>
-              <li>Define API contracts (shared types)</li>
-              <li>Set up feature branches</li>
-              <li>Team reflection: "What are our goals? What are we worried about?"</li>
-            </ul>
-          </>
-        ),
+        date: "Fr, Mar 25",
+        topic: "Lab"
       },
     ],
   },
 
   {
     id: 11,
-    title: "Feature Development Sprint 1",
-    description: "Build first vertical feature. Practice daily standups, PRs, code review across teams. Reflect on collaboration challenges.",
+    title: "JavaScript Review",
+    description:
+      "Today's class will be dedicated to JavaScript programming review. Please review the study guide and practice problems, and come prepared to ask questions!",
     meetings: [
       {
-        date: "Mo, Mar 23",
-        topic: "Feature development kickoff + daily standup protocol",
+        date: "Mo, Mar 27",
+        topic: "JavaScript Review",
         description: (
           <>
             <ul>
-              <li>Teams begin feature work</li>
-              <li>Daily standup protocol: what did you do, what will you do, blockers</li>
-              <li>Pair programming: backend + frontend developers work together</li>
-              <li>Discussion: "How do we coordinate? What's hard about shared codebase?"</li>
+              <li>Review of JavaScript language features</li>
+              <li>DOM manipulation review</li>
+              <li>Event handlers review</li>
+              <li>Higher-order functions review</li>
+              <li>Promises and async/await review</li>
+              <li>HTTP Requests using JavaScript review</li>
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: "Language features",
+            url: "#",
+          },
+          {
+            citation: "DOM manipulation",
+            url: "#",
+          },
+          {
+            citation: "Event handlers",
+            url: "#",
+          },
+          {
+            citation: "Higher-order functions",
+            url: "#",
+          },
+          {
+            citation: "Promises",
+            url: "#",
+          },
+          {
+            citation: "HTTP Requests using JavaScript",
+            url: "#",
+          },
+          {
+            citation: "Passing functions as objects",
+            url: "#",
+          },
+        ],
       },
       {
-        date: "We, Mar 25",
-        topic: "Feature work + PR workflow + code review",
-        description: (
-          <>
-            <ul>
-              <li>Teams continue feature work</li>
-              <li>Open PRs, practice code review across teams</li>
-              <li>Resolve merge conflicts, coordinate API changes</li>
-              <li>Team reflection: "What's working? What's challenging? How are we communicating?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "Mo, Mar 30",
-        topic: "Sprint 1 continued: feature development",
-        description: (
-          <>
-            <ul>
-              <li>Teams continue Sprint 1 feature work</li>
-              <li>Daily standups</li>
-              <li>Pair programming and collaboration</li>
-              <li>Team check-in: "What progress have we made? What blockers do we have?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "We, Apr 1",
-        topic: "Sprint 1 continued: integration and testing",
-        description: (
-          <>
-            <ul>
-              <li>Teams continue feature work</li>
-              <li>Integration testing across components</li>
-              <li>Code review and PR refinement</li>
-              <li>Team reflection: "What's working well? What needs improvement?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "Fr, Mar 27",
+        date: "We, Mar 29",
         topic: "Lab"
       },
       {
-        date: "Fr, Apr 3",
+        date: "Fr, Apr 1",
         topic: "Lab"
       },
     ],
@@ -1216,71 +1317,44 @@ const baseTopics = [
 
   {
     id: 12,
-    title: "Feature Development Sprint 2",
-    description: "Continue feature development. Sprint review and retrospective. Plan next sprint.",
+    title: "Python",
+    description:
+      "Python is a versatile programming language widely used for web development, data analysis, and scripting. Students will learn the basics of Python syntax, functions, and libraries like Flask or FastAPI for server-side development. This topic bridges the gap between front-end and back-end development.",
     meetings: [
       {
-        date: "Mo, Apr 6",
-        topic: "Sprint 1 review + sprint 2 planning",
+        date: "Mo, Apr 3",
+        topic: "Python Primer",
         description: (
           <>
             <ul>
-              <li>Sprint 1 demos: teams show what they built</li>
-              <li>Sprint retrospective: what worked, what didn't, what to improve</li>
-              <li>Sprint 2 planning: next features, user stories, tasks</li>
-              <li>Reflection: "How did Sprint 1 go? What did we learn about teamwork?"</li>
+              <li>Introduction to Python</li>
+              <li>Python syntax and basics</li>
+              <li>Functions and libraries</li>
+              <li>Preparing for server-side development</li>
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1Egh0uvXTgxzAuf8IUNQQde1B2eGHFkd7/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Lecture files", url: "/course-files/lectures/lecture19.zip", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://books.trinket.io/pfe/index.html" target="_blank">Python for Everybody Textbook</a>, by Charles Severance (if you're new to Python)
+              </>
+            ),
+            url: "https://books.trinket.io/pfe/index.html",
+          },
+        ],
       },
       {
-        date: "We, Apr 8",
-        topic: "Sprint 2 feature development kickoff",
-        description: (
-          <>
-            <ul>
-              <li>Teams begin Sprint 2 features</li>
-              <li>Continue daily standups</li>
-              <li>Practice cross-team coordination</li>
-              <li>Team reflection: "How are we improving? What's still hard?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "Mo, Apr 13",
-        topic: "Sprint 2 continued: feature development",
-        description: (
-          <>
-            <ul>
-              <li>Teams continue Sprint 2 feature work</li>
-              <li>Daily standups</li>
-              <li>Integration and testing</li>
-              <li>Team check-in: "What progress have we made?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "We, Apr 15",
-        topic: "Sprint 2 continued: refinement and testing",
-        description: (
-          <>
-            <ul>
-              <li>Teams continue feature work</li>
-              <li>Code review and PR refinement</li>
-              <li>Integration testing</li>
-              <li>Team reflection: "What's working? What needs improvement?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "Fr, Apr 10",
+        date: "We, Apr 5",
         topic: "Lab"
       },
       {
-        date: "Fr, Apr 17",
+        date: "Fr, Apr 7",
         topic: "Lab"
       },
     ],
@@ -1288,71 +1362,58 @@ const baseTopics = [
 
   {
     id: 13,
-    title: "Feature Development Sprint 3",
-    description: "Final feature sprint. Integration testing. Polish and refinement.",
+    title: "Servers",
+    description:
+      "Server-side architectures define how web applications process requests and serve responses from the server. This includes understanding client-server models, HTTP request-response cycles, and technologies like RESTful APIs and GraphQL. A solid grasp of server-side architecture is essential for building scalable and efficient web applications.",
     meetings: [
       {
-        date: "Mo, Apr 20",
-        topic: "Sprint 2 review + final sprint planning",
+        date: "Mo, Apr 6",
+        topic: "HTTP & REST",
         description: (
           <>
             <ul>
-              <li>Sprint 2 demos</li>
-              <li>Sprint retrospective</li>
-              <li>Final sprint planning: polish, integration, testing</li>
-              <li>Discussion: "What features are complete? What needs polish?"</li>
+              <li>Server-side templates vs REST API</li>
+              <li>Understanding REST architecture</li>
+              <li>HTTP methods and RESTful design</li>
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1M7ss1u1h-6xw5MMtEoUuxZIfpHRhpFVG/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://nickjanetakis.com/blog/server-side-templates-vs-rest-api-and-javascript-front-end" target="_blank">Server Side Templates vs REST API and Javascript Front-End</a>. Janetakis, Nick (Oct., 2017).
+              </>
+            ),
+            url: "https://nickjanetakis.com/blog/server-side-templates-vs-rest-api-and-javascript-front-end",
+          },
+          {
+            citation: (
+              <>
+                Avraham, Shif Ben (Sept. 5, 2017). <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f" target="_blank">What is REST — A Simple Explanation for Beginners</a>.
+              </>
+            ),
+            url: "https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f",
+          },
+          {
+            citation: (
+              <>
+                Fielding, Roy (2000). <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank">Roy Fielding's original paper</a>. For your reference.
+              </>
+            ),
+            url: "https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm",
+          },
+        ],
       },
       {
-        date: "We, Apr 22",
-        topic: "Sprint 3 feature development kickoff",
-        description: (
-          <>
-            <ul>
-              <li>Teams begin final sprint features</li>
-              <li>Polish existing features, fix bugs</li>
-              <li>Write integration tests</li>
-              <li>Team reflection: "What are we proud of? What needs work?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "Mo, Apr 27",
-        topic: "Sprint 3 continued: integration and polish",
-        description: (
-          <>
-            <ul>
-              <li>Teams continue final sprint work</li>
-              <li>Cross-team integration: ensure features work together</li>
-              <li>Bug fixes and polish</li>
-              <li>Team check-in: "What's left to do?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "We, Apr 29",
-        topic: "Sprint 3 continued: final refinement",
-        description: (
-          <>
-            <ul>
-              <li>Teams finalize features</li>
-              <li>Final integration testing</li>
-              <li>Code review and PR refinement</li>
-              <li>Team reflection: "What are we proud of? What would we do differently?"</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "Fr, Apr 24",
+        date: "We, Apr 8",
         topic: "Lab"
       },
       {
-        date: "Fr, May 1",
+        date: "Fr, Apr 10",
         topic: "Lab"
       },
     ],
@@ -1360,44 +1421,228 @@ const baseTopics = [
 
   {
     id: 14,
-    title: "Final Delivery and Reflection",
-    description: "Final integration, testing, and polish. Course reflection and celebration.",
+    title: "Databases & Object-Relational Mappings",
+    description:
+      "Databases store and organize data used by web applications, while Object-Relational Mapping (ORM) tools allow developers to interact with databases using object-oriented programming. ORMs like SQLAlchemy simplify the process of querying, updating, and managing data in relational databases. Learning about databases and ORMs is crucial for building data-driven web applications.",
     meetings: [
       {
-        date: "Mo, May 2",
-        topic: "Final integration and testing",
+        date: "Mo, Apr 13",
+        topic: "Intro to Databases",
         description: (
           <>
             <ul>
-              <li>Final integration testing: all features work together</li>
-              <li>Bug fixes and polish</li>
-              <li>Prepare for final demo</li>
-              <li>Team reflection: "What did we accomplish? What are we proud of?"</li>
+              <li>Introduction to PostgreSQL</li>
+              <li>Database queries and operations</li>
+              <li>SQL basics: SELECT, INSERT, UPDATE, DELETE</li>
+              <li>Joins and relationships</li>
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1r_7ezSotkBvf8Ea7qo5CUFwgMO4DGbad/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Get started on Tutorial 10", url: "/assignments/tutorial10", draft: 1 },
+        ],
         readings: [
           {
-            citation: "Martin, R. C. (2011). The Clean Coder. (Ch. 12-13)",
-            url: "#",
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/about/" target="_blank">About PostgreSQL</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/about/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresqltutorial.com/psql-commands/" target="_blank">psql commands</a> (command line)
+              </>
+            ),
+            url: "https://www.postgresqltutorial.com/psql-commands/",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/docs/current/tutorial-select.html" target="_blank">Querying a Table</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/docs/current/tutorial-select.html",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/docs/current/tutorial-join.html" target="_blank">Joins Between Tables</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/docs/current/tutorial-join.html",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/docs/current/tutorial-populate.html" target="_blank">Inserts</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/docs/current/tutorial-populate.html",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/docs/current/tutorial-update.html" target="_blank">Updates</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/docs/current/tutorial-update.html",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/docs/current/tutorial-delete.html" target="_blank">Deletions</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/docs/current/tutorial-delete.html",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.postgresql.org/docs/current/tutorial-agg.html" target="_blank">Aggregate Functions</a>
+              </>
+            ),
+            url: "https://www.postgresql.org/docs/current/tutorial-agg.html",
           },
         ],
       },
       {
-        date: "We, May 4",
-        topic: "Final demos + course reflection",
+        date: "We, Apr 17",
+        topic: "Intro to Object-Relational Mappings (ORMs)",
         description: (
           <>
             <ul>
-              <li>Final team demos: showcase completed features</li>
-              <li>Course reflection: "How did we grow? What did we learn?"</li>
-              <li>Celebration and wrap-up</li>
+              <li>Introduction to ORMs</li>
+              <li>SQLAlchemy basics</li>
+              <li>Mapping database tables to Python objects</li>
+              <li>Querying with ORMs</li>
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1GEvnwQvWJNUIZlQzEjSrAIoblGKhHYsj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "SQL Alchemy & Object-Relational Mappings", url: "/activities/intro-sql-alchemy", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://docs.sqlalchemy.org/en/20/orm/queryguide/index.html" target="_blank">SQL Alchemy Documentation</a>
+              </>
+            ),
+            url: "https://docs.sqlalchemy.org/en/20/orm/queryguide/index.html",
+          },
+        ],
       },
       {
-        date: "Fr, May 8",
+        date: "Fr, Apr 19",
+        topic: "Lab"
+      },
+    ],
+  },
+
+  {
+    id: 15,
+    title: "Security & Authentication",
+    description:
+      "Web security ensures the protection of applications from common vulnerabilities like XSS, CSRF, and SQL injection. Authentication is the process of verifying user identity so that the application can tailor content and functionality while maintaining data privacy. In this unit, you will learn learn to identify risks and implement best practices such as input validation, secure authentication, and encryption. You will also learn about authentication strategies (e.g., JWT) in order to implement a secure login system.",
+    meetings: [
+      {
+        date: "Mo, Apr 22",
+        topic: "Security & Authentication",
+        description: (
+          <>
+            <ul>
+              <li>Web security fundamentals</li>
+              <li>Common vulnerabilities (XSS, CSRF, SQL injection)</li>
+              <li>Authentication strategies</li>
+              <li>JWT tokens and session management</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1WFSJ_hvJESjSM-vAGWhV5mQvZXqFnK1j/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://www.youtube.com/watch?v=eHqbh0kyRYk" target="_blank">CSRF Explained | Understanding Cross Site Request Forgery | What is XSRF?</a>
+              </>
+            ),
+            url: "https://www.youtube.com/watch?v=eHqbh0kyRYk",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://medium.com/@prashantramnyc/difference-between-session-cookies-vs-jwt-json-web-tokens-for-session-management-4be67d2f066e#:~:text=The%20JWT%20tokens%20are%20sometimes,by%20the%20%E2%80%9Csecret%20key%E2%80%9D." target="_blank">Difference between Session Cookies vs. JWT (JSON Web Tokens), for session management</a>
+              </>
+            ),
+            url: "https://medium.com/@prashantramnyc/difference-between-session-cookies-vs-jwt-json-web-tokens-for-session-management-4be67d2f066e#:~:text=The%20JWT%20tokens%20are%20sometimes,by%20the%20%E2%80%9Csecret%20key%E2%80%9D.",
+          },
+        ],
+      },
+      {
+        date: "We, Apr 24",
+        topic: "Lab"
+      },
+      {
+        date: "Fr, Apr 26",
+        topic: "Lab"
+      },
+    ],
+  },
+
+  {
+    id: 16,
+    title: "Course Synthesis",
+    description:
+      "In this unit, we will reflect on the concepts and skills learned throughout the course, including integrating frontend and backend technologies, ensuring security, and employing best practices in design and coding. We will also discuss some of the considerations not covered in this course and consider some next steps if you want to enhance your learning.",
+    meetings: [
+      {
+        date: "Mo, Apr 27",
+        topic: "Reflection & Next Steps",
+        description: (
+          <>
+            <ul>
+              <li>Course reflection and synthesis</li>
+              <li>Integrating frontend and backend technologies</li>
+              <li>Best practices in design and coding</li>
+              <li>Next steps for continued learning</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f" target="_blank">How it feels to learn JavaScript in 2016</a>. Jose Aguinaga
+              </>
+            ),
+            url: "https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f",
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.youtube.com/watch?v=Uo3cL4nrGOk" target="_blank">Interview with Senior JS Developer</a> (Parody)
+              </>
+            ),
+            url: "https://www.youtube.com/watch?v=Uo3cL4nrGOk",
+          },
+        ],
+      },
+      {
+        date: "We, Apr 29",
+        topic: "Lab"
+      },
+      {
+        date: "Fr, May 1",
         topic: "Lab"
       },
     ],
