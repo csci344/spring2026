@@ -2,7 +2,7 @@
 title: "CSS Exercises"
 type: "tutorial"
 num: 2
-draft: 0
+draft: 1
 assigned_date: "2026-02-02"
 due_date: "2026-02-06"
 heading_max_level: 3

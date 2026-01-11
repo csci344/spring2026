@@ -104,11 +104,10 @@ num: 4
 
 1. Finally, restart your react app and see what happens: `npm run dev`
 
-{:.info}
 > ### Why are design systems useful?
 > * Consider how much time this `Image` component saves, and how it enforces consistency across your site.
 > * You could also develop your own custom design system if you enjoy this kind of thing!
-> {:.compact}
+>
 
 ## 3. Experiment with some of the other widgets
 Now that you have used your first design system component, take a look at the Ant Design documentation and see what else you can make! Some fun components to get started with...

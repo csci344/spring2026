@@ -60,7 +60,6 @@ As stated on the <a href="https://www.sqlalchemy.org/" target="_blank">SQL Alche
     ```
 
 
-{:.info}
 > ### What just happened?
 > In the intructions above, we created a new database, installed and configured our python files / libraries to interact with our database and populated our database. The `tester.py` script that just ran contains a demo of different SQLAlchemy queries that you can do.
 >
@@ -106,7 +105,7 @@ class Post(db.Model):
 ```
 
 ### Post Table
-<img src="assets/images/activities/sql-alchemy/posts.png" class="large frame" />
+<img src="/spring2026/images/activities/sql-alchemy/posts.png" class="large frame" />
 
 With this `Post` model definition, I am able to create, read, update, and delete records from the `posts` table. Some examples of how you would perform each of these operations are listed below:
 
@@ -126,7 +125,6 @@ We will go through each of the functions in `tester.py` to try and understand wh
 1. Create a new endpoint that returns all of the `Post` objects that a user has liked.
 1. Create an endpoint that allows a user to create a new `Comment` on a `Post`.
 
-{:.info}
 > To run the flask server, type: `poetry run flask run --debug`
 
 

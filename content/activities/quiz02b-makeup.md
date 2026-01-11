@@ -5,7 +5,6 @@ points: 20
 due_date: 2026-05-04
 ---
 
-{:.info}
 > ## Ground Rules
 > Please read the following instructions carefully:
 > * You may use past code you wrote, course sample files, the Internet, and your notes to complete this exam.
@@ -34,7 +33,6 @@ In the `task01/main.js` file, create an asynchronous function called `getBusines
     * `limit` (number of results to return)
 * Sample Query: <a href="https://www.apitutor.org/yelp/simple/v3/businesses/search?q=pizza&location=Asheville+NC&limit=3" target="_blank">https://www.apitutor.org/yelp/simple/v3/businesses/search?q=pizza&location=Asheville+NC&limit=3</a>
 
-{:.info}
 > ### Testing Your Code
 > Test your `getBusinesses` function by:
 > 1. Uncommenting the test code at the bottom of the page.
@@ -54,10 +52,9 @@ Create a function called `businessToHTML` that takes a business object as an arg
 
 Your HTML representation should produce some HTML that renders something like this (CSS not important):
 
-<img class="small frame" src="assets/images/quizzes/quiz-makeups/yelp-ss.png" />
+<img class="small frame" src="/spring2026/images/quizzes/quiz-makeups/yelp-ss.png" />
 
 
-{:.info}
 > ### Testing Your Code
 > Test your `businessToHTML` function by:
 > * Previewing task02/index.html in your browser, and 
@@ -69,7 +66,7 @@ Please implement a web page (in the `task03` folder) so that when the â€œSearchâ
 
 You are encouraged to use the `businessToHTML` and `getBusinesses` functions that you just made. If you have successfully completed the task, your form should look display the results of the user's query to the DOM as shown below:
 
-<img class="large" src="assets/images/quizzes/quiz-makeups/yelp-ui.png" />
+<img class="large" src="/spring2026/images/quizzes/quiz-makeups/yelp-ui.png" />
 
 
 ## What to Turn In

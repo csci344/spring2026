@@ -82,7 +82,7 @@ export default async function ResourcesPage() {
           </h2>
           
           {/* Resource links */}
-          <ul className="list-none pl-0 space-y-3">
+          <ol className="pl-0 space-y-0 list-decimal">
             {chapter.items.map((item) => (
               <li key={item.id} className="pl-0">
                 <Link 
@@ -93,7 +93,7 @@ export default async function ResourcesPage() {
                 </Link>
               </li>
             ))}
-          </ul>
+          </ol>
         </div>
       ))}
       </div>

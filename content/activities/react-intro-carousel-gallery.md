@@ -6,7 +6,6 @@ draft: 1
 num: 3
 ---
 
-{:.blockquote-no-margin}
 ## 1. Install Node.js
 If you haven't already, please <a href="https://nodejs.org/en/download/">install Node.js</a>.
 
@@ -50,4 +49,4 @@ Add functionality so that when the user selects (clicks) one of the galleries, t
 * [video](https://drive.google.com/file/d/1RY2YnpCUm5Kuzv0W5HZ_cEH3HvyG066J/view?usp=sharing)
 
 
-<img class="large frame" src="assets/images/lectures/intro-react.gif">
+<img class="large frame" src="/spring2026/images/lectures/intro-react.gif">

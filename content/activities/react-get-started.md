@@ -6,7 +6,6 @@ draft: 1
 num: 5
 ---
 
-{:.blockquote-no-margin}
 > ## 1. Do the Readings
 > If you haven't take a look at these documents, carve out some time to do it.
 > * <a href="https://beta.reactjs.org/learn" target="_blank">Quick Start</a>

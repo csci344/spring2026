@@ -13,35 +13,6 @@ git config --global user.email "my_email@gmail.com"
 
 On Mac, people had to install XCode Tools
 -->
-<style>
-    img {
-        max-width: 750px;
-        width: 60%;
-        border: solid 1px #000;
-    }
-    img.large {
-        max-width: 100%;
-        width: 100%;
-        border: solid 1px #000;
-    }
-    .schematic {
-        border: none;
-        max-width: 850px;
-        width: 70%;
-        display: block;
-        margin: auto;
-    }
-    table.instructions td, table.instructions th {
-        font-size: 1.0em;
-    }
-    table.instructions td:first-child {
-        white-space: nowrap;
-    }
-    ul.spaced li, ol.spaced li {
-        margin-bottom: 25px;
-    }
-
-</style>
 
 ## Intro to Heroku
 <a href="https://www.heroku.com/about" target="_blank">Heroku</a> is a container-based cloud Platform as a Service (PaaS) that is owned by Salesforce. You can use Heroku to publish many different kinds of web development projects (not just Python, Node, React, etc.). Essentially, Heroku allows you to configure a virtual computer on someone else's machine, and then save and run your files there. The basic process is as follows:
@@ -52,50 +23,46 @@ On Mac, people had to install XCode Tools
     * Create a `Procfile` to tell Heroku that we want to run a Flask web server using <a href="https://devcenter.heroku.com/articles/python-gunicorn" target="_blank">Gunicorn</a>
     * Create a `package.json` file to teach Heroku how to compile your React app.
     * Set some environment variables that tell Heroku how to access your database and JWT Secret
-    {:.compact}
 1. Deploy your app by downloading and configuring the Heroku Command Line Interface (CLI). Heroku's CLI, in combination with git, helps you send your files to Heroku.
 
 Heroku also has support for hosting PostgreSQL databases, which is a free service if you register as a student. Also, if you have the free version, it goes to sleep if it hasn't been used for a while. So the first time you access your Heroku website, it's a little slow.
 
 ## Publishing Photo App on Heroku
 
-{:#create}
 ### 1. Create a Heroku App
 Register for Heroku (if you don't yet have an account): <a href="https://signup.heroku.com/" target="_blank">https://signup.heroku.com/</a>. 
 
 Create a new app on Heroku by logging into the Heroku website and using the Web UI. Name it anything you want!
 
-<img class="frame xsmall" src="assets/images/activities/github-deployment/heroku1.png" />
+<img class="frame xsmall" src="/spring2026/images/activities/github-deployment/heroku1.png" />
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku2.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku2.png" />
 
-{:#db}
 ### 2. Create a Hosted Database 
 After creating your app, you will create a database using <a href="https://elements.heroku.com/addons/heroku-postgresql" target="_blank">Heroku Postgres</a>. Click the "Install Heroku Postgres" button (purple).
 * You will have to <a href="https://www.heroku.com/students" target="_blank">register with Heroku as a student</a> to get this database for free. 
 
-<img class="small frame" src="assets/images/activities/github-deployment/heroku6a.png" />
+<img class="small frame" src="/spring2026/images/activities/github-deployment/heroku6a.png" />
 
 Next, search for the app you just made and then click "Submit Order Form"
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku6b.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku6b.png" />
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku7.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku7.png" />
 
 When you're done, you should see a confirmation screen:
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku8.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku8.png" />
 
-{:#configure}
 ### 3. Add Environment Variables
 
 Now navigate to the "Settings" tab:
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku9.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku9.png" />
 
 Scroll down and click the "Reveal Config Vars"
 
-<img class="medium frame" src="assets/images/activities/github-deployment/heroku10.png" />
+<img class="medium frame" src="/spring2026/images/activities/github-deployment/heroku10.png" />
 
 You should notice that Heroku Postgres has created a database connection string for you in the format: 
 
@@ -103,12 +70,12 @@ You should notice that Heroku Postgres has created a database connection string 
 postgres://<username>:<password>@<host>:5432/<database_name>
 ```
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku11.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku11.png" />
 
 * You are going to create a new environment variable called `DB_URL` that is identical to the `DATABASE_URL` string, but prefixed by `postgresql://` instead of `postgres://` (which is necessary to work with SQL Alchemy).
 * You are also going to create a second environment variable that holds your `JWT_SECRET` (see below)
 
-<img class="large frame" src="assets/images/activities/github-deployment/heroku12.png" />
+<img class="large frame" src="/spring2026/images/activities/github-deployment/heroku12.png" />
 
 Copy the new DB_URL environment variable into your `.env` file and comment out the DB_URL environment variable pointing to your local database instance as shown below:
 

@@ -3,11 +3,6 @@ title: "Quiz 2b: JavaScript Programming with the DOM"
 draft: 1
 ---
 
-<style>
-    li .highlight {
-        line-height: 1.2rem;
-    }
-</style>
 
 
 ## Paper Quiz 
@@ -53,12 +48,12 @@ const users = [
 ### 1.1. Array of usernames [10pts]
 Inside of `task01/main.js`, use the `map` array method to create an array of names (array of strings). Output this array to the console. Expected result:
 
-<img class="xsmall frame" src="assets/images/quizzes/quiz02b/task1.1.png" />
+<img class="xsmall frame" src="/spring2026/images/quizzes/quiz02b/task1.1.png" />
 
 ### 1.2. Array of active users [10pts]
 Inside of `task01/main.js`, use the `filter` array method to create an array of only active users. Output this array to the console. Expected result:
 
-<img class="medium frame" src="assets/images/quizzes/quiz02b/task1.2.png" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz02b/task1.2.png" />
 
 ## Task 2: Fetch and Display Wikipedia Data [20pts]
 ### 2.1. Fetching Wikipedia data [10pts]
@@ -107,7 +102,7 @@ Test your `dataToHTML` function by:
 
 If you did it correctly, you should see a screen that looks like the one pictured below:
 
-<img class="large frame" src="assets/images/quizzes/quiz02b/wikipedia.png" />
+<img class="large frame" src="/spring2026/images/quizzes/quiz02b/wikipedia.png" />
 
 
 ## What to Submit
@@ -124,6 +119,5 @@ Verify that you've completed **both required tasks**. Then, add the links to you
 
 If your GitHub is not working for whatever reason, just zip your **COMPLETED** `quiz02b` folder and upload it to the Moodle.
 
-{:.info}
 > #### A note on timestamps
 > When I am grading the quiz, I will look at the timestamps for your Quiz 2b submission on GitHub to ensure that I am only grading code that was submitted before the end of class on the day of the quiz.

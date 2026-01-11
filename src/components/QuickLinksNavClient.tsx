@@ -4,6 +4,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { formatDate } from '@/lib/utils';
 import { useMemo } from 'react';
+import { Topic } from '@/lib/topics';
 
 interface ResourceData {
   id: string;
@@ -32,6 +33,7 @@ interface QuickLinksNavClientProps {
   resources: ResourceData[];
   assignments: AssignmentData[];
   readings: ReadingData[];
+  topics: Topic[];
 }
 
 function titleCase(str: string): string {
@@ -51,6 +53,7 @@ function getDaysUntilDue(dueDate: string): number {
 }
 
 export default function QuickLinksNavClient({ resources, assignments, readings }: QuickLinksNavClientProps) {
+  
   // Filter assignments client-side based on current date
   const upcomingAssignments = useMemo(() => {
     const today = new Date();
@@ -82,7 +85,7 @@ export default function QuickLinksNavClient({ resources, assignments, readings }
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const futureDate = new Date(today);
-    futureDate.setDate(today.getDate() + 10); // Next 10 days
+    futureDate.setDate(today.getDate() + 5); // Next 5 days
     
     // Filter readings within the next 10 days
     const filtered = readings.filter(reading => {
@@ -97,12 +100,13 @@ export default function QuickLinksNavClient({ resources, assignments, readings }
     });
 
     // Take only the next 10 readings (or all if less than 10)
-    return filtered.slice(0, 10);
+    return filtered;
   }, [readings]);
+
   return (
     <div className="quick-links-nav h-full overflow-y-auto p-4 hidden lg:block">
       {/* Quick Links Section */}
-      {resources.length > 0 && (
+      {(resources.length > 0) && (
         <div className="mb-6 rounded-2xl bg-gray-100 dark:bg-gray-800 p-4">
           <h2 className="!text-lg !font-normal text-gray-800 dark:text-gray-100 !m-0 !mb-4">Quick Links</h2>
           <div className="space-y-2">
@@ -236,9 +240,7 @@ export default function QuickLinksNavClient({ resources, assignments, readings }
                     </div>
                     <div className="space-y-1 ml-2">
                       {dateReadings.map((reading, index) => {
-                        const truncatedCitation = reading.citation.length > 20 
-                          ? reading.citation.substring(0, 18) + '...'
-                          : reading.citation;
+                        const isExternal = reading.url?.startsWith('http://') || reading.url?.startsWith('https://');
                         
                         return (
                           <div key={`${reading.date}-${index}`} className={clsx(
@@ -247,17 +249,19 @@ export default function QuickLinksNavClient({ resources, assignments, readings }
                             {reading.url ? (
                               <a
                                 href={reading.url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="!border-0 !text-sm text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 block"
+                                target={isExternal ? "_blank" : undefined}
+                                rel={isExternal ? "noopener noreferrer" : undefined}
+                                className="!border-0 !text-sm text-gray-800 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 flex items-center gap-2 min-w-0"
                                 title={reading.citation}
                               >
-                                {truncatedCitation}
-                                <span className="ml-1 text-xs">↗</span>
+                                <span className="truncate flex-1 min-w-0">{reading.citation}</span>
+                                {isExternal && (
+                                  <span className="text-xs flex-shrink-0">↗</span>
+                                )}
                               </a>
                             ) : (
-                              <span className="!text-sm text-gray-800 dark:text-gray-100 block" title={reading.citation}>
-                                {truncatedCitation}
+                              <span className="!text-sm text-gray-800 dark:text-gray-100 block truncate" title={reading.citation}>
+                                {reading.citation}
                               </span>
                             )}
                           </div>

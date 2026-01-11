@@ -66,19 +66,6 @@ function parseMeetingDate(meetingDate: string): string | null {
   return `${year}-${monthStr}-${dayStr}`;
 }
 
-// Helper function to convert YYYY-MM-DD to "Mo, Jan 12" format
-function formatDateToMeeting(dateStr: string): string {
-  const date = new Date(dateStr + 'T00:00:00');
-  const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  
-  const dayName = days[date.getDay()];
-  const monthName = months[date.getMonth()];
-  const day = date.getDate();
-  
-  return `${dayName}, ${monthName} ${day}`;
-}
-
 function normalizeDate(dateStr: string | undefined): string | null {
   if (!dateStr) return null;
   // Ensure YYYY-MM-DD format
@@ -156,8 +143,7 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
       const autoAssignment = matchingAssignments.length > 0 
         ? (() => {
             const assignment = matchingAssignments[0];
-            // Format titleShort as "HW" + number (e.g., "HW0", "HW1")
-            const titleShort = assignment.num ? `HW ${assignment.num}` : 'HW';
+            const titleShort = assignment.type === 'homework' ? `HW ${assignment.num}` : `Tutorial ${assignment.num}`;
             return {
               titleShort: titleShort,
               title: assignment.title,
@@ -205,8 +191,12 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1JdVt_AVQLOv6SPNCSnOCAG4TIgf4nYyX/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
-          { title: "Pre-course assessment questions & answers", url: "/activities/pre-course-assessment", draft: 0 },
+          { title: "Slides", url: "#", draft: 1 },
+          { 
+            title: "Pre-course assessment questions & answers", 
+            url: "https://docs.google.com/document/d/1wQFm7FwLQiaeEavWeCpjUqssL0TAdT8r/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          },
         ],
         readings: [
           {
@@ -238,8 +228,8 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1vOZvK4tq4ApRtzza6-lKKkKt7UsKFtt_/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
-          { title: "Analyze a website", url: "https://docs.google.com/document/d/1yKOwkE8hyltWnhMJo0UDgqIVIxwtL1oWTEvvlYfOSNs/edit", draft: 0 },
+          { title: "Slides", url: "#", draft: 1 },
+          { title: "Analyze a website", url: "https://docs.google.com/document/d/1cEJ0MD58Ev3I5Lb1QbI4zGVNGLl1aCcx/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
           {
@@ -284,8 +274,8 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1fAUlJgp9mez7DDm9Y0hEMGgsfYF0CNKZ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
-          { title: "The Internet and Society: Discussion Questions", url: "https://docs.google.com/document/d/1cmc07CHLTmd9b5SzmC_y6I9kHtTdVXE81YoJKzJNick/edit?usp=sharing", draft: 0 },
+          { title: "Slides", url: "#", draft: 1 },
+          { title: "The Internet and Society: Discussion Questions", url: "https://docs.google.com/document/d/13UKToc3qP2_MzrKJcDUr09wz64bkgAdF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
           {
@@ -356,8 +346,10 @@ const baseTopics = [
     description:
       "HTML (HyperText Markup Language) is the backbone of web content, structuring information on web pages. HTML can be used to create semantic, accessible layouts using elements like headings, paragraphs, lists, links, and media. This topic emphasizes the role of HTML in the broader web development process and how it integrates with CSS and JavaScript.",
     meetings: [
+        { date: "Mo, Jan 19", topic: "MLK Day - No class", holiday: true },
+
       {
-        date: "Mo, Jan 21",
+        date: "We, Jan 21",
         topic: "Introduction to HTML",
         description: (
           <>
@@ -369,65 +361,58 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1R_TTREM7v18VvzuWYZqFGCGvD2-weoSf/edit#slide=id.p1", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Write your first HTML page", url: "https://docs.google.com/document/d/1Vu_bVKlnzeQceoxp7hRTXdyTeCcLDQIz/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="/resources/html-resources" target="_blank">HTML Resources</a>
+                <a href="/spring2026/resources/html-00-intro">HTML Resources</a>
               </>
             ),
-            url: "/resources/html-resources",
           },
           {
             citation: (
               <>
-                <a href="/resources/html-rules-of-thumb" target="_blank">Rules of Thumb</a>
+                <a href="/spring2026/resources/html-01-rules-of-thumb">Rules of Thumb</a>
               </>
             ),
-            url: "/resources/html-rules-of-thumb",
           },
           {
             citation: (
               <>
-                <a href="/resources/text-tags" target="_blank">Text Markup Tags</a>
+                <a href="/spring2026/resources/html-02-text">Text Markup Tags</a>
               </>
             ),
-            url: "/resources/text-tags",
           },
           {
             citation: (
               <>
-                <a href="/resources/image-tags" target="_blank">Image Tags</a>
+                <a href="/spring2026/resources/html-04-images">Image Tags</a>
               </>
             ),
-            url: "/resources/image-tags",
           },
           {
             citation: (
               <>
-                <a href="/resources/media-tags" target="_blank">Media Tags</a>
+                <a href="/spring2026/resources/html-05-media">Media Tags</a>
               </>
             ),
-            url: "/resources/media-tags",
           },
           {
             citation: (
               <>
-                <a href="/resources/complex-tags" target="_blank">Compound Tags</a>
+                <a href="/spring2026/resources/html-06-lists-tables">Compound Tags</a>
               </>
             ),
-            url: "/resources/complex-tags",
           },
           {
             citation: (
               <>
-                <a href="/resources/form-tags" target="_blank">Form Tags</a>
+                <a href="/spring2026/resources/html-08-forms">Form Tags</a>
               </>
             ),
-            url: "/resources/form-tags",
           },
         ],
         optionalReadings: [
@@ -437,12 +422,11 @@ const baseTopics = [
                 Tali Garsiel and Paul Irish. <a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">How Browsers Work: Behind the scenes of modern web browsers</a>. html5rocks.com, 2011
               </>
             ),
-            url: "https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/",
           },
         ],
       },
       {
-        date: "We, Jan 23",
+        date: "Fr, Jan 23",
         topic: "Introduction to HTML (Continued)",
         description: (
           <>
@@ -454,26 +438,24 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1kNOqFQyWuWcKUhh_XUjOXk0SASBDeWLO/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
-          { title: "Linking (lecture files)", url: "/course-files/lectures/lecture05.zip", draft: 1 },
-          { title: "Configure git and GitHub", url: "/activities/github", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
+          { title: "Linking (lecture files)", url: "/course-files/lectures/lecture05.zip", draft: 0 },
+          { title: "Configure git and GitHub", url: "/resources/sys-01-github", draft: 0 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="/resources/linking" target="_blank">Hyperlinks</a>
+                <a href="/spring2026/resources/html-03-linking">Hyperlinks</a>
               </>
             ),
-            url: "/resources/linking",
           },
           {
             citation: (
               <>
-                <a href="/resources/semantic-tags" target="_blank">Semantic Tags</a>
+                <a href="/spring2026/resources/html-07-semantic-tags">Semantic Tags</a>
               </>
             ),
-            url: "/resources/semantic-tags",
           },
         ],
         optionalReadings: [
@@ -483,7 +465,6 @@ const baseTopics = [
                 Tali Garsiel and Paul Irish. <a href="https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">How Browsers Work: Behind the scenes of modern web browsers</a>. html5rocks.com, 2011
               </>
             ),
-            url: "https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/",
           },
           {
             citation: (
@@ -491,7 +472,6 @@ const baseTopics = [
                 <a href="https://medium.com/the-underdog-writing-project/introduction-to-git-and-github-a5fdf5633923" target="_blank">Intro to git and GitHub</a>
               </>
             ),
-            url: "https://medium.com/the-underdog-writing-project/introduction-to-git-and-github-a5fdf5633923",
           },
           {
             citation: (
@@ -499,13 +479,8 @@ const baseTopics = [
                 <a href="https://youtu.be/i_23KUAEtUM" target="_blank">Using GitHub with Visual Studio Code</a>
               </>
             ),
-            url: "https://youtu.be/i_23KUAEtUM",
           },
         ],
-      },
-      {
-        date: "Fr, Jan 25",
-        topic: "Lab"
       },
     ],
   },
@@ -516,8 +491,13 @@ const baseTopics = [
     description:
       "CSS (Cascading Style Sheets) is used to control the layout and visual presentation of HTML elements. It allows developers to define styles such as colors, fonts, and spacing, enhancing user experience. CSS also includes techniques like Flexbox and Grid for responsive, modern web designs.",
     meetings: [
+
       {
-        date: "Mo, Jan 28",
+        date: "Mo, Jan 26",
+        topic: "Tutorial 1"
+      },
+      {
+        date: "We, Jan 28",
         topic: "Introduction to CSS",
         description: (
           <>
@@ -529,62 +509,56 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1JZVw7Z2TlChdp4YD2KMDl_2y5o-Fvoko/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Design a Photo Gallery", url: "/activities/intro-css", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="/resources/css-reference" target="_blank">Intro to CSS</a>
+                <a href="/spring2026/resources/css-00-intro">Intro to CSS</a>
               </>
             ),
-            url: "/resources/css-reference",
           },
           {
             citation: (
               <>
-                <a href="/resources/css-rules-of-thumb" target="_blank">CSS Rules of Thumb</a>
+                <a href="/spring2026/resources/css-01-rules-of-thumb">CSS Rules of Thumb</a>
               </>
             ),
-            url: "/resources/css-rules-of-thumb",
           },
           {
             citation: (
               <>
-                <a href="/resources/selectors/" target="_blank">Selectors</a>
+                <a href="/spring2026/resources/css-02-selectors">Selectors</a>
               </>
             ),
-            url: "/resources/selectors/",
           },
           {
             citation: (
               <>
-                <a href="/resources/color/" target="_blank">Color</a>
+                <a href="/spring2026/resources/css-03-color">Color</a>
               </>
             ),
-            url: "/resources/color/",
           },
           {
             citation: (
               <>
-                <a href="/resources/fonts/" target="_blank">Text & fonts</a>
+                <a href="/spring2026/resources/css-04-fonts">Text & fonts</a>
               </>
             ),
-            url: "/resources/fonts/",
           },
           {
             citation: (
               <>
-                <a href="/resources/box-model/" target="_blank">The Box Model</a>
+                <a href="/spring2026/resources/css-05-box-model">The Box Model</a>
               </>
             ),
-            url: "/resources/box-model/",
           },
         ],
       },
       {
-        date: "We, Jan 30",
+        date: "Fri, Jan 30",
         topic: "CSS Layouts",
         description: (
           <>
@@ -596,41 +570,37 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1LYXPi2izZ5ulCT8uJPQADP4uKqu7MlKt/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Lecture files", url: "/course-files/lectures/lecture07.zip", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="/resources/units/" target="_blank">Units</a>
+                <a href="/spring2026/resources/css-06-units">Units</a>
               </>
             ),
-            url: "/resources/units/",
           },
           {
             citation: (
               <>
-                <a href="/resources/media-queries/" target="_blank">Media Queries</a>
+                <a href="/spring2026/resources/css-09-media-queries">Media Queries</a>
               </>
             ),
-            url: "/resources/media-queries/",
           },
           {
             citation: (
               <>
-                <a href="/resources/flexbox/" target="_blank">CSS Flex</a>
+                <a href="/spring2026/resources/css-07-flexbox">CSS Flex</a>
               </>
             ),
-            url: "/resources/flexbox/",
           },
           {
             citation: (
               <>
-                <a href="/resources/css-grid/" target="_blank">CSS Grid</a>
+                <a href="/spring2026/resources/css-08-grid">CSS Grid</a>
               </>
             ),
-            url: "/resources/css-grid/",
           },
           {
             citation: (
@@ -638,7 +608,6 @@ const baseTopics = [
                 <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a> (Complete at least the first 10 levels)
               </>
             ),
-            url: "https://cssgridgarden.com/",
           },
           {
             citation: (
@@ -646,7 +615,6 @@ const baseTopics = [
                 <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> (Complete at least the first 10 levels)
               </>
             ),
-            url: "https://flexboxfroggy.com/",
           },
         ],
         optionalReadings: [
@@ -656,7 +624,6 @@ const baseTopics = [
                 <a href="https://university.webflow.com/lesson/flexbox-vs-grid" target="_blank">When to use Flex versus CSS Grid?</a>
               </>
             ),
-            url: "https://university.webflow.com/lesson/flexbox-vs-grid",
           },
           {
             citation: (
@@ -664,7 +631,6 @@ const baseTopics = [
                 <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Tricks: A Complete Guide to Grid</a>
               </>
             ),
-            url: "https://css-tricks.com/snippets/css/complete-guide-grid/",
           },
           {
             citation: (
@@ -672,7 +638,6 @@ const baseTopics = [
                 <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks: A Complete Guide to Flexbox</a>
               </>
             ),
-            url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
           },
           {
             citation: (
@@ -680,13 +645,8 @@ const baseTopics = [
                 <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">W3 Schools Flexbox Guide</a>
               </>
             ),
-            url: "https://www.w3schools.com/css/css3_flexbox.asp",
           },
         ],
-      },
-      {
-        date: "Fr, Feb 1",
-        topic: "Lab"
       },
     ],
   },
@@ -710,7 +670,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1JkWpMpOrohF30GFrM3zdyz-rqiOKGCsU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
         ],
         readings: [
           {
@@ -719,7 +679,6 @@ const baseTopics = [
                 Williams, Robin (2015). <a href="https://drive.google.com/file/d/1lyeEZlnfo7QJ_SE059TrCgw8JUBiX6rV/view?usp=sharing" target="_blank">The Non-Designer's Design Book, Chapter 1</a>.
               </>
             ),
-            url: "https://drive.google.com/file/d/1lyeEZlnfo7QJ_SE059TrCgw8JUBiX6rV/view?usp=sharing",
           },
           {
             citation: (
@@ -727,7 +686,6 @@ const baseTopics = [
                 Groves, Karl (Sept., 2013). <a href="https://karlgroves.com/2013/09/05/the-6-simplest-web-accessibility-tests-anyone-can-do" target="_blank">The 6 Simplest Web Accessibility Tests Anyone Can Do</a>.
               </>
             ),
-            url: "https://karlgroves.com/2013/09/05/the-6-simplest-web-accessibility-tests-anyone-can-do",
           },
         ],
         optionalReadings: [
@@ -737,7 +695,6 @@ const baseTopics = [
                 Williams, Robin (2015). <a href="https://drive.google.com/file/d/1Ps9kGmRrj7Uw2B38KM_SoTKHtPhY-a3L/view?usp=sharing" target="_blank">The Non-Designer's Design Book, Chapter 2</a>.
               </>
             ),
-            url: "https://drive.google.com/file/d/1Ps9kGmRrj7Uw2B38KM_SoTKHtPhY-a3L/view?usp=sharing",
           },
           {
             citation: (
@@ -779,7 +736,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1tiK0vmA9JXhalSs2OQc6mlX9LEJAE6DI/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Intro to the language", url: "/course-files/lectures/lecture09.zip", draft: 1 },
         ],
         readings: [
@@ -823,7 +780,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1C0fzNWN-FpGB7h3FZ7D0jUbvjQHgR_7U/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "DOM manipulation practice (part 1)", url: "/course-files/lectures/lecture10.zip", draft: 1 },
         ],
         readings: [
@@ -833,7 +790,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/introduction-to-the-dom" target="_blank">Intro to the DOM</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/introduction-to-the-dom",
           },
           {
             citation: (
@@ -841,7 +797,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/how-to-access-elements-in-the-dom" target="_blank">How To Access Elements in the DOM</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/how-to-access-elements-in-the-dom",
           },
           {
             citation: (
@@ -849,7 +804,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/how-to-modify-attributes-classes-and-styles-in-the-dom" target="_blank">How to Modify Attributes, Classes, and Styles in the DOM</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/how-to-modify-attributes-classes-and-styles-in-the-dom",
           },
         ],
         optionalReadings: [
@@ -876,7 +830,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1aoopafEiFjdhPdBbp5c711qxoudSHL2K/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "DOM manipulation practice (part 2)", url: "/course-files/lectures/lecture11.zip", draft: 1 },
         ],
         readings: [
@@ -886,7 +840,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript" target="_blank">Understanding Events in JavaScript</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript",
           },
         ],
         optionalReadings: [
@@ -896,7 +849,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/understanding-the-dom-tree-and-nodes" target="_blank">Understanding the DOM Tree and Nodes</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/understanding-the-dom-tree-and-nodes",
           },
           {
             citation: (
@@ -904,7 +856,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/how-to-traverse-the-dom" target="_blank">How to Traverse the DOM</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/how-to-traverse-the-dom",
           },
           {
             citation: (
@@ -912,7 +863,6 @@ const baseTopics = [
                 <a href="https://www.digitalocean.com/community/tutorials/how-to-make-changes-to-the-dom" target="_blank">How to Make Changes to the DOM</a>. <em>Digital Ocean</em>
               </>
             ),
-            url: "https://www.digitalocean.com/community/tutorials/how-to-make-changes-to-the-dom",
           },
         ],
       },
@@ -928,41 +878,37 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1BsGKdRM09ZHerZyn6LGcs5nNNLhd9wn7/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="../resources/01-basic-programming/" target="_blank">Basic Programming in JavaScript</a>: Know this material well.
+                <a href="/spring2026/resources/js-01-basic-programming">Basic Programming in JavaScript</a>: Know this material well.
               </>
             ),
-            url: "../resources/01-basic-programming/",
           },
           {
             citation: (
               <>
-                <a href="../resources/02-basic-programming-practice/" target="_blank">Basic programming practice problems</a>
+                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic programming practice problems</a>
               </>
             ),
-            url: "../resources/02-basic-programming-practice/",
           },
           {
             citation: (
               <>
-                <a href="../resources/03-the-dom/" target="_blank">Working with the DOM</a>
+                <a href="/spring2026/resources/js-03-the-dom">Working with the DOM</a>
               </>
             ),
-            url: "../resources/03-the-dom/",
           },
           {
             citation: (
               <>
-                <a href="../resources/04-dom-practice/" target="_blank">DOM practice problems</a>
+                <a href="/spring2026/resources/js-04-dom-practice">DOM practice problems</a>
               </>
             ),
-            url: "../resources/04-dom-practice/",
           },
         ],
       },
@@ -997,7 +943,6 @@ const baseTopics = [
                 Krug, S. (2014). <em>Don’t Make Me Think</em>. (Ch. 1–2 -- selected)
               </>
             ),
-            url: "https://www.sensible.com/dmmt.html",
           },
           {
             citation: (
@@ -1005,7 +950,6 @@ const baseTopics = [
                 Nielsen Norman Group. <em>10 Usability Heuristics</em>. (selected)
               </>
             ),
-            url: "https://www.nngroup.com/articles/ten-usability-heuristics/",
           },
         ],
       },
@@ -1053,7 +997,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1B5kWy0FPGEQihrzGNAuiIOphppY3hrBj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
         ],
         readings: [
           {
@@ -1062,7 +1006,6 @@ const baseTopics = [
                 <a href="https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/" target="_blank">An introduction to HTTP: everything you need to know</a>. Free Code Camp
               </>
             ),
-            url: "https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/",
           },
           {
             citation: (
@@ -1070,7 +1013,6 @@ const baseTopics = [
                 Sign for and download <a href="https://identity.getpostman.com/signup" target="_blank">Postman</a>.
               </>
             ),
-            url: "https://identity.getpostman.com/signup",
           },
         ],
       },
@@ -1087,7 +1029,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/12fe-Y6Vo_Vjtw3zEmdU2_bld4rI_P31s/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Fetch Examples", url: "/course-files/lectures/lecture15.zip", draft: 1 },
         ],
         readings: [
@@ -1097,7 +1039,6 @@ const baseTopics = [
                 Hughes, Noah (2023). <a href="https://dev.to/paperbyte/async-await-vs-fetchthen-20oe" target="_blank">Async Await vs Fetch.Then()</a>.
               </>
             ),
-            url: "https://dev.to/paperbyte/async-await-vs-fetchthen-20oe",
           },
           {
             citation: (
@@ -1105,7 +1046,6 @@ const baseTopics = [
                 <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2" target="_blank">fetch GET examples</a>. Note: this example (and subsequent ones) demonstrate both "then" "async/await" techniques.
               </>
             ),
-            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2",
           },
           {
             citation: (
@@ -1113,7 +1053,6 @@ const baseTopics = [
                 <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-2-4-post-by-silvenleaf-1kmh" target="_blank">fetch POST examples</a>
               </>
             ),
-            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-2-4-post-by-silvenleaf-1kmh",
           },
           {
             citation: (
@@ -1121,7 +1060,6 @@ const baseTopics = [
                 <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-3-4-put-by-silvenleaf-3oe8" target="_blank">fetch PUT examples</a>. Note: PATCH works the same way as PUT. Recall that PATCH only updates specific attributes of a resource while PUT replaces the entire resource with a new version.
               </>
             ),
-            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-3-4-put-by-silvenleaf-3oe8",
           },
           {
             citation: (
@@ -1129,7 +1067,6 @@ const baseTopics = [
                 <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376" target="_blank">fetch DELETE examples</a>.
               </>
             ),
-            url: "https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376",
           },
         ],
       },
@@ -1170,7 +1107,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1neAphwkVry2vBG7mQN9552NgxjITfuGD/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Hands-on React Activity", url: "/activities/react-activity", draft: 1 },
         ],
         readings: [
@@ -1180,7 +1117,6 @@ const baseTopics = [
                 <a href="https://react.dev/learn/describing-the-ui" target="_blank">Describing the UI</a>
               </>
             ),
-            url: "https://react.dev/learn/describing-the-ui",
           },
           {
             citation: (
@@ -1188,7 +1124,6 @@ const baseTopics = [
                 <a href="https://beta.reactjs.org/learn/tutorial-tic-tac-toe" target="_blank">Tic Tac Toe</a>. You are strongly encouraged to do this on your own.
               </>
             ),
-            url: "https://beta.reactjs.org/learn/tutorial-tic-tac-toe",
           },
         ],
       },
@@ -1212,7 +1147,6 @@ const baseTopics = [
                 <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>. Make note of the steps: Break the UI into a component hierarchy, Build a static version in React, Find the minimal but complete representation of UI state (noting the difference between "props" and "state"), Identify where your state should live, Adding "inverse data flow"
               </>
             ),
-            url: "https://beta.reactjs.org/learn/thinking-in-react",
           },
           {
             citation: (
@@ -1220,7 +1154,6 @@ const baseTopics = [
                 <a href="https://beta.reactjs.org/learn/sharing-state-between-components" target="_blank">Sharing state between components</a>
               </>
             ),
-            url: "https://beta.reactjs.org/learn/sharing-state-between-components",
           },
         ],
         optionalReadings: [
@@ -1230,7 +1163,6 @@ const baseTopics = [
                 <a href="https://beta.reactjs.org/learn/synchronizing-with-effects" target="_blank">Synchronizing with effects</a>
               </>
             ),
-            url: "https://beta.reactjs.org/learn/synchronizing-with-effects",
           },
           {
             citation: (
@@ -1238,7 +1170,6 @@ const baseTopics = [
                 <a href="https://beta.reactjs.org/learn/you-might-not-need-an-effect" target="_blank">You might not need an effect</a>
               </>
             ),
-            url: "https://beta.reactjs.org/learn/you-might-not-need-an-effect",
           },
         ],
       },
@@ -1335,7 +1266,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1Egh0uvXTgxzAuf8IUNQQde1B2eGHFkd7/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Lecture files", url: "/course-files/lectures/lecture19.zip", draft: 1 },
         ],
         readings: [
@@ -1345,7 +1276,6 @@ const baseTopics = [
                 <a href="https://books.trinket.io/pfe/index.html" target="_blank">Python for Everybody Textbook</a>, by Charles Severance (if you're new to Python)
               </>
             ),
-            url: "https://books.trinket.io/pfe/index.html",
           },
         ],
       },
@@ -1379,7 +1309,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1M7ss1u1h-6xw5MMtEoUuxZIfpHRhpFVG/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
         ],
         readings: [
           {
@@ -1388,7 +1318,6 @@ const baseTopics = [
                 <a href="https://nickjanetakis.com/blog/server-side-templates-vs-rest-api-and-javascript-front-end" target="_blank">Server Side Templates vs REST API and Javascript Front-End</a>. Janetakis, Nick (Oct., 2017).
               </>
             ),
-            url: "https://nickjanetakis.com/blog/server-side-templates-vs-rest-api-and-javascript-front-end",
           },
           {
             citation: (
@@ -1396,7 +1325,6 @@ const baseTopics = [
                 Avraham, Shif Ben (Sept. 5, 2017). <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f" target="_blank">What is REST — A Simple Explanation for Beginners</a>.
               </>
             ),
-            url: "https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f",
           },
           {
             citation: (
@@ -1404,7 +1332,6 @@ const baseTopics = [
                 Fielding, Roy (2000). <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank">Roy Fielding's original paper</a>. For your reference.
               </>
             ),
-            url: "https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm",
           },
         ],
       },
@@ -1439,7 +1366,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1r_7ezSotkBvf8Ea7qo5CUFwgMO4DGbad/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "Get started on Tutorial 10", url: "/assignments/tutorial10", draft: 1 },
         ],
         readings: [
@@ -1449,7 +1376,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/about/" target="_blank">About PostgreSQL</a>
               </>
             ),
-            url: "https://www.postgresql.org/about/",
           },
           {
             citation: (
@@ -1457,7 +1383,6 @@ const baseTopics = [
                 <a href="https://www.postgresqltutorial.com/psql-commands/" target="_blank">psql commands</a> (command line)
               </>
             ),
-            url: "https://www.postgresqltutorial.com/psql-commands/",
           },
           {
             citation: (
@@ -1465,7 +1390,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/docs/current/tutorial-select.html" target="_blank">Querying a Table</a>
               </>
             ),
-            url: "https://www.postgresql.org/docs/current/tutorial-select.html",
           },
           {
             citation: (
@@ -1473,7 +1397,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/docs/current/tutorial-join.html" target="_blank">Joins Between Tables</a>
               </>
             ),
-            url: "https://www.postgresql.org/docs/current/tutorial-join.html",
           },
           {
             citation: (
@@ -1481,7 +1404,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/docs/current/tutorial-populate.html" target="_blank">Inserts</a>
               </>
             ),
-            url: "https://www.postgresql.org/docs/current/tutorial-populate.html",
           },
           {
             citation: (
@@ -1489,7 +1411,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/docs/current/tutorial-update.html" target="_blank">Updates</a>
               </>
             ),
-            url: "https://www.postgresql.org/docs/current/tutorial-update.html",
           },
           {
             citation: (
@@ -1497,7 +1418,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/docs/current/tutorial-delete.html" target="_blank">Deletions</a>
               </>
             ),
-            url: "https://www.postgresql.org/docs/current/tutorial-delete.html",
           },
           {
             citation: (
@@ -1505,7 +1425,6 @@ const baseTopics = [
                 <a href="https://www.postgresql.org/docs/current/tutorial-agg.html" target="_blank">Aggregate Functions</a>
               </>
             ),
-            url: "https://www.postgresql.org/docs/current/tutorial-agg.html",
           },
         ],
       },
@@ -1523,7 +1442,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1GEvnwQvWJNUIZlQzEjSrAIoblGKhHYsj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
           { title: "SQL Alchemy & Object-Relational Mappings", url: "/activities/intro-sql-alchemy", draft: 1 },
         ],
         readings: [
@@ -1533,7 +1452,6 @@ const baseTopics = [
                 <a href="https://docs.sqlalchemy.org/en/20/orm/queryguide/index.html" target="_blank">SQL Alchemy Documentation</a>
               </>
             ),
-            url: "https://docs.sqlalchemy.org/en/20/orm/queryguide/index.html",
           },
         ],
       },
@@ -1564,7 +1482,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1WFSJ_hvJESjSM-vAGWhV5mQvZXqFnK1j/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { title: "Slides", url: "#", draft: 1 },
         ],
         readings: [
           {
@@ -1573,7 +1491,6 @@ const baseTopics = [
                 <a href="https://www.youtube.com/watch?v=eHqbh0kyRYk" target="_blank">CSRF Explained | Understanding Cross Site Request Forgery | What is XSRF?</a>
               </>
             ),
-            url: "https://www.youtube.com/watch?v=eHqbh0kyRYk",
           },
           {
             citation: (
@@ -1581,7 +1498,6 @@ const baseTopics = [
                 <a href="https://medium.com/@prashantramnyc/difference-between-session-cookies-vs-jwt-json-web-tokens-for-session-management-4be67d2f066e#:~:text=The%20JWT%20tokens%20are%20sometimes,by%20the%20%E2%80%9Csecret%20key%E2%80%9D." target="_blank">Difference between Session Cookies vs. JWT (JSON Web Tokens), for session management</a>
               </>
             ),
-            url: "https://medium.com/@prashantramnyc/difference-between-session-cookies-vs-jwt-json-web-tokens-for-session-management-4be67d2f066e#:~:text=The%20JWT%20tokens%20are%20sometimes,by%20the%20%E2%80%9Csecret%20key%E2%80%9D.",
           },
         ],
       },
@@ -1625,7 +1541,6 @@ const baseTopics = [
                 <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f" target="_blank">How it feels to learn JavaScript in 2016</a>. Jose Aguinaga
               </>
             ),
-            url: "https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f",
           },
           {
             citation: (
@@ -1633,7 +1548,6 @@ const baseTopics = [
                 <a href="https://www.youtube.com/watch?v=Uo3cL4nrGOk" target="_blank">Interview with Senior JS Developer</a> (Parody)
               </>
             ),
-            url: "https://www.youtube.com/watch?v=Uo3cL4nrGOk",
           },
         ],
       },

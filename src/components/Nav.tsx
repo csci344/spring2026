@@ -77,7 +77,7 @@ export default function Navigation() {
             style={isDark ? { color: '#f9fafb' } : undefined}
             suppressHydrationWarning
           >
-            CSCI 373
+            CSCI 344: Spring 2026
           </Link>
         </div>
 

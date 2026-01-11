@@ -122,7 +122,7 @@ export default function Meeting({
               {
               readings.map((reading: Reading, index: number) => {
                   return (
-                  <li key={index} className="mb-2 text-gray-700 dark:text-gray-300">
+                  <li key={index} className="mb-0 text-gray-700 dark:text-gray-300">
                       {reading.citation} {" "}
                       {reading.url && (
                         <a href={reading.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">

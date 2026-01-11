@@ -4,7 +4,6 @@ title: "Practice Quiz 2a"
 
 Quiz 2a will cover [Topic 5](../topics/topic05) and [Topic 6](../topics/topic06), including [Tutorial 4](../assignments/tutorial04) and [Tutorial 5](../assignments/tutorial05). In addition to studying those materials, the best way to study is by complete the practice quizzes (below):
 
-{:.info}
 > ## Written Portion Practice Problems
 > Half of quiz 2a will be paper-based. For this portion, you will not be able to use a computer, but you may bring a 1-page cheatsheet. <a href="https://docs.google.com/document/d/1TaFmHDe2Bozqjbvj2x7_vSj7F8AYdxT7R_9e88iVH2g/edit?usp=sharing" target="_blank">Here are some practice problems</a> that you can use to prepare for the paper portion of the quiz.
 
@@ -18,7 +17,7 @@ Please download the starter files (below) and complete the tasks described below
 Open the `exercise01` folder and add click event handlers to all of the div tags. When a div element is clicked, its background should change color (pick any color you like). When you’re done, your page should look like the demo shown below:
 
 
-<img class="medium frame" src="assets/images/practice-quizzes/quiz02/exercise01.gif" />
+<img class="medium frame" src="/spring2026/images/practice-quizzes/quiz02/exercise01.gif" />
 
 
 ## 2. Draw a Monster
@@ -43,7 +42,7 @@ drawMonster(550, 200, 250, '#7fb285', false);
 
 ...the image pictured below should be drawn to the screen:
 
-<img class="medium frame" src="assets/images/practice-quizzes/quiz02/exercise02.png" />
+<img class="medium frame" src="/spring2026/images/practice-quizzes/quiz02/exercise02.png" />
 
 **Implementation suggestions (optional):** 
 * Use p5.js's built-in <a href="https://p5js.org/reference/#/p5/rect">rect function</a>.
@@ -64,7 +63,7 @@ Open the `exercise03` folder and examine all of the files. Inside of `main.js`, 
     * Days (i.e., which days does the course meet?)
 3. Location and Days may be `null`. That's OK for this exercise (though in real life, you'd probably want to output a friendlier message).
 
-<img class="medium frame" src="assets/images/practice-quizzes/quiz02/exercise03.png" />
+<img class="medium frame" src="/spring2026/images/practice-quizzes/quiz02/exercise03.png" />
 
 **Hints**
 * Loop through the `courses` array.
@@ -89,7 +88,7 @@ Open the `exercise03` folder and examine all of the files. Inside of `main.js`, 
 ## 4. DOM Manipulation 
 Open the `exercise04` folder and add event handlers to all of the buttons. When a button is clicked, the image tag should display the corresponding animal (see the `images` folder), and there should be a label below the image describing the picture. When you're done, your page should look like the animation shown below:
 
-<img class="medium frame" src="assets/images/practice-quizzes/quiz02/animals.gif" />
+<img class="medium frame" src="/spring2026/images/practice-quizzes/quiz02/animals.gif" />
 
 ## 5. Functions
 Open the `exercise05` folder and create a function called `drawElmo` that draws a picture of Elmo. The function should have the following parameters defined (in order):
@@ -119,14 +118,14 @@ drawElmo(550, 200, 250, '#102e4a', true);   // nose drawn
 
 ...the image pictured below should be drawn to the screen:
 
-<img class="medium frame" src="assets/images/practice-quizzes/quiz02/elmos.png" />
+<img class="medium frame" src="/spring2026/images/practice-quizzes/quiz02/elmos.png" />
 
 
 ## 6. Loops + Conditionals
 
 Open the `exercise06` folder. Inside of `main.js`, write a program, using any kind of loop you want, that draws all of the pictures to the screen where the `is_favorite` property is set to true. You don't have to worry about formatting (the CSS), so long as following 8 images are displayed:
 
-<img class="medium frame" src="assets/images/practice-quizzes/quiz02/photos.png" />
+<img class="medium frame" src="/spring2026/images/practice-quizzes/quiz02/photos.png" />
 
 **Hints**
 * Loop through the `photos` array.

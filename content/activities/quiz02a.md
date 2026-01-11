@@ -3,11 +3,6 @@ title: "Quiz 2a: JavaScript Programming with the DOM"
 draft: 1
 ---
 
-<style>
-    li .highlight {
-        line-height: 1.2rem;
-    }
-</style>
 
 
 ## Paper Quiz 
@@ -42,7 +37,7 @@ csci344
 
 See the animation below:
 
-<img class="medium frame" src="assets/images/quizzes/quiz02a/task01.gif" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz02a/task01.gif" />
 
 ## Task 2: Add the Same Card
 1. Open the `task02` folder. 
@@ -62,7 +57,7 @@ See the animation below:
 
 See the animation below:
 
-<img class="medium frame" src="assets/images/quizzes/quiz02a/task02.gif" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz02a/task02.gif" />
 
 ## Task 3: Add a Card for Each Track 
 1. Open the `task03` folder. 
@@ -72,7 +67,7 @@ See the animation below:
 See the demo shown below:
 
 
-<img class="medium frame" src="assets/images/quizzes/quiz02a/task03.gif" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz02a/task03.gif" />
 
 
 ## Extra Credit: Filter the Tracks (Up to 10 Points)
@@ -82,7 +77,7 @@ See the demo shown below:
 See the demo shown below:
 
 
-<img class="medium frame" src="assets/images/quizzes/quiz02a/task04-ec.gif" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz02a/task04-ec.gif" />
 
 
 
@@ -101,6 +96,5 @@ Verify that you've completed **all 3 of the required tasks** (and the one option
 
 If your GitHub is not working for whatever reason, just zip your **COMPLETED** `quiz02a` folder and upload it to the Moodle.
 
-{:.info}
 > #### A note on timestamps
 > When I am grading the quiz, I will look at the timestamps for your Quiz 2 submission on GitHub to ensure that I am only grading code that was submitted before the end of class on the day of the quiz.

@@ -5,14 +5,6 @@ points: 20
 due_date: 2026-05-04
 ---
 
-<style>
-    img.preview {
-        max-width: 60%;
-        min-width: 500px;
-    }
-</style>
-
-{:.info}
 > ## Ground Rules
 > Please read the following instructions carefully:
 > * You may use past code you wrote, course sample files, the Internet, and your notes to complete this exam.
@@ -30,7 +22,7 @@ After completing the <a href="">paper-based exam</a>, please complete **2 of the
 ## 1. Dynamically Adding Images
 Open the `exercise01` folder and add event handlers to the "Add Cat" and "Add Dog" buttons so that animal images get appended to the **`<section id="animals"></section>`** element, as shown in the animation below:
 
-<img class="medium frame" src="assets/images/quizzes/quiz-makeups/animal-additions.gif" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz-makeups/animal-additions.gif" />
 
 ### Hints
 Within each of your function definitions...
@@ -40,11 +32,11 @@ Within each of your function definitions...
 ## 2. Concentric Squares
 Open the `exercise02` folder and preview `index.html` in the browser. Note that it shows the following image...
 
-<img class="medium frame" src="assets/images/quizzes/quiz-makeups/squares-before.png" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz-makeups/squares-before.png" />
 
 Your job is to modify the `drawSquares(...)` **function definition** so that it honors the parameters. If you did it correctly, your picture should look like the image below:
 
-<img class="medium frame" src="assets/images/quizzes/quiz-makeups/squares-after.png" />
+<img class="medium frame" src="/spring2026/images/quizzes/quiz-makeups/squares-after.png" />
 
 
 ## 3. Functions & Loops
@@ -58,7 +50,7 @@ Open the `exercise03` folder and examine all of the files. Inside of `main.js`, 
     * Days (i.e., which days does the course meet?)
 3. Location and Days may be `null`. That's OK for this exercise (though in real life, you'd probably want to output a friendlier message).
 
-<img class="large frame" src="assets/images/quizzes/quiz-makeups/courses.png" />
+<img class="large frame" src="/spring2026/images/quizzes/quiz-makeups/courses.png" />
 
 **Hints**
 * Loop through the `courses` array.

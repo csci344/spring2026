@@ -2,7 +2,7 @@
 title: "HTML Exercises"
 type: "tutorial"
 num: 1
-draft: 0
+draft: 1
 assigned_date: "2026-01-26"
 due_date: "2026-01-28"
 heading_max_level: 3

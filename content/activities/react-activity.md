@@ -11,17 +11,14 @@ num: 4
 
 ## 1. Don't forget to do the readings
 
-{:.info}
 > ### Monday
 > * <span class="update">Required</span> <a href="https://react.dev/learn/describing-the-ui" target="_blank">Describing the UI</a>
 > * <span class="update">Recommended</span> <a href="https://beta.reactjs.org/learn/tutorial-tic-tac-toe" target="_blank">Tic Tac Toe</a>. You are strongly encouraged to do this on your own.
-> {:.compact}
-> 
+> > 
 > ### Wednesday
 > * <span class="update">Required</span> <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>
 > * <span class="update">Required</span> <a href="https://beta.reactjs.org/learn/sharing-state-between-components" target="_blank">Sharing state between components</a>
-> {:.compact}
-
+> 
 
 ## 2. Setup
 1. Open your entire `csci344` folder in VS Code.

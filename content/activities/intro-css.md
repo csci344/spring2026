@@ -8,11 +8,6 @@ include_pages:
     - extras/css_cheatsheet.md
 ---
 
-<style>
-    .tips td:first-child, .tips th:first-child {
-        width: 200px;
-    }
-</style>
 
 Please download the exercise files (below).
 
@@ -20,11 +15,10 @@ Please download the exercise files (below).
 
 Then, use the CSS Property Cheatsheet (below) and what you've learned about selectors to make the following drawing:
 
-<img class="large" src="assets/images/activities/intro-css/gallery.png" />
+<img class="large" src="/spring2026/images/activities/intro-css/gallery.png" />
 
 ### Tips
 
-{:.tips}
 | Property | Tip |
 |--|--|
 | body * { <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border: solid 1px black;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding: 5px;<br>} | To make debugging easier, turn on the borders for all elements (temporarily). |  

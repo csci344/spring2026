@@ -9,11 +9,11 @@ heading_max_level: 3
 
 For those of you who are rusty on programming, please complete the following "crash course" on programming. The course covers some of the basic concepts in computer programming using JavaScript. After taking a look at these resources, please complete the practice exercises using Node.js:
 
-1. [Data](#step1)
-1. [Expressions & Statements](#step2)
-1. [Control](#step3)
-1. [Arrays](#step4)
-1. [Objects & Classes](#step5)
+1. [Data](#1-data)
+1. [Expressions & Statements](#2-expressions--statements)
+1. [Control](#3-control)
+1. [Arrays](#4-arrays)
+1. [Objects & Classes](#5-objects--classes)
 
 ## 1. Data
 ### Data Types
@@ -168,7 +168,7 @@ See <a href="https://www.w3schools.com/js/js_comparisons.asp" target="_blank">W3
 #### Logical Operators
 
 | Operator | Meaning | Explanation |
-|--|--|
+|--|--|--|
 | && | and | If both operands are true, then the "and expression" also evaluates to true. Otherwise, the "and expression" evaluates to false. | 
 | \|\| | or | If either or both of the operands are true, then the "or expression" also evaluates to true. Otherwise, the "or expression" evaluates to false.  |
 | ! | not | if the operand is false, then the "not" of the operand is true (and vice versa). |
@@ -177,7 +177,7 @@ See <a href="https://www.w3schools.com/js/js_comparisons.asp" target="_blank">W3
 Assignment operators are used to assign values to variables. Here are some of the most common assignment operators:
 
 | Operator | Meaning | Explanation |
-|--|--|
+|--|--|--|
 | = | assignment | Assign the value on the right of the `=` to the variable on the left of the `=`. | 
 | += | add and assign | Adds the value of a variable by a specified value and then assigns the result back to that variable.  |
 | -= | subtract and assign | Subtracts the value of a variable by a specified value and then assigns the result back to that variable.  |
