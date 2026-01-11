@@ -30,6 +30,7 @@ export interface MeetingData {
   readings?: Reading[];
   optionalReadings?: Reading[];
   holiday?: boolean;
+  exam?: boolean;
   discussionQuestions?: string;
   assigned?: Assignment | string;
   due?: Assignment | string;
@@ -52,7 +53,7 @@ export default function Meeting({
   const hasMoreDetails = hasActivities || hasReadings;
   const hasDiscussionQuestions = 'discussionQuestions' in meeting && meeting.discussionQuestions;
   const isHoliday = 'holiday' in meeting && meeting.holiday;
-
+  const isExam = 'exam' in meeting && meeting.exam;
   useEffect(() => {
     // Check if dark mode is active
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -181,14 +182,37 @@ export default function Meeting({
         )
     }
     return ``
+  }
+
+  function getMeetingContainerStyles() {
+    const className = clsx("flex justify-between gap-4 border-b border-black dark:border-gray-800 pt-4 pb-2", {
+      'bg-gray-100 dark:bg-gray-800': isHoliday,
+      'bg-yellow-50 dark:bg-yellow-900/20': isExam
+    });
+
+    let style: React.CSSProperties | undefined = undefined;
+    
+    if (isDark) {
+      if (isHoliday) {
+        style = { borderColor: '#1f2937', backgroundColor: '#1f2937' };
+      } else if (isExam) {
+        style = { borderColor: '#1f2937', backgroundColor: '#78350f' }; // dark yellow background
+      } else {
+        style = { borderColor: '#1f2937' };
+      }
+    } else if (isExam) {
+      style = { backgroundColor: '#fefce8' }; // light yellow background
+    }
+
+    return { className, style };
   } 
+
+  const { className: containerClassName, style: containerStyle } = getMeetingContainerStyles();
 
   return (
     <div 
-      className={clsx("flex justify-between gap-4 border-b border-black dark:border-gray-800 pt-4 pb-2", {
-        'bg-gray-100 dark:bg-gray-800': isHoliday
-      })}
-      style={isDark ? (isHoliday ? { borderColor: '#1f2937', backgroundColor: '#1f2937' } : { borderColor: '#1f2937' }) : undefined}
+      className={containerClassName}
+      style={containerStyle}
     >
         <div className={clsx("flex gap-4", {
             'flex-col': showDetails,

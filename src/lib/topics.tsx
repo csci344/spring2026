@@ -708,11 +708,11 @@ const baseTopics = [
       },
       {
         date: "We, Feb 6",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, Feb 8",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -752,11 +752,12 @@ const baseTopics = [
       },
       {
         date: "We, Feb 11",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, Feb 13",
-        topic: "Lab"
+        topic: "Exam 1: Web Architecture, HTML, CSS, and Accessibility",
+        exam: true,
       },
     ],
   },
@@ -867,8 +868,12 @@ const baseTopics = [
         ],
       },
       {
-        date: "Fr, Feb 20",
-        topic: "JavaScript Review",
+        date: "Fri, Feb 20",
+        topic: "Tutorial"
+      },
+      {
+        date: "Mo, Feb 23",
+        topic: "Overview of the JavaScript Language + Basic Programming",
         description: (
           <>
             <ul>
@@ -917,63 +922,29 @@ const baseTopics = [
 
   {
     id: 7,
-    title: "UX, Prototyping, and Revisiting Assumptions",
+    title: "Functional Programming",
     description:
-      "Introduce HCD and low-fidelity prototyping once technical fluency exists. Use critique to surface mismatches between user intent and current implementation.",
+      "Functional programming is a programming paradigm that emphasizes immutability, pure functions, and composition over state and side effects. In this unit, we will explore the principles of functional programming and how they can be applied to JavaScript.",
     meetings: [
       {
-        date: "Mo, Feb 23",
-        topic: "Human-centered design + low-fi prototyping",
+        date: "We, Feb 25",
+        topic: "Higher Order Functions",
         description: (
           <>
             <ul>
-              <li>Intro to HCD</li>
-              <li>Create low-fidelity prototypes (paper or Figma) for a targeted flow</li>
-              <li>Studio critique: identify mismatches between current UI/system behavior and user goals</li>
+              <li>Intro to functional programming</li>
+              <li>Higher order functions</li>
+              <li>forEach, map, filter, reduce</li>
             </ul>
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                Krug, S. (2014). <em>Don’t Make Me Think</em>. (Ch. 1–2 -- selected)
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                Nielsen Norman Group. <em>10 Usability Heuristics</em>. (selected)
-              </>
-            ),
-          },
-        ],
-      },
-      {
-        date: "We, Feb 25",
-        topic: "Iterate based on prototype + review focus on assumptions",
-        description: (
-          <>
-            <ul>
-              <li>Studio: revise a flow or UI element based on prototype critique</li>
-              <li>Review focus shifts: assess user assumptions and flow clarity (not code style)</li>
-            </ul>
-          </>
-        ),
-        assigned: {
-          titleShort: "HW6",
-          title: "Low-Fi + Hi-Fi Prototypes + UX Implementation",
-          url: "/assignments/hw06-lowfi-prototype/",
-          draft: 1,
-        },
+        ]
       },
       {
         date: "Fr, Feb 27",
-        topic: "Lab"
+        topic: "Tutorial 6: Higher Order Functions"
       },
     ],
   },
@@ -1072,7 +1043,7 @@ const baseTopics = [
       },
       {
         date: "Fr, Mar 6",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1175,7 +1146,7 @@ const baseTopics = [
       },
       {
         date: "Fr, Mar 25",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1237,11 +1208,11 @@ const baseTopics = [
       },
       {
         date: "We, Mar 29",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, Apr 1",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1281,11 +1252,11 @@ const baseTopics = [
       },
       {
         date: "We, Apr 5",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, Apr 7",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1294,7 +1265,7 @@ const baseTopics = [
     id: 13,
     title: "Servers",
     description:
-      "Server-side architectures define how web applications process requests and serve responses from the server. This includes understanding client-server models, HTTP request-response cycles, and technologies like RESTful APIs and GraphQL. A solid grasp of server-side architecture is essential for building scalable and efficient web applications.",
+      "Server-side architectures define how web applications process requests and serve responses from the server. This includes understanding client-server models, HTTP request-response cycles, and technologies like RESTful APIs and GraphQL. A solid grasp of server-side architecture is essential for building scaTutorialle and efficient web applications.",
     meetings: [
       {
         date: "Mo, Apr 6",
@@ -1337,11 +1308,11 @@ const baseTopics = [
       },
       {
         date: "We, Apr 8",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, Apr 10",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1457,7 +1428,7 @@ const baseTopics = [
       },
       {
         date: "Fr, Apr 19",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1503,11 +1474,11 @@ const baseTopics = [
       },
       {
         date: "We, Apr 24",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, Apr 26",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
@@ -1553,11 +1524,11 @@ const baseTopics = [
       },
       {
         date: "We, Apr 29",
-        topic: "Lab"
+        topic: "Tutorial"
       },
       {
         date: "Fr, May 1",
-        topic: "Lab"
+        topic: "Tutorial"
       },
     ],
   },
