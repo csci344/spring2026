@@ -1,36 +1,24 @@
 ---
 title: Syllabus
-course: "CSCI 344: Advanced Web Technology"
-term: "Spring 2026"
-email: svanwart@unca.edu
-prerequisites: "CSCI182 or CSCI183 or CSCI185 or CSCI201 or instructor permission."
-office_hours: "Mo, We, Fr 3:30pm - 4:30pm, RRO 220"
-professor: "Dr. Sarah Van Wart (she/her)"
-time: "MWF 12:30-1:45PM"
-location: WHI 008
-notes: "One year of programming experience is strongly recommended."
+heading_max_level: 3
 ---
 
-<style>
-    blockquote.update {
-        margin-top: 0;
-        background-color: rgba(198, 236, 174, 0.5);
-        border-color: rgb(148, 201, 169);
-    }
-    blockquote.update h2 {
-        border-color: rgb(148, 201, 169);
-    }
-    blockquote.update a:hover {
-        background-color: transparent;
-    }
-</style>
-
+| | |
+|-------|-------|
+| **Course** | CSCI 344: Advanced Web Technology |
+| **Term** | Spring 2026 |
+| **Professor** | Dr. Sarah Van Wart (she/her) |
+| **Email** | svanwart@unca.edu |
+| **Office Hours** | MWF 3:30pm - 4:30pm, RRO 220 |
+| **Class Time / Location** | MWF 2:00-3:15PM, WHI 008 |
+| **Prerequisites** | CSCI 201 or instructor permission |
+| **Notes** | One year of programming experience is strongly recommended |
 
 ## About the Course
 What does it take to build a website from scratch? How do designers create web interfaces? How do websites send, store, and leverage different kinds of data? What is a "framework"? This course aims to answer these questions by giving students exposure to the technologies and strategies used by professional web developers in industry. Throughout the semester, students will learn the basics of creating web applications, including building a web server and REST API, setting up a database, designing usable interfaces, and implementing security and authentication measures.
 
 ## Course Format
-The course includes a mix of lectures, in-class activities, tutorials, quizzes, and homework. It is your responsibility to keep up-to-date on class material and announcements, as the schedule is subject to change. This includes material presented and announcements made in class, via email, or on Moodle.
+The course includes a mix of lectures, in-class activities, tutorials, exams, and homework. It is your responsibility to keep up-to-date on class material and announcements, as the schedule is subject to change. This includes material presented and announcements made in class, via email, or on Moodle.
 
 <!-- topics and labs here -->
 <!-- Schedule will be displayed from topics.tsx -->
@@ -46,10 +34,10 @@ Most Fridays, we will complete a coding / design "tutorial." Tutorials are inten
 1. Get comfortable writing lots of programs (practice makes perfect!)
 1. Assess what you know and don't know, so that you can make a plan to review various ideas and/or attend office hours.
 
-### Quizzes (30%)
-There will be 3 quizzes, which are intended to ensure that you understand the programming and web-related concepts relevant to the course. 
+### Exams (35%)
+There will be 3 exams, which are intended to ensure that you understand the programming and web-related concepts relevant to the course. 
 
-### Homework (40%)
+### Homework (35%)
 You will be given regular homework assignments that are intended to give you additional practice with the course ideas beyond the tutorials. They are each designed to take between **6-8 hours** to complete, so leave yourself enough time!
 
 ## Expectations
@@ -75,11 +63,11 @@ As this is a programming course, you will be using the free software programs li
 ### Course References
 I have compiled a list of web-based reference materials on the course website:
 
-* [HTML Resources](/resources/html-resources)
-* [CSS Resources](/resources/css-reference)
-* [JavaScript Resources](/resources/js-concepts)
-* [Design Resources](/resources/design)
-* [Accessibility Resources](/resources/accessibility)
+* [HTML Resources](/spring2026/resources/html-00-intro)
+* [CSS Resources](/spring2026/resources/css-00-intro)
+* [JavaScript Resources](/spring2026/resources/js-00-intro)
+* [Design Resources](/spring2026/resources/design-02-resources)
+* [Accessibility Resources](/spring2026/resources/design-01-accessibility)
 
 Before each class, you may be assigned some videos, readings, or tutorial links from this resource guide, which will cover specific concepts and ideas that we will be practicing during lecture. Please set aside time to review these materials, as they will make the assignments easier!
 
@@ -99,14 +87,14 @@ You may also talk to me about concerns about your progress in the course, person
 
 
 ## Grading
-Your course grade is calculated based on homework, quizzes, tutorials, and attendance / participation:
+Your course grade is calculated based on homework, exams, tutorials, and attendance / participation:
 
 | | |
 |--|--|
 | **Attendance & Participation** | 10% |
 | **Tutorials** | 20% |
-| **Quizzes** | 30% |
-| **Homework** | 40% |
+| **Exams** | 35% |
+| **Homework** | 35% |
 
 Final grades are assigned on a fixed scale: 93-100 is 
 an A, 90-92.99 is an A-, 87-89.99 is a B+, etc. Final course grades will not be rounded or curved.
@@ -123,12 +111,7 @@ Homework will be due approximately every other week at 11:59pm on the specified 
 
 #### Late Policy
 Homework assignments must be submitted before the due time. Late work will be accepted within 2 weeks of the due date/time, with a 20% late penalty. No homework will be accepted beyond the 14 day cutoff.
- 
-#### Resubmission Policy
-If you did not successfully complete the objectives of a homework assignment, you may correct your errors and resubmit. However, your grade will be penalized 10% with each subsequent attempt. 
-Some example scenarios:
-* **Scenario 1:** I earn 60% on my homework assignment and decide to resubmit. I earn a 90% on my second attempt. My final HW score is an 80%.
-* **Scenario 2:** I earn an 80% on HW1 but turn it in late (so 20% late penalty applied = 60%). I decide to resubmit and earn an 100% on my second attempt. But, 20% penalty + 10% resubmit penalty applied, so I earn a 70%.
+
 
 ### Tutorial Grading
 Tutorials will be graded according to the following scale (from 0-3 points):
@@ -142,8 +125,8 @@ Tutorials will be graded according to the following scale (from 0-3 points):
 
 Tutorials are due at the midnight following the next class meeting. For instance, if the tutorial was assigned on Friday, it is due at midnight the following Monday unless otherwise specified. **I do not accept late tutorials**.
 
-### Quizzes
-There will be 3 quizzes over the course of the semester. The purpose of these assessments is to ensure that you understand the programming and design concepts that we have been studying. The final quiz will happen during the scheduled final exam time slot.
+### Exams
+There will be 3 exams over the course of the semester. The purpose of these assessments is to ensure that you understand the programming and design concepts that we have been studying. The final exam will happen during the scheduled final exam time slot.s
 
 ### Regrading Policy
 I have been known to make the occasional grading error. If you have any grading questions/concerns, please email me within a week to resolve the issue.
@@ -167,38 +150,81 @@ You are allowed and encouraged to discuss general approaches to solving problems
 * While working with other students, it is perfectly acceptable to 'look' at each other's code (perhaps while helping someone to debug), but you should NEVER be scribing (typing or writing) your own work while looking at someone else's (on a computer screen, paper, whiteboard, etc.).
 * Uploading materials from this course to websites that sell such content to students is prohibited by UNCA's academic integrity policies, and may also put you at risk for violating copyright policies in UNCA's Student Conduct Code.
 
-### ChatGPT Policy (adapted from Boston University)
+### Generative AI Policy
 
-#### Students shall...
-* Give credit to AI tools whenever used, even if only to generate ideas rather than usable text or code.
-* When using AI tools on assignments, add an appendix showing:
-    1. the entire exchange, highlighting the most relevant sections
-    2. a description of precisely which AI tools were used (e.g. ChatGPT private subscription version, CoPilot, etc.)
-    3. an explanation of how the AI tools were used (e.g. to generate ideas, understand functions or coding ideas, etc.)
-    4. an account of why AI tools were used (e.g. to save time, to to stimulate thinking, to handle mounting stress, to clarify prose, to experiment for fun, etc.).
-* **Not use AI tools during in-class examinations or quizzes** unless explicitly permitted and instructed.
-* Use AI tools wisely and intelligently, aiming to deepen understanding of subject matter and to support learning.
+This course is designed to build **foundational programming skills**, especially functional and event-driven programming. While generative AI tools can be useful for learning, over-reliance on AI-generated code can weaken these skills and make later courses more difficult. For that reason, this policy sets clear boundaries for appropriate AI use.
 
-#### I (Sarah) shall...
-* Seek to understand the strengths and weaknesses or AI tools for teaching and learning, to optimize their value for student learning.
-* Impose a significant penalty for:
-    1. using code that you do not understand and/or cannot clearly explain.
-    2. low-energy or unreflective reuse of material generated by AI tools and/or merely reproducing the output from AI tools.
-    3. using antiquated language features or antipatterns (e.g., using "var," using floats or tables for page layouts, etc.).
 
-#### This policy recognizes that...
-* This policy depends on goodwill, a sense of fairness, and honorable character.
-* This policy takes account of the existence of subscription versions of AI tools, which are not affordable for some students; the policy may need to be revised as the differences between subscription and free versions become better understood.
-* This policy may be revised in light of other policies and novel technological developments in AI tools.
- 
-Contact Sarah Van Wart if you have any questions about what is appropriate.
+#### What *Is* Allowed
 
-#### Using the Broader Web for Code and Ideas
-In this class, I encourage you to explore the broader web for tutorials, code samples, new coding techniques, libraries, etc. After all, learning how to build websites is all about studying existing websites and how the work! That said, you must **acknowledge all sources contributing to your work.**  If you receive any assistance from any source (Internet, peer, social media, ChatGPT, etc.), please describe your source and that source's contribution(s). If you have any questions about this, please don't hesitate to contact me.
+You **may** use generative AI tools (e.g., ChatGPT) as a **reference**, similar to documentation or a textbook. Examples include:
 
-Students violating the academic honesty policy on an assignment or quiz will receive a grade of 0 on that assignment/quiz for the first offense, and will receive a grade of "F" in the course for the second offense. This will apply to all students involved in the violation, including both the source student and the copying student. It is your responsibility to ensure that your work is not used by other students.
+- Looking up programming concepts or syntax  
+- Getting explanations of how functions or methods work  
+- Understanding error messages and debugging ideas  
+- Learning best practices or common coding patterns  
 
-All cases of academic dishonesty will be reported to the university administration.
+AI may help you *understand* code, but **you must write all submitted code yourself**.
+
+> **Rule of thumb:** If you could not reasonably reproduce the solution without referring back to the AI’s output, then the use is not permitted.
+
+
+#### What Is *Not* Allowed
+
+You **may not** use generative AI tools to:
+
+- Generate any assignment-specific code, including small snippets, helper functions, or scaffolding  
+- Solve coding exercises or assignment problems  
+- Write functions, components, or other substantial code blocks  
+- Provide solutions that you then modify and submit  
+
+**All code you submit must be your own.** Copying, pasting, or adapting AI-generated code is considered academic dishonesty.
+
+
+### Code Editor AI Tools
+
+You **must disable AI-powered code completion and generation features** in your code editor (e.g., GitHub Copilot, Copilot Chat, Cursor, Tabnine, Codeium) while working on course assignments.
+
+It is your responsibility to ensure these features are turned off before beginning work. Accidental use still counts as a violation, even if you only accept a few suggestions. If you are unsure how to disable these tools, please ask for help.
+
+
+
+### Disclosure and Learning-Based Resolution
+
+If you believe you may have violated this policy **unintentionally**, or you are unsure whether a particular use of AI crossed the line, you must contact me **before submitting the assignment**.
+
+In many cases, early and honest disclosure allows us to resolve the issue in a learning-focused way, such as revising the work, completing an alternative assignment, or discussing appropriate AI use -- **without triggering formal penalties**.
+
+This disclosure pathway does **not** apply to cases of intentional misuse, repeated violations, or undisclosed AI use discovered after submission. Once an assignment is submitted, any undisclosed violations will be handled according to the enforcement policy below.
+
+If you are unsure, ask. Reaching out early is always the better option.
+
+
+### If You Are Struggling
+
+If you are stuck or confused, please reach out or attend office hours. This policy exists to support your learning -- not to catch mistakes -- but it will be enforced to protect the integrity of your education.
+
+
+
+### Enforcement
+
+- **First violation:** Grade of 0 on the assignment and a required meeting  
+- **Second violation:** Grade of **F** in the course  
+
+All violations will be handled according to the university’s academic honesty policy and reported to the university administration.
+
+
+
+### Using the Broader Web
+
+You are encouraged to explore tutorials, documentation, and examples from the broader web. However:
+
+- You must acknowledge all sources that contribute to your work  
+- All submitted code must be written by you  
+- Copying code from Stack Overflow, GitHub, or other sources without proper understanding and attribution is not acceptable  
+
+If you have questions about what is appropriate, contact **Sarah Van Wart**.
+
 
 ### Class Cancellation Policy
 If a class meeting is canceled or due dates are moved due to inclement weather or any other reason, I will inform you via campus email (ending with unca.edu).

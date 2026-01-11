@@ -2,221 +2,195 @@
   "questions": [
     {
       "id": "q1",
-      "question": "What is the central philosophy of this course?",
+      "question": "According to the AI policy, which of the following uses of generative AI is ALLOWED?",
       "options": [
-        "Traditional lecture-driven learning with isolated technical mastery",
-        "Studio-based software development experience building real software for a real client",
-        "Individual project work with no collaboration",
-        "Focus on theoretical concepts without practical application"
+        "Using AI to look up programming concepts or syntax, similar to using documentation",
+        "Using GitHub Copilot to write code for a tutorial",
+        "Using ChatGPT to generate a helper function for your homework assignment",
+        "Using AI to generate code that you then modify and submit"
       ],
-      "correct": 1,
-      "explanation": "This course is designed as a studio-based software development experience where students work as a development team building real software for a real client, operating under real technical, organizational, and time constraints."
+      "correct": 0,
+      "explanation": "You may use generative AI tools (e.g., ChatGPT) as a reference, similar to documentation or a textbook. This includes looking up programming concepts or syntax, getting explanations of how functions work, understanding error messages, and learning best practices. However, you must write all submitted code yourself."
     },
     {
       "id": "q2",
-      "question": "What are the two main phases of the course?",
+      "question": "What is the rule of thumb for determining if your use of AI is permitted?",
       "options": [
-        "Planning and Implementation",
-        "Design and Testing",
-        "Software Design Foundations (Weeks 1-8) and Building New Features (Weeks 9-15)",
-        "Individual Work and Team Work"
+        "If you understand the AI-generated code, it's allowed",
+        "If you could not reasonably reproduce the solution without referring back to the AI's output, then the use is not permitted",
+        "If the AI tool is free to use, it's allowed",
+        "If you modify the AI-generated code, it's allowed"
       ],
-      "correct": 2,
-      "explanation": "The course is organized into Phase 1: Software Design Foundations (Weeks 1-8) where teams work on similar features using a shared starter system, and Phase 2: Building New Features (Weeks 9-15) where teams work on distinct vertical feature slices in a shared codebase."
+      "correct": 1,
+      "explanation": "The rule of thumb states: If you could not reasonably reproduce the solution without referring back to the AI's output, then the use is not permitted. This helps you determine whether your use of AI crosses the line from reference to code generation."
     },
     {
       "id": "q3",
-      "question": "What is the primary goal of Phase 1 (Software Design Foundations)?",
+      "question": "What must you do with AI-powered code completion features in your code editor (like GitHub Copilot, Cursor, Tabnine) when working on course assignments?",
       "options": [
-        "To build as many features as possible",
-        "To focus on process, coordination, and reasoning rather than feature differentiation",
-        "To work independently without collaboration",
-        "To learn only backend development"
+        "You can use them for tutorials but not homework",
+        "You can use them if you understand the generated code",
+        "You must disable them completely",
+        "You can use them as long as you only accept a few suggestions"
       ],
-      "correct": 1,
-      "explanation": "During Phase 1, all teams work on similar features and problems. This deliberate constraint allows students to focus on process, coordination, and reasoning, rather than feature differentiation."
+      "correct": 2,
+      "explanation": "You must disable AI-powered code completion and generation features in your code editor (e.g., GitHub Copilot, Copilot Chat, Cursor, Tabnine, Codeium) while working on course assignments. Accidental use still counts as a violation, even if you only accept a few suggestions."
     },
     {
       "id": "q4",
-      "question": "What is the client context for this course?",
+      "question": "What happens if you unintentionally violate the AI policy and contact the instructor BEFORE submitting the assignment?",
       "options": [
-        "A social media platform",
-        "An e-commerce website",
-        "A cross-platform application supporting parents of young children with motor delays and clinicians",
-        "A gaming application"
+        "The issue can often be resolved in a learning-focused way without triggering formal penalties",
+        "You automatically receive a grade of 0 on the assignment",
+        "No action is taken",
+        "You receive a grade of F in the course"
       ],
-      "correct": 2,
-      "explanation": "Students will collaborate with a real-world client focused on supporting parents of young children with motor delays. The project involves building a cross-platform application (web and mobile) using PostgreSQL, FastAPI, React, and React Native."
+      "correct": 0,
+      "explanation": "If you believe you may have violated this policy unintentionally, or you are unsure whether a particular use of AI crossed the line, you must contact the instructor before submitting the assignment. In many cases, early and honest disclosure allows resolution in a learning-focused way (such as revising the work or completing an alternative assignment) without triggering formal penalties."
     },
     {
       "id": "q5",
-      "question": "What is emphasized in Phase 2 (Building New Features)?",
+      "question": "According to the AI policy, which of the following is NOT allowed?",
       "options": [
-        "Working on similar features as other teams",
-        "Individual work without collaboration",
-        "Collaboration at scale, integration and coordination, managing tradeoffs",
-        "Avoiding client interaction"
+        "Using AI to generate any assignment-specific code, including small snippets or helper functions",
+        "Using AI to understand error messages",
+        "Using AI to get explanations of how functions work",
+        "Using AI to look up programming concepts"
       ],
-      "correct": 2,
-      "explanation": "Phase 2 emphasizes collaboration at scale, integration and coordination, managing tradeoffs between scope, quality, and time, and delivering a coherent product to a real stakeholder."
+      "correct": 0,
+      "explanation": "You may not use generative AI tools to generate any assignment-specific code, including small snippets, helper functions, or scaffolding. You also cannot use AI to solve coding exercises, write functions/components, or provide solutions that you then modify and submit."
     },
     {
       "id": "q6",
-      "question": "Why is regular attendance essential in this course?",
+      "question": "What is the late policy for homework assignments?",
       "options": [
-        "Because all lectures are recorded and attendance is optional",
-        "Because learning depends heavily on in-person participation, critique, and collaboration",
-        "Because there are no assignments outside of class",
-        "Because the final exam is worth 100% of the grade"
+        "Late homework is accepted with a 10% penalty, no time limit",
+        "Late homework is not accepted under any circumstances",
+        "Late homework is accepted with no penalty if you contact the instructor first",
+        "Late homework is accepted within 2 weeks with a 20% penalty, but no work is accepted beyond 14 days"
       ],
-      "correct": 1,
-      "explanation": "Because this is a studio course, learning depends heavily on in-person participation, critique, and collaboration. Many skills required to deliver value to a client can only be practiced in a shared, synchronous setting."
+      "correct": 3,
+      "explanation": "Homework assignments must be submitted before the due time. Late work will be accepted within 2 weeks of the due date/time, with a 20% late penalty. No homework will be accepted beyond the 14 day cutoff."
     },
     {
-        "id": "q7",
-        "question": "What happens after three (3) unexcused absences?",
-        "options": [
-          "The student is automatically withdrawn from the course",
-          "The student receives a formal warning that they are at risk of failing the course",
-          "No action is taken",
-          "The student's grade is automatically reduced by one letter"
-        ],
-        "correct": 1,
-        "explanation": "After three (3) unexcused absences, the student will receive a formal warning that they are at risk of failing the course due to insufficient participation in required studio work."
-      },
-    {
-      "id": "q8",
-      "question": "What happens after four (4) or more unexcused absences?",
+      "id": "q7",
+      "question": "What is the late policy for tutorials?",
       "options": [
-        "The student automatically passes the course",
-        "No action is taken",
-        "One or more actions may occur: reduction/cap on participation credit, removal from team-based work, or recommendation to withdraw",
-        "The student receives extra credit"
+        "Late tutorials are accepted with a 20% penalty",
+        "Late tutorials are accepted with no penalty if you contact the instructor",
+        "Late tutorials are not accepted",
+        "Late tutorials are accepted with a 10% penalty within 1 week"
       ],
       "correct": 2,
-      "explanation": "After four (4) or more unexcused absences, one or more of the following actions may occur: reduction or cap on participation credit, removal from team-based work and reassignment to an individual alternative, or recommendation to withdraw from the course."
+      "explanation": "Tutorials are due at the midnight following the next class meeting. For instance, if the tutorial was assigned on Friday, it is due at midnight the following Monday unless otherwise specified. The syllabus explicitly states: 'I do not accept late tutorials.'"
+    },
+    {
+      "id": "q8",
+      "question": "When are tutorials due?",
+      "options": [
+        "At the midnight following the next class meeting",
+        "At the same time as homework assignments",
+        "One week after they are assigned",
+        "At midnight on the day they are assigned"
+      ],
+      "correct": 0,
+      "explanation": "Tutorials are due at the midnight following the next class meeting. For example, if a tutorial is assigned on Friday, it is due at midnight the following Monday unless otherwise specified."
     },
     {
       "id": "q9",
-      "question": "What is assessed in Code Reviews?",
+      "question": "If you are unsure whether your use of AI crosses the line, what should you do?",
       "options": [
-        "The correctness of every line of code",
-        "Substantive review comments that address behavior, design, testing, or tradeoffs",
-        "Only spelling and grammar",
-        "The number of comments made"
+        "Only use AI for small parts of the code",
+        "Contact the instructor before submitting the assignment",
+        "Submit the assignment anyway and hope for the best",
+        "Use the AI but don't mention it"
       ],
       "correct": 1,
-      "explanation": "Code Reviews are assessed for substance and engagement (e.g., questions about behavior, design tradeoffs, or testing), not for 'correctness.'"
+      "explanation": "If you are unsure whether a particular use of AI crossed the line, you must contact the instructor before submitting the assignment. Early and honest disclosure allows for learning-focused resolution without triggering formal penalties. The syllabus states: 'If you are unsure, ask. Reaching out early is always the better option.'"
     },
-
     {
       "id": "q10",
-      "question": "What percentage of the grade is allocated to Technical Contributions (Pull Requests)?",
+      "question": "The disclosure pathway for unintentional AI violations does NOT apply to which of the following?",
       "options": [
-        "25%",
-        "30%",
-        "35%",
-        "40%"
+        "Cases where you're unsure if you crossed the line",
+        "Early disclosure of potential violations",
+        "Intentional misuse of AI tools",
+        "Unintentional violations disclosed before submission"
       ],
       "correct": 2,
-      "explanation": "Technical Contributions (Pull Requests) account for 35% of the grade, assessing the ability to implement coherent, well-scoped changes within an existing codebase."
+      "explanation": "The disclosure pathway does not apply to cases of intentional misuse, repeated violations, or undisclosed AI use discovered after submission. Once an assignment is submitted, any undisclosed violations will be handled according to the enforcement policy."
     },
     {
       "id": "q11",
-      "question": "What percentage of the grade is allocated to Code Reviews?",
+      "question": "According to the AI policy, what is the key principle about code submission?",
       "options": [
-        "10%",
-        "15%",
-        "20%",
-        "25%"
+        "You can use AI to generate code as long as you cite it",
+        "AI-generated code is allowed for tutorials but not homework",
+        "All code you submit must be your own",
+        "All code must be written by you, but you can use AI-generated code if you understand it"
       ],
-      "correct": 1,
-      "explanation": "Code Reviews account for 15% of the grade, assessing engagement with peer work through substantive review comments that address behavior, design, testing, or tradeoffs."
+      "correct": 2,
+      "explanation": "The fundamental principle is that all code you submit must be your own. Copying, pasting, or adapting AI-generated code is considered academic dishonesty. AI may help you understand code, but you must write all submitted code yourself."
     },
     {
       "id": "q12",
-      "question": "What percentage of the grade is allocated to Testing Contributions?",
+      "question": "How many class sessions can you miss without a grade penalty?",
       "options": [
-        "15%",
-        "20%",
-        "25%",
-        "30%"
+        "Four",
+        "One",
+        "Three",
+        "Two"
       ],
-      "correct": 1,
-      "explanation": "Testing Contributions account for 20% of the grade, assessing the use of tests to specify behavior, reduce risk, and support safe iteration across backend and frontend components."
+      "correct": 2,
+      "explanation": "You may miss three class sessions -- no questions asked -- without a grade penalty. Any additional absences (beyond the three 'freebies') will impact your participation grade."
     },
     {
       "id": "q13",
-      "question": "What percentage of the grade is allocated to Studio Participation?",
+      "question": "What happens if you accept just a few AI code suggestions from your editor's Copilot feature?",
       "options": [
-        "10%",
-        "15%",
-        "20%",
-        "25%"
+        "It's only a violation if you accept more than 5 suggestions",
+        "It's allowed for tutorials but not homework",
+        "It counts as a violation, even if accidental",
+        "It's fine as long as you understand the code"
       ],
-      "correct": 1,
-      "explanation": "Studio Participation accounts for 15% of the grade, assessing in-class engagement, including participation in studio activities, critique sessions, and collaborative work."
+      "correct": 2,
+      "explanation": "Accidental use still counts as a violation, even if you only accept a few suggestions. You must disable AI-powered code completion features in your code editor while working on course assignments. It is your responsibility to ensure these features are turned off before beginning work."
     },
     {
       "id": "q14",
-      "question": "How are students evaluated in this course?",
+      "question": "What is the purpose of the AI policy according to the syllabus?",
       "options": [
-        "Solely based on team output",
-        "Solely based on individual work with no team collaboration",
-        "As individual contributors working within team-based projects",
-        "Based only on final exam performance"
+        "To test students' ability to use AI tools effectively",
+        "To make assignments more difficult",
+        "To build foundational programming skills and prevent over-reliance on AI-generated code",
+        "To prevent students from using any technology"
       ],
       "correct": 2,
-      "explanation": "Students are evaluated as individual contributors working within team-based projects. You will collaborate closely with others, but your grade is not determined solely by your team's output. Assessment is based on observable individual contributions made in a team context."
+      "explanation": "This course is designed to build foundational programming skills, especially functional and event-driven programming. While generative AI tools can be useful for learning, over-reliance on AI-generated code can weaken these skills and make later courses more difficult. The policy sets clear boundaries for appropriate AI use."
     },
     {
       "id": "q15",
-      "question": "Which of the following is assessed at the individual level?",
+      "question": "If you are struggling with an assignment, what should you do according to the AI policy section?",
       "options": [
-        "Integrated system behavior",
-        "Sprint demos and milestones",
-        "Pull Requests (PRs) authored by you",
-        "Client-facing deliverables"
+        "Copy code from Stack Overflow",
+        "Submit the assignment late",
+        "Reach out to the instructor or attend office hours",
+        "Use AI to generate the solution"
       ],
       "correct": 2,
-      "explanation": "Pull Requests (PRs) are assessed at the individual level. Your authored PRs will be evaluated for clarity of intent, scope, correctness, use of tests, and adherence to project conventions."
+      "explanation": "If you are stuck or confused, please reach out or attend office hours. The policy exists to support your learning -- not to catch mistakes -- but it will be enforced to protect the integrity of your education."
     },
     {
       "id": "q16",
-      "question": "What is one of the learning objectives of this course?",
+      "question": "What percentage of your final grade comes from exams?",
       "options": [
-        "To memorize all programming languages",
-        "To contribute effectively to an existing software system",
-        "To work only on new projects from scratch",
-        "To avoid using tests"
-      ],
-      "correct": 1,
-      "explanation": "One learning objective is to contribute effectively to an existing software system, including understanding and working within established architectural patterns, and making scoped, testable changes using professional workflows."
-    },
-    {
-      "id": "q17",
-      "question": "What technology stack is used in this course project?",
-      "options": [
-        "MySQL, Django, Angular, Flutter",
-        "PostgreSQL, FastAPI, React, React Native",
-        "MongoDB, Express, Vue, Ionic",
-        "SQLite, Flask, jQuery, Swift"
-      ],
-      "correct": 1,
-      "explanation": "The project focuses on building a cross-platform application (web and mobile) using PostgreSQL, FastAPI, React, and React Native."
-    },
-    {
-      "id": "q18",
-      "question": "What is the relationship between strong team outcomes and individual grades?",
-      "options": [
-        "Strong team outcomes automatically guarantee high individual grades",
-        "Strong individual effort overrides lack of participation in required studio work",
-        "Strong team outcomes do not automatically guarantee high individual grades, and strong individual effort does not override lack of participation",
-        "Individual grades are completely independent of team outcomes"
+        "40%",
+        "20%",
+        "35%",
+        "30%"
       ],
       "correct": 2,
-      "explanation": "Strong team outcomes do not automatically guarantee high individual grades, and strong individual effort does not override a lack of participation in required studio work. Grades reflect how you contribute, not just what the team produces."
+      "explanation": "Exams account for 35% of your final grade. The breakdown is: Attendance & Participation (10%), Tutorials (20%), Exams (35%), and Homework (35%)."
     }
   ]
 }
-

@@ -228,7 +228,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1tvordwjI82vEB07Iyt_K1v2JHbpFd-mj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
           { title: "Analyze a website", url: "https://docs.google.com/document/d/1cEJ0MD58Ev3I5Lb1QbI4zGVNGLl1aCcx/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
