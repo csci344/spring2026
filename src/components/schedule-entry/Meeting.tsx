@@ -99,6 +99,16 @@ export default function Meeting({
     }
   }
 
+  function handleToggleButtonClick(e: React.MouseEvent<HTMLButtonElement>) {
+    e.stopPropagation();
+    const newState = !showDetails;
+    setShowDetails(newState);
+    
+    if (enableLocalStorage && typeof window !== 'undefined') {
+      localStorage.setItem(meetingKey, JSON.stringify(newState));
+    }
+  }
+
   function renderActivity(activity: Activity, index: number) {
     const itemKey = `${meetingKey}-activity-${index}`;
     const isChecked = enableChecklist ? checklist.isChecked(itemKey) : false;
@@ -254,18 +264,18 @@ export default function Meeting({
       <div className="flex items-center gap-2">
         {allChecked && (
           <div 
-            className="flex items-center justify-center w-7 h-7 rounded-full bg-green-700 dark:bg-green-300 transition-all duration-200" 
+            className="flex items-center justify-center w-7 h-7 rounded-full bg-green-700 dark:bg-green-400 transition-all duration-200" 
             title="All tasks completed!"
             style={{ textDecoration: 'none' }}
           >
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3} style={{ textDecoration: 'none' }}>
+            <svg className="w-4 h-4 text-white dark:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3} style={{ textDecoration: 'none' }}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" style={{ textDecoration: 'none' }} />
             </svg>
           </div>
         )}
         {hasMoreDetails && (
           <button 
-            onClick={toggleDetails}
+            onClick={handleToggleButtonClick}
             aria-label="Toggle details"
             aria-expanded={showDetails}
             className="text-black dark:text-gray-200 hover:text-sky-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 flex justify-center items-center rounded-full w-[35px] h-[35px] transition-colors"
@@ -290,7 +300,7 @@ export default function Meeting({
     
     const className = clsx(baseClassName, {
       'bg-gray-100 dark:bg-gray-800': isHoliday,
-      'bg-green-50 dark:bg-green-900/20': allChecked && !isHoliday
+      'bg-gray-50 dark:bg-green-900/20': allChecked && !isHoliday
     });
 
     let style: React.CSSProperties | undefined = undefined;
@@ -305,7 +315,7 @@ export default function Meeting({
       }
     } else {
       if (allChecked && !isHoliday) {
-        style = { backgroundColor: '#f0fdf4' };
+        style = { backgroundColor: '#f5faf6' };
       }
     }
 

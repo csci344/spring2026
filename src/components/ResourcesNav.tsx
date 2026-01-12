@@ -41,7 +41,7 @@ export default function ResourcesNav({ resourcePages }: ResourcesNavProps) {
   });
   
   // Sort groups by group_order (get the first page's group_order for each group)
-  const sortedGroups = Object.entries(groupedPages).sort(([_groupA, pagesA], [_groupB, pagesB]) => {
+  const sortedGroups = Object.entries(groupedPages).sort(([, pagesA], [, pagesB]) => {
     const groupOrderA = pagesA[0]?.group_order ?? 999;
     const groupOrderB = pagesB[0]?.group_order ?? 999;
     return groupOrderA - groupOrderB;

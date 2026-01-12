@@ -48,7 +48,7 @@ export function useMeetingChecklist(
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
   const isInitialLoad = useRef(true);
 
-  // Get all item keys for this meeting
+  // Get all item keys for this meeting (excluding optional readings)
   function getAllItemKeys(): string[] {
     const allItemKeys: string[] = [];
     
@@ -66,12 +66,7 @@ export function useMeetingChecklist(
       });
     }
     
-    // Collect all optional reading keys
-    if (meeting.optionalReadings) {
-      meeting.optionalReadings.forEach((_, index) => {
-        allItemKeys.push(`${meetingKey}-optional-reading-${index}`);
-      });
-    }
+    // Note: Optional readings are intentionally excluded from completion check
     
     // Collect assigned key
     if (meeting.assigned && typeof meeting.assigned === 'object') {
