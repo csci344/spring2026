@@ -250,7 +250,7 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1bExOA_cV_sO1vzJd18si3FogUr0mCXMU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
           {
