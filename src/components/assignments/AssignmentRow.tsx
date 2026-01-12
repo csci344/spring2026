@@ -36,6 +36,58 @@ export default function AssignmentRow({ assignment, showWeek }: AssignmentRowPro
     storagePrefix: 'assignment' 
   });
   const isChecked = checklist.isChecked(assignment.id);
+  
+  const handleToggle = () => {
+    const newChecked = !isChecked;
+    checklist.toggleChecked(assignment.id);
+    
+    // Also update any schedule keys that reference this assignment
+    // Schedule keys follow pattern: meeting-{date}-{topic}-due-{index} or meeting-{date}-{topic}-due
+    // We update them to keep in sync, but the primary source of truth is assignment-{id}
+    if (typeof window !== 'undefined') {
+      for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        if (key && key !== `assignment-${assignment.id}` && (key.includes(`-due-`) || key.endsWith(`-due`))) {
+          // Check if this schedule key's value differs from our assignment state
+          const currentValue = localStorage.getItem(key);
+          const currentBool = currentValue === 'true';
+          if (currentBool !== newChecked) {
+            localStorage.setItem(key, JSON.stringify(newChecked));
+          }
+        }
+      }
+    }
+  };
+  
+  // On mount, check if schedule has this assignment checked and sync
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    const assignmentKey = `assignment-${assignment.id}`;
+    const currentValue = localStorage.getItem(assignmentKey);
+    
+    // Check all schedule keys to see if any have this assignment checked
+    let scheduleChecked = false;
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key !== assignmentKey && (key.includes(`-due-`) || key.endsWith(`-due`))) {
+        const value = localStorage.getItem(key);
+        if (value === 'true') {
+          scheduleChecked = true;
+          break;
+        }
+      }
+    }
+    
+    // If schedule has it checked but assignment page key doesn't exist or is false, sync it
+    if (scheduleChecked && currentValue !== 'true') {
+      localStorage.setItem(assignmentKey, 'true');
+      // Trigger a re-render by toggling (this will set it to true since it's currently false)
+      if (!isChecked) {
+        checklist.toggleChecked(assignment.id);
+      }
+    }
+  }, []); // Only run on mount
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
@@ -105,7 +157,7 @@ export default function AssignmentRow({ assignment, showWeek }: AssignmentRowPro
           <input
             type="checkbox"
             checked={isChecked}
-            onChange={() => checklist.toggleChecked(assignment.id)}
+            onChange={handleToggle}
             aria-label={`Mark assignment "${assignment.type ? titleCase(assignment.type) : ''} ${assignment.num || ''}" as ${isChecked ? 'incomplete' : 'complete'}`}
             className="w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
             style={isDark ? { 

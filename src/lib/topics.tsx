@@ -31,7 +31,7 @@ export interface Meeting {
   holiday?: boolean;
   discussionQuestions?: string;
   assigned?: Assignment | string;
-  due?: Assignment | string;
+  due?: Assignment | string | (Assignment | string)[];
 }
 
 export interface Topic {
@@ -82,18 +82,20 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
   const allActivities = getAllPosts('activities');
   const allAssignments = getAllPosts('assignments');
   
-  // Filter activities with start_date and assignments with assigned_date
+  // Filter activities with start_date and assignments with assigned_date or due_date
   // Also filter out excluded activities (handle both boolean and number)
   const activitiesWithDates = allActivities.filter(a => {
     if (!a.start_date) return false;
     // Exclude if excluded is truthy (handles boolean true, number 1, etc.)
     return !a.excluded;
   });
-  const assignmentsWithDates = allAssignments.filter(a => a.assigned_date);
+  const assignmentsWithAssignedDate = allAssignments.filter(a => a.assigned_date);
+  const assignmentsWithDueDate = allAssignments.filter(a => a.due_date);
   
   // Create maps for quick lookup by date
   const activitiesByDate = new Map<string, PostData[]>();
-  const assignmentsByDate = new Map<string, PostData[]>();
+  const assignmentsByAssignedDate = new Map<string, PostData[]>();
+  const assignmentsByDueDate = new Map<string, PostData[]>();
   
   activitiesWithDates.forEach(activity => {
     const date = normalizeDate(activity.start_date);
@@ -105,13 +107,23 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
     }
   });
   
-  assignmentsWithDates.forEach(assignment => {
+  assignmentsWithAssignedDate.forEach(assignment => {
     const date = normalizeDate(assignment.assigned_date);
     if (date) {
-      if (!assignmentsByDate.has(date)) {
-        assignmentsByDate.set(date, []);
+      if (!assignmentsByAssignedDate.has(date)) {
+        assignmentsByAssignedDate.set(date, []);
       }
-      assignmentsByDate.get(date)!.push(assignment);
+      assignmentsByAssignedDate.get(date)!.push(assignment);
+    }
+  });
+  
+  assignmentsWithDueDate.forEach(assignment => {
+    const date = normalizeDate(assignment.due_date);
+    if (date) {
+      if (!assignmentsByDueDate.has(date)) {
+        assignmentsByDueDate.set(date, []);
+      }
+      assignmentsByDueDate.get(date)!.push(assignment);
     }
   });
   
@@ -135,8 +147,11 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
       // Find matching activities
       const matchingActivities = activitiesByDate.get(meetingDateStr) || [];
       
-      // Find matching assignments
-      const matchingAssignments = assignmentsByDate.get(meetingDateStr) || [];
+      // Find matching assignments by assigned_date
+      const matchingAssignmentsByAssigned = assignmentsByAssignedDate.get(meetingDateStr) || [];
+      
+      // Find matching assignments by due_date
+      const matchingAssignmentsByDue = assignmentsByDueDate.get(meetingDateStr) || [];
       
       // Create auto-populated activity entries (excluding excluded activities)
       const autoActivities = matchingActivities
@@ -148,10 +163,10 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
           excluded: activity.excluded ? 1 : 0
         }));
       
-      // Create auto-populated assignment entry (take first match if multiple)
-      const autoAssignment = matchingAssignments.length > 0 
+      // Create auto-populated assignment entry for assigned (take first match if multiple)
+      const autoAssignment = matchingAssignmentsByAssigned.length > 0 
         ? (() => {
-            const assignment = matchingAssignments[0];
+            const assignment = matchingAssignmentsByAssigned[0];
             const titleShort = assignment.type === 'homework' ? `HW ${assignment.num}` : `Tutorial ${assignment.num}`;
             return {
               titleShort: titleShort,
@@ -161,6 +176,17 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
             };
           })()
         : null;
+      
+      // Create auto-populated assignment entries for due (all matches, including drafts)
+      const autoDueAssignments = matchingAssignmentsByDue.map((assignment) => {
+        const titleShort = assignment.type === 'homework' ? `HW ${assignment.num}` : `Tutorial ${assignment.num}`;
+        return {
+          titleShort: titleShort,
+          title: assignment.title,
+          url: `/assignments/${assignment.id}/`,
+          draft: assignment.draft || 0
+        };
+      });
       
       // Merge activities: keep manual entries, add auto-populated ones
       if (autoActivities.length > 0) {
@@ -174,6 +200,30 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
       // Merge assignment: only set if not already set manually
       if (autoAssignment && !meeting.assigned) {
         meeting.assigned = autoAssignment;
+      }
+      
+      // Merge due assignments: add all auto-populated ones (including drafts)
+      if (autoDueAssignments.length > 0) {
+        if (!meeting.due) {
+          // If no manual due items, set to array of auto-populated ones
+          meeting.due = autoDueAssignments.length === 1 ? autoDueAssignments[0] : autoDueAssignments;
+        } else if (Array.isArray(meeting.due)) {
+          // If already an array, merge (avoid duplicates by URL)
+          const existingUrls = new Set(
+            meeting.due
+              .filter((d): d is Assignment => typeof d !== 'string')
+              .map((d) => d.url)
+          );
+          const newDueAssignments = autoDueAssignments.filter((a) => !existingUrls.has(a.url));
+          meeting.due = [...meeting.due, ...newDueAssignments];
+        } else {
+          // If single item, convert to array and merge
+          const existingUrl = typeof meeting.due === 'object' ? meeting.due.url : null;
+          const newDueAssignments = autoDueAssignments.filter((a) => a.url !== existingUrl);
+          if (newDueAssignments.length > 0) {
+            meeting.due = [meeting.due, ...newDueAssignments];
+          }
+        }
       }
     });
   });
