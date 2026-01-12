@@ -2,9 +2,8 @@
 
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
-import confetti from 'canvas-confetti';
-import { CheckCircleIcon } from '@heroicons/react/24/solid';
+import { useState, useEffect } from 'react';
+import { useMeetingChecklist } from './useMeetingChecklist';
 
 interface Reading {
   citation: string | React.ReactElement;
@@ -37,19 +36,24 @@ export interface MeetingData {
   due?: Assignment | string;
 }
 
-export default function Meeting({ 
-  meeting, 
-  showDetails, 
-  setShowDetails 
-}: { 
+interface MeetingProps {
   meeting: MeetingData;
   showDetails: boolean;
   setShowDetails: (show: boolean) => void;
-}) {
+  enableChecklist?: boolean;
+  enableLocalStorage?: boolean;
+  enableConfetti?: boolean;
+}
+
+export default function Meeting({ 
+  meeting, 
+  showDetails, 
+  setShowDetails,
+  enableChecklist = true,
+  enableLocalStorage = true,
+  enableConfetti = true,
+}: MeetingProps) {
   const [isDark, setIsDark] = useState(false);
-  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
-  const previousAllChecked = useRef(false);
-  const isInitialLoad = useRef(true);
   const meetingKey = `meeting-${meeting.date}-${meeting.topic.replace(/\s+/g, '-').toLowerCase()}`;
   const hasActivities = 'activities' in meeting && meeting.activities && meeting.activities.length > 0;
   const hasReadings = 'readings' in meeting && meeting.readings && meeting.readings.length > 0;
@@ -57,6 +61,12 @@ export default function Meeting({
   const hasMoreDetails = hasActivities || hasReadings;
   const hasDiscussionQuestions = 'discussionQuestions' in meeting && meeting.discussionQuestions;
   const isHoliday = 'holiday' in meeting && meeting.holiday;
+
+  // Use checklist hook only if enabled
+  const checklist = useMeetingChecklist(meeting, meetingKey, {
+    enableLocalStorage: enableChecklist && enableLocalStorage,
+    enableConfetti: enableChecklist && enableConfetti,
+  });
 
   useEffect(() => {
     // Check if dark mode is active
@@ -74,215 +84,33 @@ export default function Meeting({
     return () => observer.disconnect();
   }, []);
 
-  // Load checked items from localStorage on mount
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
-    const savedCheckedItems: Record<string, boolean> = {};
-    
-    // Load activities
-    if (meeting.activities) {
-      meeting.activities.forEach((activity, index) => {
-        const key = `${meetingKey}-activity-${index}`;
-        const saved = localStorage.getItem(key);
-        if (saved !== null) {
-          savedCheckedItems[key] = JSON.parse(saved);
-        }
-      });
-    }
-    
-    // Load required readings
-    if (meeting.readings) {
-      meeting.readings.forEach((reading, index) => {
-        const key = `${meetingKey}-reading-${index}`;
-        const saved = localStorage.getItem(key);
-        if (saved !== null) {
-          savedCheckedItems[key] = JSON.parse(saved);
-        }
-      });
-    }
-    
-    // Load optional readings
-    if (meeting.optionalReadings) {
-      meeting.optionalReadings.forEach((reading, index) => {
-        const key = `${meetingKey}-optional-reading-${index}`;
-        const saved = localStorage.getItem(key);
-        if (saved !== null) {
-          savedCheckedItems[key] = JSON.parse(saved);
-        }
-      });
-    }
-    
-    // Load assigned
-    if (meeting.assigned && typeof meeting.assigned === 'object') {
-      const key = `${meetingKey}-assigned`;
-      const saved = localStorage.getItem(key);
-      if (saved !== null) {
-        savedCheckedItems[key] = JSON.parse(saved);
-      }
-    }
-    
-    // Load due
-    if (meeting.due && typeof meeting.due === 'object') {
-      const key = `${meetingKey}-due`;
-      const saved = localStorage.getItem(key);
-      if (saved !== null) {
-        savedCheckedItems[key] = JSON.parse(saved);
-      }
-    }
-    
-    setCheckedItems(savedCheckedItems);
-    
-    // Mark initial load as complete after a short delay to ensure state is set
-    setTimeout(() => {
-      isInitialLoad.current = false;
-    }, 100);
-  }, [meetingKey, meeting]);
-
   function toggleDetails(e: React.MouseEvent<HTMLElement>) {
-    
     // Don't toggle if clicking on a link or button within the clickable div:
     const target = e.target as HTMLElement;
-    if (target.closest('a')) {
+    if (target.closest('a') || target.closest('button') || target.closest('input')) {
       return;
     }
     
     const newState = !showDetails;
     setShowDetails(newState);
-    localStorage.setItem(meetingKey, JSON.stringify(newState));  
-  }
-
-  function triggerConfetti() {
-    if (typeof window === 'undefined') return;
     
-    // Trigger confetti animation
-    const duration = 3000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-    function randomInRange(min: number, max: number) {
-      return Math.random() * (max - min) + min;
-    }
-
-    const interval: NodeJS.Timeout = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      
-      // Launch confetti from the left
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
-      });
-      
-      // Launch confetti from the right
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
-      });
-    }, 250);
-  }
-
-  function toggleChecked(itemKey: string) {
-    const newChecked = !checkedItems[itemKey];
-    const updatedItems = {
-      ...checkedItems,
-      [itemKey]: newChecked
-    };
-    
-    setCheckedItems(updatedItems);
-    localStorage.setItem(itemKey, JSON.stringify(newChecked));
-    
-    // Check if all items are now checked (only after initial load, triggered by click)
-    if (!isInitialLoad.current) {
-      const wasAllChecked = areAllItemsCheckedWithState(checkedItems);
-      const isAllChecked = areAllItemsCheckedWithState(updatedItems);
-      
-      // Trigger confetti when transitioning from "not all checked" to "all checked"
-      if (!wasAllChecked && isAllChecked) {
-        triggerConfetti();
-      }
+    if (enableLocalStorage && typeof window !== 'undefined') {
+      localStorage.setItem(meetingKey, JSON.stringify(newState));
     }
   }
-
-  // Get all item keys for this meeting
-  function getAllItemKeys(): string[] {
-    const allItemKeys: string[] = [];
-    
-    // Collect all activity keys
-    if (meeting.activities) {
-      meeting.activities.forEach((_, index) => {
-        allItemKeys.push(`${meetingKey}-activity-${index}`);
-      });
-    }
-    
-    // Collect all required reading keys
-    if (meeting.readings) {
-      meeting.readings.forEach((_, index) => {
-        allItemKeys.push(`${meetingKey}-reading-${index}`);
-      });
-    }
-    
-    // Collect all optional reading keys
-    if (meeting.optionalReadings) {
-      meeting.optionalReadings.forEach((_, index) => {
-        allItemKeys.push(`${meetingKey}-optional-reading-${index}`);
-      });
-    }
-    
-    // Collect assigned key
-    if (meeting.assigned && typeof meeting.assigned === 'object') {
-      allItemKeys.push(`${meetingKey}-assigned`);
-    }
-    
-    // Collect due key
-    if (meeting.due && typeof meeting.due === 'object') {
-      allItemKeys.push(`${meetingKey}-due`);
-    }
-    
-    return allItemKeys;
-  }
-
-  // Check if all items are checked (using current checkedItems state)
-  function areAllItemsChecked(): boolean {
-    const allItemKeys = getAllItemKeys();
-    if (allItemKeys.length === 0) {
-      return false;
-    }
-    return allItemKeys.every(key => checkedItems[key] === true);
-  }
-
-  // Check if all items are checked given a specific items state
-  function areAllItemsCheckedWithState(items: Record<string, boolean>): boolean {
-    const allItemKeys = getAllItemKeys();
-    if (allItemKeys.length === 0) {
-      return false;
-    }
-    return allItemKeys.every(key => items[key] === true);
-  }
-
-  // Update previousAllChecked for background color changes (but don't trigger confetti here)
-  useEffect(() => {
-    const allChecked = areAllItemsChecked();
-    previousAllChecked.current = allChecked;
-  }, [checkedItems, meetingKey, meeting]);
 
   function renderActivity(activity: Activity, index: number) {
     const itemKey = `${meetingKey}-activity-${index}`;
-    const isChecked = checkedItems[itemKey] || false;
+    const isChecked = enableChecklist ? checklist.isChecked(itemKey) : false;
     
     return (
       <div className="flex items-start gap-2">
         <input
           type="checkbox"
+          aria-label={`Mark activity "${activity.title}" as ${isChecked ? 'uncompleted' : 'completed'}`}
           checked={isChecked}
-          onChange={() => toggleChecked(itemKey)}
+          onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
+          disabled={!enableChecklist}
           onClick={(e) => e.stopPropagation()}
           className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
           style={isDark ? { 
@@ -338,15 +166,17 @@ export default function Meeting({
               {
               readings.map((reading: Reading, index: number) => {
                   const itemKey = `${meetingKey}-${isOptional ? 'optional-reading' : 'reading'}-${index}`;
-                  const isChecked = checkedItems[itemKey] || false;
+                  const isChecked = enableChecklist ? checklist.isChecked(itemKey) : false;
                   
                   return (
                   <li key={index} className="mb-0 text-gray-700 dark:text-gray-300">
                       <div className="flex items-start gap-2">
                         <input
                           type="checkbox"
+                          aria-label={`Mark reading "${reading.citation}" as ${isChecked ? 'unread' : 'read'}`}
                           checked={isChecked}
-                          onChange={() => toggleChecked(itemKey)}
+                          onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
+                          disabled={!enableChecklist}
                           onClick={(e) => e.stopPropagation()}
                           className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
                           style={isDark ? { 
@@ -391,14 +221,16 @@ export default function Meeting({
     }
     
     const itemKey = `${meetingKey}-${type}`;
-    const isChecked = checkedItems[itemKey] || false;
+    const isChecked = enableChecklist ? checklist.isChecked(itemKey) : false;
     
     return (
       <div className="flex items-start gap-2">
         <input
           type="checkbox"
+          aria-label={`Mark assignment "${assignment.titleShort}" as ${isChecked ? 'incomplete' : 'complete'}`}
           checked={isChecked}
-          onChange={() => toggleChecked(itemKey)}
+          onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
+          disabled={!enableChecklist}
           onClick={(e) => e.stopPropagation()}
           className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
           style={isDark ? { 
@@ -433,7 +265,9 @@ export default function Meeting({
         )}
         {hasMoreDetails && (
           <button 
-            onClick={toggleDetails} 
+            onClick={toggleDetails}
+            aria-label="Toggle details"
+            aria-expanded={showDetails}
             className="text-black dark:text-gray-200 hover:text-sky-700 dark:hover:text-gray-100 hover:bg-gray-200 dark:hover:bg-gray-800 flex justify-center items-center rounded-full w-[35px] h-[35px] transition-colors"
             style={isDark ? { color: '#e5e7eb' } : undefined}
           >
@@ -478,7 +312,7 @@ export default function Meeting({
     return { className, style };
   } 
 
-  const allChecked = areAllItemsChecked();
+  const allChecked = enableChecklist ? checklist.areAllItemsChecked() : false;
   const { className: containerClassName, style: containerStyle } = getMeetingContainerStyles(allChecked);
   
   return (
