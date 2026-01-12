@@ -14,6 +14,7 @@ interface Activity {
   title: string;
   url?: string;
   draft?: number;
+  excluded?: number;
 }
 
 interface Assignment {
@@ -55,7 +56,9 @@ export default function Meeting({
 }: MeetingProps) {
   const [isDark, setIsDark] = useState(false);
   const meetingKey = `meeting-${meeting.date}-${meeting.topic.replace(/\s+/g, '-').toLowerCase()}`;
-  const hasActivities = 'activities' in meeting && meeting.activities && meeting.activities.length > 0;
+  // Filter out excluded activities
+  const filteredActivities = meeting.activities?.filter(activity => !(activity.excluded === 1)) || [];
+  const hasActivities = filteredActivities.length > 0;
   const hasReadings = 'readings' in meeting && meeting.readings && meeting.readings.length > 0;
   const hasOptionalReadings = 'optionalReadings' in meeting && meeting.optionalReadings && meeting.optionalReadings.length > 0;
   const hasMoreDetails = hasActivities || hasReadings;
@@ -110,27 +113,30 @@ export default function Meeting({
   }
 
   function renderActivity(activity: Activity, index: number) {
+    const isDraft = activity.draft && activity.draft === 1;
     const itemKey = `${meetingKey}-activity-${index}`;
-    const isChecked = enableChecklist ? checklist.isChecked(itemKey) : false;
+    const isChecked = enableChecklist && !isDraft ? checklist.isChecked(itemKey) : false;
     
     return (
       <div className="flex items-start gap-2">
-        <input
-          type="checkbox"
-          aria-label={`Mark activity "${activity.title}" as ${isChecked ? 'uncompleted' : 'completed'}`}
-          checked={isChecked}
-          onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
-          disabled={!enableChecklist}
-          onClick={(e) => e.stopPropagation()}
-          className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
-          style={isDark ? { 
-            backgroundColor: isChecked ? '#3b82f6' : '#1f2937',
-            borderColor: isChecked ? '#3b82f6' : '#4b5563'
-          } : undefined}
-        />
+        {!isDraft && (
+          <input
+            type="checkbox"
+            aria-label={`Mark activity "${activity.title}" as ${isChecked ? 'uncompleted' : 'completed'}`}
+            checked={isChecked}
+            onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
+            disabled={!enableChecklist}
+            onClick={(e) => e.stopPropagation()}
+            className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
+            style={isDark ? { 
+              backgroundColor: isChecked ? '#3b82f6' : '#1f2937',
+              borderColor: isChecked ? '#3b82f6' : '#4b5563'
+            } : undefined}
+          />
+        )}
         <div className="flex-1">
-          {activity.draft && activity.draft === 1 ? (
-            <span className={isChecked ? '!line-through opacity-60' : ''}>{activity.title}</span>
+          {isDraft ? (
+            <span>{activity.title}</span>
           ) : (
             <>
               {(() => {
@@ -156,11 +162,15 @@ export default function Meeting({
         <div className="mb-6">
             {hasActivities ? <strong className="text-gray-700 dark:text-gray-300" style={isDark ? { color: '#d1d5db' } : undefined}>Slides / Activities</strong> : ``}
             <ul className="!list-none !pl-4">
-                {'activities' in meeting && meeting.activities?.map((activity: Activity, index: number) => (
-                <li key={index} className="text-gray-700 dark:text-gray-300">
-                    {renderActivity(activity, index)}
-                </li>
-                ))}
+                {filteredActivities.map((activity: Activity, filteredIndex: number) => {
+                  // Find the original index in the full activities array for the itemKey
+                  const originalIndex = meeting.activities?.findIndex(a => a === activity) ?? filteredIndex;
+                  return (
+                    <li key={filteredIndex} className="text-gray-700 dark:text-gray-300">
+                        {renderActivity(activity, originalIndex)}
+                    </li>
+                  );
+                })}
             </ul>
         </div>
       )
@@ -230,26 +240,30 @@ export default function Meeting({
       return assignment;
     }
     
+    const isDraft = assignment.draft && assignment.draft === 1;
+    const showCheckbox = type === 'due' && !isDraft; // Only show checkbox for "due" items, not "assigned"
     const itemKey = `${meetingKey}-${type}`;
-    const isChecked = enableChecklist ? checklist.isChecked(itemKey) : false;
+    const isChecked = enableChecklist && showCheckbox ? checklist.isChecked(itemKey) : false;
     
     return (
       <div className="flex items-start gap-2">
-        <input
-          type="checkbox"
-          aria-label={`Mark assignment "${assignment.titleShort}" as ${isChecked ? 'incomplete' : 'complete'}`}
-          checked={isChecked}
-          onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
-          disabled={!enableChecklist}
-          onClick={(e) => e.stopPropagation()}
-          className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
-          style={isDark ? { 
-            backgroundColor: isChecked ? '#3b82f6' : '#1f2937',
-            borderColor: isChecked ? '#3b82f6' : '#4b5563'
-          } : undefined}
-        />
+        {showCheckbox && (
+          <input
+            type="checkbox"
+            aria-label={`Mark assignment "${assignment.titleShort}" as ${isChecked ? 'incomplete' : 'complete'}`}
+            checked={isChecked}
+            onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
+            disabled={!enableChecklist}
+            onClick={(e) => e.stopPropagation()}
+            className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
+            style={isDark ? { 
+              backgroundColor: isChecked ? '#3b82f6' : '#1f2937',
+              borderColor: isChecked ? '#3b82f6' : '#4b5563'
+            } : undefined}
+          />
+        )}
         <div className={`flex-1 ${isChecked ? '!line-through opacity-60' : ''}`}>
-          {assignment.draft && assignment.draft === 1 ? (
+          {isDraft ? (
             <>{assignment.titleShort}: {assignment.title}</>
           ) : (
             <><Link href={assignment.url || '#'} className="text-blue-600 dark:text-blue-400 hover:underline" onClick={(e) => e.stopPropagation()}>{assignment.titleShort}</Link>: {assignment.title}</>

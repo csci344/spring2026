@@ -6,6 +6,7 @@ interface Activity {
   title: string;
   url?: string;
   draft?: number;
+  excluded?: number;
 }
 
 interface Assignment {
@@ -82,7 +83,12 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
   const allAssignments = getAllPosts('assignments');
   
   // Filter activities with start_date and assignments with assigned_date
-  const activitiesWithDates = allActivities.filter(a => a.start_date);
+  // Also filter out excluded activities (handle both boolean and number)
+  const activitiesWithDates = allActivities.filter(a => {
+    if (!a.start_date) return false;
+    // Exclude if excluded is truthy (handles boolean true, number 1, etc.)
+    return !a.excluded;
+  });
   const assignmentsWithDates = allAssignments.filter(a => a.assigned_date);
   
   // Create maps for quick lookup by date
@@ -132,12 +138,15 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
       // Find matching assignments
       const matchingAssignments = assignmentsByDate.get(meetingDateStr) || [];
       
-      // Create auto-populated activity entries
-      const autoActivities = matchingActivities.map((activity: PostData) => ({
-        title: activity.title,
-        url: `/activities/${activity.id}/`,
-        draft: activity.draft || 0
-      }));
+      // Create auto-populated activity entries (excluding excluded activities)
+      const autoActivities = matchingActivities
+        .filter((activity: PostData) => !activity.excluded)
+        .map((activity: PostData) => ({
+          title: activity.title,
+          url: `/activities/${activity.id}/`,
+          draft: activity.draft || 0,
+          excluded: activity.excluded ? 1 : 0
+        }));
       
       // Create auto-populated assignment entry (take first match if multiple)
       const autoAssignment = matchingAssignments.length > 0 
@@ -192,11 +201,6 @@ const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { 
-            title: "Pre-course assessment questions & answers", 
-            url: "https://docs.google.com/document/d/1wQFm7FwLQiaeEavWeCpjUqssL0TAdT8r/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 0 
-          },
         ],
         readings: [
           {
@@ -229,7 +233,11 @@ const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "https://docs.google.com/presentation/d/1tvordwjI82vEB07Iyt_K1v2JHbpFd-mj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
-          { title: "Analyze a website", url: "https://docs.google.com/document/d/1cEJ0MD58Ev3I5Lb1QbI4zGVNGLl1aCcx/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { 
+            title: "Analyze a website", 
+            url: "https://docs.google.com/document/d/1cEJ0MD58Ev3I5Lb1QbI4zGVNGLl1aCcx/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 1
+          },
         ],
         readings: [
           {
@@ -275,7 +283,11 @@ const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "The Internet and Society: Discussion Questions", url: "https://docs.google.com/document/d/13UKToc3qP2_MzrKJcDUr09wz64bkgAdF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { 
+            title: "The Internet and Society: Discussion Questions", 
+            url: "https://docs.google.com/document/d/13UKToc3qP2_MzrKJcDUr09wz64bkgAdF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 1 
+          },
         ],
         readings: [
           {

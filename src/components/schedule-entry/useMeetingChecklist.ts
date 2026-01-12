@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import confetti from 'canvas-confetti';
+import { triggerConfetti } from '@/lib/utils';
 
 // Import types from Meeting component
 interface Reading {
@@ -11,6 +11,7 @@ interface Activity {
   title: string;
   url?: string;
   draft?: number;
+  excluded?: number;
 }
 
 interface Assignment {
@@ -52,10 +53,13 @@ export function useMeetingChecklist(
   function getAllItemKeys(): string[] {
     const allItemKeys: string[] = [];
     
-    // Collect all activity keys
+    // Collect all activity keys (excluding excluded and draft activities)
     if (meeting.activities) {
-      meeting.activities.forEach((_, index) => {
-        allItemKeys.push(`${meetingKey}-activity-${index}`);
+      meeting.activities.forEach((activity, index) => {
+        // Skip excluded activities and draft activities
+        if (!(activity.excluded === 1) && !(activity.draft === 1)) {
+          allItemKeys.push(`${meetingKey}-activity-${index}`);
+        }
       });
     }
     
@@ -68,14 +72,13 @@ export function useMeetingChecklist(
     
     // Note: Optional readings are intentionally excluded from completion check
     
-    // Collect assigned key
-    if (meeting.assigned && typeof meeting.assigned === 'object') {
-      allItemKeys.push(`${meetingKey}-assigned`);
-    }
+    // Note: "Assigned" items are intentionally excluded from completion check (only "Due" items are tracked)
     
-    // Collect due key
+    // Collect due key (excluding draft assignments)
     if (meeting.due && typeof meeting.due === 'object') {
-      allItemKeys.push(`${meetingKey}-due`);
+      if (!(meeting.due.draft === 1)) {
+        allItemKeys.push(`${meetingKey}-due`);
+      }
     }
     
     return allItemKeys;
@@ -149,42 +152,6 @@ export function useMeetingChecklist(
     }, 100);
   }, [meetingKey, meeting, enableLocalStorage]);
 
-  function triggerConfetti() {
-    if (!enableConfetti || typeof window === 'undefined') return;
-    
-    // Trigger confetti animation
-    const duration = 3000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-    function randomInRange(min: number, max: number) {
-      return Math.random() * (max - min) + min;
-    }
-
-    const interval: NodeJS.Timeout = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      
-      // Launch confetti from the left
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
-      });
-      
-      // Launch confetti from the right
-      confetti({
-        ...defaults,
-        particleCount,
-        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
-      });
-    }, 250);
-  }
 
   function areAllItemsCheckedWithState(items: Record<string, boolean>): boolean {
     const allItemKeys = getAllItemKeys();
@@ -214,7 +181,7 @@ export function useMeetingChecklist(
       
       // Trigger confetti when transitioning from "not all checked" to "all checked"
       if (!wasAllChecked && isAllChecked) {
-        triggerConfetti();
+        triggerConfetti(enableConfetti);
       }
     }
   }

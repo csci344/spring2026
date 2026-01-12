@@ -3,7 +3,8 @@ title: "Pre-Course Assessment"
 type: "activity"
 due_date: "2026-01-12"
 start_date: "2026-01-12"
-excluded: 0
+excluded: 1
+draft: 1
 ---
 
 ## 1. Write a function called add_nums that takes two numbers as arguments and returns their sum. 
