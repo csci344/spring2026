@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import PageHeader from '@/components/PageHeaderExpandable';
-import Meeting from '@/components/Meeting';
+import Meeting from '@/components/schedule-entry/Meeting';
 
 import { Topic } from '@/lib/topics';
 
