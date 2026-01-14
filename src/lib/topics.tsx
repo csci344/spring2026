@@ -390,7 +390,18 @@ const baseTopics = [
           },
         ],
         readings: [
-          {
+            {
+              citation: (
+                <>
+                  Watch: Black Mirror. <a href="https://www.netflix.com/watch/80195733">Joan is Awful (2023), Season 6, Episode 1</a>. Netflix.
+                  <ul>
+                      <li>If you don't have Netflix, you can purchase the episode for $1.99 on Amazon.</li>
+                      <li>Content warning: some profanity, nudity, and irreverent scenes. That said, the broader point of the piece surfaces many important socio-technical themes that are worth thinking about.</li>
+                  </ul>
+                </>
+              ),
+            },
+           {
             citation: (
               <>
                 NPR's All Things Considered (January 6, 2025): <a href="https://www.npr.org/2025/01/06/nx-s1-5247750/what-may-be-next-after-a-federal-court-struck-down-the-fccs-net-neutrality-rules" target="_blank">What may be next after a federal court struck down the FCC's net neutrality rules</a>
@@ -407,10 +418,10 @@ const baseTopics = [
           {
             citation: (
               <>
-                NPR's All Things Considered (January 10, 2025): <a href="https://www.npr.org/2025/01/10/nx-s1-5250165/tiktok-will-ask-the-supreme-court-to-strike-down-a-law-that-could-ban-the-app-in-days" target="_blank">TikTok will ask the Supreme Court to strike down a law that could ban the app in days</a>
+                <a href="https://www.cnn.com/2026/01/12/tech/us-eu-tech-regulation-fight-explained" target="_blank">US-EU tech regulation fight explained</a> (Jan 12, 2026). CNN.
               </>
             ),
-          },
+          }
         ],
         optionalReadings: [
           {
