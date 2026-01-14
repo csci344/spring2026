@@ -70,7 +70,7 @@ export default async function ResourcesPage() {
     <ContentLayout variant="list" leftNav={<QuickLinksNav />}>
       <div className="space-y-6">
         <PageHeader 
-          title="Course How To Guides" 
+          title="Course Resources" 
           excerpt="Technical guides and documentation for the course technologies"
         />
         

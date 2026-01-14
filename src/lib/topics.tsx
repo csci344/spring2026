@@ -1,4 +1,4 @@
-import { getAllPosts, PostData } from './markdown';
+import { getAllPosts, PostData, getAllQuizMetadata, QuizMetadata, getQuizData, QuizData } from './markdown';
 import React from 'react';
 
 // Type definitions for topics structure
@@ -21,11 +21,19 @@ export interface Reading {
   url?: string;
 }
 
+export interface Quiz {
+  title: string;
+  slug: string;
+  quizData?: QuizData;
+  draft?: number;
+}
+
 export interface Meeting {
   date: string;
   topic: string;
   description?: string | React.ReactElement;
   activities?: Activity[];
+  quizzes?: Quiz[];
   readings?: Reading[];
   optionalReadings?: Reading[];
   holiday?: boolean;
@@ -78,9 +86,10 @@ function normalizeDate(dateStr: string | undefined): string | null {
 
 // Enrichment function
 async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<TopicsArray> {
-  // Read all activities and assignments
+  // Read all activities, assignments, and quizzes
   const allActivities = getAllPosts('activities');
   const allAssignments = getAllPosts('assignments');
+  const allQuizzes = getAllQuizMetadata();
   
   // Filter activities with start_date and assignments with assigned_date or due_date
   // Also filter out excluded activities (handle both boolean and number)
@@ -91,11 +100,13 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
   });
   const assignmentsWithAssignedDate = allAssignments.filter(a => a.assigned_date);
   const assignmentsWithDueDate = allAssignments.filter(a => a.due_date);
+  const quizzesWithDates = allQuizzes.filter(q => q.start_date);
   
   // Create maps for quick lookup by date
   const activitiesByDate = new Map<string, PostData[]>();
   const assignmentsByAssignedDate = new Map<string, PostData[]>();
   const assignmentsByDueDate = new Map<string, PostData[]>();
+  const quizzesByDate = new Map<string, QuizMetadata[]>();
   
   activitiesWithDates.forEach(activity => {
     const date = normalizeDate(activity.start_date);
@@ -127,6 +138,16 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
     }
   });
   
+  quizzesWithDates.forEach(quiz => {
+    const date = normalizeDate(quiz.start_date!);
+    if (date) {
+      if (!quizzesByDate.has(date)) {
+        quizzesByDate.set(date, []);
+      }
+      quizzesByDate.get(date)!.push(quiz);
+    }
+  });
+  
   // Clone baseTopics to avoid mutating the original
   // We need to preserve React elements in descriptions, so we do a shallow copy
   const enrichedTopics: TopicsArray = baseTopics.map((topic: Topic) => ({
@@ -152,6 +173,9 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
       
       // Find matching assignments by due_date
       const matchingAssignmentsByDue = assignmentsByDueDate.get(meetingDateStr) || [];
+      
+      // Find matching quizzes
+      const matchingQuizzes = quizzesByDate.get(meetingDateStr) || [];
       
       // Create auto-populated activity entries (excluding excluded activities)
       const autoActivities = matchingActivities
@@ -188,6 +212,17 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
         };
       });
       
+      // Create auto-populated quiz entries (include full quiz data for client-side rendering)
+      const autoQuizzes = matchingQuizzes.map((quiz: QuizMetadata) => {
+        const quizData = getQuizData(quiz.slug);
+        return {
+          title: quiz.quizName,
+          slug: quiz.slug,
+          quizData: quizData || undefined,
+          draft: 0
+        };
+      });
+      
       // Merge activities: keep manual entries, add auto-populated ones
       if (autoActivities.length > 0) {
         const existingActivities = meeting.activities || [];
@@ -200,6 +235,15 @@ async function enrichTopicsWithMarkdown(baseTopics: TopicsArray): Promise<Topics
       // Merge assignment: only set if not already set manually
       if (autoAssignment && !meeting.assigned) {
         meeting.assigned = autoAssignment;
+      }
+      
+      // Merge quizzes: keep manual entries, add auto-populated ones
+      if (autoQuizzes.length > 0) {
+        const existingQuizzes = meeting.quizzes || [];
+        // Check if auto-populated quizzes already exist (by slug) to avoid duplicates
+        const existingSlugs = new Set(existingQuizzes.map((q: Quiz) => q.slug));
+        const newAutoQuizzes = autoQuizzes.filter((q: Quiz) => !existingSlugs.has(q.slug));
+        meeting.quizzes = [...existingQuizzes, ...newAutoQuizzes];
       }
       
       // Merge due assignments: add all auto-populated ones (including drafts)
@@ -250,7 +294,11 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1bExOA_cV_sO1vzJd18si3FogUr0mCXMU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { 
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1bExOA_cV_sO1vzJd18si3FogUr0mCXMU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          },
         ],
         readings: [
           {
@@ -282,25 +330,17 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "https://docs.google.com/presentation/d/1tvordwjI82vEB07Iyt_K1v2JHbpFd-mj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
           { 
-            title: "Analyze a website", 
-            url: "https://docs.google.com/document/d/1cEJ0MD58Ev3I5Lb1QbI4zGVNGLl1aCcx/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 1
-          },
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1tvordwjI82vEB07Iyt_K1v2JHbpFd-mj/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          }
         ],
         readings: [
           {
             citation: (
               <>
                 Intro to the Internet: Watch <a href="https://www.youtube.com/watch?v=VPToE8vwKew" target="_blank">How We Made the Internet</a>. 2022. Nation Squid
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                Intro to the Web: Watch <a href="https://www.youtube.com/watch?v=kBXQZMmiA4s" target="_blank">The Internet: HTTP & HTML</a>. Code.org
               </>
             ),
           },
@@ -318,6 +358,13 @@ const baseTopics = [
               </>
             ),
           },
+          {
+            citation: (
+              <>
+                Intro to the Web: Watch <a href="https://www.youtube.com/watch?v=kBXQZMmiA4s" target="_blank">The Internet: HTTP & HTML</a>. Code.org
+              </>
+            ),
+          },
         ],
       },
       {
@@ -332,11 +379,14 @@ const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { 
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1iya_Gh6Nmnw3LwKf1ggHWBkcH8Elc7Ek/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 1 },
           { 
             title: "The Internet and Society: Discussion Questions", 
             url: "https://docs.google.com/document/d/13UKToc3qP2_MzrKJcDUr09wz64bkgAdF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 1 
+            draft: 1
           },
         ],
         readings: [

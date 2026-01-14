@@ -1,0 +1,174 @@
+{
+  "quizName": "Intro to the Internet Quiz",
+  "start_date": "2026-01-14",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "The video clarifies the difference between the \"internet\" and the \"World Wide Web.\" Which of the following statements best describes this distinction?",
+      "options": [
+        "The \"internet\" is the physical network infrastructure connecting computers, while the \"World Wide Web\" is one type of application that runs on top of that network.",
+        "The \"internet\" is the software we use to understand what computers are saying, and the \"World Wide Web\" is a bunch of computers talking to each other.",
+        "They are essentially the same thing and the terms are interchangeable.",
+        "The \"internet\" is a newer invention than the \"World Wide Web.\""
+      ],
+      "correct": 0,
+      "explanation": "The internet is the physical infrastructure (the network of computers), while the World Wide Web is the software/content layer that runs on top of it."
+    },
+    {
+      "id": "q2",
+      "question": "What event spurred the creation of DARPA, a key agency in the internet's early development?",
+      "options": [
+        "The end of World War II.",
+        "The launch of Sputnik by the Soviet Union.",
+        "The invention of the telegraph.",
+        "The first US presidential election spanning two years."
+      ],
+      "correct": 1,
+      "explanation": "The launch of Sputnik by the Soviet Union in 1957 created a sense of urgency in the US, leading to the creation of DARPA (Defense Advanced Research Projects Agency) to ensure the US maintained technological superiority."
+    },
+    {
+      "id": "q3",
+      "question": "What was ARPANET, and how did it initially enable faster information transmission?",
+      "options": [
+        "A type of user-friendly desktop computer that replaced mainframes.",
+        "A network created by DARPA that connected mainframes of research centers via leased phone lines.",
+        "A system for counting votes in elections more quickly.",
+        "A method for sending electrical impulses through copper wires."
+      ],
+      "correct": 1,
+      "explanation": "ARPANET was a network created by DARPA that connected mainframes at research centers using leased phone lines, allowing faster information sharing between institutions."
+    },
+    {
+      "id": "q6",
+      "question": "What significant change occurred on January 1, 1983, that unified various intranets and extranets into one big internet?",
+      "options": [
+        "The creation of the first public website.",
+        "The adoption of TCP/IP protocols.",
+        "The invention of the domain name system (DNS).",
+        "The development of web browsers."
+      ],
+      "correct": 1,
+      "explanation": "On January 1, 1983, the adoption of TCP/IP protocols unified the various separate networks (intranets and extranets) into one interconnected internet."
+    },
+    {
+      "id": "q7",
+      "question": "Elizabeth Feinler and her team created the host naming registry and the \"whois\" protocol. What was the purpose of this system?",
+      "options": [
+        "To automatically update domain name directories.",
+        "To list server names and their numerical addresses, making it easier to access servers.",
+        "To manage internet service providers (ISPs).",
+        "To transmit candy bars through television."
+      ],
+      "correct": 1,
+      "explanation": "The host naming registry and \"whois\" protocol maintained a directory of server names and their corresponding numerical IP addresses, making it easier for people to access servers by name rather than remembering numbers."
+    },
+    {
+      "id": "q8",
+      "question": "Tim Berners-Lee is recognized for creating the World Wide Web. What new technologies did his \"World Wide Web\" program feature to enable sharing data as web pages with hyperlinks?",
+      "options": [
+        "TCP/IP and UDP.",
+        "Modems and packet switching.",
+        "HTTP and HTML.",
+        "Email and text messaging."
+      ],
+      "correct": 2,
+      "explanation": "Tim Berners-Lee created HTTP (HyperText Transfer Protocol) and HTML (HyperText Markup Language), which enabled the creation of web pages with hyperlinks that could be shared over the internet."
+    },
+    {
+      "id": "q9",
+      "question": "According to the video, what was a key contribution of Al Gore to the internet's widespread accessibility?",
+      "options": [
+        "He personally designed the first web browser.",
+        "He put forward legislation that helped provide internet access to public schools and libraries.",
+        "He invented Wi-Fi.",
+        "He developed the first subscription-based internet service."
+      ],
+      "correct": 1,
+      "explanation": "Al Gore put forward legislation that helped provide internet access to public schools and libraries, making the internet more widely accessible to the general public."
+    },
+    {
+      "id": "q10",
+      "question": "What is packet switching, and why was it important for the development of the internet?",
+      "options": [
+        "A method of sending entire messages as single units through dedicated connections.",
+        "A technique that breaks data into small packets that can be routed independently through the network, allowing multiple messages to share the same connection.",
+        "A system for switching between different types of computer hardware.",
+        "A protocol for encrypting data during transmission."
+      ],
+      "correct": 1,
+      "explanation": "Packet switching breaks data into small packets that can be routed independently, allowing multiple messages to share network connections efficiently and making the network more resilient."
+    },
+    {
+      "id": "q11",
+      "question": "When you type a website address like 'www.example.com' into your browser, what does DNS do?",
+      "options": [
+        "DNS encrypts your connection to make it secure.",
+        "DNS translates the human-readable domain name into the corresponding IP address that computers use to locate the website's server.",
+        "DNS creates the website content and displays it in your browser.",
+        "DNS manages the physical cables that connect your computer to the internet."
+      ],
+      "correct": 1,
+      "explanation": "DNS (Domain Name System) acts like a phone book for the internet, translating human-readable domain names (like www.example.com) into the numerical IP addresses (like 192.0.2.1) that computers use to locate and connect to servers."
+    },
+    {
+      "id": "q12",
+      "question": "What role do Internet Service Providers (ISPs) play in how people access the internet?",
+      "options": [
+        "ISPs create the content that appears on websites.",
+        "ISPs are companies that provide the 'last mile' connection from users' homes to the broader internet infrastructure.",
+        "ISPs develop web browsers and web technologies.",
+        "ISPs only manage email servers."
+      ],
+      "correct": 1,
+      "explanation": "ISPs are companies that provide the connection from individual users (homes, businesses) to the broader internet infrastructure, serving as the gateway between local networks and the global internet."
+    },
+    {
+      "id": "q13",
+      "question": "What is the physical infrastructure that enables global internet connectivity?",
+      "options": [
+        "Only wireless satellite connections.",
+        "Primarily undersea cables, fiber optic networks, and data centers that form the internet's physical backbone.",
+        "Only local Wi-Fi networks in homes and businesses.",
+        "Only telephone lines from the 1970s."
+      ],
+      "correct": 1,
+      "explanation": "The internet's physical infrastructure includes undersea cables connecting continents, fiber optic networks on land, and data centers that store and serve content, forming a global physical network."
+    },
+    {
+      "id": "q14",
+      "question": "How does data travel from your computer to a website on the other side of the world?",
+      "options": [
+        "Data travels directly in a straight line through the air.",
+        "Data is broken into packets that are routed through multiple routers and networks, potentially traveling through undersea cables and various ISPs before reaching the destination.",
+        "Data is stored locally and never actually travels.",
+        "Data only travels through local networks."
+      ],
+      "correct": 1,
+      "explanation": "Data is broken into packets that are routed through multiple intermediate points (routers, networks, ISPs, and potentially undersea cables) before reaching the final destination, following the most efficient path available."
+    },
+    {
+      "id": "q15",
+      "question": "What is an IP address, and why are they important for internet communication?",
+      "options": [
+        "IP addresses are decorative identifiers with no functional purpose.",
+        "IP addresses are unique numerical identifiers assigned to devices on a network, allowing routers to know where to send data packets.",
+        "IP addresses are only used for email communication.",
+        "IP addresses are the same as domain names."
+      ],
+      "correct": 1,
+      "explanation": "IP addresses are unique numerical identifiers (like 192.168.1.1) assigned to devices on a network, serving as the 'address' that routers use to know where to deliver data packets across the internet."
+    },
+    {
+      "id": "q16",
+      "question": "What is the client-server model, and how does it relate to how we use the internet?",
+      "options": [
+        "A model where all computers are equal and share resources equally.",
+        "A model where client devices (like your browser) request resources from server computers that store and serve web pages, files, and other content.",
+        "A model where clients serve content to servers.",
+        "A model that only applies to email communication."
+      ],
+      "correct": 1,
+      "explanation": "The client-server model describes how client devices (your computer/browser) make requests to server computers that store and serve web pages, files, and other content, which is the fundamental architecture of how we use the internet."
+    }
+  ]
+}

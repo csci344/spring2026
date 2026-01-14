@@ -15,10 +15,31 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPostIds('resources');
-  return posts.map((post) => ({
-    slug: post.params.id,
-  }));
+  try {
+    const posts = getAllPostIds('resources');
+    // Filter to only include posts that can actually be loaded (not draft, exists, etc.)
+    const validPosts = await Promise.all(
+      posts.map(async (post) => {
+        try {
+          const postData = await getPostData(post.params.id, 'resources');
+          // Only include non-draft posts
+          return postData.draft !== 1 ? post : null;
+        } catch {
+          // If post can't be loaded, exclude it
+          return null;
+        }
+      })
+    );
+    
+    return validPosts
+      .filter((post): post is { params: { id: string } } => post !== null)
+      .map((post) => ({
+        slug: post.params.id,
+      }));
+  } catch (error) {
+    console.error('Error generating static params for resources:', error);
+    return [];
+  }
 }
 
 export default async function ResourcePage({ params }: PageProps) {

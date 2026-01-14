@@ -48,9 +48,26 @@ export default async function ActivityPage({ params }: ActivityPageProps) {
 
 // Generate static params for all activities
 export async function generateStaticParams() {
-  const activityIds = getAllPostIds('activities');
-  
-  return activityIds.map(({ params }) => ({
-    slug: params.id,
-  }));
+  try {
+    const activityIds = getAllPostIds('activities');
+    
+    // Filter to only include activities that can actually be loaded
+    const validActivities = await Promise.all(
+      activityIds.map(async ({ params }) => {
+        try {
+          const postData = await getPostData(params.id, 'activities');
+          // Only include non-draft, non-excluded activities
+          return postData.draft !== 1 && !postData.excluded ? { slug: params.id } : null;
+        } catch {
+          // If activity can't be loaded, exclude it
+          return null;
+        }
+      })
+    );
+    
+    return validActivities.filter((activity): activity is { slug: string } => activity !== null);
+  } catch (error) {
+    console.error('Error generating static params for activities:', error);
+    return [];
+  }
 } 

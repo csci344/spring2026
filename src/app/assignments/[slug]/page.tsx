@@ -5,6 +5,7 @@ import ContentLayout from '@/components/ContentLayout';
 import QuickLinksNav from '@/components/QuickLinksNav';
 import StyleGuideStyles from '@/components/StyleGuideStyles';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface AssignmentPageProps {
   params: Promise<{
@@ -22,42 +23,63 @@ function formatDate(dateString: string): string {
 }
 
 export default async function AssignmentPage({ params }: AssignmentPageProps) {
-  const { slug } = await params;
-  const postData = await getPostData(slug, 'assignments');
-  const { heading_max_level } = postData;
-  const isStyleGuideDemo = slug === 'style-guide-demo';
-  
-  return (
-    <ContentLayout
-      variant="detail-with-toc"
-      leftNav={<QuickLinksNav />}
-      showToc={postData.toc !== false}
-      tocMaxLevel={heading_max_level || 2}
-    >
-      <div className="mb-4">
-        <Link href="/assignments" className="text-blue-600 dark:text-blue-400 hover:underline">
-          Assignments
-        </Link>
-        {' > '}
-        <span className="text-gray-900 dark:text-gray-100">{postData.title}</span>
-      </div>
-      <PageHeader 
-        title={postData.title} 
-        excerpt={postData.excerpt}
-        type={postData.type}
-      />
-      { postData.due_date && <p className="mt-2 text-lg font-bold">Due {formatDate(postData.due_date)} at 11:59pm</p> }
-      {isStyleGuideDemo && <StyleGuideStyles />}
-      <MarkdownContent content={postData.content} />
-    </ContentLayout>
-  );
+  try {
+    const { slug } = await params;
+    const postData = await getPostData(slug, 'assignments');
+    const { heading_max_level } = postData;
+    const isStyleGuideDemo = slug === 'style-guide-demo';
+    
+    return (
+      <ContentLayout
+        variant="detail-with-toc"
+        leftNav={<QuickLinksNav />}
+        showToc={postData.toc !== false}
+        tocMaxLevel={heading_max_level || 2}
+      >
+        <div className="mb-4">
+          <Link href="/assignments" className="text-blue-600 dark:text-blue-400 hover:underline">
+            Assignments
+          </Link>
+          {' > '}
+          <span className="text-gray-900 dark:text-gray-100">{postData.title}</span>
+        </div>
+        <PageHeader 
+          title={postData.title} 
+          excerpt={postData.excerpt}
+          type={postData.type}
+        />
+        { postData.due_date && <p className="mt-2 text-lg font-bold">Due {formatDate(postData.due_date)} at 11:59pm</p> }
+        {isStyleGuideDemo && <StyleGuideStyles />}
+        <MarkdownContent content={postData.content} />
+      </ContentLayout>
+    );
+  } catch {
+    notFound();
+  }
 }
 
 // Generate static params for all assignments
 export async function generateStaticParams() {
-  const assignmentIds = getAllPostIds('assignments');
-  
-  return assignmentIds.map(({ params }) => ({
-    slug: params.id,
-  }));
+  try {
+    const assignmentIds = getAllPostIds('assignments');
+    
+    // Filter to only include assignments that can actually be loaded
+    const validAssignments = await Promise.all(
+      assignmentIds.map(async ({ params }) => {
+        try {
+          const postData = await getPostData(params.id, 'assignments');
+          // Only include non-draft, non-excluded assignments
+          return postData.draft !== 1 && !postData.excluded ? { slug: params.id } : null;
+        } catch {
+          // If assignment can't be loaded, exclude it
+          return null;
+        }
+      })
+    );
+    
+    return validAssignments.filter((assignment): assignment is { slug: string } => assignment !== null);
+  } catch (error) {
+    console.error('Error generating static params for assignments:', error);
+    return [];
+  }
 } 
