@@ -107,12 +107,8 @@ export const baseTopics = [
           { 
             title: "Slides", 
             url: "https://docs.google.com/presentation/d/1iya_Gh6Nmnw3LwKf1ggHWBkcH8Elc7Ek/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 1 },
-          { 
-            title: "The Internet and Society: Discussion Questions", 
-            url: "https://docs.google.com/document/d/13UKToc3qP2_MzrKJcDUr09wz64bkgAdF/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 1
-          },
+            draft: 0 
+          }
         ],
         readings: [
             {
@@ -287,8 +283,8 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "Linking (lecture files)", url: "/course-files/lectures/lecture05.zip", draft: 0 },
-          { title: "Configure git and GitHub", url: "/resources/sys-01-github", draft: 0 },
+          { title: "Linking (lecture files)", url: "/course-files/lectures/lecture05.zip", draft: 1 },
+          { title: "Configure git and GitHub", url: "/resources/sys-01-github", draft: 1 },
         ],
         readings: [
           {

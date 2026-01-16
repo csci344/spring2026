@@ -35,7 +35,10 @@ export default async function ActivityPage({ params }: ActivityPageProps) {
           
           <Suspense fallback={<MarkdownContent content={postData.content} />}>
             <InstructorNotesToggle>
-              <MarkdownContent content={postData.content} />
+              <MarkdownContent 
+                content={postData.content} 
+                className={slug === 'societal-implications' ? 'societal-implications-content' : undefined}
+              />
             </InstructorNotesToggle>
           </Suspense>
         </div>

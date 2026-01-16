@@ -723,3 +723,9 @@ code {
   border-radius: 4px;
   overflow: hidden;
 }
+
+/* Custom spacing for societal-implications activity */
+.societal-implications-content.prose ol li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

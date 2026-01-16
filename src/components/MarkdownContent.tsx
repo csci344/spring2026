@@ -4,9 +4,10 @@ import { useRef } from 'react';
 
 interface MarkdownContentProps {
   content: string;
+  className?: string;
 }
 
-export default function MarkdownContent({ content }: MarkdownContentProps) {
+export default function MarkdownContent({ content, className }: MarkdownContentProps) {
   const contentRef = useRef<HTMLDivElement>(null);
 
 //   useEffect(() => {
@@ -113,7 +114,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
   return (
     <div 
       ref={contentRef}
-      className="prose prose-lg max-w-none"
+      className={`prose prose-lg max-w-none ${className || ''}`}
       dangerouslySetInnerHTML={{ __html: content }}
       suppressHydrationWarning
     />
