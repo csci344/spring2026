@@ -135,13 +135,6 @@ export const baseTopics = [
                 NPR's All Things Considered (January 7, 2025): <a href="https://www.npr.org/2025/01/07/nx-s1-5251151/meta-fact-checking-mark-zuckerberg-trump" target="_blank">Meta says it will end fact checking as Silicon Valley prepares for Trump</a>
               </>
             ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.cnn.com/2026/01/12/tech/us-eu-tech-regulation-fight-explained" target="_blank">US-EU tech regulation fight explained</a> (Jan 12, 2026). CNN.
-              </>
-            ),
           }
         ],
         optionalReadings: [
