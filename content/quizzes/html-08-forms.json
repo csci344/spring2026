@@ -1,0 +1,126 @@
+{
+  "quizName": "HTML Form Tags Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is the primary purpose of HTML forms?",
+      "options": [
+        "To style web pages",
+        "To gather information from users and typically post it to a server",
+        "To create links",
+        "To embed media"
+      ],
+      "correct": 1,
+      "explanation": "HTML forms are used to gather information from users. The data is typically submitted to a server that processes it, though we'll cover the server-side handling in more detail later."
+    },
+    {
+      "id": "q2",
+      "question": "Which tag is used to create an HTML form?",
+      "options": [
+        "<form>",
+        "<input>",
+        "<fieldset>",
+        "<submit>"
+      ],
+      "correct": 0,
+      "explanation": "The <form> tag is the container element that wraps all form controls and defines where the form data should be sent when submitted."
+    },
+    {
+      "id": "q3",
+      "question": "Which tag is used to create various types of input fields (text, email, password, checkbox, radio, etc.)?",
+      "options": [
+        "<field>",
+        "<input>",
+        "<textbox>",
+        "<control>"
+      ],
+      "correct": 1,
+      "explanation": "The <input> tag is used to create various types of input fields. The type attribute determines what kind of input it is (text, email, password, checkbox, radio, etc.)."
+    },
+    {
+      "id": "q4",
+      "question": "Which tag is used to create a multi-line text input area?",
+      "options": [
+        "<input type=\"textarea\">",
+        "<textarea>",
+        "<multiline>",
+        "<text>"
+      ],
+      "correct": 1,
+      "explanation": "The <textarea> tag is used to create a multi-line text input area, allowing users to enter longer text than a single-line input field."
+    },
+    {
+      "id": "q5",
+      "question": "Which tag is used to create a dropdown menu with selectable options?",
+      "options": [
+        "<dropdown>",
+        "<select>",
+        "<menu>",
+        "<options>"
+      ],
+      "correct": 1,
+      "explanation": "The <select> tag creates a dropdown menu. It contains <option> tags that define the available choices in the dropdown."
+    },
+    {
+      "id": "q6",
+      "question": "Which tag is used to define individual options within a <select> dropdown?",
+      "options": [
+        "<item>",
+        "<option>",
+        "<choice>",
+        "<select-item>"
+      ],
+      "correct": 1,
+      "explanation": "The <option> tag is used inside a <select> element to define each available choice in the dropdown menu."
+    },
+    {
+      "id": "q7",
+      "question": "What is the purpose of the <label> tag in forms?",
+      "options": [
+        "To style form elements",
+        "To provide a text description that is associated with a form control, improving accessibility",
+        "To create form borders",
+        "To submit the form"
+      ],
+      "correct": 1,
+      "explanation": "The <label> tag provides a text description for form controls. It improves accessibility (screen readers can associate the label with the input) and usability (clicking the label focuses the input)."
+    },
+    {
+      "id": "q8",
+      "question": "Which tag is commonly used to create a submit button in a form?",
+      "options": [
+        "<submit>",
+        "<button> or <input type=\"submit\">",
+        "<send>",
+        "<form-button>"
+      ],
+      "correct": 1,
+      "explanation": "You can create a submit button using either <button type=\"submit\"> or <input type=\"submit\">. Both will submit the form when clicked."
+    },
+    {
+      "id": "q9",
+      "question": "What attribute of the <input> tag determines what type of input field is created?",
+      "options": [
+        "name",
+        "type",
+        "id",
+        "value"
+      ],
+      "correct": 1,
+      "explanation": "The type attribute of the <input> tag determines what kind of input field is created. Examples include: text, email, password, checkbox, radio, submit, etc."
+    },
+    {
+      "id": "q10",
+      "question": "Which of the following are common form-related HTML tags?",
+      "options": [
+        "<form>, <input>, <textarea>, <select>, <option>, <label>, <button>",
+        "<form>, <field>, <text>, <dropdown>",
+        "<input> only",
+        "<form> and <submit> only"
+      ],
+      "correct": 0,
+      "explanation": "Common form-related tags include: <form> (container), <input> (various input types), <textarea> (multi-line text), <select> and <option> (dropdowns), <label> (labels), and <button> (buttons)."
+    }
+  ]
+}

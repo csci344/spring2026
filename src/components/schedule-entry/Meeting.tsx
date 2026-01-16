@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useMeetingChecklist } from './useMeetingChecklist';
 import ResourceQuiz from '@/components/ResourceQuiz';
 import { QuizData } from '@/components/quiz/types';
@@ -197,6 +197,14 @@ export default function Meeting({
     
     // Get quiz completion status and score from localStorage
     const [quizStatus, setQuizStatus] = useState<{ completed: boolean; score: number; total: number } | null>(null);
+    const quizStatusRef = useRef<{ completed: boolean; score: number; total: number } | null>(null);
+    const prevCompletedRef = useRef<boolean | undefined>(undefined);
+    const checklistRef = useRef(checklist);
+    
+    // Keep checklist ref up to date
+    useEffect(() => {
+      checklistRef.current = checklist;
+    }, [checklist]);
     
     useEffect(() => {
       if (typeof window === 'undefined' || isDraft) return;
@@ -205,20 +213,60 @@ export default function Meeting({
         try {
           const storageKey = `quiz-${quiz.slug}`;
           const saved = localStorage.getItem(storageKey);
+          const totalQuestions = quiz.quizData?.questions?.length || 0;
+          
           if (saved) {
             const savedState = JSON.parse(saved);
-            const totalQuestions = quiz.quizData?.questions?.length || 0;
-            setQuizStatus({
-              completed: savedState.completed || false,
+            const newCompleted = savedState.completed || false;
+            const newStatus = {
+              completed: newCompleted,
               score: savedState.score || 0,
               total: totalQuestions
-            });
+            };
+            
+            // Only update if the completed status actually changed
+            const prevCompleted = quizStatusRef.current?.completed;
+            if (prevCompleted !== newCompleted) {
+              quizStatusRef.current = newStatus;
+              setQuizStatus(newStatus);
+              
+              // Automatically sync checkbox when quiz status changes
+              if (enableChecklist) {
+                const currentlyChecked = checklistRef.current.isChecked(itemKey);
+                const shouldBeChecked = newCompleted;
+                
+                if (shouldBeChecked && !currentlyChecked) {
+                  checklistRef.current.toggleChecked(itemKey, true);
+                } else if (!shouldBeChecked && currentlyChecked) {
+                  checklistRef.current.toggleChecked(itemKey, true);
+                }
+              }
+            } else if (quizStatusRef.current === null) {
+              // First time setting status
+              quizStatusRef.current = newStatus;
+              setQuizStatus(newStatus);
+            }
           } else {
-            setQuizStatus(null);
+            // Only update if status was not null
+            if (quizStatusRef.current !== null) {
+              quizStatusRef.current = null;
+              setQuizStatus(null);
+              
+              // Automatically uncheck when quiz is cleared
+              if (enableChecklist) {
+                const currentlyChecked = checklistRef.current.isChecked(itemKey);
+                if (currentlyChecked) {
+                  checklistRef.current.toggleChecked(itemKey, true);
+                }
+              }
+            }
           }
         } catch (error) {
           console.error('Error reading quiz status:', error);
-          setQuizStatus(null);
+          if (quizStatusRef.current !== null) {
+            quizStatusRef.current = null;
+            setQuizStatus(null);
+          }
         }
       };
       
@@ -240,19 +288,20 @@ export default function Meeting({
         window.removeEventListener('storage', handleStorageChange);
         clearInterval(interval);
       };
-    }, [quiz.slug, quiz.quizData, isDraft]);
+    }, [quiz.slug, quiz.quizData?.questions?.length, isDraft, enableChecklist, itemKey]);
     
     return (
       <div className="flex items-start gap-2">
         {!isDraft && (
           <input
             type="checkbox"
-            aria-label={`Mark quiz "${quiz.title}" as ${isChecked ? 'uncompleted' : 'completed'}`}
+            aria-label={`Quiz "${quiz.title}" ${isChecked ? 'completed' : 'not completed'} - checkbox is readonly, complete the quiz to mark it as done`}
             checked={isChecked}
-            onChange={() => enableChecklist && checklist.toggleChecked(itemKey)}
+            onChange={() => {}} // Readonly - can only be checked by completing the quiz
             disabled={!enableChecklist}
+            readOnly
             onClick={(e) => e.stopPropagation()}
-            className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-pointer flex-shrink-0"
+            className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-default flex-shrink-0"
             style={isDark ? { 
               backgroundColor: isChecked ? '#3b82f6' : '#1f2937',
               borderColor: isChecked ? '#3b82f6' : '#4b5563'

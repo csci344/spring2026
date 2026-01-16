@@ -1,0 +1,174 @@
+{
+  "quizName": "HTML Text Markup Tags Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which HTML tag is used to define a paragraph?",
+      "options": [
+        "<para>",
+        "<p>",
+        "<paragraph>",
+        "<text>"
+      ],
+      "correct": 1,
+      "explanation": "The <p> tag is used to define a paragraph in HTML. It requires both an opening <p> and closing </p> tag."
+    },
+    {
+      "id": "q2",
+      "question": "What is the correct order of heading tags from most important to least important?",
+      "options": [
+        "h1 to h6, where h1 is most important and h6 is least important",
+        "h6 to h1, where h6 is most important and h1 is least important",
+        "All headings have equal importance",
+        "Only h1 and h2 are used"
+      ],
+      "correct": 0,
+      "explanation": "Heading tags range from <h1> (most important) to <h6> (least important). They show document structure and are used by search engines to index content."
+    },
+    {
+      "id": "q3",
+      "question": "Which tag is used to force a line break without starting a new paragraph?",
+      "options": [
+        "<break />",
+        "<br />",
+        "<line />",
+        "<newline />"
+      ],
+      "correct": 1,
+      "explanation": "The <br /> tag is a self-closing tag used to force a line break (new line) without starting a new paragraph."
+    },
+    {
+      "id": "q4",
+      "question": "Which of the following tags is used to emphasize text and is typically displayed in italics?",
+      "options": [
+        "<strong>",
+        "<em>",
+        "<span>",
+        "<bold>"
+      ],
+      "correct": 1,
+      "explanation": "The <em> tag is used to emphasize text and is typically displayed in italics. The <strong> tag is for strong emphasis (bold), and <span> is a generic inline container."
+    },
+    {
+      "id": "q5",
+      "question": "Which tag is used for strong emphasis and is typically displayed in bold?",
+      "options": [
+        "<em>",
+        "<strong>",
+        "<bold>",
+        "<b>"
+      ],
+      "correct": 1,
+      "explanation": "The <strong> tag is used for strong emphasis and is typically displayed in bold. While <b> also makes text bold, <strong> has semantic meaning indicating importance."
+    },
+    {
+      "id": "q6",
+      "question": "What is the purpose of the <span> tag?",
+      "options": [
+        "To create a new paragraph",
+        "To create a line break",
+        "To group or style inline text",
+        "To create a heading"
+      ],
+      "correct": 2,
+      "explanation": "The <span> tag is an inline container used to group or style text. It doesn't have any visual effect by itself but is useful for applying CSS or JavaScript to specific portions of text."
+    },
+    {
+      "id": "q7",
+      "question": "Which tag is used to create a horizontal separator line?",
+      "options": [
+        "<separator />",
+        "<hr />",
+        "<line />",
+        "<divider />"
+      ],
+      "correct": 1,
+      "explanation": "The <hr /> tag is a self-closing tag used to create a horizontal rule (separator line) in HTML."
+    },
+    {
+      "id": "q8",
+      "question": "Which of the following are inline tags that can be used within other elements?",
+      "options": [
+        "<p>, <h1>, <div>",
+        "<span>, <em>, <strong>",
+        "<section>, <article>",
+        "<header>, <footer>"
+      ],
+      "correct": 1,
+      "explanation": "<span>, <em>, and <strong> are inline tags that can be used within other elements (like paragraphs) to style or emphasize specific portions of text."
+    },
+    {
+      "id": "q9",
+      "question": "What is the main difference between block-level and inline elements?",
+      "options": [
+        "Block elements create line breaks before and after them, while inline elements stay on the same line",
+        "Inline elements create line breaks, while block elements stay on the same line",
+        "There is no difference",
+        "Block elements can only be used in the body, inline elements only in the head"
+      ],
+      "correct": 0,
+      "explanation": "Block-level elements (like <p>, <h1>, <div>) create line breaks before and after them, taking up the full width available. Inline elements (like <span>, <em>, <strong>) stay on the same line and only take up as much width as their content."
+    },
+    {
+      "id": "q10",
+      "question": "Consider this code:\n```html\n<p>First paragraph</p>\n<p>Second paragraph</p>\n```\n\nHow will this appear in the browser?",
+      "options": [
+        "Both paragraphs on the same line: First paragraph Second paragraph",
+        "First paragraph on one line, Second paragraph on the next line (with a line break between them)",
+        "Only the first paragraph will display",
+        "The paragraphs will overlap"
+      ],
+      "correct": 1,
+      "explanation": "The <p> tag is a block-level element, so each paragraph will appear on its own line with a line break between them. Block elements create line breaks before and after themselves."
+    },
+    {
+      "id": "q11",
+      "question": "Consider this code:\n```html\n<p>This is <em>emphasized</em> text and this is <strong>bold</strong> text.</p>\n```\n\nHow will this appear in the browser?",
+      "options": [
+        "Each word on a separate line",
+        "All text on the same line: 'This is emphasized text and this is bold text.'",
+        "The emphasized and bold words will be on separate lines",
+        "Only the emphasized text will display"
+      ],
+      "correct": 1,
+      "explanation": "The <em> and <strong> tags are inline elements, so they stay on the same line as the surrounding text. The entire sentence will appear on one line, with 'emphasized' in italics and 'bold' in bold."
+    },
+    {
+      "id": "q12",
+      "question": "Consider this code:\n```html\n<h1>Heading One</h1>\n<p>Paragraph text</p>\n<h2>Heading Two</h2>\n```\n\nHow will this appear in the browser?",
+      "options": [
+        "All on one line: Heading One Paragraph text Heading Two",
+        "Heading One on line 1, Paragraph text on line 2, Heading Two on line 3 (each on separate lines)",
+        "Only the headings will display",
+        "The headings and paragraph will overlap"
+      ],
+      "correct": 1,
+      "explanation": "Both <h1>, <h2>, and <p> are block-level elements. Each will appear on its own line with line breaks between them: Heading One on the first line, Paragraph text on the second line, and Heading Two on the third line."
+    },
+    {
+      "id": "q13",
+      "question": "Consider this code:\n```html\n<p>Welcome to <span>my website</span> and <em>enjoy</em> your visit!</p>\n```\n\nHow will this appear in the browser?",
+      "options": [
+        "Each word on a separate line",
+        "All text on the same line: 'Welcome to my website and enjoy your visit!'",
+        "'my website' and 'enjoy' will be on separate lines",
+        "Only 'my website' will display"
+      ],
+      "correct": 1,
+      "explanation": "Both <span> and <em> are inline elements, so they stay on the same line as the surrounding text. The entire sentence will appear on one line, with 'my website' and 'enjoy' styled according to their tags but remaining inline."
+    },
+    {
+      "id": "q14",
+      "question": "Which of the following tags are block-level elements that create line breaks?",
+      "options": [
+        "<p>, <h1>, <h2>, <div>",
+        "<span>, <em>, <strong>",
+        "<br />, <hr />",
+        "All HTML tags create line breaks"
+      ],
+      "correct": 0,
+      "explanation": "<p>, <h1>, <h2>, and <div> are block-level elements that create line breaks before and after them. <span>, <em>, and <strong> are inline elements. <br /> and <hr /> are self-closing tags that create line breaks but are not block containers."
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "quizName": "HTML Semantic Tags Quiz",
+  "start_date": "2026-01-23",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What are semantic HTML tags?",
+      "options": [
+        "Tags that have no meaning",
+        "Tags that clearly describe their purpose and help group content into logical sections",
+        "Tags that are only used for styling",
+        "Tags that are deprecated"
+      ],
+      "correct": 1,
+      "explanation": "Semantic HTML tags clearly describe their purpose in the tag name itself and help group content into logical sections, making the code more readable and accessible."
+    },
+    {
+      "id": "q2",
+      "question": "Which semantic tag is typically used for the top section of a page containing the site title and logo?",
+      "options": [
+        "<top>",
+        "<header>",
+        "<head>",
+        "<title>"
+      ],
+      "correct": 1,
+      "explanation": "The <header> tag is used for the top section of a page, typically containing the site title, logo, and introductory content."
+    },
+    {
+      "id": "q3",
+      "question": "Which semantic tag is used for navigation links?",
+      "options": [
+        "<nav>",
+        "<navigation>",
+        "<menu>",
+        "<links>"
+      ],
+      "correct": 0,
+      "explanation": "The <nav> tag is used to define a section containing navigation links, such as a main menu or site navigation."
+    },
+    {
+      "id": "q4",
+      "question": "Which semantic tag is used for the main content sections of a page?",
+      "options": [
+        "<main>",
+        "<section>",
+        "<content>",
+        "Both <section> and <article> can be used"
+      ],
+      "correct": 3,
+      "explanation": "Both <section> and <article> are semantic tags used for content sections. <section> is for thematic groupings, while <article> is for standalone, distributable content."
+    },
+    {
+      "id": "q5",
+      "question": "Which semantic tag is typically used for the bottom section of a page containing copyright and contact information?",
+      "options": [
+        "<bottom>",
+        "<footer>",
+        "<end>",
+        "<close>"
+      ],
+      "correct": 1,
+      "explanation": "The <footer> tag is used for the bottom section of a page, typically containing copyright information, contact details, and related links."
+    },
+    {
+      "id": "q6",
+      "question": "Which semantic tag is used for content that is tangentially related to the main content (like sidebars)?",
+      "options": [
+        "<sidebar>",
+        "<aside>",
+        "<side>",
+        "<extra>"
+      ],
+      "correct": 1,
+      "explanation": "The <aside> tag is used for content that is tangentially related to the main content, such as sidebars, call-out boxes, or related information."
+    },
+    {
+      "id": "q7",
+      "question": "What is the primary purpose of semantic HTML tags?",
+      "options": [
+        "They automatically style the page with default CSS",
+        "They help screen readers, web crawlers, search engines, and other bots understand the structure and meaning of content, improving accessibility and SEO",
+        "They make the page load faster",
+        "They have no specific purpose"
+      ],
+      "correct": 1,
+      "explanation": "Semantic HTML tags help screen readers interpret page structure for users with disabilities (accessibility), help web crawlers and search engines understand content for better SEO, assist bots in parsing content, and make code more maintainable for developers."
+    },
+    {
+      "id": "q8",
+      "question": "Which of the following are examples of semantic HTML5 tags?",
+      "options": [
+        "<div> and <span>",
+        "<header>, <nav>, <section>, <article>, <footer>, <aside>",
+        "<table> and <list>",
+        "<bold> and <italic>"
+      ],
+      "correct": 1,
+      "explanation": "HTML5 introduced semantic tags like <header>, <nav>, <section>, <article>, <footer>, and <aside> that clearly describe their purpose, unlike generic tags like <div> and <span>."
+    }
+  ]
+}

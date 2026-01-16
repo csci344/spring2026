@@ -1,0 +1,102 @@
+{
+  "quizName": "HTML Lists & Tables Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is the difference between <ol> and <ul> tags?",
+      "options": [
+        "<ol> creates unordered lists, <ul> creates ordered lists",
+        "<ol> creates ordered lists (numbered), <ul> creates unordered lists (bulleted)",
+        "There is no difference",
+        "<ol> is for tables, <ul> is for lists"
+      ],
+      "correct": 1,
+      "explanation": "<ol> (ordered list) creates numbered lists, while <ul> (unordered list) creates bulleted lists. Both require <li> tags for each list item."
+    },
+    {
+      "id": "q2",
+      "question": "Which tag is used to define individual items in a list?",
+      "options": [
+        "<item>",
+        "<li>",
+        "<list-item>",
+        "<list>"
+      ],
+      "correct": 1,
+      "explanation": "The <li> (list item) tag is used to define individual items within both ordered (<ol>) and unordered (<ul>) lists."
+    },
+    {
+      "id": "q3",
+      "question": "What are 'compound tags' in the context of lists and tables?",
+      "options": [
+        "Tags that work independently",
+        "Tags that only work in conjunction with one another",
+        "Tags that don't need closing tags",
+        "Tags that are deprecated"
+      ],
+      "correct": 1,
+      "explanation": "Compound tags are tags that work together. For lists, you need <ol> or <ul> to define the list and <li> for each item. For tables, you need multiple tags like <table>, <tr>, and <td> working together."
+    },
+    {
+      "id": "q4",
+      "question": "Which tag is used to define a table row?",
+      "options": [
+        "<row>",
+        "<tr>",
+        "<table-row>",
+        "<td>"
+      ],
+      "correct": 1,
+      "explanation": "The <tr> (table row) tag is used to define a row in an HTML table. Each <tr> contains one or more <td> (table data) or <th> (table header) cells."
+    },
+    {
+      "id": "q5",
+      "question": "Which tag is used to define a table cell (data cell)?",
+      "options": [
+        "<cell>",
+        "<td>",
+        "<table-cell>",
+        "<data>"
+      ],
+      "correct": 1,
+      "explanation": "The <td> (table data) tag is used to define a standard cell in an HTML table. It contains the actual data/content of the cell."
+    },
+    {
+      "id": "q6",
+      "question": "What is the correct structure for creating a table in HTML?",
+      "options": [
+        "<table> contains <row> which contains <cell>",
+        "<table> contains <tr> which contains <td>",
+        "<tr> contains <table> which contains <td>",
+        "<td> contains <tr> which contains <table>"
+      ],
+      "correct": 1,
+      "explanation": "The correct structure is: <table> contains <tr> (table rows), and each <tr> contains <td> (table data cells) or <th> (table header cells)."
+    },
+    {
+      "id": "q7",
+      "question": "Which tag is used to define a table header cell?",
+      "options": [
+        "<th>",
+        "<header>",
+        "<td header>",
+        "<table-header>"
+      ],
+      "correct": 0,
+      "explanation": "The <th> (table header) tag is used to define header cells in a table. Header cells are typically bold and centered, and help describe the data in the columns or rows."
+    },
+    {
+      "id": "q8",
+      "question": "What is the minimum structure needed to create a basic list?",
+      "options": [
+        "Just <li> tags",
+        "An opening <ol> or <ul> tag, at least one <li> tag, and a closing </ol> or </ul> tag",
+        "Just <ol> or <ul> tags",
+        "A <div> with <li> tags inside"
+      ],
+      "correct": 1,
+      "explanation": "A list requires both the container tag (<ol> or <ul>) and at least one list item (<li>). The structure is: <ol><li>Item</li></ol> or <ul><li>Item</li></ul>."
+    }
+  ]
+}

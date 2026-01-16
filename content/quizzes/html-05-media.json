@@ -1,0 +1,78 @@
+{
+  "quizName": "HTML Media Tags Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is an iframe used for?",
+      "options": [
+        "To embed images",
+        "To embed another web page within the current page",
+        "To create links",
+        "To style text"
+      ],
+      "correct": 1,
+      "explanation": "An iframe (inline frame) is used to embed another web page or content within the current HTML page. It's commonly used for embedding videos, maps, or other external content."
+    },
+    {
+      "id": "q2",
+      "question": "Which HTML5 tag is used to embed audio files?",
+      "options": [
+        "<sound>",
+        "<audio>",
+        "<mp3>",
+        "<music>"
+      ],
+      "correct": 1,
+      "explanation": "The <audio> tag is an HTML5 element used to embed audio files in a web page. It supports multiple audio formats and provides controls for playback."
+    },
+    {
+      "id": "q3",
+      "question": "Which HTML5 tag is used to embed video files?",
+      "options": [
+        "<movie>",
+        "<video>",
+        "<mp4>",
+        "<media>"
+      ],
+      "correct": 1,
+      "explanation": "The <video> tag is an HTML5 element used to embed video files in a web page. It supports multiple video formats and provides controls for playback."
+    },
+    {
+      "id": "q4",
+      "question": "What are iframes commonly used to embed?",
+      "options": [
+        "Only images",
+        "Only text",
+        "Other websites, YouTube videos, Vimeo videos, Spotify playlists, and other external content",
+        "Only local files"
+      ],
+      "correct": 2,
+      "explanation": "Iframes are commonly used to embed external content like other websites, YouTube videos, Vimeo videos, Spotify playlists, maps, and other interactive content from other sources."
+    },
+    {
+      "id": "q5",
+      "question": "Which of the following are HTML5 media elements?",
+      "options": [
+        "<audio> and <video>",
+        "<iframe> and <img>",
+        "<sound> and <movie>",
+        "<media> and <embed>"
+      ],
+      "correct": 0,
+      "explanation": "<audio> and <video> are HTML5 elements introduced to natively embed audio and video content without requiring plugins like Flash."
+    },
+    {
+      "id": "q6",
+      "question": "What is the main difference between <img> and <iframe>?",
+      "options": [
+        "There is no difference",
+        "<img> embeds static images, while <iframe> embeds entire web pages or interactive content",
+        "<iframe> is only for videos",
+        "<img> is HTML5, <iframe> is not"
+      ],
+      "correct": 1,
+      "explanation": "<img> is used to embed static images, while <iframe> embeds entire web pages or interactive content (like videos, maps, or other websites) within your page."
+    }
+  ]
+}

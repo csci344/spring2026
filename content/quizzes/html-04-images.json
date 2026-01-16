@@ -1,0 +1,78 @@
+{
+  "quizName": "HTML Images Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is the correct HTML tag for embedding an image in a web page?",
+      "options": [
+        "<image>",
+        "<img>",
+        "<picture>",
+        "<photo>"
+      ],
+      "correct": 1,
+      "explanation": "The <img> tag is used to embed images in HTML. It's a self-closing tag that requires attributes like src and alt."
+    },
+    {
+      "id": "q2",
+      "question": "Which attribute is required for the <img> tag to specify the image source?",
+      "options": [
+        "source",
+        "src",
+        "href",
+        "link"
+      ],
+      "correct": 1,
+      "explanation": "The src attribute is required and specifies the path or URL to the image file."
+    },
+    {
+      "id": "q3",
+      "question": "What is the purpose of the alt attribute in an <img> tag?",
+      "options": [
+        "To specify the image file size",
+        "To provide alternative text that describes the image for accessibility and when the image fails to load",
+        "To set the image alignment",
+        "To specify the image format"
+      ],
+      "correct": 1,
+      "explanation": "The alt attribute provides alternative text that describes the image. It's important for accessibility (screen readers) and displays when the image fails to load."
+    },
+    {
+      "id": "q4",
+      "question": "What is the difference between an <img> tag and an <a> tag when it comes to images?",
+      "options": [
+        "There is no difference",
+        "<img> embeds the image in the page, while <a> creates a link that jumps to a new resource",
+        "<a> embeds the image, while <img> creates a link",
+        "Both tags do the same thing"
+      ],
+      "correct": 1,
+      "explanation": "The <img> tag embeds an image directly in the web page, while the <a> tag creates a hyperlink that can jump to a new resource (which could be an image, but it would open separately)."
+    },
+    {
+      "id": "q5",
+      "question": "What is the correct syntax for an image tag with both src and alt attributes?",
+      "options": [
+        "<img src=\"photo.jpg\" alt=\"Description\" />",
+        "<img src=photo.jpg alt=Description>",
+        "<image src=\"photo.jpg\" alt=\"Description\">",
+        "<img href=\"photo.jpg\" alt=\"Description\" />"
+      ],
+      "correct": 0,
+      "explanation": "The correct syntax is <img src=\"photo.jpg\" alt=\"Description\" />. The src attribute specifies the image path, alt provides alternative text, and it's a self-closing tag."
+    },
+    {
+      "id": "q6",
+      "question": "Is the alt attribute required for <img> tags?",
+      "options": [
+        "No, it's optional",
+        "Yes, it's always required",
+        "Only for certain image types",
+        "Only when using relative paths"
+      ],
+      "correct": 1,
+      "explanation": "The alt attribute is required for <img> tags. It's important for accessibility and should always be included, even if it's an empty string for decorative images."
+    }
+  ]
+}

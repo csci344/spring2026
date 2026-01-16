@@ -1,0 +1,198 @@
+{
+  "quizName": "HTML Rules of Thumb Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "According to HTML file naming conventions, which of the following is the correct way to name an HTML file?",
+      "options": [
+        "My Page.html",
+        "my_page.html",
+        "MyPage!.html",
+        "my page.html"
+      ],
+      "correct": 1,
+      "explanation": "HTML files should use lowercase letters, no spaces, and avoid special characters. Dashes and underscores are acceptable, so 'my_page.html' is correct."
+    },
+    {
+      "id": "q2",
+      "question": "Which of the following HTML tags does NOT require a closing tag?",
+      "options": [
+        "<h1>",
+        "<p>",
+        "<img />",
+        "<div>"
+      ],
+      "correct": 2,
+      "explanation": "The <img /> tag is a self-closing tag (also called a void element) that does not require a closing tag. Other examples include <br />, <hr />, and <link />."
+    },
+    {
+      "id": "q3",
+      "question": "How does the browser interpret white space in HTML?",
+      "options": [
+        "The browser preserves all white space exactly as written in the code.",
+        "The browser ignores white space, so multiple spaces and line breaks are collapsed.",
+        "The browser only ignores spaces but preserves line breaks.",
+        "The browser converts all white space to single spaces."
+      ],
+      "correct": 1,
+      "explanation": "The browser ignores white space in HTML, which means multiple spaces, tabs, and line breaks are collapsed. This is why formatting your code with indentation doesn't affect how the page displays."
+    },
+    {
+      "id": "q4",
+      "question": "What is the recommended practice for making HTML code readable?",
+      "options": [
+        "Write everything on a single line to save space.",
+        "Use indentation and line breaks to organize nested elements.",
+        "Use only tabs, never spaces.",
+        "Remove all comments to keep code clean."
+      ],
+      "correct": 1,
+      "explanation": "Using indentation and line breaks helps organize nested HTML elements, making the code much easier to read and maintain. This is a best practice for all HTML code."
+    },
+    {
+      "id": "q5",
+      "question": "What is the correct syntax for HTML attributes?",
+      "options": [
+        "src=my_image.jpg",
+        "src=\"my_image.jpg\"",
+        "src: my_image.jpg",
+        "src -> my_image.jpg"
+      ],
+      "correct": 1,
+      "explanation": "HTML attributes must be followed by an equals sign, and the values must be surrounded by quotation marks. The correct syntax is: attribute=\"value\"."
+    },
+    {
+      "id": "q6",
+      "question": "What does LIFO (Last In, First Out) mean when closing HTML tags?",
+      "options": [
+        "You should close tags in the same order you opened them.",
+        "You should close tags in the opposite order you opened them.",
+        "You should close all tags at the end of the document.",
+        "You don't need to worry about the order when closing tags."
+      ],
+      "correct": 1,
+      "explanation": "LIFO means Last In, First Out - you must close tags in the opposite order that you opened them. If you opened <p> then <strong>, you must close </strong> before </p>."
+    },
+    {
+      "id": "q7",
+      "question": "What is the correct syntax for an HTML comment?",
+      "options": [
+        "// This is a comment",
+        "/* This is a comment */",
+        "<!-- This is a comment -->",
+        "# This is a comment"
+      ],
+      "correct": 2,
+      "explanation": "HTML comments use the syntax <!-- comment -->. Comments are ignored by the browser but are useful for documenting your code."
+    },
+    {
+      "id": "q8",
+      "question": "Where should the link to a CSS stylesheet be placed in an HTML document?",
+      "options": [
+        "Inside the <body> tag",
+        "Inside the <head> tag",
+        "At the end of the document",
+        "Anywhere in the document"
+      ],
+      "correct": 1,
+      "explanation": "Links to CSS stylesheets should be placed inside the <head> tag of the HTML document. This ensures the styles are loaded before the page content is rendered."
+    },
+    {
+      "id": "q9",
+      "question": "Where should all visible content (headers, images, paragraphs, etc.) be placed in an HTML document?",
+      "options": [
+        "Inside the <head> tag",
+        "Inside the <body> tag",
+        "Outside both <head> and <body> tags",
+        "It doesn't matter where you put it"
+      ],
+      "correct": 1,
+      "explanation": "All visible content, including headers, images, paragraphs, videos, and audio, must be placed inside the <body> tag. The <head> tag is for metadata, not visible content."
+    },
+    {
+      "id": "q10",
+      "question": "What is the purpose of the Browser Inspector?",
+      "options": [
+        "To create new HTML files",
+        "To inspect HTML, CSS, and JavaScript code from within the browser, useful for debugging and exploring code",
+        "To automatically fix errors in your code",
+        "To convert HTML to other formats"
+      ],
+      "correct": 1,
+      "explanation": "The Browser Inspector (also called Developer Tools) allows you to inspect HTML, CSS, and JavaScript code from within the browser. It's useful for finding bugs, experimenting with code, and exploring how websites are built."
+    },
+    {
+      "id": "q11",
+      "question": "Consider this code:\n```html\n<img src=\"dog.jpg\" alt=\"Photo of a Golden Retriever\" />\n```\n\nWhat is the purpose of the 'src' attribute?",
+      "options": [
+        "It specifies the alternative text to display if the image fails to load",
+        "It specifies the path or URL to the image file that should be displayed",
+        "It sets the image size",
+        "It defines the image format"
+      ],
+      "correct": 1,
+      "explanation": "The 'src' attribute specifies the source (path or URL) of the image file. In this case, it tells the browser to load and display 'dog.jpg'. The 'alt' attribute provides alternative text for accessibility."
+    },
+    {
+      "id": "q12",
+      "question": "Consider this code:\n```html\n<a href=\"https://example.com\">Visit Example</a>\n```\n\nWhat is the purpose of the 'href' attribute?",
+      "options": [
+        "It styles the link text",
+        "It specifies the destination URL or path that the link should navigate to",
+        "It sets the link color",
+        "It makes the link open in a new window"
+      ],
+      "correct": 1,
+      "explanation": "The 'href' attribute (hypertext reference) specifies the destination URL or path. When the link is clicked, the browser navigates to that location. In this example, clicking 'Visit Example' would take you to https://example.com."
+    },
+    {
+      "id": "q13",
+      "question": "What is an HTML attribute, and how many attributes can an HTML element have?",
+      "options": [
+        "An attribute is additional information about an HTML element that modifies its behavior. An element can have multiple attributes, separated by spaces.",
+        "An attribute is the text content inside an HTML tag. An element can only have one attribute.",
+        "An attribute is a closing tag. An element can have exactly two attributes.",
+        "An attribute is a comment in HTML. Attributes are not allowed in HTML elements."
+      ],
+      "correct": 0,
+      "explanation": "An attribute is additional information about an HTML element that provides extra details or modifies the element's behavior. An HTML element can have multiple attributes, and they are separated by spaces. For example: <img src=\"photo.jpg\" alt=\"Description\" width=\"200\" height=\"150\" />"
+    },
+    {
+      "id": "q14",
+      "question": "Consider this code:\n```html\n<img src=\"dog.jpg\" alt=\"Photo of a dog\" />\n```\n\nWhich of the following shows the CORRECT syntax for attributes?",
+      "options": [
+        "Attributes are placed inside the opening tag, before the closing bracket: <img src=\"dog.jpg\" alt=\"Photo of a dog\" />",
+        "Attributes are placed after the closing tag: <img /> src=\"dog.jpg\" alt=\"Photo of a dog\"",
+        "Attributes are placed before the opening tag: src=\"dog.jpg\" alt=\"Photo of a dog\" <img />",
+        "Attributes are placed inside the closing tag: <img></img src=\"dog.jpg\" alt=\"Photo of a dog\" />"
+      ],
+      "correct": 0,
+      "explanation": "Attributes must be placed inside the opening tag, before the closing bracket. The correct syntax is: <tag attribute=\"value\" /> or <tag attribute=\"value\">content</tag>. Attributes cannot be placed after the closing tag or bracket - this is a common mistake students make."
+    },
+    {
+      "id": "q15",
+      "question": "Consider this code:\n```html\n<img src=\"photo.jpg\" alt=\"A photo\" />\n```\n\nHow would you add a 'width' attribute with a value of '200' to this image tag?",
+      "options": [
+        "Add it inside the opening tag, separated by a space: <img src=\"photo.jpg\" alt=\"A photo\" width=\"200\" />",
+        "Add it after the closing bracket: <img src=\"photo.jpg\" alt=\"A photo\" /> width=\"200\"",
+        "Add it before the opening tag: width=\"200\" <img src=\"photo.jpg\" alt=\"A photo\" />",
+        "Add it inside the closing tag: <img src=\"photo.jpg\" alt=\"A photo\"></img width=\"200\" />"
+      ],
+      "correct": 0,
+      "explanation": "To add another attribute, place it inside the opening tag, separated by a space from the existing attributes. The correct syntax is: <img src=\"photo.jpg\" alt=\"A photo\" width=\"200\" />. All attributes must be inside the opening tag before the closing bracket."
+    },
+    {
+      "id": "q16",
+      "question": "Consider this code:\n```html\n<h1 id=\"main-heading\">Welcome</h1>\n```\n\nWhat is the purpose of the 'id' attribute?",
+      "options": [
+        "It sets the heading size",
+        "It provides a unique identifier for the element, which can be used for styling with CSS or linking with anchor tags",
+        "It makes the heading bold",
+        "It sets the heading color"
+      ],
+      "correct": 1,
+      "explanation": "The 'id' attribute provides a unique identifier for an HTML element. It can be used to style the element with CSS (e.g., #main-heading) or to create internal links (e.g., <a href=\"#main-heading\">Jump to heading</a>)."
+    }
+  ]
+}

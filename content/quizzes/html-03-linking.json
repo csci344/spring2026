@@ -1,0 +1,126 @@
+{
+  "quizName": "HTML Hyperlinks Quiz",
+  "start_date": "2026-01-23",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is the correct HTML tag for creating a hyperlink?",
+      "options": [
+        "<link>",
+        "<a>",
+        "<href>",
+        "<url>"
+      ],
+      "correct": 1,
+      "explanation": "The <a> tag (anchor tag) is used to create hyperlinks in HTML. It requires an href attribute to specify the destination."
+    },
+    {
+      "id": "q2",
+      "question": "If you're in a file called index.html and want to link to contact.html in the same directory, what is the simplest path you should use?",
+      "options": [
+        "../contact.html",
+        "./contact.html",
+        "contact.html",
+        "/contact.html"
+      ],
+      "correct": 2,
+      "explanation": "When linking to a file in the same directory, the simplest path is just the filename: contact.html. While './contact.html' is also technically correct (the './' explicitly means 'current directory'), it's redundant and 'contact.html' is the more common and simpler approach."
+    },
+    {
+      "id": "q3",
+      "question": "What does the '../' notation mean in a relative path?",
+      "options": [
+        "Go to the root directory",
+        "Go up one directory level",
+        "Go down one directory level",
+        "Stay in the current directory"
+      ],
+      "correct": 1,
+      "explanation": "The '../' notation means 'go up one directory level' (parent directory). For example, if you're in home/index.html and want to access test.html in the parent directory, you'd use ../test.html."
+    },
+    {
+      "id": "q4",
+      "question": "Given this directory structure:\n```\nmy_website\n├── home\n│   └── index.html\n└── files\n    └── gallery.html\n```\n\nIf you're editing index.html and want to link to gallery.html, what path should you use?",
+      "options": [
+        "files/gallery.html",
+        "../files/gallery.html",
+        "./files/gallery.html",
+        "gallery.html"
+      ],
+      "correct": 1,
+      "explanation": "You need to go up one directory (../) to reach the parent directory (my_website), then go into the files directory, so the path is ../files/gallery.html."
+    },
+    {
+      "id": "q5",
+      "question": "What is an absolute path?",
+      "options": [
+        "A path relative to the current file",
+        "A fully qualified URL including protocol, server name, and file path",
+        "A path that starts with ./",
+        "A path that only includes the filename"
+      ],
+      "correct": 1,
+      "explanation": "An absolute path is a fully qualified URL that includes the protocol (https://), the server name (example.com), and the file path. It's used when linking to resources on other computers/servers."
+    },
+    {
+      "id": "q6",
+      "question": "How do you create an internal link (anchor link) that jumps to a specific section on the same page?",
+      "options": [
+        "Use href='section-name'",
+        "Use href='#section-id' with a hash tag followed by the id",
+        "Use href='./section-name'",
+        "Use href='section-id' without a hash"
+      ],
+      "correct": 1,
+      "explanation": "Internal links use a hash tag (#) followed by the id of the target element. For example, <a href=\"#section1\">Link</a> will jump to an element with id=\"section1\"."
+    },
+    {
+      "id": "q7",
+      "question": "Which attribute is required for the <a> tag to create a functional link?",
+      "options": [
+        "src",
+        "href",
+        "link",
+        "url"
+      ],
+      "correct": 1,
+      "explanation": "The href attribute is required for the <a> tag. It specifies the destination URL or path of the link."
+    },
+    {
+      "id": "q8",
+      "question": "Given this directory structure:\n```\nmy_website\n└── home\n    ├── index.html\n    └── styles\n        └── my_style.css\n```\n\nIf you're editing index.html and want to link to my_style.css, what path should you use?",
+      "options": [
+        "../styles/my_style.css",
+        "styles/my_style.css",
+        "./styles/my_style.css",
+        "/styles/my_style.css"
+      ],
+      "correct": 1,
+      "explanation": "Since styles is a subdirectory within the same directory as index.html, you simply use styles/my_style.css to go into the styles directory and access the file."
+    },
+    {
+      "id": "q9",
+      "question": "Given this directory structure:\n```\nmy_website\n├── home\n│   ├── index.html\n│   └── about.html\n├── images\n│   └── logo.png\n└── files\n    └── document.pdf\n```\n\nIf you're editing index.html and want to link to logo.png, what path should you use?",
+      "options": [
+        "images/logo.png",
+        "../images/logo.png",
+        "./images/logo.png",
+        "/images/logo.png"
+      ],
+      "correct": 1,
+      "explanation": "You need to go up one directory (../) from home to reach my_website, then go into the images directory, so the path is ../images/logo.png."
+    },
+    {
+      "id": "q10",
+      "question": "Given this directory structure:\n```\nmy_website\n├── home\n│   └── index.html\n└── styles\n    └── dark\n        └── theme.css\n```\n\nIf you're editing index.html and want to link to theme.css, what path should you use?",
+      "options": [
+        "styles/dark/theme.css",
+        "../styles/dark/theme.css",
+        "./styles/dark/theme.css",
+        "/styles/dark/theme.css"
+      ],
+      "correct": 1,
+      "explanation": "You need to go up one directory (../) from home to reach my_website, then go into styles, then into dark, so the path is ../styles/dark/theme.css."
+    }
+  ]
+}
