@@ -38,7 +38,9 @@ h2 {
   @apply text-xl md:text-2xl mb-4 mt-8 font-bold;
   font-family: var(--font-outfit), serif;
   color: var(--foreground);
-  scroll-margin-top: 80px; /* Account for fixed header */
+  /* scroll-margin-top should match SCROLL_OFFSET_PX in src/lib/utils.ts */
+  /* This ensures browser's native anchor scrolling aligns with our custom scrollToAnchor function */
+  scroll-margin-top: 20px;
 }
 
 h3,

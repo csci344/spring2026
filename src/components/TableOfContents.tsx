@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { scrollToAnchor, SCROLL_OFFSET_PX } from '@/lib/utils';
 
 interface TocItem {
   id: string;
@@ -106,7 +107,9 @@ export default function TableOfContents({ maxLevel = 2 }: TableOfContentsProps) 
         },
         {
           root: isContainerScrollable ? scrollContainer : null,
-          rootMargin: '-80px 0px -80% 0px',
+          // rootMargin top should match SCROLL_OFFSET_PX from utils.ts
+          // This ensures TOC highlighting aligns with anchor scroll position
+          rootMargin: `-${SCROLL_OFFSET_PX}px 0px -80% 0px`,
           threshold: 0.1
         }
       );
@@ -160,69 +163,7 @@ export default function TableOfContents({ maxLevel = 2 }: TableOfContentsProps) 
                 href={`#${item.id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  const isQuizSection = item.id.startsWith('quiz-');
-                  
-                  // Update URL hash
-                  window.history.pushState(null, '', `#${item.id}`);
-                  
-                  // Find the scrollable container (main content area)
-                  const scrollContainer = document.getElementById('main-content-scroll');
-                  // Check if container exists and is actually scrollable (has overflow-y-auto or scroll)
-                  const isContainerScrollable = scrollContainer && 
-                    (getComputedStyle(scrollContainer).overflowY === 'auto' || 
-                     getComputedStyle(scrollContainer).overflowY === 'scroll');
-                  
-                  if (isContainerScrollable) {
-                    if (isQuizSection) {
-                      // For quiz sections, just scroll to near the bottom
-                      const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
-                      const targetScroll = Math.max(0, maxScroll - 100); // Leave 100px buffer
-                      scrollContainer.scrollTo({
-                        top: targetScroll,
-                        behavior: 'smooth'
-                      });
-                    } else {
-                      // Normal scroll calculation for other headings
-                      const element = document.getElementById(item.id);
-                      if (element && scrollContainer.contains(element)) {
-                        // Use getBoundingClientRect for reliable position calculation
-                        const containerRect = scrollContainer.getBoundingClientRect();
-                        const elementRect = element.getBoundingClientRect();
-                        
-                        // Calculate element's position relative to container's scrollable content
-                        const elementTopInContent = (elementRect.top - containerRect.top) + scrollContainer.scrollTop;
-                        
-                        // Account for fixed header (64px) + some padding
-                        const headerOffset = 80;
-                        const targetScroll = Math.max(0, elementTopInContent - headerOffset);
-                        
-                        scrollContainer.scrollTo({
-                          top: targetScroll,
-                          behavior: 'smooth'
-                        });
-                      }
-                    }
-                  } else {
-                    // Fallback to window scroll if container not found or not scrollable
-                    const headerOffset = 80;
-                    const element = document.getElementById(item.id);
-                    if (element) {
-                      if (isQuizSection) {
-                        // For quiz sections, scroll to near bottom of page
-                        window.scrollTo({
-                          top: document.documentElement.scrollHeight - window.innerHeight - 100,
-                          behavior: 'smooth'
-                        });
-                      } else {
-                        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = Math.max(0, elementTop - headerOffset);
-                        window.scrollTo({
-                          top: offsetPosition,
-                          behavior: 'smooth'
-                        });
-                      }
-                    }
-                  }
+                  scrollToAnchor(item.id);
                 }}
                 className={`block py-0.5 px-2 text-sm font-normal transition-colors whitespace-nowrap overflow-hidden !border-0 text-ellipsis rounded toc-link ${
                   activeId === item.id

@@ -195,111 +195,44 @@ export default function Meeting({
     const itemKey = `${meetingKey}-quiz-${index}`;
     const isChecked = enableChecklist && !isDraft ? checklist.isChecked(itemKey) : false;
     
-    // Get quiz completion status and score from localStorage
+    // Get quiz completion status and score from localStorage (for display only, not auto-sync)
     const [quizStatus, setQuizStatus] = useState<{ completed: boolean; score: number; total: number } | null>(null);
-    const quizStatusRef = useRef<{ completed: boolean; score: number; total: number } | null>(null);
-    const prevCompletedRef = useRef<boolean | undefined>(undefined);
-    const checklistRef = useRef(checklist);
     
-    // Keep checklist ref up to date
-    useEffect(() => {
-      checklistRef.current = checklist;
-    }, [checklist]);
-    
+    // Load quiz status once on mount (for informational display only)
     useEffect(() => {
       if (typeof window === 'undefined' || isDraft) return;
       
-      const updateQuizStatus = () => {
-        try {
-          const storageKey = `quiz-${quiz.slug}`;
-          const saved = localStorage.getItem(storageKey);
-          const totalQuestions = quiz.quizData?.questions?.length || 0;
-          
-          if (saved) {
-            const savedState = JSON.parse(saved);
-            const newCompleted = savedState.completed || false;
-            const newStatus = {
-              completed: newCompleted,
-              score: savedState.score || 0,
-              total: totalQuestions
-            };
-            
-            // Only update if the completed status actually changed
-            const prevCompleted = quizStatusRef.current?.completed;
-            if (prevCompleted !== newCompleted) {
-              quizStatusRef.current = newStatus;
-              setQuizStatus(newStatus);
-              
-              // Automatically sync checkbox when quiz status changes
-              if (enableChecklist) {
-                const currentlyChecked = checklistRef.current.isChecked(itemKey);
-                const shouldBeChecked = newCompleted;
-                
-                if (shouldBeChecked && !currentlyChecked) {
-                  checklistRef.current.toggleChecked(itemKey, true);
-                } else if (!shouldBeChecked && currentlyChecked) {
-                  checklistRef.current.toggleChecked(itemKey, true);
-                }
-              }
-            } else if (quizStatusRef.current === null) {
-              // First time setting status
-              quizStatusRef.current = newStatus;
-              setQuizStatus(newStatus);
-            }
-          } else {
-            // Only update if status was not null
-            if (quizStatusRef.current !== null) {
-              quizStatusRef.current = null;
-              setQuizStatus(null);
-              
-              // Automatically uncheck when quiz is cleared
-              if (enableChecklist) {
-                const currentlyChecked = checklistRef.current.isChecked(itemKey);
-                if (currentlyChecked) {
-                  checklistRef.current.toggleChecked(itemKey, true);
-                }
-              }
-            }
-          }
-        } catch (error) {
-          console.error('Error reading quiz status:', error);
-          if (quizStatusRef.current !== null) {
-            quizStatusRef.current = null;
-            setQuizStatus(null);
-          }
+      try {
+        const storageKey = `quiz-${quiz.slug}`;
+        const saved = localStorage.getItem(storageKey);
+        const totalQuestions = quiz.quizData?.questions?.length || 0;
+        
+        if (saved) {
+          const savedState = JSON.parse(saved);
+          setQuizStatus({
+            completed: savedState.completed || false,
+            score: savedState.score || 0,
+            total: totalQuestions
+          });
         }
-      };
-      
-      updateQuizStatus();
-      
-      // Listen for storage changes (when quiz is completed)
-      const handleStorageChange = (e: StorageEvent) => {
-        if (e.key === `quiz-${quiz.slug}`) {
-          updateQuizStatus();
-        }
-      };
-      
-      window.addEventListener('storage', handleStorageChange);
-      
-      // Also poll for changes (for same-tab updates)
-      const interval = setInterval(updateQuizStatus, 500);
-      
-      return () => {
-        window.removeEventListener('storage', handleStorageChange);
-        clearInterval(interval);
-      };
-    }, [quiz.slug, quiz.quizData?.questions?.length, isDraft, enableChecklist, itemKey]);
+      } catch (error) {
+        console.error('Error reading quiz status:', error);
+      }
+    }, [quiz.slug, quiz.quizData?.questions?.length, isDraft]);
     
     return (
       <div className="flex items-start gap-2">
         {!isDraft && (
           <input
             type="checkbox"
-            aria-label={`Quiz "${quiz.title}" ${isChecked ? 'completed' : 'not completed'} - checkbox is readonly, complete the quiz to mark it as done`}
+            aria-label={`Quiz "${quiz.title}" ${isChecked ? 'completed' : 'not completed'}`}
             checked={isChecked}
-            onChange={() => {}} // Readonly - can only be checked by completing the quiz
+            onChange={() => {
+              if (enableChecklist) {
+                checklist.toggleChecked(itemKey);
+              }
+            }}
             disabled={!enableChecklist}
-            readOnly
             onClick={(e) => e.stopPropagation()}
             className="mt-1 w-4 h-4 rounded border-2 border-gray-300 dark:border-gray-600 accent-blue-600 dark:accent-blue-400 cursor-default flex-shrink-0"
             style={isDark ? { 
