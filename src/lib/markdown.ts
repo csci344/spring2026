@@ -68,11 +68,12 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents);
   
-  // Pre-process markdown to fix tables without headers
+  // Pre-process markdown to fix tables without headers and handle checkbox patterns
   // If a table starts with a separator row (| -- | -- |), add an empty header row before it
   let markdownContent = matterResult.content;
   const lines = markdownContent.split('\n');
   const processedLines: string[] = [];
+  let placeholderIndex = 0;
   
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -95,10 +96,40 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
         processedLines.push(emptyHeaderRow);
       }
     }
-    processedLines.push(line);
+    
+    // Pre-process standalone [ ] lines to prevent GFM from converting them to disabled task lists
+    // Match lines that start with [ ] (with optional leading whitespace) OR list items with [ ]
+    // This handles both: "[ ] content" and "- [ ] content" or "* [ ] content"
+    const checkboxMatch = line.match(/^(\s*)([-*+]|\d+\.)?\s*\[ \](.*)$/);
+    if (checkboxMatch) {
+      const leadingWhitespace = checkboxMatch[1];
+      const content = checkboxMatch[3].trim();
+      // Replace with a text-based placeholder that won't be processed by markdown
+      // Use inline code format to prevent markdown processing, then we'll extract it after HTML conversion
+      // The placeholder will become <code>MARKDOWN_CHECKBOX_PLACEHOLDER_index_content</code>
+      processedLines.push(`${leadingWhitespace}\`MARKDOWN_CHECKBOX_PLACEHOLDER_${placeholderIndex++}_${content.replace(/`/g, '&#96;')}\``);
+    } else {
+      processedLines.push(line);
+    }
   }
   
   markdownContent = processedLines.join('\n');
+  
+  // Second pass: Handle [ ] patterns inside table cells
+  // Match table rows and process [ ] patterns within cell content
+  // Format: | cell1 | [ ] cell2 | cell3 | or | [ ] cell1 | cell2 |
+  // This regex matches: | (optional content before) [ ] (content after) |
+  markdownContent = markdownContent.replace(/\|([^|]*?)\[ \]([^|]*?)\|/g, (match, before, after) => {
+    // Extract the content after [ ]
+    const content = after.trim();
+    const beforeContent = before.trim();
+    // Replace [ ] with placeholder, preserving the table structure
+    // If there's content before [ ], keep it; otherwise just use the placeholder
+    const cellContent = beforeContent 
+      ? `${beforeContent} \`MARKDOWN_CHECKBOX_PLACEHOLDER_${placeholderIndex++}_${content.replace(/`/g, '&#96;')}\``
+      : `\`MARKDOWN_CHECKBOX_PLACEHOLDER_${placeholderIndex++}_${content.replace(/`/g, '&#96;')}\``;
+    return `|${cellContent}|`;
+  });
 
   // Use remark to convert markdown into HTML string with GFM support and syntax highlighting
   const processedContent = await remark()
@@ -109,6 +140,51 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
     .use(html, { sanitize: false })  // Allow HTML without sanitization
     .process(markdownContent);
   let contentHtml = processedContent.toString();
+
+  // Post-process HTML to convert checkbox placeholders to stateful checkboxes
+  // The placeholders were inserted before GFM processing to avoid disabled checkboxes
+  let checkboxIndex = 0;
+  
+  // Helper function to create checkbox with flex wrapper
+  const createCheckboxLine = async (rawContent: string) => {
+    const checkboxId = `checkbox-${id}-${checkboxIndex++}`;
+    const checkboxHtml = `<input type="checkbox" class="markdown-checkbox" id="${checkboxId}" data-checkbox-id="${checkboxId}" style="cursor: pointer;" />`;
+    
+    // Process the content through markdown to handle bold, italic, links, etc.
+    // This ensures markdown formatting in the content is properly converted
+    const processedContent = await remark()
+      .use(gfm)
+      .use(html, { sanitize: false })
+      .process(rawContent.trim());
+    const processedContentHtml = processedContent.toString().trim();
+    
+    // Remove wrapping <p> tags if present (they're often added by remark)
+    const contentWithoutPTags = processedContentHtml.replace(/^<p>([\s\S]*?)<\/p>$/, '$1');
+    
+    return `<div class="markdown-checkbox-line" style="display: flex; align-items: flex-start; gap: 0.5rem; margin: 0.5em 0;">${checkboxHtml}<span class="markdown-checkbox-content">${contentWithoutPTags || ''}</span></div>`;
+  };
+  
+  // Replace all checkbox placeholders with actual checkbox HTML
+  // The placeholder format in HTML will be: <code>MARKDOWN_CHECKBOX_PLACEHOLDER_index_content</code>
+  // After GFM processing, inline code becomes <code> tags
+  // We need to process these asynchronously since we're processing markdown
+  const placeholderRegex = /<code>MARKDOWN_CHECKBOX_PLACEHOLDER_(\d+)_(.*?)<\/code>/g;
+  const placeholders: Array<{ match: string; index: string; content: string }> = [];
+  let placeholderMatch;
+  
+  while ((placeholderMatch = placeholderRegex.exec(contentHtml)) !== null) {
+    placeholders.push({
+      match: placeholderMatch[0],
+      index: placeholderMatch[1],
+      content: placeholderMatch[2].replace(/&#96;/g, '`')
+    });
+  }
+  
+  // Process all placeholders and replace them
+  for (const placeholder of placeholders) {
+    const checkboxHtml = await createCheckboxLine(placeholder.content);
+    contentHtml = contentHtml.replace(placeholder.match, checkboxHtml);
+  }
 
   // Wrap each instructor notes section with data attribute for conditional rendering
   // Find all "## Instructor Notes" headings and wrap each section individually
