@@ -1,4 +1,5 @@
-import { getPostData, getAllPostIds } from '@/lib/markdown';
+import { getPostData } from '@/lib/markdown';
+import { generateStaticParamsForContentType, validatePostForRender } from '@/lib/static-params';
 import PageHeader from '@/components/PageHeader';
 import MarkdownContent from '@/components/MarkdownContent';
 import ContentLayout from '@/components/ContentLayout';
@@ -26,6 +27,12 @@ export default async function AssignmentPage({ params }: AssignmentPageProps) {
   try {
     const { slug } = await params;
     const postData = await getPostData(slug, 'assignments');
+    
+    // Validate post (handles placeholder slugs and draft/excluded posts)
+    if (!validatePostForRender(slug, postData, 'assignments')) {
+      notFound();
+    }
+    
     const { heading_max_level } = postData;
     const isStyleGuideDemo = slug === 'style-guide-demo';
     
@@ -58,28 +65,11 @@ export default async function AssignmentPage({ params }: AssignmentPageProps) {
   }
 }
 
+// Tell Next.js to only generate routes that are in generateStaticParams()
+// We include ALL posts (including drafts) in generateStaticParams() so they can return 404 gracefully
+export const dynamicParams = false;
+
 // Generate static params for all assignments
-export async function generateStaticParams() {
-  try {
-    const assignmentIds = getAllPostIds('assignments');
-    
-    // Filter to only include assignments that can actually be loaded
-    const validAssignments = await Promise.all(
-      assignmentIds.map(async ({ params }) => {
-        try {
-          const postData = await getPostData(params.id, 'assignments');
-          // Only include non-draft, non-excluded assignments
-          return postData.draft !== 1 && !postData.excluded ? { slug: params.id } : null;
-        } catch {
-          // If assignment can't be loaded, exclude it
-          return null;
-        }
-      })
-    );
-    
-    return validAssignments.filter((assignment): assignment is { slug: string } => assignment !== null);
-  } catch (error) {
-    console.error('Error generating static params for assignments:', error);
-    return [];
-  }
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return generateStaticParamsForContentType('assignments');
 } 
