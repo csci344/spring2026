@@ -1,0 +1,162 @@
+{
+  "quizName": "CSS Text & Fonts Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which CSS property is used to specify the font family?",
+      "options": [
+        "font",
+        "font-family",
+        "text-font",
+        "family"
+      ],
+      "correct": 1,
+      "explanation": "The 'font-family' property is used to specify the font family (typeface) for text. For example: font-family: \"Times New Roman\", Times, serif;"
+    },
+    {
+      "id": "q2",
+      "question": "Which CSS property is used to make text bold?",
+      "options": [
+        "font-weight",
+        "text-bold",
+        "bold",
+        "font-style"
+      ],
+      "correct": 0,
+      "explanation": "The 'font-weight' property is used to make text bold. Common values include 'bold' or numeric values like '700'."
+    },
+    {
+      "id": "q3",
+      "question": "Which CSS property is used to make text italic?",
+      "options": [
+        "font-weight",
+        "font-style",
+        "text-italic",
+        "italic"
+      ],
+      "correct": 1,
+      "explanation": "The 'font-style' property is used to make text italic. The value 'italic' creates italic text."
+    },
+    {
+      "id": "q4",
+      "question": "Which CSS property is used to align text?",
+      "options": [
+        "text-align",
+        "align",
+        "text-position",
+        "font-align"
+      ],
+      "correct": 0,
+      "explanation": "The 'text-align' property is used to align text. Common values include 'left' (default), 'right', 'center', and 'justify'."
+    },
+    {
+      "id": "q5",
+      "question": "Which CSS property controls the space between letters?",
+      "options": [
+        "letter-spacing",
+        "word-spacing",
+        "line-height",
+        "text-spacing"
+      ],
+      "correct": 0,
+      "explanation": "The 'letter-spacing' property controls the space between letters. For example: letter-spacing: 1.5em;"
+    },
+    {
+      "id": "q6",
+      "question": "Which CSS property controls the space between lines of text?",
+      "options": [
+        "letter-spacing",
+        "word-spacing",
+        "line-height",
+        "text-spacing"
+      ],
+      "correct": 2,
+      "explanation": "The 'line-height' property controls the space between lines of text. For example: line-height: 120%;"
+    },
+    {
+      "id": "q7",
+      "question": "Which CSS property controls the space between words?",
+      "options": [
+        "letter-spacing",
+        "word-spacing",
+        "line-height",
+        "text-spacing"
+      ],
+      "correct": 1,
+      "explanation": "The 'word-spacing' property controls the space between words. For example: word-spacing: 5px;"
+    },
+    {
+      "id": "q8",
+      "question": "According to the CSS Fonts resource, what unit is recommended for font-size in responsive design?",
+      "options": [
+        "px (pixels)",
+        "pt (points)",
+        "em units",
+        "cm (centimeters)"
+      ],
+      "correct": 2,
+      "explanation": "For responsive design, it's recommended to use 'em' units for font-size. The example shows: font-size: 1.1em;"
+    },
+    {
+      "id": "q9",
+      "question": "Consider this CSS:\n```css\n.body-copy {\n  font-family: \"Times New Roman\", Times, serif;\n  font-style: italic;\n  font-weight: bold;\n  color: #999;\n}\n```\n\nWhat does 'color: #999;' control?",
+      "options": [
+        "The background color",
+        "The font color (text color)",
+        "The border color",
+        "The shadow color"
+      ],
+      "correct": 1,
+      "explanation": "The 'color' property controls the font color (text color). In this example, #999 is a light gray color for the text."
+    },
+    {
+      "id": "q10",
+      "question": "What is the default value for text-align?",
+      "options": [
+        "center",
+        "right",
+        "left",
+        "justify"
+      ],
+      "correct": 2,
+      "explanation": "The default value for text-align is 'left'. Text is left-aligned by default unless you specify otherwise."
+    },
+    {
+      "id": "q11",
+      "question": "Which of the following is a valid font-family declaration?",
+      "options": [
+        "font-family: Times New Roman;",
+        "font-family: \"Times New Roman\", Times, serif;",
+        "font-family: Times-New-Roman;",
+        "font-family: 'Times New Roman' only;"
+      ],
+      "correct": 1,
+      "explanation": "Font families with spaces should be in quotes, and it's good practice to provide fallbacks. 'font-family: \"Times New Roman\", Times, serif;' provides the preferred font and fallbacks."
+    },
+    {
+      "id": "q12",
+      "question": "What is a common resource for finding web fonts mentioned in the CSS Fonts resource?",
+      "options": [
+        "fonts.com",
+        "Google Fonts (fonts.google.com)",
+        "webfonts.org",
+        "fontlibrary.com"
+      ],
+      "correct": 1,
+      "explanation": "Google Fonts (fonts.google.com) is mentioned in the CSS Fonts resource as a font resource. It provides free web fonts that can be easily integrated into websites."
+    },
+    {
+      "id": "q13",
+      "question": "What is Font Awesome used for?",
+      "options": [
+        "Creating custom fonts",
+        "Displaying icons",
+        "Converting fonts to web format",
+        "Testing font compatibility"
+      ],
+      "correct": 1,
+      "explanation": "Font Awesome (fontawesome.com/icons) is mentioned in the CSS Fonts resource as an icon resource. It's a popular icon library that uses fonts to display icons."
+    }
+  ]
+}

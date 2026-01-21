@@ -1,0 +1,162 @@
+{
+  "quizName": "CSS Selectors Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What does the class selector select?",
+      "options": [
+        "All elements with a specific id attribute",
+        "All elements with a specific class attribute",
+        "All elements of a specific type",
+        "All elements on the page"
+      ],
+      "correct": 1,
+      "explanation": "The class selector (.) selects all elements with a specific class attribute. For example, .intro selects all elements with class=\"intro\"."
+    },
+    {
+      "id": "q2",
+      "question": "What is the correct syntax for a class selector?",
+      "options": [
+        "#intro",
+        ".intro",
+        "*intro",
+        "intro"
+      ],
+      "correct": 1,
+      "explanation": "Class selectors use a period (.) followed by the class name. For example, .intro selects elements with class=\"intro\"."
+    },
+    {
+      "id": "q3",
+      "question": "What is the correct syntax for an ID selector?",
+      "options": [
+        ".firstname",
+        "#firstname",
+        "*firstname",
+        "firstname"
+      ],
+      "correct": 1,
+      "explanation": "ID selectors use a hash (#) followed by the ID name. For example, #firstname selects the element with id=\"firstname\"."
+    },
+    {
+      "id": "q4",
+      "question": "What does the universal selector (*) select?",
+      "options": [
+        "Only paragraph elements",
+        "All elements on the page",
+        "Only elements with classes",
+        "Only elements with IDs"
+      ],
+      "correct": 1,
+      "explanation": "The universal selector (*) selects all elements on the page. It's useful for applying styles to everything or resetting default styles."
+    },
+    {
+      "id": "q5",
+      "question": "What does the selector 'div, p' select?",
+      "options": [
+        "All <p> elements inside <div> elements",
+        "All <div> elements and all <p> elements",
+        "All <p> elements that are siblings of <div> elements",
+        "Only <div> elements"
+      ],
+      "correct": 1,
+      "explanation": "The comma (,) is used for grouping selectors. 'div, p' selects all <div> elements AND all <p> elements, applying the same styles to both."
+    },
+    {
+      "id": "q6",
+      "question": "What does the selector 'div p' (with a space) select?",
+      "options": [
+        "All <div> elements and all <p> elements",
+        "All <p> elements inside <div> elements (descendant selector)",
+        "All <p> elements that are direct children of <div> elements",
+        "All <div> elements that contain <p> elements"
+      ],
+      "correct": 1,
+      "explanation": "The space between selectors creates a descendant selector. 'div p' selects all <p> elements that are inside <div> elements, at any nesting level."
+    },
+    {
+      "id": "q7",
+      "question": "What does the selector 'div > p' select?",
+      "options": [
+        "All <p> elements inside <div> elements at any level",
+        "All <p> elements where the parent is a <div> element (child selector)",
+        "All <div> elements that are siblings of <p> elements",
+        "All <div> and <p> elements"
+      ],
+      "correct": 1,
+      "explanation": "The > symbol creates a child selector. 'div > p' selects all <p> elements where the parent is a <div> element (direct children only, not grandchildren)."
+    },
+    {
+      "id": "q8",
+      "question": "What does the selector 'div + p' select?",
+      "options": [
+        "All <p> elements inside <div> elements",
+        "All <p> elements that are placed immediately after <div> elements (adjacent sibling selector)",
+        "All <div> elements that come before <p> elements",
+        "All <p> and <div> elements"
+      ],
+      "correct": 1,
+      "explanation": "The + symbol creates an adjacent sibling selector. 'div + p' selects all <p> elements that are placed immediately after <div> elements (next sibling)."
+    },
+    {
+      "id": "q9",
+      "question": "What does the selector 'p ~ ul' select?",
+      "options": [
+        "All <ul> elements inside <p> elements",
+        "All <ul> elements that are direct children of <p> elements",
+        "Every <ul> element that is preceded by a <p> element (general sibling selector)",
+        "All <p> elements that come before <ul> elements"
+      ],
+      "correct": 2,
+      "explanation": "The ~ symbol creates a general sibling selector. 'p ~ ul' selects every <ul> element that is preceded by a <p> element (they share the same parent)."
+    },
+    {
+      "id": "q10",
+      "question": "Consider this CSS:\n```css\nh1, h2, h3 { color: red; }\n```\n\nWhat does this selector do?",
+      "options": [
+        "Selects h1 elements inside h2 elements inside h3 elements",
+        "Applies the same rule to h1, h2, and h3 elements (grouping selectors)",
+        "Selects h3 elements that are siblings of h2 elements that are siblings of h1 elements",
+        "Only selects h1 elements"
+      ],
+      "correct": 1,
+      "explanation": "The comma groups selectors together. This rule applies the same styles (color: red) to all h1, h2, and h3 elements. This is called grouping selectors."
+    },
+    {
+      "id": "q11",
+      "question": "Consider this HTML:\n```html\n<div>\n  <p>Paragraph 1</p>\n  <section>\n    <p>Paragraph 2</p>\n  </section>\n</div>\n```\n\nWhich selector would select BOTH paragraphs?",
+      "options": [
+        "div > p",
+        "div p",
+        "div + p",
+        "div ~ p"
+      ],
+      "correct": 1,
+      "explanation": "The descendant selector 'div p' (with a space) selects all <p> elements inside <div> elements at any nesting level, so it would select both paragraphs. 'div > p' would only select the first paragraph (direct child)."
+    },
+    {
+      "id": "q12",
+      "question": "What is an element selector?",
+      "options": [
+        "A selector that uses a class name",
+        "A selector that uses an ID name",
+        "A selector that selects elements based on the element name",
+        "A selector that uses the universal *"
+      ],
+      "correct": 2,
+      "explanation": "An element selector selects elements based on the element name. For example, 'h1' selects all <h1> elements, and 'p' selects all <p> elements."
+    },
+    {
+      "id": "q13",
+      "question": "Consider this HTML:\n```html\n<div id=\"container\">\n  <p class=\"intro\">Hello</p>\n</div>\n```\n\nWhich selector would select the paragraph?",
+      "options": [
+        "p",
+        ".intro",
+        "div p",
+        "All of the above would work, but .intro is most specific"
+      ],
+      "correct": 3,
+      "explanation": "All three selectors would select the paragraph: #container (by ID), .intro (by class), and div p (descendant). However, .intro is a class selector and would be more specific than the descendant selector for styling purposes."
+    }
+  ]
+}

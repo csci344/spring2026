@@ -1,0 +1,198 @@
+{
+  "quizName": "CSS Rules of Thumb Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "According to CSS naming conventions, which of the following is the correct way to name a CSS file?",
+      "options": [
+        "My Styles.css",
+        "my-styles.css",
+        "MyStyles!.css",
+        "my styles.css"
+      ],
+      "correct": 1,
+      "explanation": "CSS files should use lowercase letters, no spaces, and avoid special characters. Dashes and underscores are acceptable, so 'my-styles.css' is correct."
+    },
+    {
+      "id": "q2",
+      "question": "What is the correct file extension for CSS files?",
+      "options": [
+        ".html",
+        ".css",
+        ".txt",
+        ".style"
+      ],
+      "correct": 1,
+      "explanation": "All CSS files must have the .css file extension."
+    },
+    {
+      "id": "q3",
+      "question": "Consider this CSS rule:\n```css\nh1 { color: blue; font-size: 12px; }\n```\n\nWhat is the 'selector' in this rule?",
+      "options": [
+        "color: blue;",
+        "h1",
+        "font-size: 12px;",
+        "The entire rule"
+      ],
+      "correct": 1,
+      "explanation": "The selector is 'h1' - it's the pattern used to select the element(s) you want to style. Selectors come before the curly braces."
+    },
+    {
+      "id": "q4",
+      "question": "Consider this CSS rule:\n```css\nh1 { color: blue; font-size: 12px; }\n```\n\nWhat is a 'declaration' in this rule?",
+      "options": [
+        "h1",
+        "color: blue;",
+        "The curly braces",
+        "The entire rule"
+      ],
+      "correct": 1,
+      "explanation": "A declaration is any single property/value specification. 'color: blue;' is one declaration, and 'font-size: 12px;' is another. Each declaration ends with a semicolon."
+    },
+    {
+      "id": "q5",
+      "question": "Consider this CSS rule:\n```css\nh1 { color: blue; font-size: 12px; }\n```\n\nWhat is the 'property' in the first declaration?",
+      "options": [
+        "color",
+        "blue",
+        "h1",
+        "color: blue;"
+      ],
+      "correct": 0,
+      "explanation": "The property is 'color' - it refers to what you want to change. Properties come before the colon in a declaration."
+    },
+    {
+      "id": "q6",
+      "question": "Consider this CSS rule:\n```css\nh1 { color: blue; font-size: 12px; }\n```\n\nWhat is the 'value' in the first declaration?",
+      "options": [
+        "color",
+        "blue",
+        "h1",
+        "color: blue;"
+      ],
+      "correct": 1,
+      "explanation": "The value is 'blue' - it refers to how you want to change the property. Values come after the colon in a declaration."
+    },
+    {
+      "id": "q7",
+      "question": "Which of the following is the recommended way to include CSS in an HTML document?",
+      "options": [
+        "External style sheet (link tag in <head>)",
+        "Internal style sheet (only for testing/convenience)",
+        "Inline styles (not recommended)",
+        "All three are equally recommended"
+      ],
+      "correct": 0,
+      "explanation": "External style sheets (using a <link> tag in the <head>) are recommended. Internal style sheets are only for testing/convenience, and inline styles are not recommended."
+    },
+    {
+      "id": "q8",
+      "question": "What is the correct syntax for linking an external CSS file?",
+      "options": [
+        "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">",
+        "<css src=\"mystyle.css\">",
+        "<style href=\"mystyle.css\">",
+        "<link css=\"mystyle.css\">"
+      ],
+      "correct": 0,
+      "explanation": "The correct syntax is: <link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">. This should be placed inside the <head> tag."
+    },
+    {
+      "id": "q9",
+      "question": "What happens if you forget the semicolon after a CSS declaration?",
+      "options": [
+        "Nothing, semicolons are optional",
+        "Only that declaration breaks",
+        "Your whole style sheet will break",
+        "The browser automatically adds it"
+      ],
+      "correct": 2,
+      "explanation": "If you forget to put the semicolon after each style declaration, your whole style sheet will break. Semicolons are required to separate declarations."
+    },
+    {
+      "id": "q10",
+      "question": "Which of the following is correct CSS syntax?",
+      "options": [
+        "h1 { color: maroon; margin-left: 40px; }",
+        "h1 { color: maroon margin-left: 40px }",
+        "h1 color: maroon; margin-left: 40px;",
+        "h1 ( color: maroon; margin-left: 40px; )"
+      ],
+      "correct": 0,
+      "explanation": "Correct CSS syntax uses curly braces { } around declarations, colons : between properties and values, and semicolons ; after each declaration."
+    },
+    {
+      "id": "q11",
+      "question": "What is the correct syntax for CSS comments?",
+      "options": [
+        "// This is a comment",
+        "/* This is a comment */",
+        "<!-- This is a comment -->",
+        "# This is a comment"
+      ],
+      "correct": 1,
+      "explanation": "CSS comments use the syntax /* comment */. Comments are useful for organizing and documenting your styles."
+    },
+    {
+      "id": "q12",
+      "question": "What does 'specificity' mean in CSS?",
+      "options": [
+        "How fast CSS loads",
+        "The means by which browsers decide which CSS property values are the most relevant to an element",
+        "The order of CSS rules",
+        "How many properties you can use"
+      ],
+      "correct": 1,
+      "explanation": "Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. More specific rules take precedence."
+    },
+    {
+      "id": "q13",
+      "question": "According to the cascade rules, what happens if two CSS rules have the same specificity?",
+      "options": [
+        "The first rule wins",
+        "The more recent rule takes precedence",
+        "Both rules are applied",
+        "An error occurs"
+      ],
+      "correct": 1,
+      "explanation": "If two rules share the same specificity, then the more 'recent' rule takes precedence. This is part of how the CSS cascade works."
+    },
+    {
+      "id": "q14",
+      "question": "What is the cascade in CSS?",
+      "options": [
+        "A waterfall animation effect",
+        "The way that CSS styles are applied to HTML elements, where styles cascade down to descendants unless overridden",
+        "A specific CSS property",
+        "A type of selector"
+      ],
+      "correct": 1,
+      "explanation": "The 'cascade' refers to the way that CSS styles are applied to HTML elements. Styles applied to elements cascade down to their descendants, unless they are overridden."
+    },
+    {
+      "id": "q15",
+      "question": "Can you use multiple CSS files in a single HTML document?",
+      "options": [
+        "No, only one CSS file is allowed",
+        "Yes, you can use as many CSS files as you want by including multiple <link> tags",
+        "Yes, but only if they're in the same directory",
+        "Yes, but only external files, not internal styles"
+      ],
+      "correct": 1,
+      "explanation": "You can use as many CSS files as you want. This is useful for organizing code and taking advantage of third-party style sheets. Just include multiple <link> tags in the <head>."
+    },
+    {
+      "id": "q16",
+      "question": "Which of the following should NEVER appear in a CSS file?",
+      "options": [
+        "HTML tags (like <h1> or <div>)",
+        "CSS properties",
+        "CSS selectors",
+        "CSS comments"
+      ],
+      "correct": 0,
+      "explanation": "CSS files should never have HTML tags inside of them. No angle brackets <> in a style sheet, ever. CSS files contain only CSS rules, not HTML."
+    }
+  ]
+}

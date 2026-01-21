@@ -1,0 +1,150 @@
+{
+  "quizName": "CSS Color Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Which CSS property is used to set the text color?",
+      "options": [
+        "text-color",
+        "color",
+        "font-color",
+        "text-style"
+      ],
+      "correct": 1,
+      "explanation": "The 'color' property is used to set the text color in CSS. For example: color: blue;"
+    },
+    {
+      "id": "q2",
+      "question": "Which CSS property is used to set the background color of an element?",
+      "options": [
+        "background",
+        "background-color",
+        "bg-color",
+        "color-background"
+      ],
+      "correct": 1,
+      "explanation": "The 'background-color' property is used to set the background color of an element. For example: background-color: #ffffff;"
+    },
+    {
+      "id": "q3",
+      "question": "Which of the following is a valid way to specify the color red in CSS?",
+      "options": [
+        "Only by name: 'red'",
+        "Only by hexadecimal: '#ff0000'",
+        "By name, hexadecimal, RGB, or RGBA",
+        "Only by RGB: 'rgb(255, 0, 0)'"
+      ],
+      "correct": 2,
+      "explanation": "You can specify colors in CSS using color names (red), hexadecimal values (#ff0000), RGB (rgb(255, 0, 0)), or RGBA (rgba(255, 0, 0, 1)) for colors with transparency."
+    },
+    {
+      "id": "q4",
+      "question": "What does the hexadecimal color value #FF0000 represent?",
+      "options": [
+        "Green",
+        "Blue",
+        "Red",
+        "White"
+      ],
+      "correct": 2,
+      "explanation": "Hexadecimal color values use RGB format. #FF0000 represents red (FF for red, 00 for green, 00 for blue)."
+    },
+    {
+      "id": "q5",
+      "question": "What does the hexadecimal color value #000000 represent?",
+      "options": [
+        "White",
+        "Black",
+        "Gray",
+        "Transparent"
+      ],
+      "correct": 1,
+      "explanation": "#000000 represents black, as all color channels (red, green, blue) are set to 00 (the minimum value)."
+    },
+    {
+      "id": "q6",
+      "question": "What does the hexadecimal color value #FFFFFF represent?",
+      "options": [
+        "Black",
+        "White",
+        "Gray",
+        "Transparent"
+      ],
+      "correct": 1,
+      "explanation": "#FFFFFF represents white, as all color channels (red, green, blue) are set to FF (the maximum value)."
+    },
+    {
+      "id": "q7",
+      "question": "What is the correct RGB syntax for the color red?",
+      "options": [
+        "rgb(255, 0, 0)",
+        "rgb(red)",
+        "rgb(#ff0000)",
+        "rgb(100%, 0%, 0%)"
+      ],
+      "correct": 0,
+      "explanation": "RGB syntax uses rgb(red, green, blue) where each value is 0-255. For red: rgb(255, 0, 0) means maximum red, no green, no blue."
+    },
+    {
+      "id": "q8",
+      "question": "What does RGBA add that RGB doesn't have?",
+      "options": [
+        "A fourth color channel",
+        "An alpha channel for transparency/opacity",
+        "A brightness value",
+        "A saturation value"
+      ],
+      "correct": 1,
+      "explanation": "RGBA adds an alpha channel (the 'A') which controls transparency/opacity. The alpha value ranges from 0 (fully transparent) to 1 (fully opaque)."
+    },
+    {
+      "id": "q9",
+      "question": "What is the correct RGBA syntax for semi-transparent red?",
+      "options": [
+        "rgba(255, 0, 0, 0.5)",
+        "rgba(red, 50%)",
+        "rgba(#ff0000, 0.5)",
+        "rgba(255, 0, 0, 50)"
+      ],
+      "correct": 0,
+      "explanation": "RGBA syntax is rgba(red, green, blue, alpha) where alpha is 0-1. rgba(255, 0, 0, 0.5) creates semi-transparent red (50% opacity)."
+    },
+    {
+      "id": "q10",
+      "question": "Which CSS property is used to set the border color?",
+      "options": [
+        "border",
+        "border-color",
+        "border-style-color",
+        "color-border"
+      ],
+      "correct": 1,
+      "explanation": "The 'border-color' property is used to set the color of an element's border. You can also set it as part of the 'border' shorthand property."
+    },
+    {
+      "id": "q11",
+      "question": "Consider this CSS:\n```css\n.my-element {\n  color: #333333;\n  background-color: rgb(255, 255, 255);\n  border-color: blue;\n}\n```\n\nWhich color format is used for the text color?",
+      "options": [
+        "Color name",
+        "Hexadecimal",
+        "RGB",
+        "RGBA"
+      ],
+      "correct": 1,
+      "explanation": "The text color uses hexadecimal format (#333333, which is a dark gray). The background uses RGB (rgb(255, 255, 255) which is white), and the border uses a color name (blue)."
+    },
+    {
+      "id": "q12",
+      "question": "What is a color palette tool that was mentioned in the CSS Color resources?",
+      "options": [
+        "coolors.co",
+        "colorpalette.com",
+        "webcolors.org",
+        "csscolors.net"
+      ],
+      "correct": 0,
+      "explanation": "coolors.co is one of the color resources mentioned in the CSS Color resource page. It's a tool for generating and exploring color palettes."
+    }
+  ]
+}

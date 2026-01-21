@@ -1,0 +1,102 @@
+{
+  "quizName": "CSS Introduction Quiz",
+  "start_date": "2026-01-21",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What does CSS stand for?",
+      "options": [
+        "Computer Style Sheets",
+        "Cascading Style Sheets",
+        "Creative Style System",
+        "Content Style Syntax"
+      ],
+      "correct": 1,
+      "explanation": "CSS stands for Cascading Style Sheets. It's a language used to control the look and feel of websites."
+    },
+    {
+      "id": "q2",
+      "question": "What is the primary purpose of CSS?",
+      "options": [
+        "To create the structure of a webpage",
+        "To control the look-and-feel of a website (layouts, fonts, colors, spacing, animations)",
+        "To add interactivity to web pages",
+        "To store data on the server"
+      ],
+      "correct": 1,
+      "explanation": "CSS is used to control the look-and-feel of a website, including layouts, font assignments, color schemes, margins and spacing, and even animations."
+    },
+    {
+      "id": "q3",
+      "question": "Which of the following can CSS be used to control?",
+      "options": [
+        "Only text colors",
+        "Only font sizes",
+        "Layouts, fonts, colors, margins, spacing, and animations",
+        "Only background images"
+      ],
+      "correct": 2,
+      "explanation": "CSS can be used to control layouts, font assignments, color schemes, margins and spacing, and even animations. It's a comprehensive styling language."
+    },
+    {
+      "id": "q4",
+      "question": "What is the best approach to learning CSS according to the resource?",
+      "options": [
+        "Memorize all CSS properties before starting",
+        "Learn CSS vocabulary as you design your own creations, using resources as references",
+        "Only learn CSS through video tutorials",
+        "Focus only on the most common properties"
+      ],
+      "correct": 1,
+      "explanation": "The CSS vocabulary is expansive and is best learned as you design your own creations. Think of CSS resources as references that you may consult as you go."
+    },
+    {
+      "id": "q5",
+      "question": "What is one of the recommended online resources for learning CSS mentioned in the introduction?",
+      "options": [
+        "CSSMaster.com",
+        "W3Schools — Learn CSS",
+        "CSSForBeginners.org",
+        "LearnCSSNow.com"
+      ],
+      "correct": 1,
+      "explanation": "W3Schools — Learn CSS is one of the recommended online tutorials/references mentioned in the CSS Introduction resource."
+    },
+    {
+      "id": "q6",
+      "question": "Which resource is described as 'All CSS properties at a glance'?",
+      "options": [
+        "W3Schools",
+        "cssreference.io",
+        "Web.dev by Google",
+        "Learn to Code HTML & CSS"
+      ],
+      "correct": 1,
+      "explanation": "cssreference.io is described as 'All CSS properties at a glance' - it's a comprehensive reference for CSS properties."
+    },
+    {
+      "id": "q7",
+      "question": "What is the relationship between HTML and CSS?",
+      "options": [
+        "CSS replaces HTML",
+        "HTML creates the structure, CSS styles that structure",
+        "They are the same thing",
+        "CSS is only used for JavaScript"
+      ],
+      "correct": 1,
+      "explanation": "HTML creates the structure and content of a webpage, while CSS styles that structure by controlling how it looks and is presented."
+    },
+    {
+      "id": "q8",
+      "question": "According to the CSS Introduction, what should you understand about CSS rules?",
+      "options": [
+        "You don't need to understand the rules, just copy examples",
+        "Knowing the rules that govern the CSS vocabulary is important to being able to use the language",
+        "CSS has no rules",
+        "Rules are only for advanced users"
+      ],
+      "correct": 1,
+      "explanation": "Knowing the rules that govern the CSS vocabulary is important to being able to use the language. Understanding CSS rules of thumb is essential."
+    }
+  ]
+}
