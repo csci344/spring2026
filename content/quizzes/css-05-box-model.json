@@ -1,150 +1,140 @@
 {
-  "quizName": "CSS Box Model Quiz",
-  "start_date": "2026-01-21",
-  "questions": [
-    {
-      "id": "q1",
-      "question": "What does the CSS box model refer to?",
-      "options": [
-        "A way to create 3D boxes",
-        "Properties that control the layout of rectangular boxes (width, height, margin, padding, border, box-sizing)",
-        "A method for organizing CSS files",
-        "A type of selector"
-      ],
-      "correct": 1,
-      "explanation": "The box model refers to properties that control the layout of rectangular boxes, including width, height, margin, padding, border, and box-sizing. Every element in web design is a rectangular box."
-    },
-    {
-      "id": "q2",
-      "question": "What is the space INSIDE an element, between the content and the border?",
-      "options": [
-        "Margin",
-        "Padding",
-        "Border",
-        "Width"
-      ],
-      "correct": 1,
-      "explanation": "Padding is the space inside an element, between the content and the border. It's part of the box model."
-    },
-    {
-      "id": "q3",
-      "question": "What is the space OUTSIDE an element, between the element and other elements?",
-      "options": [
-        "Margin",
-        "Padding",
-        "Border",
-        "Width"
-      ],
-      "correct": 0,
-      "explanation": "Margin is the space outside an element, between the element and other elements. It's part of the box model."
-    },
-    {
-      "id": "q4",
-      "question": "What does 'box-sizing: border-box' do?",
-      "options": [
-        "It makes the border thicker",
-        "It does not count padding and border in size calculations (padding and border are included in the width/height)",
-        "It removes all padding and borders",
-        "It doubles the element size"
-      ],
-      "correct": 1,
-      "explanation": "'box-sizing: border-box' means that padding and border are included in the width/height calculations. This is often preferred because it makes sizing more predictable."
-    },
-    {
-      "id": "q5",
-      "question": "Which of the following is a valid way to set padding on all sides?",
-      "options": [
-        "padding: 10px;",
-        "padding-all: 10px;",
-        "padding-sides: 10px;",
-        "padding: 10px 10px 10px 10px; (but the first option is simpler)"
-      ],
-      "correct": 3,
-      "explanation": "You can set padding with 'padding: 10px;' (applies to all sides) or 'padding: 10px 10px 10px 10px;' (top, right, bottom, left). The first option is simpler when all sides are the same."
-    },
-    {
-      "id": "q6",
-      "question": "Which of the following properties can be set individually for each side?",
-      "options": [
-        "Only padding",
-        "Only margin",
-        "Both padding and margin",
-        "Neither padding nor margin"
-      ],
-      "correct": 2,
-      "explanation": "Both padding and margin can be set individually for each side. For example: padding-top, padding-right, padding-bottom, padding-left, and similarly for margin."
-    },
-    {
-      "id": "q7",
-      "question": "What does 'vh' stand for in CSS units?",
-      "options": [
-        "Vertical height",
-        "Viewport height (1% of the height of the browser window)",
-        "Variable height",
-        "Virtual height"
-      ],
-      "correct": 1,
-      "explanation": "'vh' stands for viewport height - it's relative to 1% of the height of the browser window. For example, 'width: 10vh;' means 10% of the viewport height."
-    },
-    {
-      "id": "q8",
-      "question": "What does 'vw' stand for in CSS units?",
-      "options": [
-        "Vertical width",
-        "Viewport width (1% of the width of the browser window)",
-        "Variable width",
-        "Virtual width"
-      ],
-      "correct": 1,
-      "explanation": "'vw' stands for viewport width - it's relative to 1% of the width of the browser window. For example, 'width: 30vw;' means 30% of the viewport width."
-    },
-    {
-      "id": "q9",
-      "question": "Consider this CSS:\n```css\n.page-section {\n  box-sizing: border-box;\n  border: dotted 1px #CCC;\n  padding: 10px;\n  margin: 10px;\n  width: 50vh;\n}\n```\n\nWhat does 'width: 50vh;' mean?",
-      "options": [
-        "50 pixels wide",
-        "50% of the parent element's width",
-        "50% of the viewport height",
-        "50% of the viewport width"
-      ],
-      "correct": 2,
-      "explanation": "'vh' stands for viewport height. 'width: 50vh;' means the width will be 50% of the viewport (browser window) height. Note: using vh for width is less common than vw, but it's valid."
-    },
-    {
-      "id": "q10",
-      "question": "What is the correct syntax for setting a border?",
-      "options": [
-        "border: dotted 1px #CCC;",
-        "border: #CCC 1px dotted;",
-        "border: 1px #CCC dotted;",
-        "All of the above are valid, but the first is the most common order"
-      ],
-      "correct": 3,
-      "explanation": "The border shorthand property can be written as 'border: style width color;' or 'border: width style color;'. The most common order is 'border: style width color;' like 'border: dotted 1px #CCC;'"
-    },
-    {
-      "id": "q11",
-      "question": "In the box model, what is the order of layers from inside to outside?",
-      "options": [
-        "Content, Border, Padding, Margin",
-        "Content, Padding, Border, Margin",
-        "Margin, Border, Padding, Content",
-        "Content, Margin, Padding, Border"
-      ],
-      "correct": 1,
-      "explanation": "From inside to outside, the box model layers are: Content (innermost), then Padding, then Border, then Margin (outermost)."
-    },
-    {
-      "id": "q12",
-      "question": "What happens if you set 'width: 100%;' on an element?",
-      "options": [
-        "The element takes up 100% of the screen width",
-        "The element takes up 100% of its parent element's width",
-        "The element becomes invisible",
-        "The element doubles in size"
-      ],
-      "correct": 1,
-      "explanation": "Percentage units are relative to the parent element. 'width: 100%;' means the element will take up 100% of its parent element's width, not the screen width."
-    }
-  ]
+    "quizName": "CSS Box Model Quiz",
+    "start_date": "2026-01-28",
+    "questions": [
+        {
+            "id": "q1",
+            "question": "What does the CSS box model refer to?",
+            "options": [
+                "A way to create 3D boxes",
+                "Properties that control the layout of rectangular boxes (width, height, margin, padding, border, box-sizing)",
+                "A method for organizing CSS files",
+                "A type of selector"
+            ],
+            "correct": 1,
+            "explanation": "The box model refers to properties that control the layout of rectangular boxes, including width, height, margin, padding, border, and box-sizing. Every element in web design is a rectangular box."
+        },
+        {
+            "id": "q2",
+            "question": "What is the space INSIDE an element, between the content and the border?",
+            "options": ["Margin", "Padding", "Border", "Width"],
+            "correct": 1,
+            "explanation": "Padding is the space inside an element, between the content and the border. It's part of the box model."
+        },
+        {
+            "id": "q3",
+            "question": "What is the space OUTSIDE an element, between the element and other elements?",
+            "options": ["Margin", "Padding", "Border", "Width"],
+            "correct": 0,
+            "explanation": "Margin is the space outside an element, between the element and other elements. It's part of the box model."
+        },
+        {
+            "id": "q4",
+            "question": "What does 'box-sizing: border-box' do?",
+            "options": [
+                "It makes the border thicker",
+                "It does not count padding and border in size calculations (padding and border are included in the width/height)",
+                "It removes all padding and borders",
+                "It doubles the element size"
+            ],
+            "correct": 1,
+            "explanation": "'box-sizing: border-box' means that padding and border are included in the width/height calculations. This is often preferred because it makes sizing more predictable."
+        },
+        {
+            "id": "q5",
+            "question": "Which of the following is a valid way to set padding on all sides?",
+            "options": [
+                "padding: 10px;",
+                "padding-all: 10px;",
+                "padding-sides: 10px;",
+                "padding: 10px 10px 10px 10px; (but the first option is simpler)"
+            ],
+            "correct": 3,
+            "explanation": "You can set padding with 'padding: 10px;' (applies to all sides) or 'padding: 10px 10px 10px 10px;' (top, right, bottom, left). The first option is simpler when all sides are the same."
+        },
+        {
+            "id": "q6",
+            "question": "Which of the following properties can be set individually for each side?",
+            "options": [
+                "Only padding",
+                "Only margin",
+                "Both padding and margin",
+                "Neither padding nor margin"
+            ],
+            "correct": 2,
+            "explanation": "Both padding and margin can be set individually for each side. For example: padding-top, padding-right, padding-bottom, padding-left, and similarly for margin."
+        },
+        {
+            "id": "q7",
+            "question": "What does 'vh' stand for in CSS units?",
+            "options": [
+                "Vertical height",
+                "Viewport height (1% of the height of the browser window)",
+                "Variable height",
+                "Virtual height"
+            ],
+            "correct": 1,
+            "explanation": "'vh' stands for viewport height - it's relative to 1% of the height of the browser window. For example, 'width: 10vh;' means 10% of the viewport height."
+        },
+        {
+            "id": "q8",
+            "question": "What does 'vw' stand for in CSS units?",
+            "options": [
+                "Vertical width",
+                "Viewport width (1% of the width of the browser window)",
+                "Variable width",
+                "Virtual width"
+            ],
+            "correct": 1,
+            "explanation": "'vw' stands for viewport width - it's relative to 1% of the width of the browser window. For example, 'width: 30vw;' means 30% of the viewport width."
+        },
+        {
+            "id": "q9",
+            "question": "Consider this CSS:\n```css\n.page-section {\n  box-sizing: border-box;\n  border: dotted 1px #CCC;\n  padding: 10px;\n  margin: 10px;\n  width: 50vh;\n}\n```\n\nWhat does 'width: 50vh;' mean?",
+            "options": [
+                "50 pixels wide",
+                "50% of the parent element's width",
+                "50% of the viewport height",
+                "50% of the viewport width"
+            ],
+            "correct": 2,
+            "explanation": "'vh' stands for viewport height. 'width: 50vh;' means the width will be 50% of the viewport (browser window) height. Note: using vh for width is less common than vw, but it's valid."
+        },
+        {
+            "id": "q10",
+            "question": "What is the correct syntax for setting a border?",
+            "options": [
+                "border: dotted 1px #CCC;",
+                "border: #CCC 1px dotted;",
+                "border: 1px #CCC dotted;",
+                "All of the above are valid, but the first is the most common order"
+            ],
+            "correct": 3,
+            "explanation": "The border shorthand property can be written as 'border: style width color;' or 'border: width style color;'. The most common order is 'border: style width color;' like 'border: dotted 1px #CCC;'"
+        },
+        {
+            "id": "q11",
+            "question": "In the box model, what is the order of layers from inside to outside?",
+            "options": [
+                "Content, Border, Padding, Margin",
+                "Content, Padding, Border, Margin",
+                "Margin, Border, Padding, Content",
+                "Content, Margin, Padding, Border"
+            ],
+            "correct": 1,
+            "explanation": "From inside to outside, the box model layers are: Content (innermost), then Padding, then Border, then Margin (outermost)."
+        },
+        {
+            "id": "q12",
+            "question": "What happens if you set 'width: 100%;' on an element?",
+            "options": [
+                "The element takes up 100% of the screen width",
+                "The element takes up 100% of its parent element's width",
+                "The element becomes invisible",
+                "The element doubles in size"
+            ],
+            "correct": 1,
+            "explanation": "Percentage units are relative to the parent element. 'width: 100%;' means the element will take up 100% of its parent element's width, not the screen width."
+        }
+    ]
 }
