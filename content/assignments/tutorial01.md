@@ -14,9 +14,9 @@ points: 6
 > <br><br>
 > **Assumptions:** This tutorial assumes that you have:
 >
-> 1. [Installed and configured VS Code (Activity 4)](https://docs.google.com/document/d/1Vu_bVKlnzeQceoxp7hRTXdyTeCcLDQIz/edit#heading=h.gjdgxs)
-> 2. [Installed and configured GitHub (Activity 6)](activities/github)
-> 3. Reviewed the materials assigned in the [Intro to HTML lecture](topics/topic02)
+> 1. [Installed and configured VS Code (Wed, 1/21)](https://docs.google.com/document/d/1uV7vK9VrhuLGmLzaOCxf71jgsiQhsMOS/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true)
+> 2. [Installed and configured GitHub](/spring2026/resources/sys-01-github)
+> 3. Reviewed all of the [HTML Resource Pages](/spring2026/resources/html-00-intro)
 
 ## Part 1. Setting Up Your Development Environment
 
@@ -96,7 +96,7 @@ Now that you're set up, please complete the 6 tasks below:
 > 1. [Attempt the optional enhancements (if time)](#step6)
             
 
-### 1. Connect your style.css stylesheet
+<h3 id="step1">1. Connect your style.css stylesheet</h3>
 Open your `index.html` file. Within the `<head></head>` section, uncomment the following line by removing the `<!--` on one side and the `-->` on the other:
 
 ```html
@@ -118,7 +118,7 @@ Next, add this same stylesheet link tag inside of the head tag of the `videos.ht
 <img class="frame medium" src="/spring2026/images/tutorials/tutorial01/c.png" />
 <img class="frame medium" src="/spring2026/images/tutorials/tutorial01/d.png" />
 
-### 2. Link your pages to one another in the navigation section
+<h3 id="step2">2. Link your pages to one another in the navigation section</h3>
 Next, modify the anchor tags within the navigation section (in each of your pages) so that your pages link to one another. To do this, you will modify the value that corresponds to the `href` ***attribute*** so that it points to the file you want to open when your user clicks the link. In other words, you will replace the `#` with a ***relative path*** to the relevant HTML file.
 
 ```html
@@ -135,7 +135,7 @@ Update all of your anchor tags on all three pages. When you're done, all of the 
 
 <img class="frame small" src="/spring2026/images/tutorials/tutorial01/e.gif" />
 
-### 3. Add some images to the index.html file
+<h3 id="step3">3. Add some images to the index.html file</h3>
 Inside the `index.html` file:
 
 1. Add three image tags inside of the `<section class="photo-section"></section>` region of your page.
@@ -149,7 +149,7 @@ When you're done, your page should look like this:
 
 > **Hint**: Please see the course resources on [images](resources/image-tags/) for more detail.
 
-### 4. Add two videos to the videos.html file
+<h3 id="step4">4. Add two videos to the videos.html file</h3>
 Inside the `videos.html` file, add two different YouTube or Vimeo videos inside of the `<section class="video-section"></section>` region of your page. To get the embed code of any YouTube video, (a) navigate to the video, (b) click "share", (c) then click "embed," and (d) then copy the embed code (iframe tag), as pictured below (note the pink squares):
 
 <img class="frame small" src="/spring2026/images/tutorials/tutorial01/g.png" />
@@ -164,14 +164,14 @@ When you're done, your page should look like this (except with *your* videos):
 
 > **More examples**: Please also see the course resources on [media tags](resources/media-tags/).
 
-### 5. Add a Spotify player to music.html
+<h3 id="step5">5. Add a Spotify player to music.html</h3>
 Inside the `music.html` file, add one or more embedded music players inside of the `<section class="music-section"></section>` region of your page. There are instructions on how to get the embed code of a Spotify artist profile, album, song, playlist, or podcast on Spotify's <a href="https://artists.spotify.com/en/help/article/embedded-players" target="_blank">documentation page</a>. 
 
 When you're done, your page should look like this (except with *your* videos):
 
 <img class="frame medium" src="/spring2026/images/tutorials/tutorial01/k.png" />
 
-### 6. Optional Enhancements
+<h3 id="step6">6. Optional Enhancements</h3>
 While we have not yet covered CSS, try using Google and various online resources to see how you might edit the `style.css` file to achieve the following:
 
 * Change the fonts and/or text color of the h1 tag
@@ -183,9 +183,9 @@ While we have not yet covered CSS, try using Google and various online resources
 > #### CSS Reference
 > Please also see the course resources on CSS:
 >
-> * [fonts](resources/fonts/)
-> * [color](resources/color/)
-> * [selectors](resources/selectors/)
+> * [fonts](/spring2026/resources/css-04-fonts)
+> * [color](/spring2026/resources/css-03-color)
+> * [selectors](/spring2026/resources/css-02-selectors)
 
 <!-- ## Part 3. Publishing to GitHub
 Please [follow these instructions](../activities/github) to publish your tutorial02 to GitHub. -->
@@ -193,7 +193,7 @@ Please [follow these instructions](../activities/github) to publish your tutoria
 ## How to think about this exercise (meta-comment)
 The purpose of this tutorial was to get you familiar with some HTML widgets and conventions. We are now officially done with HTML instruction. What you should be comfortable with after this tutorial:
 
-1. Finding online resources (like <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3Schools</a> and the [course HTML reference](resources/html-resources)) that help you learn about and integrate HTML tags.
+1. Finding online resources (like <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3Schools</a> and the [course HTML reference](/spring2026/resources/html-00-intro)) that help you learn about and integrate HTML tags.
 2. Understanding the rules of various tags, and how to nest them.
 3. Understanding how to link files together using both relative and absolute paths (more next week).
 4. Semantic containers

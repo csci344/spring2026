@@ -198,8 +198,16 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Write your first HTML page", url: "https://docs.google.com/document/d/1Vu_bVKlnzeQceoxp7hRTXdyTeCcLDQIz/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
+          { 
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1FbBtEvrC31Jj-qg8hnhnnAwSnRojDbXV/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          },
+          { 
+            title: "Write your first HTML page", 
+            url: "https://docs.google.com/document/d/1uV7vK9VrhuLGmLzaOCxf71jgsiQhsMOS/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          },
         ],
         readings: [
           {
@@ -275,9 +283,21 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Linking (lecture files)", url: "/course-files/lectures/lecture05.zip", draft: 1 },
-          { title: "Configure git and GitHub", url: "/resources/sys-01-github", draft: 1 },
+          { 
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1IUEju6-g-lXI_013KKnvACpYqsIahZLz/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 1 
+          },
+          { 
+            title: "Linking (lecture files)", 
+            url: "/course-files/lectures/lecture05.zip", 
+            draft: 1
+          },
+          { 
+            title: "Configure git and GitHub", 
+            url: "/resources/sys-01-github", 
+            draft: 0 
+          },
         ],
         readings: [
           {
@@ -319,6 +339,10 @@ export const baseTopics = [
           },
         ],
       },
+      {
+        date: "Mo, Jan 26",
+        topic: "Tutorial 1"
+      },
     ],
   },
 
@@ -328,11 +352,6 @@ export const baseTopics = [
     description:
       "CSS (Cascading Style Sheets) is used to control the layout and visual presentation of HTML elements. It allows developers to define styles such as colors, fonts, and spacing, enhancing user experience. CSS also includes techniques like Flexbox and Grid for responsive, modern web designs.",
     meetings: [
-
-      {
-        date: "Mo, Jan 26",
-        topic: "Tutorial 1"
-      },
       {
         date: "We, Jan 28",
         topic: "Introduction to CSS",
