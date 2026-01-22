@@ -6,7 +6,7 @@ order: 2
 quicklink: 0
 ---
 
-The simplest HTML tags are those that help your browser understand how to interpret blocks of text.
+The simplest HTML tags are those that help your browser understand how to interpret blocks of text. Use these tags to structure your text content. They tell the browser how to display your words.
 
 ## 1. Paragraphs
 The HTML **&lt;p&gt;&lt;/p&gt;** tag defines a paragraph. Paragraphs require an opening and a closing tag.
@@ -35,6 +35,8 @@ Line breaks are defined using the **&lt;br /&gt;** tag. Use this tag if you want
 
 ## 4. Text Emphasis
 **&lt;span&gt;&lt;/span&gt;**, **&lt;em&gt;&lt;/em&gt;**, and **&lt;strong&gt;&lt;/strong&gt;** tags are inline tags that are  used to group or emphasize text.
+
+**&lt;em&gt;** = emphasis (usually italic), **&lt;strong&gt;** = strong emphasis (usually bold), **&lt;span&gt;** = no visual change by itself, but useful for styling with CSS.
 
 <iframe src="//codepen.io/vanwars/embed/JKEVby/?theme-id=18654&default-tab=html,result" allowfullscreen="true" class="codepen-frame"></iframe>
 

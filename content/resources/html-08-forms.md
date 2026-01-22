@@ -9,6 +9,8 @@ quicklink: 0
 
 Forms are use to gather information from a user, and typically post user information to a server that is expecting it. We will cover this in more detail when we get to our HTTP / REST unit.
 
+**Common form elements:** `&lt;input&gt;` (text, email, password, etc.), `&lt;textarea&gt;` (multi-line text), `&lt;select&gt;` (dropdown), `&lt;button&gt;` (submit). Always use `&lt;label&gt;` tags for accessibility.
+
 <iframe src="//codepen.io/vanwars/embed/QEdPvL/?theme-id=18654&default-tab=html,result" allowfullscreen="true" class="codepen-frame"></iframe>
 
 > **Additional Resources**

@@ -63,6 +63,30 @@
       "explanation": "An absolute path is a fully qualified URL that includes the protocol (https://), the server name (example.com), and the file path. It's used when linking to resources on other computers/servers."
     },
     {
+      "id": "q5a",
+      "question": "Consider this HTML code:\n```html\n<a href=\"https://www.example.com/about.html\">About Us</a>\n```\n\nWhat type of link is this?",
+      "options": [
+        "A relative path link",
+        "An absolute path link",
+        "An internal anchor link",
+        "An invalid link"
+      ],
+      "correct": 1,
+      "explanation": "This is an absolute path link because it includes the full URL with protocol (https://), server name (www.example.com), and file path (about.html). Absolute paths are used when linking to resources on other websites or servers."
+    },
+    {
+      "id": "q5b",
+      "question": "When should you use an absolute path instead of a relative path?",
+      "options": [
+        "Always use absolute paths for all links",
+        "When linking to resources on the same website",
+        "When linking to resources on other websites or external servers",
+        "Never use absolute paths"
+      ],
+      "correct": 2,
+      "explanation": "Use absolute paths when linking to resources on other websites or external servers. For example, linking to Google, YouTube, or any external website requires an absolute path with the full URL."
+    },
+    {
       "id": "q6",
       "question": "How do you create an internal link (anchor link) that jumps to a specific section on the same page?",
       "options": [
@@ -73,6 +97,30 @@
       ],
       "correct": 1,
       "explanation": "Internal links use a hash tag (#) followed by the id of the target element. For example, <a href=\"#section1\">Link</a> will jump to an element with id=\"section1\"."
+    },
+    {
+      "id": "q6a",
+      "question": "Consider this HTML code:\n```html\n<h2 id=\"introduction\">Introduction</h2>\n<p>Some content here...</p>\n<a href=\"#introduction\">Back to top</a>\n```\n\nWhat will happen when a user clicks the \"Back to top\" link?",
+      "options": [
+        "The page will reload",
+        "The browser will scroll to the element with id=\"introduction\"",
+        "A new page will open",
+        "Nothing will happen"
+      ],
+      "correct": 1,
+      "explanation": "When the link is clicked, the browser will scroll to the element with id=\"introduction\" on the same page. The hash (#) in the href tells the browser to look for an element with that id on the current page."
+    },
+    {
+      "id": "q6b",
+      "question": "Consider this HTML code:\n```html\n<nav>\n  <a href=\"#about\">About</a>\n  <a href=\"#contact\">Contact</a>\n</nav>\n<section id=\"about\">\n  <h2>About Us</h2>\n  <p>Content here...</p>\n</section>\n<section id=\"contact\">\n  <h2>Contact Us</h2>\n  <p>Content here...</p>\n</section>\n```\n\nWhat is required for these internal links to work correctly?",
+      "options": [
+        "The target elements must have class attributes matching the href values",
+        "The target elements must have id attributes matching the href values (without the #)",
+        "The target elements must be inside a <div> tag",
+        "The links must include the full URL"
+      ],
+      "correct": 1,
+      "explanation": "For internal links to work, the target elements must have id attributes that match the href values (without the #). In this example, the <section> elements have id=\"about\" and id=\"contact\", which match the href=\"#about\" and href=\"#contact\" in the links."
     },
     {
       "id": "q7",

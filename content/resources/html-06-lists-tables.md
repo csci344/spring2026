@@ -10,12 +10,19 @@ quicklink: 0
 Some tags only work in conjunction with one another (which this guide refers to as "compound tags"). For instance, to make a list, you need a tag to indicate where the list starts and ends (either `<ol></ol>` or `<ul></ul>`) and a tag for each list item (`<li></li>`). Similarly, for a table, you need a way to indicate where the table starts and ends, where the row starts and ends, and how many cells exist in each row. Please see the code samples below:
 
 ## Lists
+
+* **&lt;ul&gt;** -- unordered list (bullets)
+* **&lt;ol&gt;** -- ordered list (numbers)
+* Both require **&lt;li&gt;** tags for each item. 
+
 Sample code to make ordered and un-ordered lists:
+
 <iframe src="//codepen.io/vanwars/embed/RRwvaX/?theme-id=18654&default-tab=html,result" allowfullscreen="true" class="codepen-frame"></iframe>
 
 
 ## Tables
-Sample code to make a table:
+
+Tables need **&lt;table&gt;**, **&lt;tr&gt;** (rows), and **&lt;td&gt;** (cells). Use **&lt;th&gt;** for header cells. Sample code to make a table:
 <iframe src="//codepen.io/vanwars/embed/mEdvRd/?theme-id=18654&default-tab=html,result" allowfullscreen="true" class="codepen-frame"></iframe>
 
 

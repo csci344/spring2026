@@ -6,13 +6,15 @@ order: 3
 quicklink: 0
 ---
 
+
+
 <style>
     .link-table td:first-child {
         width: 230px;
     }
 </style>
 
-Linking is probably **the most important feature** of the worldwide web, and allows documents, media, fonts, text files, etc. to be connected together -- no matter what computer they are on! There are three different ways of linking to resources:
+Linking is probably **the most important feature** of the worldwide web, and allows documents, media, fonts, text files, etc. to be connected together -- no matter what computer they are on! Links connect your pages together and to external resources. That said, if you get the path wrong, your link breaks -- so pay attention to the examples below. There are three different ways of linking to resources:
 
 1. [Using relative paths](#relative)
 2. [Using absolute paths](#absolute)
