@@ -14,6 +14,7 @@ quicklink: 0
 
 ## Overview
 
+Selectors tell CSS which HTML elements to style. Think of them as "targeting" specific parts of your page. Master these patterns and you can style anything!
 
 | Selector | Example | Example description |
 |--|--|--|

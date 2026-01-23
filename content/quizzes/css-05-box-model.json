@@ -47,9 +47,9 @@
                 "padding: 10px;",
                 "padding-all: 10px;",
                 "padding-sides: 10px;",
-                "padding: 10px 10px 10px 10px; (but the first option is simpler)"
+                "padding-bottom: 10px"
             ],
-            "correct": 3,
+            "correct": 0,
             "explanation": "You can set padding with 'padding: 10px;' (applies to all sides) or 'padding: 10px 10px 10px 10px;' (top, right, bottom, left). The first option is simpler when all sides are the same."
         },
         {

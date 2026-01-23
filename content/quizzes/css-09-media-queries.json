@@ -1,0 +1,150 @@
+{
+  "quizName": "CSS Media Queries Quiz",
+  "start_date": "2026-01-30",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What are media queries used for?",
+      "options": [
+        "To add animations to web pages",
+        "To apply different CSS styles based on screen size, device type, or other conditions",
+        "To change HTML content",
+        "To add JavaScript functionality"
+      ],
+      "correct": 1,
+      "explanation": "Media queries let you apply different CSS styles based on screen size, device type, or other conditions. This is how you make responsive designs that look good on phones, tablets, and desktops."
+    },
+    {
+      "id": "q2",
+      "question": "What CSS rule do you use to create a media query?",
+      "options": [
+        "@media",
+        "@query",
+        "@responsive",
+        "@breakpoint"
+      ],
+      "correct": 0,
+      "explanation": "You use the '@media' rule to create media queries. For example: '@media (min-width: 768px) { ... }'"
+    },
+    {
+      "id": "q3",
+      "question": "What is a 'breakpoint' in media queries?",
+      "options": [
+        "A point where the page breaks",
+        "A specific screen size where styles change (like 768px for tablets)",
+        "A CSS property",
+        "A JavaScript function"
+      ],
+      "correct": 1,
+      "explanation": "A breakpoint is a specific screen size where your CSS styles change. Common breakpoints include 768px for tablets and 1024px for desktops."
+    },
+    {
+      "id": "q4",
+      "question": "Consider this CSS:\n```css\n@media (min-width: 768px) {\n  .container {\n    width: 750px;\n  }\n}\n```\n\nWhen will these styles apply?",
+      "options": [
+        "Only on screens smaller than 768px",
+        "Only on screens 768px wide or larger",
+        "Only on exactly 768px wide screens",
+        "Never"
+      ],
+      "correct": 1,
+      "explanation": "'min-width: 768px' means the styles will apply when the screen width is 768 pixels or larger. This is commonly used for tablet and desktop styles."
+    },
+    {
+      "id": "q5",
+      "question": "Consider this CSS:\n```css\n@media (max-width: 767px) {\n  .menu {\n    display: none;\n  }\n}\n```\n\nWhen will the menu be hidden?",
+      "options": [
+        "On screens 767px wide or larger",
+        "On screens smaller than 768px (mobile devices)",
+        "On all screen sizes",
+        "Never"
+      ],
+      "correct": 1,
+      "explanation": "'max-width: 767px' means the styles apply when the screen width is 767 pixels or smaller. This is commonly used for mobile-specific styles."
+    },
+    {
+      "id": "q6",
+      "question": "What is a common breakpoint for tablet devices?",
+      "options": [
+        "320px",
+        "768px",
+        "1920px",
+        "10px"
+      ],
+      "correct": 1,
+      "explanation": "768px is a common breakpoint for tablet devices. Screens 768px and wider are typically considered tablets or small desktops."
+    },
+    {
+      "id": "q7",
+      "question": "What is a common breakpoint for desktop devices?",
+      "options": [
+        "480px",
+        "768px",
+        "1024px",
+        "320px"
+      ],
+      "correct": 2,
+      "explanation": "1024px is a common breakpoint for desktop devices. Screens 1024px and wider are typically considered desktop or large tablet screens."
+    },
+    {
+      "id": "q8",
+      "question": "Consider this CSS:\n```css\n.container {\n  width: 100%;\n}\n\n@media (min-width: 1024px) {\n  .container {\n    width: 1200px;\n  }\n}\n```\n\nWhat will happen on different screen sizes?",
+      "options": [
+        "Container is always 1200px wide",
+        "Container is 100% width on mobile, but fixed at 1200px on screens 1024px and wider",
+        "Container is always 100% width",
+        "Container width changes randomly"
+      ],
+      "correct": 1,
+      "explanation": "On mobile (smaller than 1024px), the container will be 100% width. On desktop (1024px and wider), the container will be fixed at 1200px wide. This is a common responsive design pattern."
+    },
+    {
+      "id": "q9",
+      "question": "What is 'mobile-first' design?",
+      "options": [
+        "Designing only for mobile devices",
+        "Designing for mobile devices first, then adding styles for larger screens using min-width media queries",
+        "Designing for desktop first, then mobile",
+        "Using only mobile breakpoints"
+      ],
+      "correct": 1,
+      "explanation": "Mobile-first design means you start with styles for mobile devices (the base styles), then use min-width media queries to add styles for larger screens. This is a best practice for responsive design."
+    },
+    {
+      "id": "q10",
+      "question": "Consider this CSS:\n```css\n.nav {\n  flex-direction: column;\n}\n\n@media (min-width: 768px) {\n  .nav {\n    flex-direction: row;\n  }\n}\n```\n\nWhat layout will the navigation have on different devices?",
+      "options": [
+        "Always horizontal (row)",
+        "Vertical (stacked) on mobile, horizontal on tablets and larger",
+        "Always vertical (stacked)",
+        "Horizontal on mobile, vertical on desktop"
+      ],
+      "correct": 1,
+      "explanation": "This is a mobile-first approach. On mobile (smaller than 768px), the nav items stack vertically. On tablets and larger (768px+), they display horizontally in a row."
+    },
+    {
+      "id": "q11",
+      "question": "What does 'responsive design' mean?",
+      "options": [
+        "Designs that respond to user clicks",
+        "Designs that adapt and look good on different screen sizes (phones, tablets, desktops)",
+        "Designs that only work on mobile",
+        "Designs that use JavaScript"
+      ],
+      "correct": 1,
+      "explanation": "Responsive design means your website adapts and looks good on different screen sizes - from mobile phones to tablets to desktop computers. Media queries are the primary tool for creating responsive designs."
+    },
+    {
+      "id": "q12",
+      "question": "Which media query would you use to apply styles only to screens that are at least 1024px wide?",
+      "options": [
+        "@media (max-width: 1024px)",
+        "@media (min-width: 1024px)",
+        "@media (width: 1024px)",
+        "@media (exact-width: 1024px)"
+      ],
+      "correct": 1,
+      "explanation": "'@media (min-width: 1024px)' applies styles to screens that are 1024 pixels wide or larger. 'min-width' means 'minimum width'."
+    }
+  ]
+}

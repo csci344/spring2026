@@ -1,0 +1,150 @@
+{
+  "quizName": "CSS Grid Quiz",
+  "start_date": "2026-01-30",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What property do you use to enable CSS Grid on a container?",
+      "options": [
+        "grid: enabled;",
+        "display: grid;",
+        "layout: grid;",
+        "grid-container: true;"
+      ],
+      "correct": 1,
+      "explanation": "You enable CSS Grid by setting 'display: grid;' on the parent container. This makes the container a grid container and its children grid items."
+    },
+    {
+      "id": "q2",
+      "question": "What is the main difference between Flexbox and CSS Grid?",
+      "options": [
+        "Grid is one-dimensional, Flexbox is two-dimensional",
+        "Grid creates two-dimensional layouts (rows AND columns), while Flexbox is one-dimensional",
+        "There is no difference",
+        "Grid only works on mobile devices"
+      ],
+      "correct": 1,
+      "explanation": "CSS Grid creates two-dimensional layouts (rows AND columns) with precise control, while Flexbox is one-dimensional (either row or column)."
+    },
+    {
+      "id": "q3",
+      "question": "What does 'grid-template-columns' do?",
+      "options": [
+        "Defines how many rows the grid has",
+        "Defines how many columns the grid has and their sizes",
+        "Defines the gap between grid items",
+        "Defines the alignment of grid items"
+      ],
+      "correct": 1,
+      "explanation": "'grid-template-columns' defines how many columns your grid has and their sizes. For example, 'grid-template-columns: 1fr 1fr 1fr;' creates three equal columns."
+    },
+    {
+      "id": "q4",
+      "question": "Consider this CSS:\n```css\n.container {\n  display: grid;\n  grid-template-columns: 1fr 1fr 1fr;\n}\n```\n\nWhat does this create?",
+      "options": [
+        "Three equal-width columns that automatically adjust to container size",
+        "Three fixed-width columns of 1 pixel each",
+        "One column that takes up 1/3 of the space",
+        "Three rows"
+      ],
+      "correct": 0,
+      "explanation": "'1fr 1fr 1fr' creates three equal-width columns using fractional units. The 'fr' units automatically adjust to fit the container size, so each column gets an equal share of the available space."
+    },
+    {
+      "id": "q5",
+      "question": "What does 'grid-column: span 2;' do?",
+      "options": [
+        "Makes an item span across 2 rows",
+        "Makes an item span across 2 columns",
+        "Creates a 2-column gap",
+        "Moves an item 2 columns to the right"
+      ],
+      "correct": 1,
+      "explanation": "'grid-column: span 2;' makes an item span across 2 columns. The item will take up the space of two columns in the grid."
+    },
+    {
+      "id": "q6",
+      "question": "What does 'grid-row: span 2;' do?",
+      "options": [
+        "Makes an item span across 2 columns",
+        "Makes an item span across 2 rows",
+        "Creates a 2-row gap",
+        "Moves an item 2 rows down"
+      ],
+      "correct": 1,
+      "explanation": "'grid-row: span 2;' makes an item span across 2 rows. The item will take up the space of two rows in the grid, making it taller."
+    },
+    {
+      "id": "q7",
+      "question": "Consider this CSS:\n```css\n.item {\n  grid-column: 1 / 3;\n}\n```\n\nWhat does this mean?",
+      "options": [
+        "The item spans from column 1 to column 3 (spans 2 columns)",
+        "The item is in column 1 and has a width of 3",
+        "The item moves 1 column and spans 3",
+        "The item is positioned at coordinates 1, 3"
+      ],
+      "correct": 0,
+      "explanation": "'grid-column: 1 / 3;' means the item starts at column 1 and ends at column 3, which means it spans 2 columns. This is an alternative syntax to 'grid-column: span 2;'."
+    },
+    {
+      "id": "q8",
+      "question": "Consider this CSS:\n```css\n.container {\n  display: grid;\n  grid-template-columns: 200px 1fr 1fr;\n}\n```\n\nWhat does this create?",
+      "options": [
+        "Three equal columns",
+        "First column fixed at 200px, other two columns flexible and equal",
+        "Three fixed columns of 200px each",
+        "Two columns, one 200px and one flexible"
+      ],
+      "correct": 1,
+      "explanation": "This creates a grid where the first column is fixed at 200 pixels, and the remaining two columns are flexible (1fr each) and will split the remaining available space equally."
+    },
+    {
+      "id": "q9",
+      "question": "Consider this CSS:\n```css\n.featured-item {\n  grid-column: span 2;\n  grid-row: span 2;\n}\n```\n\nWhat does this create?",
+      "options": [
+        "An item that spans 2 columns and 2 rows, creating a large featured area",
+        "An item that is 2 pixels wide and 2 pixels tall",
+        "An item with 2px margins",
+        "An item positioned at column 2, row 2"
+      ],
+      "correct": 0,
+      "explanation": "This makes the item span 2 columns horizontally and 2 rows vertically, creating a large featured area that takes up 4 grid cells (2×2)."
+    },
+    {
+      "id": "q10",
+      "question": "What does 'repeat(3, 1fr)' in 'grid-template-columns' create?",
+      "options": [
+        "Three equal columns (shorthand for 1fr 1fr 1fr)",
+        "Three rows",
+        "A gap of 3fr between columns",
+        "Three fixed-width columns"
+      ],
+      "correct": 0,
+      "explanation": "'repeat(3, 1fr)' is shorthand that creates three equal columns, equivalent to writing '1fr 1fr 1fr'. It's useful for creating multiple columns of the same size."
+    },
+    {
+      "id": "q11",
+      "question": "Consider this CSS:\n```css\n.layout {\n  display: grid;\n  grid-template-columns: 200px 1fr;\n}\n```\n\nWhat layout pattern does this create?",
+      "options": [
+        "A card grid",
+        "A sidebar layout with a 200px width sidebar and flexible content area",
+        "A three-column layout",
+        "A centered content area"
+      ],
+      "correct": 1,
+      "explanation": "This creates a sidebar layout where the first column is fixed at 200px (the sidebar) and the second column is flexible (1fr), taking up the remaining space for the main content."
+    },
+    {
+      "id": "q12",
+      "question": "Consider this CSS:\n```css\n.card-grid {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));\n  gap: 20px;\n}\n```\n\nWhat does this create?",
+      "options": [
+        "A fixed 3-column grid",
+        "As many columns as fit (minimum 250px each), automatically responsive",
+        "A single column layout",
+        "A grid with 250px gaps"
+      ],
+      "correct": 1,
+      "explanation": "This creates a responsive card grid that automatically creates as many columns as can fit, with each column being at least 250px wide. It's perfect for responsive designs that adapt to different screen sizes."
+    }
+  ]
+}

@@ -4,7 +4,7 @@ type: "tutorial"
 num: 3
 draft: 1
 assigned_date: "2026-02-06"
-due_date: "2026-02-11"
+due_date: "2026-02-09"
 heading_max_level: 3
 order: 3
 points: 6

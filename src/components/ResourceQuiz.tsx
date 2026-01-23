@@ -12,6 +12,8 @@ import QuizSummary from './quiz/QuizSummary';
 import QuizNavigation from './quiz/QuizNavigation';
 
 export default function ResourceQuiz({ quizData, resourceSlug, variant = 'desktop', autoOpen = false, onClose: externalOnClose }: ResourceQuizProps & { autoOpen?: boolean; onClose?: () => void }) {
+  // variant is kept for potential future use but currently unused
+  void variant;
   const [isQuizDrawerOpen, setIsQuizDrawerOpen] = useState<boolean>(autoOpen);
   const [isDrawerAnimating, setIsDrawerAnimating] = useState<boolean>(false);
   const [isDrawerClosing, setIsDrawerClosing] = useState<boolean>(false);

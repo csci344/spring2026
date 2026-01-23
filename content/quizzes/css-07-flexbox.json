@@ -1,0 +1,150 @@
+{
+  "quizName": "CSS Flexbox Quiz",
+  "start_date": "2026-01-30",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What property do you use to enable flexbox on a container?",
+      "options": [
+        "flex: true;",
+        "display: flex;",
+        "flexbox: enabled;",
+        "layout: flex;"
+      ],
+      "correct": 1,
+      "explanation": "You enable flexbox by setting 'display: flex;' on the parent container. This makes the container a flex container and its children flex items."
+    },
+    {
+      "id": "q2",
+      "question": "What does 'justify-content' control?",
+      "options": [
+        "Vertical alignment of items",
+        "How items are spaced along the main axis (horizontal by default)",
+        "The direction items flow",
+        "Spacing between items"
+      ],
+      "correct": 1,
+      "explanation": "'justify-content' controls how items are spaced along the main axis, which is horizontal by default. Common values include flex-start, center, flex-end, space-between, etc."
+    },
+    {
+      "id": "q3",
+      "question": "What does 'align-items' control?",
+      "options": [
+        "Horizontal alignment of items",
+        "How items are aligned along the cross axis (vertical by default)",
+        "The direction items flow",
+        "Spacing between items"
+      ],
+      "correct": 1,
+      "explanation": "'align-items' controls how items are aligned along the cross axis, which is vertical by default. Common values include stretch, flex-start, center, flex-end, baseline."
+    },
+    {
+      "id": "q4",
+      "question": "What is the default value of 'flex-direction'?",
+      "options": [
+        "column",
+        "row",
+        "row-reverse",
+        "column-reverse"
+      ],
+      "correct": 1,
+      "explanation": "The default value of 'flex-direction' is 'row', which means items flow left to right horizontally."
+    },
+    {
+      "id": "q5",
+      "question": "What does the 'gap' property do?",
+      "options": [
+        "Adds space around the entire flex container",
+        "Adds consistent spacing between flex items",
+        "Controls the size of flex items",
+        "Changes the flex direction"
+      ],
+      "correct": 1,
+      "explanation": "The 'gap' property adds consistent spacing between all flex items. It's much easier than using individual margins on each item."
+    },
+    {
+      "id": "q6",
+      "question": "Consider this CSS:\n```css\n.container {\n  display: flex;\n  justify-content: center;\n}\n```\n\nHow will items be aligned?",
+      "options": [
+        "Items will be aligned to the left",
+        "Items will be centered horizontally in the container",
+        "Items will be aligned to the right",
+        "Items will be spaced evenly"
+      ],
+      "correct": 1,
+      "explanation": "'justify-content: center;' centers items horizontally along the main axis (which is horizontal by default)."
+    },
+    {
+      "id": "q7",
+      "question": "Consider this CSS:\n```css\n.container {\n  display: flex;\n  align-items: center;\n  height: 200px;\n}\n```\n\nHow will items of different heights be aligned?",
+      "options": [
+        "Items will stretch to fill the container height",
+        "Items will be vertically centered, regardless of their individual heights",
+        "Items will align to the top",
+        "Items will align to the bottom"
+      ],
+      "correct": 1,
+      "explanation": "'align-items: center;' vertically centers items along the cross axis. Items of different heights will all be centered, not stretched."
+    },
+    {
+      "id": "q8",
+      "question": "Consider this CSS:\n```css\n.container {\n  display: flex;\n  flex-direction: column;\n}\n```\n\nHow will items be arranged?",
+      "options": [
+        "Items will flow left to right (horizontally)",
+        "Items will flow top to bottom (vertically stacked)",
+        "Items will flow right to left",
+        "Items will flow bottom to top"
+      ],
+      "correct": 1,
+      "explanation": "'flex-direction: column;' makes items flow top to bottom, creating a vertical stack instead of the default horizontal row."
+    },
+    {
+      "id": "q9",
+      "question": "What is the value of 'justify-content' that spreads items with space between them (but no space at the edges)?",
+      "options": [
+        "space-around",
+        "space-between",
+        "space-evenly",
+        "center"
+      ],
+      "correct": 1,
+      "explanation": "'space-between' spreads items with equal space between them, but no extra space at the start or end of the container."
+    },
+    {
+      "id": "q10",
+      "question": "Consider this CSS:\n```css\n.navbar {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 20px;\n}\n```\n\nWhat does this create?",
+      "options": [
+        "A vertical navigation menu",
+        "A navigation bar with items spaced apart, vertically centered, with consistent gaps",
+        "A centered navigation menu",
+        "A navigation menu with items aligned to the left"
+      ],
+      "correct": 1,
+      "explanation": "This creates a navigation bar where items are spaced apart (space-between), vertically centered (align-items: center), with 20px gaps between items (gap: 20px)."
+    },
+    {
+      "id": "q11",
+      "question": "What is the default value of 'align-items'?",
+      "options": [
+        "flex-start",
+        "center",
+        "stretch",
+        "flex-end"
+      ],
+      "correct": 2,
+      "explanation": "The default value of 'align-items' is 'stretch', which means items stretch to fill the container's height (or width if flex-direction is column)."
+    },
+    {
+      "id": "q12",
+      "question": "Which flexbox property would you use to reverse the order of items (so the last item appears first)?",
+      "options": [
+        "flex-direction: row-reverse;",
+        "justify-content: reverse;",
+        "align-items: reverse;",
+        "flex-order: reverse;"
+      ],
+      "correct": 0,
+      "explanation": "'flex-direction: row-reverse;' reverses the order of items so they flow right to left (or bottom to top with column-reverse)."
+    }
+  ]
+}

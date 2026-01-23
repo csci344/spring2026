@@ -15,6 +15,8 @@ quicklink: 0
 
 ## Common text properties
 
+Control how your text looks with these properties. Use `font-family` to choose typefaces, `font-size` for size, `font-weight` for boldness, and spacing properties to fine-tune readability.
+
 ```css
 .body-copy
     font-family: "Times New Roman", Times, serif;

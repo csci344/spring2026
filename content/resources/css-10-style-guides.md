@@ -6,9 +6,11 @@ order: 10
 quicklink: 0
 ---
 
+Style guides help developers to create useable, well-designed pages. They specify the rules that developers must follow (colors, textures, fonts, icons, etc.) when they implement web pages. 
 
-Style guides help developers to create useable, well-designed pages. They specify the rules that developers must follow (colors, textures, fonts, icons, etc.) when they implement web pages. Some examples of style guides include:
+**Why use them?** They ensure consistency across a website and make design decisions easier. Instead of picking random colors or fonts, you follow the guide. Many companies publish their style guides publicly.
 
+Some examples of style guides include:
 
 | Organization | Name of Design Brand |
 |--|--|

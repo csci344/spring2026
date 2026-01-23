@@ -7,6 +7,8 @@ quicklink: 0
 ---
 Every element in web design is a rectangular box. The box model refers to some of the properties that control the layout of these boxes (width, height, margin, padding, border, and box-sizing). The <a href="https://css-tricks.com/the-css-box-model/" target="_blank">CSS Tricks</a> website has a nice description of it.
 
+**Key concept:** Every element has content, padding (space inside), border, and margin (space outside). Understanding this helps you control spacing and layout.
+
 <img class="medium" src="/spring2026/images/reference/box_model.png" /> 
 
 ## Common Box Model properties

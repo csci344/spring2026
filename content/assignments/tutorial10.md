@@ -3,7 +3,7 @@ title: "Database / ORM Activity"
 type: "tutorial"
 num: 10
 draft: 1
-assigned_date: "2026-04-15"
+assigned_date: "2026-04-17"
 due_date: "2026-04-20"
 heading_max_level: 3
 order: 10

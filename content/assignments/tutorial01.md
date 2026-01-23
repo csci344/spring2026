@@ -2,21 +2,21 @@
 title: "HTML Exercises"
 type: "tutorial"
 num: 1
-draft: 1
+draft: 0
 assigned_date: "2026-01-26"
-due_date: "2026-01-28"
+due_date: "2026-01-30"
 heading_max_level: 3
 order: 1
 points: 6
 ---
 
-> **Announcements:** <a href="https://docs.google.com/presentation/d/1ik3u0Ut7MgHPBfMu_vftQc2x-mWtqQCc/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">See slides</a>
-> <br><br>
-> **Assumptions:** This tutorial assumes that you have:
->
-> 1. [Installed and configured VS Code (Wed, 1/21)](https://docs.google.com/document/d/1uV7vK9VrhuLGmLzaOCxf71jgsiQhsMOS/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true)
-> 2. [Installed and configured GitHub](/spring2026/resources/sys-01-github)
-> 3. Reviewed all of the [HTML Resource Pages](/spring2026/resources/html-00-intro)
+> ## Important Notes
+> 1. **Announcements:** <a href="https://docs.google.com/presentation/d/14bgvUYhNlOXXYGseVeumUIy3aor_N0ON/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">See slides</a>
+> 1. **Video Walkthrough:** <a href="https://drive.google.com/drive/folders/1Wv7M96s7D-q4kbZVp6gjKomLQf-vxqXY?usp=sharing" target="_blank">See Google Drive</a>
+> 1. **Assumptions:** This tutorial assumes that you have:
+>    * [Installed and configured VS Code (Wed, 1/21)](https://docs.google.com/document/d/1uV7vK9VrhuLGmLzaOCxf71jgsiQhsMOS/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true)
+>    * [Installed and configured GitHub (Fri, 1/23)](/spring2026/resources/sys-01-github)
+>    * Reviewed all of the [HTML Resource Pages](/spring2026/resources/html-00-intro)
 
 ## Part 1. Setting Up Your Development Environment
 
@@ -97,6 +97,7 @@ Now that you're set up, please complete the 6 tasks below:
             
 
 <h3 id="step1">1. Connect your style.css stylesheet</h3>
+
 Open your `index.html` file. Within the `<head></head>` section, uncomment the following line by removing the `<!--` on one side and the `-->` on the other:
 
 ```html
@@ -119,6 +120,7 @@ Next, add this same stylesheet link tag inside of the head tag of the `videos.ht
 <img class="frame medium" src="/spring2026/images/tutorials/tutorial01/d.png" />
 
 <h3 id="step2">2. Link your pages to one another in the navigation section</h3>
+
 Next, modify the anchor tags within the navigation section (in each of your pages) so that your pages link to one another. To do this, you will modify the value that corresponds to the `href` ***attribute*** so that it points to the file you want to open when your user clicks the link. In other words, you will replace the `#` with a ***relative path*** to the relevant HTML file.
 
 ```html
@@ -136,6 +138,7 @@ Update all of your anchor tags on all three pages. When you're done, all of the 
 <img class="frame small" src="/spring2026/images/tutorials/tutorial01/e.gif" />
 
 <h3 id="step3">3. Add some images to the index.html file</h3>
+
 Inside the `index.html` file:
 
 1. Add three image tags inside of the `<section class="photo-section"></section>` region of your page.
@@ -150,6 +153,7 @@ When you're done, your page should look like this:
 > **Hint**: Please see the course resources on [images](resources/image-tags/) for more detail.
 
 <h3 id="step4">4. Add two videos to the videos.html file</h3>
+
 Inside the `videos.html` file, add two different YouTube or Vimeo videos inside of the `<section class="video-section"></section>` region of your page. To get the embed code of any YouTube video, (a) navigate to the video, (b) click "share", (c) then click "embed," and (d) then copy the embed code (iframe tag), as pictured below (note the pink squares):
 
 <img class="frame small" src="/spring2026/images/tutorials/tutorial01/g.png" />
@@ -165,6 +169,7 @@ When you're done, your page should look like this (except with *your* videos):
 > **More examples**: Please also see the course resources on [media tags](resources/media-tags/).
 
 <h3 id="step5">5. Add a Spotify player to music.html</h3>
+
 Inside the `music.html` file, add one or more embedded music players inside of the `<section class="music-section"></section>` region of your page. There are instructions on how to get the embed code of a Spotify artist profile, album, song, playlist, or podcast on Spotify's <a href="https://artists.spotify.com/en/help/article/embedded-players" target="_blank">documentation page</a>. 
 
 When you're done, your page should look like this (except with *your* videos):
@@ -172,6 +177,7 @@ When you're done, your page should look like this (except with *your* videos):
 <img class="frame medium" src="/spring2026/images/tutorials/tutorial01/k.png" />
 
 <h3 id="step6">6. Optional Enhancements</h3>
+
 While we have not yet covered CSS, try using Google and various online resources to see how you might edit the `style.css` file to achieve the following:
 
 * Change the fonts and/or text color of the h1 tag

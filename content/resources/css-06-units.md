@@ -7,6 +7,11 @@ quicklink: 0
 ---
 There are many units that CSS supports:
 
+1. **Absolute units** are fixed sizes (like pixels). 
+2. **Relative units** scale based on parent elements or viewport size. 
+
+> **Tip:** Use relative units for responsive designs that work on all screen sizes.
+
 ## Absolute Units
 
 | Units | Example |
@@ -24,9 +29,6 @@ There are many units that CSS supports:
 | **vw** | Relative to 1% of the width of the ***viewport*** (size of browser window) | `width: 30vw;`<br>(30% of the width of the browser window) |
 | **vh** | Relative to 1% of the height of the ***viewport*** (size of browser window) | `width: 10vw;` <br>(10% of the width of the browser window) |
 | **%** | Relative to the ***parent element*** | `width: 100%;` <br>(100% of the parent element's width) |
-
-## Rules of Thumb
-When possible, use ***relative*** units so that your pages can scale and be resized on-the-fly.
 
 ### W3Schools Reference
 * <a href="https://www.w3schools.com/cssref/css_units.asp" target="_blank">CSS Units</a>

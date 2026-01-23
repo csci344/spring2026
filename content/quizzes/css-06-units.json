@@ -1,0 +1,150 @@
+{
+  "quizName": "CSS Units Quiz",
+  "start_date": "2026-01-30",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What is the difference between absolute units and relative units?",
+      "options": [
+        "Absolute units are always larger than relative units",
+        "Absolute units are fixed sizes (like pixels), while relative units scale based on parent elements or viewport size",
+        "Relative units are fixed sizes, while absolute units scale",
+        "There is no difference"
+      ],
+      "correct": 1,
+      "explanation": "Absolute units (like pixels and points) are fixed sizes that don't change. Relative units (like em, rem, %, vw, vh) scale based on their parent element or the viewport size."
+    },
+    {
+      "id": "q2",
+      "question": "Which of the following is an absolute unit?",
+      "options": [
+        "em",
+        "rem",
+        "px (pixels)",
+        "% (percentage)"
+      ],
+      "correct": 2,
+      "explanation": "Pixels (px) are an absolute unit - they represent a fixed size. em, rem, and % are all relative units."
+    },
+    {
+      "id": "q3",
+      "question": "What does 'em' stand for and what is it relative to?",
+      "options": [
+        "Element margin - relative to the element's margin",
+        "Element measure - relative to the element's width",
+        "Relative to the font-size of the parent element",
+        "Relative to the root element's font-size"
+      ],
+      "correct": 2,
+      "explanation": "'em' is relative to the font-size of the parent element. For example, 2em means 2 times the size of the parent's font."
+    },
+    {
+      "id": "q4",
+      "question": "What does 'rem' stand for and what is it relative to?",
+      "options": [
+        "Root element margin - relative to the root's margin",
+        "Relative to the font-size of the root element (usually the <html> element)",
+        "Relative to the parent element's font-size",
+        "Relative to the viewport width"
+      ],
+      "correct": 1,
+      "explanation": "'rem' stands for 'root em' and is relative to the font-size of the root element (usually the <html> element). This makes it more predictable than 'em'."
+    },
+    {
+      "id": "q5",
+      "question": "What does 'vw' stand for?",
+      "options": [
+        "Viewport width - relative to 1% of the width of the browser window",
+        "Viewport height - relative to 1% of the height of the browser window",
+        "Variable width - a fixed width unit",
+        "Vertical width - relative to the parent element"
+      ],
+      "correct": 0,
+      "explanation": "'vw' stands for viewport width. It's relative to 1% of the width of the browser window. For example, 30vw means 30% of the viewport width."
+    },
+    {
+      "id": "q6",
+      "question": "What does 'vh' stand for?",
+      "options": [
+        "Viewport height - relative to 1% of the height of the browser window",
+        "Viewport width - relative to 1% of the width of the browser window",
+        "Variable height - a fixed height unit",
+        "Vertical height - relative to the parent element"
+      ],
+      "correct": 0,
+      "explanation": "'vh' stands for viewport height. It's relative to 1% of the height of the browser window. For example, 50vh means 50% of the viewport height."
+    },
+    {
+      "id": "q7",
+      "question": "What is the percentage (%) unit relative to?",
+      "options": [
+        "The viewport size",
+        "The root element",
+        "The parent element",
+        "A fixed pixel value"
+      ],
+      "correct": 2,
+      "explanation": "The percentage (%) unit is relative to the parent element. For example, width: 100% means 100% of the parent element's width."
+    },
+    {
+      "id": "q8",
+      "question": "What does 'fr' stand for in CSS Grid?",
+      "options": [
+        "Fraction - a fixed unit",
+        "Fractional units of the available space within the parent element",
+        "Frame - relative to the viewport",
+        "Font ratio - relative to font size"
+      ],
+      "correct": 1,
+      "explanation": "'fr' stands for 'fraction' and represents fractional units of the available space within the parent element. It's used in CSS Grid for flexible column/row sizing."
+    },
+    {
+      "id": "q9",
+      "question": "Consider this CSS:\n```css\n.container {\n  width: 50vw;\n}\n```\n\nWhat does this mean?",
+      "options": [
+        "The container will be 50 pixels wide",
+        "The container will be 50% of the viewport width",
+        "The container will be 50% of the parent element's width",
+        "The container will be 50% of the viewport height"
+      ],
+      "correct": 1,
+      "explanation": "50vw means 50% of the viewport width. The 'vw' unit is always relative to the viewport width, regardless of what property it's used for."
+    },
+    {
+      "id": "q10",
+      "question": "According to the CSS Units resource, what is the recommended approach for responsive design?",
+      "options": [
+        "Always use absolute units like pixels",
+        "Use relative units when possible so pages can scale and be resized on-the-fly",
+        "Mix absolute and relative units equally",
+        "Never use relative units"
+      ],
+      "correct": 1,
+      "explanation": "The resource recommends using relative units when possible for responsive designs. This allows pages to scale and be resized on-the-fly, making them work better on different screen sizes."
+    },
+    {
+      "id": "q11",
+      "question": "Consider this CSS:\n```css\n.parent {\n  font-size: 16px;\n}\n.child {\n  font-size: 1.5em;\n}\n```\n\nWhat will be the font-size of the child element?",
+      "options": [
+        "1.5px",
+        "16px",
+        "24px (1.5 × 16px)",
+        "It depends on the root element"
+      ],
+      "correct": 2,
+      "explanation": "Since 'em' is relative to the parent's font-size, 1.5em means 1.5 times the parent's font-size. 1.5 × 16px = 24px."
+    },
+    {
+      "id": "q12",
+      "question": "Which unit would be best for creating a full-height section that always takes up the entire viewport height?",
+      "options": [
+        "100px",
+        "100%",
+        "100vh",
+        "100em"
+      ],
+      "correct": 2,
+      "explanation": "100vh means 100% of the viewport height, which is perfect for creating a full-height section that always takes up the entire browser window height, regardless of content."
+    }
+  ]
+}

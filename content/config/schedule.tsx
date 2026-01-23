@@ -286,12 +286,12 @@ export const baseTopics = [
           { 
             title: "Slides", 
             url: "https://docs.google.com/presentation/d/1IUEju6-g-lXI_013KKnvACpYqsIahZLz/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 1 
+            draft: 0 
           },
           { 
             title: "Linking (lecture files)", 
             url: "/course-files/lectures/lecture05.zip", 
-            draft: 1
+            draft: 0
           },
           { 
             title: "Configure git and GitHub", 
@@ -339,10 +339,7 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "Mo, Jan 26",
-        topic: "Tutorial 1"
-      },
+      
     ],
   },
 
@@ -357,16 +354,11 @@ export const baseTopics = [
         topic: "Introduction to CSS",
         description: (
           <>
-            <ul>
-              <li>CSS basics and selectors</li>
-              <li>Color, fonts, and the box model</li>
-              <li>Styling HTML elements</li>
-            </ul>
+            Introduction to CSS basics and selectors, color, fonts, and the box model for styling HTML elements.
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "Design a Photo Gallery", url: "/activities/intro-css", draft: 1 },
         ],
         readings: [
           {
@@ -458,20 +450,6 @@ export const baseTopics = [
               </>
             ),
           },
-          {
-            citation: (
-              <>
-                <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a> (Complete at least the first 10 levels)
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> (Complete at least the first 10 levels)
-              </>
-            ),
-          },
         ],
         optionalReadings: [
           {
@@ -503,6 +481,22 @@ export const baseTopics = [
             ),
           },
         ],
+        quizzes: [
+        {
+            citation: (
+                <>
+                <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a> (Complete at least the first 10 levels)
+                </>
+            ),
+            },
+            {
+            citation: (
+                <>
+                <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> (Complete at least the first 10 levels)
+                </>
+            ),
+        }
+        ]
       },
     ],
   },
@@ -514,7 +508,7 @@ export const baseTopics = [
       "Design refers to the process of creating an aesthetically pleasing and functional user interface (UI) and user experience (UX). It encompasses layout, typography, color schemes, and interactivity to ensure the site is intuitive, visually appealing, and accessible. Good design is crucial for engaging users and meeting their needs effectively. While design is a huge topic in its own right, we will briefly review some important design principles, and take a quick look at some design tools and systems.",
     meetings: [
       {
-        date: "Mo, Feb 4",
+        date: "We, Feb 4",
         topic: "Design with Accessibility in Mind",
         description: (
           <>
@@ -562,14 +556,6 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "We, Feb 6",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, Feb 8",
-        topic: "Tutorial"
-      },
     ],
   },
 
@@ -605,15 +591,6 @@ export const baseTopics = [
             url: "/spring2026/resources/programming-review",
           },
         ],
-      },
-      {
-        date: "We, Feb 11",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, Feb 13",
-        topic: "Exam 1: Web Architecture, HTML, CSS, and Accessibility",
-        exam: true,
       },
     ],
   },
@@ -723,56 +700,6 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "Fri, Feb 20",
-        topic: "Tutorial"
-      },
-      {
-        date: "Mo, Feb 23",
-        topic: "Overview of the JavaScript Language + Basic Programming",
-        description: (
-          <>
-            <ul>
-              <li>Review of JavaScript concepts covered so far</li>
-              <li>Practice problems and exercises</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="/spring2026/resources/js-01-basic-programming">Basic Programming in JavaScript</a>: Know this material well.
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic programming practice problems</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="/spring2026/resources/js-03-the-dom">Working with the DOM</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="/spring2026/resources/js-04-dom-practice">DOM practice problems</a>
-              </>
-            ),
-          },
-        ],
-      },
     ],
   },
 
@@ -782,6 +709,52 @@ export const baseTopics = [
     description:
       "Functional programming is a programming paradigm that emphasizes immutability, pure functions, and composition over state and side effects. In this unit, we will explore the principles of functional programming and how they can be applied to JavaScript.",
     meetings: [
+        {
+          date: "Mo, Feb 23",
+          topic: "Overview of the JavaScript Language + Basic Programming",
+          description: (
+            <>
+              <ul>
+                <li>Review of JavaScript concepts covered so far</li>
+                <li>Practice problems and exercises</li>
+              </ul>
+            </>
+          ),
+          activities: [
+            { title: "Slides", url: "#", draft: 1 },
+            { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
+          ],
+          readings: [
+            {
+              citation: (
+                <>
+                  <a href="/spring2026/resources/js-01-basic-programming">Basic Programming in JavaScript</a>: Know this material well.
+                </>
+              ),
+            },
+            {
+              citation: (
+                <>
+                  <a href="/spring2026/resources/js-02-basic-programming-practice">Basic programming practice problems</a>
+                </>
+              ),
+            },
+            {
+              citation: (
+                <>
+                  <a href="/spring2026/resources/js-03-the-dom">Working with the DOM</a>
+                </>
+              ),
+            },
+            {
+              citation: (
+                <>
+                  <a href="/spring2026/resources/js-04-dom-practice">DOM practice problems</a>
+                </>
+              ),
+            },
+          ],
+        },
       {
         date: "We, Feb 25",
         topic: "Higher Order Functions",
@@ -797,11 +770,7 @@ export const baseTopics = [
         activities: [
           { title: "Slides", url: "#", draft: 1 },
         ]
-      },
-      {
-        date: "Fr, Feb 27",
-        topic: "Tutorial 6: Higher Order Functions"
-      },
+      }
     ],
   },
 
@@ -813,7 +782,7 @@ export const baseTopics = [
     meetings: [
       {
         date: "Mo, Mar 2",
-        topic: "Tutorial 6 Wrap; Intro to HTTP",
+        topic: "Intro to HTTP",
         description: (
           <>
             <ul>
@@ -896,10 +865,6 @@ export const baseTopics = [
             ),
           },
         ],
-      },
-      {
-        date: "Fr, Mar 6",
-        topic: "Tutorial"
       },
     ],
   },
@@ -1000,10 +965,6 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "Fr, Mar 25",
-        topic: "Tutorial"
-      },
     ],
   },
 
@@ -1062,14 +1023,6 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "We, Mar 29",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, Apr 1",
-        topic: "Tutorial"
-      },
     ],
   },
 
@@ -1106,14 +1059,6 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "We, Apr 5",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, Apr 7",
-        topic: "Tutorial"
-      },
     ],
   },
 
@@ -1121,7 +1066,7 @@ export const baseTopics = [
     id: 13,
     title: "Servers",
     description:
-      "Server-side architectures define how web applications process requests and serve responses from the server. This includes understanding client-server models, HTTP request-response cycles, and technologies like RESTful APIs and GraphQL. A solid grasp of server-side architecture is essential for building scaTutorialle and efficient web applications.",
+      "Server-side architectures define how web applications process requests and serve responses from the server. This includes understanding client-server models, HTTP request-response cycles, and technologies like RESTful APIs and GraphQL. A solid grasp of server-side architecture is essential for building scalable and efficient web applications.",
     meetings: [
       {
         date: "Mo, Apr 6",
@@ -1161,14 +1106,6 @@ export const baseTopics = [
             ),
           },
         ],
-      },
-      {
-        date: "We, Apr 8",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, Apr 10",
-        topic: "Tutorial"
       },
     ],
   },
@@ -1256,7 +1193,7 @@ export const baseTopics = [
         ],
       },
       {
-        date: "We, Apr 17",
+        date: "We, Apr 15",
         topic: "Intro to Object-Relational Mappings (ORMs)",
         description: (
           <>
@@ -1281,10 +1218,6 @@ export const baseTopics = [
             ),
           },
         ],
-      },
-      {
-        date: "Fr, Apr 19",
-        topic: "Tutorial"
       },
     ],
   },
@@ -1328,14 +1261,6 @@ export const baseTopics = [
           },
         ],
       },
-      {
-        date: "We, Apr 24",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, Apr 26",
-        topic: "Tutorial"
-      },
     ],
   },
 
@@ -1377,14 +1302,6 @@ export const baseTopics = [
             ),
           },
         ],
-      },
-      {
-        date: "We, Apr 29",
-        topic: "Tutorial"
-      },
-      {
-        date: "Fr, May 1",
-        topic: "Tutorial"
       },
     ],
   },

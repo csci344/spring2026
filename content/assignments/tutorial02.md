@@ -17,27 +17,23 @@ This tutorial can be completed individually or in pairs. Working in pairs does n
 > CSS is best understood through practice, and by consulting online resources as needed. Here are a curated list of resources that should help you complete your tasks:
 > 
 > #### Common CSS Properties and Techniques
-> * <a href="../resources/css-rules-of-thumb">CSS Rules of Thumb</a> 
-> * <a href="../resources/selectors/">Selectors</a>
->     * [CSS Diner](https://flukeout.github.io/)
-> * <a href="../resources/color/">Color</a>
-> * [CSS Units](../resources/units/)
-> * <a href="../resources/fonts/">Text &amp; Fonts</a>
-> * <a href="../resources/box-model/">The Box Model</a>
-> * <a href="../resources/css-grid/">CSS Grid</a>  
-> * <a href="../resources/media-queries/">Media Queries</a>    
+> * <a href="/spring2026/resources/css-01-rules-of-thumb">CSS Rules of Thumb</a> 
+> * <a href="/spring2026/resources/css-02-selectors">Selectors</a> (try this game for practice: [CSS Diner](https://flukeout.github.io/))
+> * <a href="/spring2026/resources/css-03-color">Color</a>
+> * <a href="/spring2026/resources/css-06-units">CSS Units</a>
+> * <a href="/spring2026/resources/css-04-fonts">Text &amp; Fonts</a>
+> * <a href="/spring2026/resources/css-05-box-model">The Box Model</a>
+> * <a href="/spring2026/resources/css-09-media-queries">Media Queries</a>    
 >
 > #### CSS Grid
-> * <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a> <br>Please try to complete at least the first 10 levels 
-* <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank">CSS Tricks: A Complete Guide to Grid</a>
-* <a href="https://www.freecodecamp.org/news/learn-css-grid-by-building-5-layouts/" target="_blank">Learn CSS Grid by Building 5 Layouts in 17 minutes</a>
+> * <a href="/spring2026/resources/css-08-grid">CSS Grid</a>  
+> * <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a>: Please try to complete at least the first 10 levels 
 > 
 > #### Flex
 > 
-> * <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a>.<br>Please try to complete at least the first 10 levels
+> * <a href="/spring2026/resources/css-07-flexbox">Flexbox</a>
+> * <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a>: Please try to complete at least the first 10 levels
 > * <a href="https://university.webflow.com/lesson/flexbox-vs-grid" target="_blank">When to use Flex versus CSS Grid?</a>      
-> * <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">CSS Tricks: A Complete Guide to Flexbox</a>
-> * <a href="https://www.w3schools.com/css/css3_flexbox.asp" target="_blank">W3 Schools Flexbox Guide</a>    
 
 ## Your Tasks
 <a href="/spring2026/course-files/tutorials/tutorial02.zip" class="nu-button">Download Tutorial Files <i class="fas fa-download"></i></a>
