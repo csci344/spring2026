@@ -22,7 +22,7 @@ export const baseTopics = [
           { 
             title: "Slides", 
             url: "https://docs.google.com/presentation/d/1bExOA_cV_sO1vzJd18si3FogUr0mCXMU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 0 
+            draft: 1 
           },
         ],
         readings: [
@@ -482,20 +482,14 @@ export const baseTopics = [
           },
         ],
         quizzes: [
-        {
-            citation: (
-                <>
-                <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a> (Complete at least the first 10 levels)
-                </>
-            ),
-            },
-            {
-            citation: (
-                <>
-                <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a> (Complete at least the first 10 levels)
-                </>
-            ),
-        }
+          {
+            quizName: "CSS Grid Garden (Complete at least the first 10 levels)",
+            url: "https://cssgridgarden.com/",
+          },
+          {
+            quizName: "Flexbox Froggy (Complete at least the first 10 levels)",
+            url: "https://flexboxfroggy.com/",
+          },
         ]
       },
     ],
