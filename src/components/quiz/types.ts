@@ -2,7 +2,8 @@ export interface QuizQuestion {
   id: string;
   question: string;
   options: string[];
-  correct: number;
+  type?: 'multiple-choice' | 'select-all';
+  correct: number | number[];
   explanation?: string;
 }
 
@@ -12,7 +13,7 @@ export interface QuizData {
 }
 
 export interface QuizState {
-  selectedAnswers: { [questionId: string]: string }; // Store option text instead of index
+  selectedAnswers: { [questionId: string]: string | string[] }; // Store option text instead of index (string for single-select, string[] for multi-select)
   score: number;
   completed: boolean;
   timestamp: number;

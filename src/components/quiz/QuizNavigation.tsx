@@ -11,11 +11,13 @@ interface QuizNavigationProps {
   onNext: () => void;
   canGoNext: boolean;
   questions: QuizQuestion[];
-  selectedAnswers: { [questionId: string]: string };
+  selectedAnswers: { [questionId: string]: string | string[] };
   circleWindowStart: number;
   isMobile: boolean;
   onQuestionClick: (index: number) => void;
   hasAnswered: (questionId: string) => boolean;
+  revealedQuestions?: Set<string>;
+  showSummary?: boolean;
   isDark: boolean;
 }
 
@@ -32,6 +34,8 @@ export default function QuizNavigation({
   isMobile,
   onQuestionClick,
   hasAnswered,
+  revealedQuestions,
+  showSummary,
   isDark,
 }: QuizNavigationProps) {
   return (
@@ -61,6 +65,8 @@ export default function QuizNavigation({
             isMobile={isMobile}
             onQuestionClick={onQuestionClick}
             hasAnswered={hasAnswered}
+            revealedQuestions={revealedQuestions}
+            showSummary={showSummary}
           />
         </div>
         <button

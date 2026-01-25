@@ -12,7 +12,7 @@ interface QuizReportProps {
   scorePercentage: number;
   studentName: string;
   incorrectQuestions: QuizQuestion[];
-  selectedAnswers: { [questionId: string]: string };
+  selectedAnswers: { [questionId: string]: string | string[] };
   resourceSlug: string;
   onGeneratingChange: (generating: boolean) => void;
 }
@@ -169,9 +169,29 @@ const QuizReport = forwardRef<QuizReportHandle, QuizReportProps>(({
               </h2>
               
               {incorrectQuestions.map((question, index) => {
-                const savedOptionText = selectedAnswers[question.id];
-                const selectedAnswer = savedOptionText || 'Not answered';
-                const correctAnswer = question.options[question.correct];
+                const savedAnswer = selectedAnswers[question.id];
+                const isMultiSelect = question.type === 'select-all' || Array.isArray(question.correct);
+                
+                // Format selected answer
+                let selectedAnswerText = 'Not answered';
+                if (savedAnswer !== undefined) {
+                  if (Array.isArray(savedAnswer)) {
+                    selectedAnswerText = savedAnswer.length > 0 
+                      ? savedAnswer.map(text => stripMarkdown(text)).join(', ')
+                      : 'Not answered';
+                  } else {
+                    selectedAnswerText = stripMarkdown(savedAnswer);
+                  }
+                }
+                
+                // Format correct answer
+                let correctAnswerText = '';
+                if (Array.isArray(question.correct)) {
+                  const correctOptions = question.correct.map(idx => question.options[idx]);
+                  correctAnswerText = correctOptions.map(text => stripMarkdown(text)).join(', ');
+                } else {
+                  correctAnswerText = stripMarkdown(question.options[question.correct]);
+                }
                 
                 return (
                   <div key={question.id} style={{ marginBottom: '30px', padding: '20px' }}>
@@ -179,12 +199,12 @@ const QuizReport = forwardRef<QuizReportHandle, QuizReportProps>(({
                       Question {index + 1}: {stripMarkdown(question.question)}
                     </div>
                     
-                                  <div style={{ marginBottom: '10px' }}>
-                                    <strong style={{ color: '#ef4444' }}>Your answer:</strong> {stripMarkdown(selectedAnswer)}
-                                  </div>
+                    <div style={{ marginBottom: '10px' }}>
+                      <strong style={{ color: '#ef4444' }}>Your answer:</strong> {selectedAnswerText}
+                    </div>
                     
                     <div style={{ marginBottom: '10px' }}>
-                      <strong style={{ color: '#10b981' }}>Correct answer:</strong> {stripMarkdown(correctAnswer)}
+                      <strong style={{ color: '#10b981' }}>Correct answer:</strong> {correctAnswerText}
                     </div>
                     
                     {question.explanation && (

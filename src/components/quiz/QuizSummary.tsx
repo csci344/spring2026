@@ -12,7 +12,7 @@ interface QuizSummaryProps {
   studentName: string;
   onStudentNameChange: (name: string) => void;
   incorrectQuestions: QuizQuestion[];
-  selectedAnswers: { [questionId: string]: string };
+  selectedAnswers: { [questionId: string]: string | string[] };
   resourceSlug: string;
   onClearQuiz: () => void;
   onReview: () => void;

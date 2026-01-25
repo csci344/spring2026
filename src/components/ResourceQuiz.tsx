@@ -19,6 +19,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
   const [isDrawerClosing, setIsDrawerClosing] = useState<boolean>(false);
   const [isGeneratingReport, setIsGeneratingReport] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [revealedQuestions, setRevealedQuestions] = useState<Set<string>>(new Set());
   // Initialize from localStorage synchronously if available (client-side only)
   const [hasCompletedFromStorage, setHasCompletedFromStorage] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
@@ -228,6 +229,15 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
     }
   };
 
+  const handleRevealAnswer = (questionId: string) => {
+    setRevealedQuestions(prev => new Set([...prev, questionId]));
+  };
+
+  const handleClearQuizWithReveals = () => {
+    handleClearQuiz();
+    setRevealedQuestions(new Set());
+  };
+
   // Don't render until questions are shuffled
   if (shuffledQuestions.length === 0) {
     return (
@@ -293,7 +303,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
             <QuizInstructions
               randomMode={randomMode}
               onToggleRandomMode={handleToggleRandomMode}
-              onClearQuiz={handleClearQuiz}
+              onClearQuiz={handleClearQuizWithReveals}
               onStartQuiz={handleNext}
               isDark={isDark}
             />
@@ -311,7 +321,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
                   incorrectQuestions={incorrectQuestions}
                   selectedAnswers={selectedAnswers}
                   resourceSlug={resourceSlug}
-                  onClearQuiz={handleClearQuiz}
+                  onClearQuiz={handleClearQuizWithReveals}
                   onReview={() => setCurrentQuestionIndex(0)}
                   isGeneratingReport={isGeneratingReport}
                   onGeneratingChange={setIsGeneratingReport}
@@ -327,6 +337,10 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
                   isCorrect={isCorrect}
                   isSelected={isSelected}
                   hasAnswered={hasAnswered}
+                  completed={completed}
+                  isRevealed={revealedQuestions.has(currentQuestion.id)}
+                  onRevealAnswer={handleRevealAnswer}
+                  showSummary={showSummary}
                   isDark={isDark}
                 />
               ) : null}
@@ -350,6 +364,8 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
           isMobile={isMobile}
           onQuestionClick={setCurrentQuestionIndex}
           hasAnswered={hasAnswered}
+          revealedQuestions={revealedQuestions}
+          showSummary={showSummary}
           isDark={isDark}
         />
       )}
