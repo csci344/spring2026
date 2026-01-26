@@ -1,0 +1,305 @@
+{
+  "quizName": "JavaScript DOM Exercises",
+  "start_date": "2026-02-01",
+  "draft": 1,
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Create a counter app:\n1. Display a number starting at 0\n2. Add a '+' button that increments the counter\n3. Add a '-' button that decrements the counter\n4. Add a 'Reset' button that sets the counter back to 0",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "Counter should start at 0",
+          "selector": "#counter",
+          "property": "textContent",
+          "expected": "0"
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking + should increment to 1",
+          "event": {
+            "type": "click",
+            "selector": "#increment"
+          },
+          "thenCheck": {
+            "selector": "#counter",
+            "property": "textContent",
+            "expected": "1"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking - should decrement to 0",
+          "event": {
+            "type": "click",
+            "selector": "#decrement"
+          },
+          "thenCheck": {
+            "selector": "#counter",
+            "property": "textContent",
+            "expected": "0"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Reset button sets counter to 0",
+          "event": {
+            "type": "click",
+            "selector": "#reset"
+          },
+          "thenCheck": {
+            "selector": "#counter",
+            "property": "textContent",
+            "expected": "0"
+          }
+        }
+      ],
+      "explanation": "You need to add event listeners to each button and update the counter element's textContent based on the button clicked. Use addEventListener('click', ...) for each button."
+    },
+    {
+      "id": "q2",
+      "question": "Create a form validation:\n1. An input field for email\n2. A submit button\n3. When the form is submitted, check if the email contains '@'\n4. If valid, show 'Valid email!' in a div with id 'message'\n5. If invalid, show 'Invalid email!' in the same div",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "Message div should be empty initially",
+          "selector": "#message",
+          "property": "textContent",
+          "expected": ""
+        },
+        {
+          "type": "event-simulation",
+          "description": "Submit form with invalid email (no @) - should show 'Invalid email!'",
+          "event": {
+            "type": "submit",
+            "selector": "#emailForm",
+            "setInputs": [
+              {
+                "selector": "#email",
+                "value": "invalidemail"
+              }
+            ]
+          },
+          "thenCheck": {
+            "selector": "#message",
+            "property": "textContent",
+            "expected": "Invalid email!"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Submit form with valid email (contains @) - should show 'Valid email!'",
+          "event": {
+            "type": "submit",
+            "selector": "#emailForm",
+            "setInputs": [
+              {
+                "selector": "#email",
+                "value": "test@example.com"
+              }
+            ]
+          },
+          "thenCheck": {
+            "selector": "#message",
+            "property": "textContent",
+            "expected": "Valid email!"
+          }
+        }
+      ],
+      "explanation": "Add an event listener to the form's 'submit' event. Use preventDefault() to stop the default form submission, then check if the email input value includes '@'. Update the message div's textContent accordingly (you can use innerHTML or textContent, but textContent is preferred for plain text)."
+    },
+    {
+      "id": "q3",
+      "question": "Create a todo list:\n1. An input field and 'Add' button\n2. When 'Add' is clicked, add the input value as a new list item to a <ul id='todoList'>\n3. Clear the input after adding\n4. Each list item should have a 'Delete' button that removes that item",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "Todo list should be empty initially",
+          "selector": "#todoList",
+          "property": "children.length",
+          "expected": 0
+        },
+        {
+          "type": "event-simulation",
+          "description": "Adding a todo creates a list item",
+          "event": {
+            "type": "input",
+            "selector": "#todoInput",
+            "value": "Buy groceries"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking Add button adds item to list",
+          "event": {
+            "type": "click",
+            "selector": "#addBtn"
+          },
+          "thenCheck": {
+            "selector": "#todoList",
+            "property": "children.length",
+            "expected": 1
+          }
+        },
+        {
+          "type": "dom-check",
+          "description": "First todo item contains the text",
+          "selector": "#todoList li:first-child",
+          "property": "textContent",
+          "expected": "Buy groceries"
+        },
+        {
+          "type": "event-simulation",
+          "description": "Adding another todo",
+          "event": {
+            "type": "input",
+            "selector": "#todoInput",
+            "value": "Walk the dog"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking Add adds second item",
+          "event": {
+            "type": "click",
+            "selector": "#addBtn"
+          },
+          "thenCheck": {
+            "selector": "#todoList",
+            "property": "children.length",
+            "expected": 2
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking delete button removes the item",
+          "event": {
+            "type": "click",
+            "selector": "#todoList li:first-child button"
+          },
+          "thenCheck": {
+            "selector": "#todoList",
+            "property": "children.length",
+            "expected": 1
+          }
+        }
+      ],
+      "explanation": "Add a click listener to the Add button. When clicked, create a new <li> element, add the input value as text, create a Delete button, append both to the list item, then append the list item to the ul. Add a click listener to each Delete button that removes its parent <li> element."
+    },
+    {
+      "id": "q4",
+      "question": "Create a theme toggle:\n1. A button with id 'themeToggle'\n2. A div with id 'content' that has initial class 'light'\n3. When the button is clicked, toggle the 'content' div between 'light' and 'dark' classes\n4. The button text should show 'Switch to Dark' when content has 'light' class, and 'Switch to Light' when it has 'dark' class",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "Content should have 'light' class initially",
+          "selector": "#content",
+          "property": "classList.contains('light')",
+          "expected": true
+        },
+        {
+          "type": "dom-check",
+          "description": "Button text should be 'Switch to Dark' initially",
+          "selector": "#themeToggle",
+          "property": "textContent",
+          "expected": "Switch to Dark"
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking toggle switches to dark theme",
+          "event": {
+            "type": "click",
+            "selector": "#themeToggle"
+          },
+          "thenCheck": {
+            "selector": "#content",
+            "property": "classList.contains('dark')",
+            "expected": true
+          }
+        },
+        {
+          "type": "dom-check",
+          "description": "Button text updates to 'Switch to Light'",
+          "selector": "#themeToggle",
+          "property": "textContent",
+          "expected": "Switch to Light"
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking again switches back to light",
+          "event": {
+            "type": "click",
+            "selector": "#themeToggle"
+          },
+          "thenCheck": {
+            "selector": "#content",
+            "property": "classList.contains('light')",
+            "expected": true
+          }
+        }
+      ],
+      "explanation": "Add a click listener to the toggle button. Use classList.toggle() or classList.remove()/add() to switch between 'light' and 'dark' classes. Update the button's textContent based on the current theme."
+    },
+    {
+      "id": "q5",
+      "question": "Create a character counter:\n1. A textarea with id 'textInput'\n2. A span with id 'charCount' that displays the number of characters\n3. The counter should update in real-time as the user types\n4. Display the count in the format: 'Characters: X'",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "Counter should start at 'Characters: 0'",
+          "selector": "#charCount",
+          "property": "textContent",
+          "expected": "Characters: 0"
+        },
+        {
+          "type": "event-simulation",
+          "description": "Typing 'Hello' updates counter to 5",
+          "event": {
+            "type": "input",
+            "selector": "#textInput",
+            "value": "Hello"
+          },
+          "thenCheck": {
+            "selector": "#charCount",
+            "property": "textContent",
+            "expected": "Characters: 5"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Adding more text updates counter",
+          "event": {
+            "type": "input",
+            "selector": "#textInput",
+            "value": "Hello World"
+          },
+          "thenCheck": {
+            "selector": "#charCount",
+            "property": "textContent",
+            "expected": "Characters: 11"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clearing text resets counter to 0",
+          "event": {
+            "type": "input",
+            "selector": "#textInput",
+            "value": ""
+          },
+          "thenCheck": {
+            "selector": "#charCount",
+            "property": "textContent",
+            "expected": "Characters: 0"
+          }
+        }
+      ],
+      "explanation": "Add an 'input' event listener to the textarea. In the handler, get the value's length and update the charCount span's textContent to 'Characters: ' followed by the length."
+    }
+  ]
+}

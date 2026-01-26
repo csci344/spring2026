@@ -3,13 +3,14 @@
 import { QuizQuestion, isJavaScriptDOMQuestion } from './types';
 import { formatQuestionText } from './utils';
 import JavaScriptDOMQuestionView from './javascript-dom/JavaScriptDOMQuestionView';
+import { TestResults } from './javascript-dom/types';
 
 interface QuizQuestionViewProps {
   question: QuizQuestion;
   questionNumber: number;
-  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: any } };
+  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } };
   onAnswerSelect: (questionId: string, optionIndex: number) => void;
-  onCodeAnswerSelect?: (questionId: string, answer: { html: string; css: string; js: string; testResults?: any }, passed: boolean) => void;
+  onCodeAnswerSelect?: (questionId: string, answer: { html: string; css: string; js: string; testResults?: TestResults }, passed: boolean) => void;
   isCorrect: (questionId: string, optionIndex: number) => boolean;
   isSelected: (questionId: string, optionIndex: number) => boolean;
   hasAnswered: (questionId: string) => boolean;

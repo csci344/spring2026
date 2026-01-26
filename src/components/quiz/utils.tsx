@@ -4,43 +4,58 @@ import React from 'react';
 import hljs from 'highlight.js';
 import { QuizQuestion } from './types';
 
-// Helper function to format inline code within text
+// Helper function to format inline code and bold text within text
 function formatInlineCode(text: string, isDark: boolean): React.ReactNode {
-  const inlineCodeRegex = /`([^`]+)`/g;
-  const inlineParts: React.ReactNode[] = [];
-  let inlineLastIndex = 0;
-  let inlineMatch;
+  // Process both inline code and bold text
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
   
-  while ((inlineMatch = inlineCodeRegex.exec(text)) !== null) {
-    // Add text before inline code
-    if (inlineMatch.index > inlineLastIndex) {
-      inlineParts.push(text.substring(inlineLastIndex, inlineMatch.index));
+  // Combined regex to match both inline code (`code`) and bold (**text**)
+  const combinedRegex = /(`[^`]+`|\*\*[^*]+\*\*)/g;
+  let match;
+  
+  while ((match = combinedRegex.exec(text)) !== null) {
+    // Add text before the match
+    if (match.index > lastIndex) {
+      parts.push(text.substring(lastIndex, match.index));
     }
     
-    // Add inline code
-    inlineParts.push(
-      <code
-        key={`inline-${inlineMatch.index}`}
-        className="px-1.5 py-0.5 rounded text-sm font-mono"
-        style={{
-          backgroundColor: isDark ? '#1e293b' : '#fff',
-          border: `1px solid ${isDark ? '#1f2937' : '#d1d5d9'}`,
-          color: isDark ? '#e2e8f0' : '#24292e',
-        }}
-      >
-        {inlineMatch[1]}
-      </code>
-    );
+    // Process the match
+    if (match[0].startsWith('`')) {
+      // Inline code
+      const codeContent = match[0].slice(1, -1);
+      parts.push(
+        <code
+          key={`inline-${match.index}`}
+          className="px-1.5 py-0.5 rounded text-sm font-mono"
+          style={{
+            backgroundColor: isDark ? '#1e293b' : '#fff',
+            border: `1px solid ${isDark ? '#1f2937' : '#d1d5d9'}`,
+            color: isDark ? '#e2e8f0' : '#24292e',
+          }}
+        >
+          {codeContent}
+        </code>
+      );
+    } else if (match[0].startsWith('**')) {
+      // Bold text
+      const boldContent = match[0].slice(2, -2);
+      parts.push(
+        <strong key={`bold-${match.index}`}>
+          {boldContent}
+        </strong>
+      );
+    }
     
-    inlineLastIndex = inlineMatch.index + inlineMatch[0].length;
+    lastIndex = match.index + match[0].length;
   }
   
   // Add remaining text
-  if (inlineLastIndex < text.length) {
-    inlineParts.push(text.substring(inlineLastIndex));
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
   }
   
-  return inlineParts.length > 0 ? <>{inlineParts}</> : text;
+  return parts.length > 0 ? <>{parts}</> : text;
 }
 
 // Helper function to format inline code and code blocks
@@ -207,7 +222,7 @@ function shuffleArray<T>(array: T[]): T[] {
 function createQuestionSignature(questions: QuizQuestion[]): string {
   // Create a signature based on question IDs and their option orders
   const signature = questions.map(q => 
-    `${q.id}:${q.options.join('|')}`
+    `${q.id}:${q.options?.join('|') || ''}`
   ).join('||');
   return signature;
 }
@@ -229,7 +244,7 @@ function findOptionIndex(optionText: string, options: string[]): number {
 
 // Get the option text at a given index
 function getOptionText(question: QuizQuestion, optionIndex: number): string | undefined {
-  return question.options[optionIndex];
+  return question.options?.[optionIndex];
 }
 
 // Export all functions

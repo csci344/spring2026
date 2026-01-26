@@ -1,0 +1,12 @@
+#container {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#container > div {
+  padding: 10px 20px;
+  background-color: lightseagreen;
+  margin: 5px;
+}

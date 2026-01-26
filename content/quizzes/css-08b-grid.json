@@ -1,0 +1,28 @@
+{
+  "quizName": "CSS Grid Quiz (Coding Exercises)",
+  "start_date": "2026-01-30",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Recreate the layout shown below using CSS Grid.",
+      "instructions": "Create a 3-column grid with equal width columns.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: grid;` to create a grid container. Use `grid-template-columns: repeat(3, 1fr);` to create 3 columns of equal width (1fr = 1 fraction of available space)."
+    },
+    {
+      "id": "q2",
+      "question": "Recreate the layout shown below using CSS Grid.",
+      "instructions": "Create a 2-column grid with 15px gap between items.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: grid;`, `grid-template-columns: repeat(2, 1fr);` for 2 equal columns, and `gap: 15px;` to add spacing between grid items."
+    },
+    {
+      "id": "q3",
+      "question": "Recreate the layout shown below using CSS Grid.",
+      "instructions": "Create a single-column grid with row heights: 100px, 200px, 100px.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: grid;` and `grid-template-rows: 100px 200px 100px;` to create a grid with specific row heights. Each value represents the height of one row."
+    }
+  ]
+}

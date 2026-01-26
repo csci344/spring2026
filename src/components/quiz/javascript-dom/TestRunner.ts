@@ -8,7 +8,8 @@ export class TestRunner {
     html: string,
     css: string,
     js: string,
-    testCases: JavaScriptDOMTestCase[]
+    testCases?: JavaScriptDOMTestCase[],
+    testCode?: string
   ): Promise<TestResults> {
     // Cleanup previous iframe
     if (this.cleanupFn) {
@@ -43,9 +44,22 @@ export class TestRunner {
       this.iframe.onload = () => {
         // Add a small delay to ensure the iframe's JavaScript has fully executed
         // This is important because the script tag needs time to run
-        setTimeout(() => {
+        setTimeout(async () => {
           try {
-            const results = this.runTests(testCases);
+            let results: TestResult[];
+            if (testCode) {
+              // Execute JavaScript test code
+              results = await this.runJavaScriptTests(testCode);
+            } else if (testCases && testCases.length > 0) {
+              // Execute legacy JSON test cases
+              results = this.runTests(testCases);
+            } else {
+              results = [{
+                passed: false,
+                description: 'No tests provided',
+                error: 'No test cases or test code provided'
+              }];
+            }
             const allPassed = results.every(r => r.passed);
             resolve({ allPassed, results });
           } catch (error) {
@@ -305,7 +319,7 @@ export class TestRunner {
       };
     }
 
-    const func = (win as any)[testCase.functionName];
+    const func = (win as Window & Record<string, unknown>)[testCase.functionName] as ((...args: unknown[]) => unknown) | undefined;
     if (typeof func !== 'function') {
       return {
         passed: false,
@@ -315,17 +329,17 @@ export class TestRunner {
     }
 
     const result = func(...(testCase.args || []));
-    const passed = JSON.stringify(result) === JSON.stringify(testCase.expected);
+    const passed = JSON.stringify(result) === JSON.stringify(testCase.expectedReturn);
 
     return {
       passed,
       description: testCase.description,
-      expected: testCase.expected,
-      actual: result
+      expected: testCase.expectedReturn as string | number | boolean | null | undefined,
+      actual: result as string | number | boolean | null | undefined
     };
   }
 
-  private getPropertyValue(element: Element, property: string): any {
+  private getPropertyValue(element: Element, property: string): string | number | boolean | null | undefined {
     // Handle computed styles (e.g., "computedStyle.display", "computedStyle.gridTemplateColumns")
     if (property.startsWith('computedStyle.')) {
       const styleProp = property.replace('computedStyle.', '');
@@ -338,7 +352,7 @@ export class TestRunner {
         let value: string;
         // Try camelCase first (for direct property access)
         if (camelCaseProp in computed) {
-          value = (computed as any)[camelCaseProp];
+          value = (computed as CSSStyleDeclaration & Record<string, string>)[camelCaseProp];
         } else {
           // Fall back to getPropertyValue for kebab-case
           value = computed.getPropertyValue(styleProp) || computed.getPropertyValue(camelCaseProp);
@@ -358,24 +372,28 @@ export class TestRunner {
 
     // Handle nested properties like 'style.display'
     const parts = property.split('.');
-    let value: any = element;
+    let value: unknown = element;
 
     for (const part of parts) {
       if (value === null || value === undefined) {
         return undefined;
       }
-      value = value[part];
+      value = (value as Record<string, unknown>)[part];
     }
 
     // Handle special cases
-    if (property.startsWith('classList.contains(')) {
-      const className = property.match(/classList\.contains\(['"](.*?)['"]\)/)?.[1];
-      if (className) {
-        return (element as HTMLElement).classList.contains(className);
+      if (property.startsWith('classList.contains(')) {
+        const className = property.match(/classList\.contains\(['"](.*?)['"]\)/)?.[1];
+        if (className) {
+          return (element as HTMLElement).classList.contains(className);
+        }
       }
-    }
-
-    return value;
+      
+      // Convert unknown to return type
+      if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
+        return value;
+      }
+      return undefined;
   }
 
   // Normalize grid template values to handle both "repeat(3, 1fr)" and "1fr 1fr 1fr" formats
@@ -446,6 +464,168 @@ export class TestRunner {
         element.dispatchEvent(new Event('blur', { bubbles: true }));
         break;
     }
+  }
+
+  private async runJavaScriptTests(testCode: string): Promise<TestResult[]> {
+    if (!this.iframe) {
+      return [{
+        passed: false,
+        description: 'Test execution failed',
+        error: 'Iframe not available'
+      }];
+    }
+
+    const doc = this.iframe.contentDocument;
+    const win = this.iframe.contentWindow;
+
+    if (!doc || !win) {
+      return [{
+        passed: false,
+        description: 'Test execution failed',
+        error: 'Cannot access iframe document'
+      }];
+    }
+
+    // Create test results array that will be populated by assertions
+    const testResults: TestResult[] = [];
+    
+    // Helper to normalize grid template values
+    const normalizeGridTemplateValue = (value: string): string => {
+      if (!value) return value;
+      if (value.includes('repeat(')) return value;
+      const parts = value.trim().split(/\s+/);
+      if (parts.length > 0 && parts.every(p => p === parts[0])) {
+        return `repeat(${parts.length}, ${parts[0]})`;
+      }
+      return value;
+    };
+
+    // Helper to get computed style property
+    const getComputedStyleValue = (element: Element, property: string): string => {
+      const win = element.ownerDocument?.defaultView || window;
+      if (!win) return '';
+      const computed = win.getComputedStyle(element as HTMLElement);
+      const camelCaseProp = property.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+      if (camelCaseProp in computed) {
+        return (computed as CSSStyleDeclaration & Record<string, string>)[camelCaseProp];
+      }
+      return computed.getPropertyValue(property) || computed.getPropertyValue(camelCaseProp);
+    };
+
+    // Helper to get property value (supports nested properties and computed styles)
+    const getPropertyValue = (element: Element, property: string): string | number | boolean | null | undefined => {
+      if (property.startsWith('computedStyle.')) {
+        const styleProp = property.replace('computedStyle.', '');
+        let value = getComputedStyleValue(element, styleProp);
+        if (styleProp === 'gridTemplateColumns' || styleProp === 'grid-template-columns' ||
+            styleProp === 'gridTemplateRows' || styleProp === 'grid-template-rows') {
+          value = normalizeGridTemplateValue(value);
+        }
+        return value;
+      }
+      
+      const parts = property.split('.');
+      let value: unknown = element;
+      for (const part of parts) {
+        if (value === null || value === undefined) return undefined;
+        value = (value as Record<string, unknown>)[part];
+      }
+      
+      if (property.startsWith('classList.contains(')) {
+        const className = property.match(/classList\.contains\(['"](.*?)['"]\)/)?.[1];
+        if (className) {
+          return (element as HTMLElement).classList.contains(className);
+        }
+      }
+      
+      // Convert unknown to return type
+      if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean' || value === null) {
+        return value;
+      }
+      return undefined;
+    };
+
+    // Create test utilities object
+    const testUtils = {
+      document: doc,
+      window: win,
+      query: (selector: string) => doc.querySelector(selector),
+      queryAll: (selector: string) => doc.querySelectorAll(selector),
+      assert: (condition: boolean, message: string) => {
+        if (!condition) {
+          testResults.push({
+            passed: false,
+            description: message,
+            error: `Assertion failed: ${message}`
+          });
+          throw new Error(message);
+        } else {
+          testResults.push({
+            passed: true,
+            description: message
+          });
+        }
+      },
+      wait: (ms: number) => {
+        return new Promise<void>((resolve) => {
+          const startTime = Date.now();
+          const checkInterval = setInterval(() => {
+            if (Date.now() - startTime >= ms) {
+              clearInterval(checkInterval);
+              resolve();
+            }
+          }, 1);
+        });
+      },
+      getComputedStyle: (element: Element, property: string) => {
+        return getComputedStyleValue(element, property);
+      },
+      setInputValue: (selector: string, value: string) => {
+        const element = doc.querySelector(selector) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
+        if (!element) {
+          throw new Error(`Input element not found: ${selector}`);
+        }
+        element.value = value;
+        element.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }));
+        element.dispatchEvent(new Event('change', { bubbles: true, cancelable: true }));
+      },
+      getPropertyValue: getPropertyValue,
+      normalizeGridTemplateValue: normalizeGridTemplateValue
+    };
+
+    // Wrap test code in an async function and execute it
+    try {
+      // Create a function that executes the test code with test utilities
+      // The test code is wrapped in an async IIFE so it can use await
+      const testFunction = new Function(
+        'testUtils',
+        `
+        const { document, window, query, queryAll, assert, wait, getComputedStyle, setInputValue, getPropertyValue, normalizeGridTemplateValue } = testUtils;
+        return (async function() {
+          try {
+            ${testCode}
+          } catch (e) {
+            // Re-throw to be caught by outer try-catch
+            throw e;
+          }
+        })();
+        `
+      );
+
+      await testFunction(testUtils);
+    } catch (error) {
+      // If an assertion failed or there was an error, it's already in testResults
+      // But if it's a different error, add it
+      if (testResults.length === 0 || !testResults[testResults.length - 1].error) {
+        testResults.push({
+          passed: false,
+          description: 'Test execution error',
+          error: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    }
+
+    return testResults;
   }
 
   cleanup(): void {

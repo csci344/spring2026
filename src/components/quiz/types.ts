@@ -1,5 +1,5 @@
 // Import for type guard
-import { JavaScriptDOMQuestion } from './javascript-dom/types';
+import { JavaScriptDOMQuestion, JavaScriptDOMTestCase, TestResults } from './javascript-dom/types';
 
 export interface QuizQuestion {
   id: string;
@@ -13,7 +13,8 @@ export interface QuizQuestion {
   htmlTemplate?: string;
   cssTemplate?: string;
   codeTemplate?: string;
-  testCases?: any[];  // Will be typed as JavaScriptDOMTestCase when type is 'javascript-dom'
+  testCases?: JavaScriptDOMTestCase[];  // Will be typed as JavaScriptDOMTestCase when type is 'javascript-dom'
+  testCode?: string;  // JavaScript test code (new format)
 }
 
 // Type guard helper
@@ -23,6 +24,8 @@ export function isJavaScriptDOMQuestion(question: QuizQuestion): question is Jav
 
 export interface QuizData {
   quizName?: string;
+  start_date?: string;
+  draft?: number;
   questions: QuizQuestion[];
 }
 
@@ -32,7 +35,7 @@ export interface QuizState {
       html: string; 
       css: string; 
       js: string; 
-      testResults?: any;
+      testResults?: TestResults;
     } 
   }; // Store option text for multiple-choice, or code for JS/DOM questions
   score: number;

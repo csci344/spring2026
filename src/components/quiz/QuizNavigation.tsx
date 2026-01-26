@@ -2,6 +2,7 @@
 
 import QuestionCircles from './QuestionCircles';
 import { QuizQuestion } from './types';
+import { TestResults } from './javascript-dom/types';
 
 interface QuizNavigationProps {
   currentQuestionIndex: number;
@@ -11,7 +12,7 @@ interface QuizNavigationProps {
   onNext: () => void;
   canGoNext: boolean;
   questions: QuizQuestion[];
-  selectedAnswers: { [questionId: string]: string | string[] };
+  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } };
   circleWindowStart: number;
   isMobile: boolean;
   onQuestionClick: (index: number) => void;

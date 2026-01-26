@@ -1,0 +1,56 @@
+{
+  "quizName": "CSS Flexbox Quiz (Coding Exercises)",
+  "start_date": "2026-01-30",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Recreate the layout shown below using flexbox.",
+      "instructions": "The three items should be in a row and centered horizontally.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;` to create a flexbox container. Set `flex-direction: row;` for horizontal layout and `justify-content: center;` to center items horizontally."
+    },
+    {
+      "id": "q2",
+      "question": "Recreate the layout shown below using flexbox.",
+      "instructions": "The three items should be in a column and centered horizontally.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;` and `flex-direction: column;` for vertical layout. Use `align-items: center;` to center items along the cross axis (horizontally in a column layout)."
+    },
+    {
+      "id": "q3",
+      "question": "Recreate the layout shown below using flexbox.",
+      "instructions": "The four boxes should be evenly spaced with space between them (no space at the edges).",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;` and `justify-content: space-between;` to distribute items with equal space between them, with no space at the edges."
+    },
+    {
+      "id": "q4",
+      "question": "Recreate the layout shown below using flexbox.",
+      "instructions": "The five items should be in a row with 20px gap between each item.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;` and `gap: 20px;` to add consistent spacing between flex items. The gap property is cleaner than using margins."
+    },
+    {
+      "id": "q5",
+      "question": "Recreate the layout shown below using flexbox.",
+      "instructions": "The box should be centered both horizontally and vertically within the container. The container has a height of 300px.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;`, `justify-content: center;` (for horizontal centering), and `align-items: center;` (for vertical centering) to perfectly center an item in a container."
+    },
+    {
+      "id": "q6",
+      "question": "Recreate the layout shown below using flexbox.",
+      "instructions": "The items should wrap to the next line when they don't fit. Each item is 200px wide.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;` and `flex-wrap: wrap;` to allow flex items to wrap to the next line when they don't fit in the container width."
+    },
+    {
+      "id": "q7",
+      "question": "Recreate the navigation bar layout shown below using flexbox.",
+      "instructions": "The items should be evenly distributed with space around them, and vertically centered in the 60px tall container.",
+      "type": "javascript-dom",
+      "explanation": "Use `display: flex;`, `justify-content: space-around;` to distribute items with equal space around them, and `align-items: center;` to vertically center items in the navigation bar."
+    }
+  ]
+}

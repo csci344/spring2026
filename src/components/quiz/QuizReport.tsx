@@ -4,6 +4,7 @@ import { useRef, useImperativeHandle, forwardRef } from 'react';
 import html2canvas from 'html2canvas';
 import { QuizData, QuizQuestion } from './types';
 import { stripMarkdown } from './utils';
+import { TestResults } from './javascript-dom/types';
 
 interface QuizReportProps {
   quizData: QuizData;
@@ -12,7 +13,7 @@ interface QuizReportProps {
   scorePercentage: number;
   studentName: string;
   incorrectQuestions: QuizQuestion[];
-  selectedAnswers: { [questionId: string]: string | string[] };
+  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } };
   resourceSlug: string;
   onGeneratingChange: (generating: boolean) => void;
 }
@@ -174,12 +175,12 @@ const QuizReport = forwardRef<QuizReportHandle, QuizReportProps>(({
                 // Handle JavaScript DOM questions
                 if (question.type === 'javascript-dom') {
                   let selectedAnswerText = 'Not answered';
-                  let correctAnswerText = 'All tests must pass';
+                  const correctAnswerText = 'All tests must pass';
                   
                   if (savedAnswer !== undefined && typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
-                    const testResults = (savedAnswer as any).testResults;
+                    const testResults = (savedAnswer as { testResults?: TestResults }).testResults;
                     if (testResults) {
-                      const passedCount = testResults.results?.filter((r: any) => r.passed).length || 0;
+                      const passedCount = testResults.results?.filter((r) => r.passed).length || 0;
                       const totalCount = testResults.results?.length || 0;
                       selectedAnswerText = `${passedCount} of ${totalCount} tests passed`;
                     } else {

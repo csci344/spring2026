@@ -1,11 +1,12 @@
 "use client";
 
 import { QuizQuestion } from './types';
+import { TestResults } from './javascript-dom/types';
 
 interface QuestionCirclesProps {
   questions: QuizQuestion[];
   currentQuestionIndex: number;
-  selectedAnswers: { [questionId: string]: string | string[] };
+  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } };
   circleWindowStart: number;
   isMobile: boolean;
   onQuestionClick: (index: number) => void;
@@ -54,8 +55,8 @@ export default function QuestionCircles({
             // Handle JavaScript DOM questions
             if (question.type === 'javascript-dom') {
               if (typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
-                const testResults = (savedAnswer as any).testResults;
-                isCorrect = testResults && testResults.allPassed;
+                const testResults = (savedAnswer as { testResults?: TestResults }).testResults;
+                isCorrect = !!(testResults && testResults.allPassed);
               }
             } else if (question.options && question.correct !== undefined) {
               // Handle multiple-choice questions

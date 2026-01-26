@@ -5,7 +5,7 @@ export interface JavaScriptDOMTestCase {
   // For dom-check
   selector?: string;
   property?: string;  // 'textContent', 'style.display', 'classList.contains', etc.
-  expected?: any;
+  expected?: string | number | boolean | null;
   
   // For event-simulation
   event?: {
@@ -22,13 +22,13 @@ export interface JavaScriptDOMTestCase {
   thenCheck?: {
     selector: string;
     property: string;
-    expected: any;
+    expected: string | number | boolean | null;
   };
   
   // For function-call
   functionName?: string;
-  args?: any[];
-  expected?: any;
+  args?: unknown[];
+  expectedReturn?: unknown;  // Renamed to avoid conflict with dom-check expected
 }
 
 export interface JavaScriptDOMQuestion {
@@ -38,15 +38,20 @@ export interface JavaScriptDOMQuestion {
   htmlTemplate?: string;
   cssTemplate?: string;
   codeTemplate?: string;
-  testCases: JavaScriptDOMTestCase[];
+  targetHtml?: string;  // HTML for the target example students should recreate
+  targetCss?: string;  // CSS for the target example students should recreate
+  targetJs?: string;    // Optional JS for the target example
+  instructions?: string;  // Additional instructions shown below target output
+  testCases?: JavaScriptDOMTestCase[];  // Legacy JSON format (optional for backward compatibility)
+  testCode?: string;  // JavaScript test code (new format)
   explanation?: string;
 }
 
 export interface TestResult {
   passed: boolean;
   description: string;
-  expected?: any;
-  actual?: any;
+  expected?: string | number | boolean | null;
+  actual?: string | number | boolean | null;
   error?: string;
 }
 

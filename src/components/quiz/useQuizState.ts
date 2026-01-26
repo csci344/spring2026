@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { QuizData, QuizState, QuizQuestion } from './types';
 import { shuffleArray, findOptionIndex, getOptionText } from './utils';
+import { TestResults } from './javascript-dom/types';
 
 export function useQuizState(quizData: QuizData, resourceSlug: string) {
   const [selectedAnswers, setSelectedAnswers] = useState<{ 
-    [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: any } 
+    [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } 
   }>({});
   const [score, setScore] = useState<number>(0);
   const [completed, setCompleted] = useState<boolean>(false);
@@ -46,10 +47,13 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
       // Shuffle options within each question and update correct index
       questionsToUse = shuffled.map(question => {
         // Handle both single-select (number) and multi-select (number[])
+        if (!question.options) {
+          return question; // Skip questions without options (e.g., JavaScript DOM questions)
+        }
         const correctIndices = Array.isArray(question.correct) 
           ? question.correct 
-          : [question.correct];
-        const correctOptions = correctIndices.map(idx => question.options[idx]);
+          : question.correct !== undefined ? [question.correct] : [];
+        const correctOptions = correctIndices.map(idx => question.options![idx]).filter((opt): opt is string => opt !== undefined);
         const shuffledOptions = shuffleArray(question.options);
         const newCorrectIndices = correctOptions.map(opt => shuffledOptions.indexOf(opt));
         // Preserve original type: number for single-select, number[] for multi-select
@@ -88,7 +92,7 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
         // Restore answers by matching saved option text to current shuffled options
         // This works regardless of random mode since we match by content, not index
         const restoredAnswers: { 
-          [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: any } 
+          [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } 
         } = {};
         
         if (savedState.selectedAnswers) {
@@ -118,9 +122,11 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
                 }
               } else {
                 // Single-select: check if option exists
-                const optionIndex = findOptionIndex(savedAnswer, question.options!);
-                if (optionIndex !== -1) {
-                  restoredAnswers[questionId] = savedAnswer;
+                if (typeof savedAnswer === 'string') {
+                  const optionIndex = findOptionIndex(savedAnswer, question.options!);
+                  if (optionIndex !== -1) {
+                    restoredAnswers[questionId] = savedAnswer;
+                  }
                 }
               }
               // If option not found (question changed), skip it
@@ -168,7 +174,7 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
       // Handle JavaScript DOM questions
       if (question.type === 'javascript-dom') {
         if (typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
-          const testResults = (savedAnswer as any).testResults;
+          const testResults = (savedAnswer as { testResults?: TestResults }).testResults;
           if (testResults && testResults.allPassed) {
             return acc + 1;
           }
@@ -181,8 +187,8 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
       
       const correctIndices = Array.isArray(question.correct) 
         ? question.correct 
-        : [question.correct];
-      const correctOptionTexts = correctIndices.map(idx => question.options![idx]);
+        : question.correct !== undefined ? [question.correct] : [];
+      const correctOptionTexts = correctIndices.map(idx => question.options![idx]).filter((opt): opt is string => opt !== undefined);
       
       if (Array.isArray(question.correct)) {
         // Multi-select: check that selected array exactly matches correct array
@@ -300,7 +306,7 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
   };
 
   // Handler for JavaScript DOM code submissions
-  const handleCodeAnswerSelect = (questionId: string, answer: { html: string; css: string; js: string; testResults?: any }, passed: boolean) => {
+  const handleCodeAnswerSelect = (questionId: string, answer: { html: string; css: string; js: string; testResults?: TestResults }, passed: boolean) => {
     setSelectedAnswers(prev => ({
       ...prev,
       [questionId]: answer,
@@ -361,7 +367,7 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
       // Handle JavaScript DOM questions
       if (question.type === 'javascript-dom') {
         if (typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
-          const testResults = (savedAnswer as any).testResults;
+          const testResults = (savedAnswer as { testResults?: TestResults }).testResults;
           // Question is incorrect if tests didn't all pass
           return !(testResults && testResults.allPassed);
         }

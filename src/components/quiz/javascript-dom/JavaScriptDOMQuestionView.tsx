@@ -6,14 +6,15 @@ import { JavaScriptDOMQuestion, TestResults } from './types';
 import { TestRunner } from './TestRunner';
 import CodeEditor from './CodeEditor';
 import PreviewPane from './PreviewPane';
+import TargetPreview from './TargetPreview';
 import TestResultsView from './TestResults';
 import { formatQuestionText } from '../utils';
 
 interface JavaScriptDOMQuestionViewProps {
   question: JavaScriptDOMQuestion;
   questionNumber: number;
-  selectedAnswers: { [questionId: string]: any };
-  onAnswerSelect: (questionId: string, answer: { html: string; css: string; js: string }, passed: boolean) => void;
+  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: TestResults } };
+  onAnswerSelect: (questionId: string, answer: { html: string; css: string; js: string; testResults?: TestResults }, passed: boolean) => void;
   isRevealed?: boolean;
   onRevealAnswer?: (questionId: string) => void;
   showSummary?: boolean;
@@ -31,18 +32,20 @@ export default function JavaScriptDOMQuestionView({
   isDark
 }: JavaScriptDOMQuestionViewProps) {
   const savedAnswer = selectedAnswers[question.id];
+  const isCodeAnswer = typeof savedAnswer === 'object' && savedAnswer !== null && 'html' in savedAnswer;
+  const codeAnswer = isCodeAnswer ? savedAnswer as { html: string; css: string; js: string; testResults?: TestResults } : null;
   
   const [html, setHtml] = useState(
-    savedAnswer?.html || question.htmlTemplate || ''
+    codeAnswer?.html || question.htmlTemplate || ''
   );
   const [css, setCss] = useState(
-    savedAnswer?.css || question.cssTemplate || ''
+    codeAnswer?.css || question.cssTemplate || ''
   );
   const [js, setJs] = useState(
-    savedAnswer?.js || question.codeTemplate || ''
+    codeAnswer?.js || question.codeTemplate || ''
   );
   const [testResults, setTestResults] = useState<TestResults | null>(
-    savedAnswer?.testResults || null
+    codeAnswer?.testResults || null
   );
   const [isRunning, setIsRunning] = useState(false);
   
@@ -57,6 +60,9 @@ export default function JavaScriptDOMQuestionView({
   // If JavaScript is present, always show CSS tab (even if no CSS template)
   // This allows users to add CSS for styling JavaScript interactions
   const showCssTab = hasCssTemplate || hasJsTemplate;
+  
+  // Check if question has a target example to display
+  const hasTargetExample = !!(question.targetHtml && question.targetCss);
   
   // Determine initial tab based on available templates
   const getInitialTab = (): 'html' | 'css' | 'javascript' | 'preview' => {
@@ -79,10 +85,12 @@ export default function JavaScriptDOMQuestionView({
   // Reset state when question changes
   useEffect(() => {
     const currentSavedAnswer = selectedAnswers[question.id];
-    setHtml(currentSavedAnswer?.html || question.htmlTemplate || '');
-    setCss(currentSavedAnswer?.css || question.cssTemplate || '');
-    setJs(currentSavedAnswer?.js || question.codeTemplate || '');
-    setTestResults(currentSavedAnswer?.testResults || null);
+    const isCodeAnswer = typeof currentSavedAnswer === 'object' && currentSavedAnswer !== null && 'html' in currentSavedAnswer;
+    const codeAnswer = isCodeAnswer ? currentSavedAnswer as { html: string; css: string; js: string; testResults?: TestResults } : null;
+    setHtml(codeAnswer?.html || question.htmlTemplate || '');
+    setCss(codeAnswer?.css || question.cssTemplate || '');
+    setJs(codeAnswer?.js || question.codeTemplate || '');
+    setTestResults(codeAnswer?.testResults || null);
     
     // Only reset to HTML tab when question ID actually changes (new question)
     if (prevQuestionIdRef.current !== question.id) {
@@ -113,10 +121,11 @@ export default function JavaScriptDOMQuestionView({
         html,
         css,
         js,
-        question.testCases
+        question.testCases,  // Legacy JSON format
+        question.testCode     // New JavaScript format
       );
       setTestResults(results);
-      onAnswerSelect(question.id, { html, css, js, testResults: results } as any, results.allPassed);
+      onAnswerSelect(question.id, { html, css, js, testResults: results }, results.allPassed);
     } catch (error) {
       setTestResults({
         allPassed: false,
@@ -167,15 +176,32 @@ ${html || '<!-- Your HTML here -->'}
 
   return (
     <div className="px-6 pt-6 pb-0 rounded-lg" style={isDark ? { backgroundColor: 'rgba(30, 58, 138, 0.15)', borderColor: '#1e3a8a' } : undefined}>
-      <div className="mb-4">
-        <div className="text-lg font-semibold text-gray-900 dark:text-gray-100" style={isDark ? { color: '#f9fafb' } : undefined}>
-          {questionNumber}. {formatQuestionText(question.question, isDark)}
+    <div className="text-lg font-semibold text-gray-900 dark:text-gray-100" style={isDark ? { color: '#f9fafb' } : undefined}>
+        {questionNumber}. {formatQuestionText(question.question, isDark)}
+    </div>
+
+      {/* Target Preview - shown above tabs when available */}
+      {hasTargetExample && (
+        <div className="">
+          {question.instructions && (
+            <div className="mb-3 text-gray-700 dark:text-gray-300">
+              {formatQuestionText(question.instructions, isDark)}
+            </div>
+          )}
+          <div style={{ height: '225px' }} className="mb-8">
+            <TargetPreview
+              html={question.targetHtml!}
+              css={question.targetCss!}
+              js={question.targetJs}
+              isDark={isDark}
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="space-y-4 mb-4">
         {/* Tab Navigation with Buttons */}
-        <div className="flex items-center justify-between border-b border-gray-300 dark:border-gray-700">
+        <div className="py-2 flex items-center justify-between border-b border-gray-300 dark:border-gray-700">
           <div className="flex">
           <button
             onClick={() => setActiveTab('html')}
@@ -249,7 +275,7 @@ ${html || '<!-- Your HTML here -->'}
         </div>
 
         {/* Tab Content - Fixed height with scrolling */}
-        <div style={{ height: '500px' }}>
+        <div style={{ height: '300px' }}>
           {activeTab === 'html' && (
             <CodeEditor
               language="html"

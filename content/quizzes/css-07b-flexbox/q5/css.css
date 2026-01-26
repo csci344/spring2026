@@ -1,0 +1,9 @@
+#container {
+  height: 300px;
+  /* Your CSS here */
+}
+
+#container > div {
+  padding: 20px;
+  background-color: lightblue;
+}
