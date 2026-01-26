@@ -3,7 +3,9 @@ import { QuizData, QuizState, QuizQuestion } from './types';
 import { shuffleArray, findOptionIndex, getOptionText } from './utils';
 
 export function useQuizState(quizData: QuizData, resourceSlug: string) {
-  const [selectedAnswers, setSelectedAnswers] = useState<{ [questionId: string]: string | string[] }>({});
+  const [selectedAnswers, setSelectedAnswers] = useState<{ 
+    [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: any } 
+  }>({});
   const [score, setScore] = useState<number>(0);
   const [completed, setCompleted] = useState<boolean>(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(-1);
@@ -85,25 +87,38 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
         
         // Restore answers by matching saved option text to current shuffled options
         // This works regardless of random mode since we match by content, not index
-        const restoredAnswers: { [questionId: string]: string | string[] } = {};
+        const restoredAnswers: { 
+          [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: any } 
+        } = {};
         
         if (savedState.selectedAnswers) {
           // For each saved answer, find the matching option in current shuffled questions
           Object.entries(savedState.selectedAnswers).forEach(([questionId, savedAnswer]) => {
             const question = shuffledQuestions.find(q => q.id === questionId);
             if (question) {
+              // Handle JavaScript DOM code answers
+              if (question.type === 'javascript-dom') {
+                if (typeof savedAnswer === 'object' && savedAnswer !== null && 'html' in savedAnswer) {
+                  restoredAnswers[questionId] = savedAnswer;
+                }
+                return;
+              }
+              
+              // Handle multiple-choice answers
+              if (!question.options) return;
+              
               // Handle both string (single-select) and string[] (multi-select)
               if (Array.isArray(savedAnswer)) {
                 // Multi-select: check all options exist
                 const validOptions = savedAnswer.filter(opt => 
-                  findOptionIndex(opt, question.options) !== -1
+                  findOptionIndex(opt, question.options!) !== -1
                 );
                 if (validOptions.length > 0) {
                   restoredAnswers[questionId] = validOptions;
                 }
               } else {
                 // Single-select: check if option exists
-                const optionIndex = findOptionIndex(savedAnswer, question.options);
+                const optionIndex = findOptionIndex(savedAnswer, question.options!);
                 if (optionIndex !== -1) {
                   restoredAnswers[questionId] = savedAnswer;
                 }
@@ -148,26 +163,39 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
     
     const newScore = shuffledQuestions.reduce((acc, question) => {
       const savedAnswer = selectedAnswers[question.id];
-      if (savedAnswer !== undefined) {
-        // Handle both single-select and multi-select
-        const correctIndices = Array.isArray(question.correct) 
-          ? question.correct 
-          : [question.correct];
-        const correctOptionTexts = correctIndices.map(idx => question.options[idx]);
-        
-        if (Array.isArray(question.correct)) {
-          // Multi-select: check that selected array exactly matches correct array
-          const selectedArray = Array.isArray(savedAnswer) ? savedAnswer : [];
-          // Check: all correct selected, no incorrect selected, same length
-          const allCorrectSelected = correctOptionTexts.every(text => selectedArray.includes(text));
-          const noIncorrectSelected = selectedArray.every(text => correctOptionTexts.includes(text));
-          const sameLength = selectedArray.length === correctOptionTexts.length;
-          return allCorrectSelected && noIncorrectSelected && sameLength ? acc + 1 : acc;
-        } else {
-          // Single-select: existing logic
-          if (typeof savedAnswer === 'string' && savedAnswer === correctOptionTexts[0]) {
+      if (savedAnswer === undefined) return acc;
+
+      // Handle JavaScript DOM questions
+      if (question.type === 'javascript-dom') {
+        if (typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
+          const testResults = (savedAnswer as any).testResults;
+          if (testResults && testResults.allPassed) {
             return acc + 1;
           }
+        }
+        return acc;
+      }
+
+      // Handle multiple-choice questions (single-select and multi-select)
+      if (!question.options || question.options.length === 0) return acc;
+      
+      const correctIndices = Array.isArray(question.correct) 
+        ? question.correct 
+        : [question.correct];
+      const correctOptionTexts = correctIndices.map(idx => question.options![idx]);
+      
+      if (Array.isArray(question.correct)) {
+        // Multi-select: check that selected array exactly matches correct array
+        const selectedArray = Array.isArray(savedAnswer) ? savedAnswer : [];
+        // Check: all correct selected, no incorrect selected, same length
+        const allCorrectSelected = correctOptionTexts.every(text => selectedArray.includes(text));
+        const noIncorrectSelected = selectedArray.every(text => correctOptionTexts.includes(text));
+        const sameLength = selectedArray.length === correctOptionTexts.length;
+        return allCorrectSelected && noIncorrectSelected && sameLength ? acc + 1 : acc;
+      } else {
+        // Single-select: existing logic
+        if (typeof savedAnswer === 'string' && savedAnswer === correctOptionTexts[0]) {
+          return acc + 1;
         }
       }
       return acc;
@@ -271,6 +299,14 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
     }
   };
 
+  // Handler for JavaScript DOM code submissions
+  const handleCodeAnswerSelect = (questionId: string, answer: { html: string; css: string; js: string; testResults?: any }, passed: boolean) => {
+    setSelectedAnswers(prev => ({
+      ...prev,
+      [questionId]: answer,
+    }));
+  };
+
   const isCorrect = (questionId: string, optionIndex: number): boolean => {
     const question = shuffledQuestions.find(q => q.id === questionId);
     if (!question) return false;
@@ -284,10 +320,13 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
 
   const isSelected = (questionId: string, optionIndex: number): boolean => {
     const question = shuffledQuestions.find(q => q.id === questionId);
-    if (!question) return false;
+    if (!question || !question.options) return false;
     
     const savedAnswer = selectedAnswers[questionId];
     if (savedAnswer === undefined) return false;
+    
+    // Don't check for JavaScript DOM questions
+    if (question.type === 'javascript-dom') return false;
     
     const optionText = question.options[optionIndex];
     
@@ -302,6 +341,12 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
   const hasAnswered = (questionId: string): boolean => {
     const answer = selectedAnswers[questionId];
     if (answer === undefined) return false;
+    
+    // Handle JavaScript DOM code answers
+    if (typeof answer === 'object' && answer !== null && 'html' in answer) {
+      return true; // Code has been submitted
+    }
+    
     if (Array.isArray(answer)) {
       return answer.length > 0; // Multi-select: must have at least one selection
     }
@@ -313,11 +358,24 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
       const savedAnswer = selectedAnswers[question.id];
       if (savedAnswer === undefined) return false;
       
+      // Handle JavaScript DOM questions
+      if (question.type === 'javascript-dom') {
+        if (typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
+          const testResults = (savedAnswer as any).testResults;
+          // Question is incorrect if tests didn't all pass
+          return !(testResults && testResults.allPassed);
+        }
+        return true; // No valid answer
+      }
+      
+      // Handle multiple-choice questions
+      if (!question.options || question.options.length === 0) return false;
+      
       // Handle both single-select and multi-select
       if (Array.isArray(question.correct)) {
         // Multi-select: check if arrays match exactly
         const correctIndices = question.correct;
-        const correctOptionTexts = correctIndices.map(idx => question.options[idx]);
+        const correctOptionTexts = correctIndices.map(idx => question.options![idx]);
         const selectedArray = Array.isArray(savedAnswer) ? savedAnswer : [];
         
         const allCorrectSelected = correctOptionTexts.every(text => selectedArray.includes(text));
@@ -329,7 +387,7 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
       } else {
         // Single-select: check if selected matches correct
         if (typeof savedAnswer !== 'string') return true; // Wrong type
-        const selectedIndex = findOptionIndex(savedAnswer, question.options);
+        const selectedIndex = findOptionIndex(savedAnswer, question.options!);
         if (selectedIndex === -1) return true; // Option not found
         return selectedIndex !== question.correct;
       }
@@ -354,6 +412,7 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
     handleClearQuiz,
     handleToggleRandomMode,
     handleAnswerSelect,
+    handleCodeAnswerSelect,
     isCorrect,
     isSelected,
     hasAnswered,

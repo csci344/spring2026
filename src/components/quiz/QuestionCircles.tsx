@@ -51,22 +51,31 @@ export default function QuestionCircles({
           let isCorrect = false;
           
           if (shouldShowGrade && answered && savedAnswer !== undefined) {
-            if (Array.isArray(question.correct)) {
-              // Multi-select: check that arrays match exactly
-              const correctIndices = question.correct;
-              const correctOptionTexts = correctIndices.map(idx => question.options[idx]);
-              const selectedArray = Array.isArray(savedAnswer) ? savedAnswer : [];
-              
-              const allCorrectSelected = correctOptionTexts.every(text => selectedArray.includes(text));
-              const noIncorrectSelected = selectedArray.every(text => correctOptionTexts.includes(text));
-              const sameLength = selectedArray.length === correctOptionTexts.length;
-              
-              isCorrect = allCorrectSelected && noIncorrectSelected && sameLength;
-            } else {
-              // Single-select: check if saved option text matches correct option text
-              if (typeof savedAnswer === 'string') {
-                const correctOptionText = question.options[question.correct];
-                isCorrect = savedAnswer === correctOptionText;
+            // Handle JavaScript DOM questions
+            if (question.type === 'javascript-dom') {
+              if (typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
+                const testResults = (savedAnswer as any).testResults;
+                isCorrect = testResults && testResults.allPassed;
+              }
+            } else if (question.options && question.correct !== undefined) {
+              // Handle multiple-choice questions
+              if (Array.isArray(question.correct)) {
+                // Multi-select: check that arrays match exactly
+                const correctIndices = question.correct;
+                const correctOptionTexts = correctIndices.map(idx => question.options![idx]);
+                const selectedArray = Array.isArray(savedAnswer) ? savedAnswer : [];
+                
+                const allCorrectSelected = correctOptionTexts.every(text => selectedArray.includes(text));
+                const noIncorrectSelected = selectedArray.every(text => correctOptionTexts.includes(text));
+                const sameLength = selectedArray.length === correctOptionTexts.length;
+                
+                isCorrect = allCorrectSelected && noIncorrectSelected && sameLength;
+              } else {
+                // Single-select: check if saved option text matches correct option text
+                if (typeof savedAnswer === 'string') {
+                  const correctOptionText = question.options[question.correct];
+                  isCorrect = savedAnswer === correctOptionText;
+                }
               }
             }
           }

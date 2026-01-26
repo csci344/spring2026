@@ -1,13 +1,15 @@
 "use client";
 
-import { QuizQuestion } from './types';
+import { QuizQuestion, isJavaScriptDOMQuestion } from './types';
 import { formatQuestionText } from './utils';
+import JavaScriptDOMQuestionView from './javascript-dom/JavaScriptDOMQuestionView';
 
 interface QuizQuestionViewProps {
   question: QuizQuestion;
   questionNumber: number;
-  selectedAnswers: { [questionId: string]: string | string[] };
+  selectedAnswers: { [questionId: string]: string | string[] | { html: string; css: string; js: string; testResults?: any } };
   onAnswerSelect: (questionId: string, optionIndex: number) => void;
+  onCodeAnswerSelect?: (questionId: string, answer: { html: string; css: string; js: string; testResults?: any }, passed: boolean) => void;
   isCorrect: (questionId: string, optionIndex: number) => boolean;
   isSelected: (questionId: string, optionIndex: number) => boolean;
   hasAnswered: (questionId: string) => boolean;
@@ -23,6 +25,7 @@ export default function QuizQuestionView({
   questionNumber,
   selectedAnswers,
   onAnswerSelect,
+  onCodeAnswerSelect,
   isCorrect,
   isSelected,
   hasAnswered,
@@ -32,12 +35,40 @@ export default function QuizQuestionView({
   showSummary = false,
   isDark,
 }: QuizQuestionViewProps) {
+  // Route to JavaScript DOM question view if applicable
+  if (isJavaScriptDOMQuestion(question)) {
+    return (
+      <JavaScriptDOMQuestionView
+        question={question}
+        questionNumber={questionNumber}
+        selectedAnswers={selectedAnswers}
+        onAnswerSelect={onCodeAnswerSelect || ((id, answer, passed) => {
+          // Fallback if handler not provided
+          console.warn('Code answer handler not provided');
+        })}
+        isRevealed={isRevealed}
+        onRevealAnswer={onRevealAnswer}
+        showSummary={showSummary}
+        isDark={isDark}
+      />
+    );
+  }
+
   // Determine question type: check type field, or infer from correct field
   const isMultiSelect = question.type === 'select-all' || Array.isArray(question.correct);
   const answered = hasAnswered(question.id);
   
   // Show feedback when revealed OR when viewing summary screen (for all question types)
   const shouldShowFeedback = isRevealed || showSummary;
+
+  // Ensure options exist for multiple-choice questions
+  if (!question.options || question.options.length === 0) {
+    return (
+      <div className="px-6 pt-6 pb-0 rounded-lg text-red-600 dark:text-red-400">
+        Error: Question {questionNumber} is missing options.
+      </div>
+    );
+  }
 
   return (
     <div className="px-6 pt-6 pb-0 rounded-lg" style={isDark ? { backgroundColor: 'rgba(30, 58, 138, 0.15)', borderColor: '#1e3a8a' } : undefined}>

@@ -55,6 +55,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
     handleClearQuiz,
     handleToggleRandomMode,
     handleAnswerSelect,
+    handleCodeAnswerSelect,
     isCorrect,
     isSelected,
     hasAnswered,
@@ -334,6 +335,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
                   questionNumber={currentQuestionIndex + 1}
                   selectedAnswers={selectedAnswers}
                   onAnswerSelect={handleAnswerSelect}
+                  onCodeAnswerSelect={handleCodeAnswerSelect}
                   isCorrect={isCorrect}
                   isSelected={isSelected}
                   hasAnswered={hasAnswered}

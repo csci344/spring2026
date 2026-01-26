@@ -170,6 +170,47 @@ const QuizReport = forwardRef<QuizReportHandle, QuizReportProps>(({
               
               {incorrectQuestions.map((question, index) => {
                 const savedAnswer = selectedAnswers[question.id];
+                
+                // Handle JavaScript DOM questions
+                if (question.type === 'javascript-dom') {
+                  let selectedAnswerText = 'Not answered';
+                  let correctAnswerText = 'All tests must pass';
+                  
+                  if (savedAnswer !== undefined && typeof savedAnswer === 'object' && savedAnswer !== null && 'testResults' in savedAnswer) {
+                    const testResults = (savedAnswer as any).testResults;
+                    if (testResults) {
+                      const passedCount = testResults.results?.filter((r: any) => r.passed).length || 0;
+                      const totalCount = testResults.results?.length || 0;
+                      selectedAnswerText = `${passedCount} of ${totalCount} tests passed`;
+                    } else {
+                      selectedAnswerText = 'Code submitted but not tested';
+                    }
+                  }
+                  
+                  return (
+                    <div key={question.id} style={{ marginBottom: '30px', padding: '20px' }}>
+                      <div style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '15px' }}>
+                        Question {index + 1}: {stripMarkdown(question.question)}
+                      </div>
+                      
+                      <div style={{ marginBottom: '10px' }}>
+                        <strong style={{ color: '#ef4444' }}>Your result:</strong> {selectedAnswerText}
+                      </div>
+                      
+                      <div style={{ marginBottom: '10px' }}>
+                        <strong style={{ color: '#10b981' }}>Required:</strong> {correctAnswerText}
+                      </div>
+                      
+                      {question.explanation && (
+                        <div style={{ marginTop: '15px', padding: '10px 5px 20px 5px', backgroundColor: '#f3f4f6', borderRadius: '4px' }}>
+                          <strong>Explanation:</strong> {stripMarkdown(question.explanation)}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+                
+                // Handle multiple-choice questions
                 const isMultiSelect = question.type === 'select-all' || Array.isArray(question.correct);
                 
                 // Format selected answer
@@ -179,18 +220,20 @@ const QuizReport = forwardRef<QuizReportHandle, QuizReportProps>(({
                     selectedAnswerText = savedAnswer.length > 0 
                       ? savedAnswer.map(text => stripMarkdown(text)).join(', ')
                       : 'Not answered';
-                  } else {
+                  } else if (typeof savedAnswer === 'string') {
                     selectedAnswerText = stripMarkdown(savedAnswer);
                   }
                 }
                 
                 // Format correct answer
                 let correctAnswerText = '';
-                if (Array.isArray(question.correct)) {
-                  const correctOptions = question.correct.map(idx => question.options[idx]);
-                  correctAnswerText = correctOptions.map(text => stripMarkdown(text)).join(', ');
-                } else {
-                  correctAnswerText = stripMarkdown(question.options[question.correct]);
+                if (question.options && question.correct !== undefined) {
+                  if (Array.isArray(question.correct)) {
+                    const correctOptions = question.correct.map(idx => question.options![idx]);
+                    correctAnswerText = correctOptions.map(text => stripMarkdown(text)).join(', ');
+                  } else {
+                    correctAnswerText = stripMarkdown(question.options[question.correct]);
+                  }
                 }
                 
                 return (

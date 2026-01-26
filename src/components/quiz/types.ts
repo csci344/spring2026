@@ -1,10 +1,24 @@
+// Import for type guard
+import { JavaScriptDOMQuestion } from './javascript-dom/types';
+
 export interface QuizQuestion {
   id: string;
   question: string;
-  options: string[];
-  type?: 'multiple-choice' | 'select-all';
-  correct: number | number[];
+  options?: string[];  // Optional (not needed for JS/DOM questions)
+  type?: 'multiple-choice' | 'select-all' | 'javascript-dom';
+  correct?: number | number[];  // Optional (not needed for JS/DOM questions)
   explanation?: string;
+  
+  // Fields for JavaScript DOM questions
+  htmlTemplate?: string;
+  cssTemplate?: string;
+  codeTemplate?: string;
+  testCases?: any[];  // Will be typed as JavaScriptDOMTestCase when type is 'javascript-dom'
+}
+
+// Type guard helper
+export function isJavaScriptDOMQuestion(question: QuizQuestion): question is JavaScriptDOMQuestion {
+  return question.type === 'javascript-dom';
 }
 
 export interface QuizData {
@@ -13,7 +27,14 @@ export interface QuizData {
 }
 
 export interface QuizState {
-  selectedAnswers: { [questionId: string]: string | string[] }; // Store option text instead of index (string for single-select, string[] for multi-select)
+  selectedAnswers: { 
+    [questionId: string]: string | string[] | { 
+      html: string; 
+      css: string; 
+      js: string; 
+      testResults?: any;
+    } 
+  }; // Store option text for multiple-choice, or code for JS/DOM questions
   score: number;
   completed: boolean;
   timestamp: number;
