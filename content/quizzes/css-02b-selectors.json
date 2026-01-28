@@ -1,0 +1,49 @@
+{
+  "quizName": "CSS Selectors Practice (Coding Exercises)",
+  "start_date": "2026-01-28",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Recreate the styling shown below using a tag selector.",
+      "instructions": "Use a tag selector to make all paragraph elements blue.",
+      "type": "javascript-dom",
+      "explanation": "A **tag selector** uses the HTML element name. Use `p { color: blue; }` to select all `<p>` elements and make them blue."
+    },
+    {
+      "id": "q2",
+      "question": "Recreate the styling shown below using a class selector.",
+      "instructions": "Use a class selector to give all elements with class 'highlight' a yellow background.",
+      "type": "javascript-dom",
+      "explanation": "A **class selector** starts with a period (`.`). Use `.highlight { background-color: yellow; }` to select all elements with `class=\"highlight\"`."
+    },
+    {
+      "id": "q3",
+      "question": "Recreate the styling shown below using an ID selector.",
+      "instructions": "Use an ID selector to make the element with id 'main-title' large (32px), bold, and blue.",
+      "type": "javascript-dom",
+      "explanation": "An **ID selector** starts with a hash (`#`). Use `#main-title { font-size: 32px; font-weight: bold; color: blue; }` to select the element with `id=\"main-title\"`."
+    },
+    {
+      "id": "q4",
+      "question": "Recreate the styling shown below using a descendant selector.",
+      "instructions": "Use a descendant selector to make all paragraphs inside divs italic.",
+      "type": "javascript-dom",
+      "explanation": "A **descendant selector** uses a space between selectors. Use `div p { font-style: italic; }` to select all `<p>` elements that are anywhere inside `<div>` elements."
+    },
+    {
+      "id": "q5",
+      "question": "Recreate the styling shown below using a direct child selector.",
+      "instructions": "Use a direct child selector to add a hotpink border to only the direct children of the unordered list.",
+      "type": "javascript-dom",
+      "explanation": "A **direct child selector** uses the `>` symbol. Use `ul > li { border: 1px solid hotpink; }` to select only `<li>` elements that are direct children of `<ul>` elements."
+    },
+    {
+      "id": "q6",
+      "question": "Recreate the styling shown below using a grouping selector.",
+      "instructions": "Use a grouping selector to apply the same red color to both h1 and h2 elements.",
+      "type": "javascript-dom",
+      "explanation": "A **grouping selector** uses a comma (`,`). Use `h1, h2 { color: red; }` to apply the same styles to both all `<h1>` elements and all `<h2>` elements."
+    }
+  ]
+}

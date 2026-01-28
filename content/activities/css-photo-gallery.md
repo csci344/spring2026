@@ -1,7 +1,7 @@
 ---
 title: Design a Photo Gallery
 type: activity
-draft: 1
+draft: 0
 due_date: "2026-01-28"
 start_date: "2026-01-28"
 num: 3
@@ -11,7 +11,7 @@ num: 3
 
 Please download the exercise files (below).
 
-<a href="course-files/activities/intro-css-gallery.zip" class="nu-button">Download Activity Files <i class="fas fa-download"></i></a>
+<a href="/spring2026/course-files/activities/intro-css-gallery.zip" class="nu-button">Download Activity Files <i class="fas fa-download"></i></a>
 
 Then, use the CSS Property Cheatsheet (below) and what you've learned about selectors to make the following drawing:
 

@@ -157,6 +157,79 @@
       ],
       "correct": 3,
       "explanation": "All three selectors would select the paragraph: #container (by ID), .intro (by class), and div p (descendant). However, .intro is a class selector and would be more specific than the descendant selector for styling purposes."
-    }
+    },
+    {
+        "id": "q14",
+        "question": "Which selector will select all `<p>` elements on the page?",
+        "options": [
+          "p",
+          ".p",
+          "#p",
+          "*p"
+        ],
+        "correct": 0,
+        "explanation": "A **tag (element) selector** uses the HTML tag name by itself. `p` selects all `<p>` elements on the page."
+      },
+      {
+        "id": "q15",
+        "question": "Which selector will select all elements with `class=\"highlight\"`?",
+        "options": [
+          "highlight",
+          "#highlight",
+          ".highlight",
+          "*highlight"
+        ],
+        "correct": 2,
+        "explanation": "A **class selector** starts with a period (`.`). `.highlight` selects all elements whose `class` attribute includes `highlight`."
+      },
+      {
+        "id": "q16",
+        "question": "Which selector will select the element with `id=\"main-title\"`?",
+        "options": [
+          ".main-title",
+          "#main-title",
+          "main-title",
+          "*main-title"
+        ],
+        "correct": 1,
+        "explanation": "An **ID selector** starts with a hash (`#`). `#main-title` selects the single element with `id=\"main-title\"`."
+      },
+      {
+        "id": "q17",
+        "question": "Consider this HTML:\n```html\n<div class=\"card\">\n  <p>Description</p>\n</div>\n```\n\nWhich selector will select the `<p>` that is **inside** `.card` (at any nesting level)?",
+        "options": [
+          ".card + p",
+          ".card > p",
+          ".card p",
+          "p.card"
+        ],
+        "correct": 2,
+        "explanation": "The **descendant selector** `.card p` (with a space) selects all `<p>` elements that are anywhere inside an element with class `card`."
+      },
+      {
+        "id": "q18",
+        "question": "Consider this HTML:\n```html\n<ul class=\"menu\">\n  <li>Home</li>\n  <li>About</li>\n</ul>\n```\n\nWhich selector will select only the `<li>` elements that are **direct children** of `.menu`?",
+        "options": [
+          ".menu li",
+          ".menu > li",
+          "li .menu",
+          ".menu + li"
+        ],
+        "correct": 1,
+        "explanation": "The **child selector** `.menu > li` (with `>`) selects `<li>` elements whose **parent** is an element with class `menu` (direct children only)."
+      },
+      {
+        "id": "q19",
+        "question": "You want to apply the same style to both all `<h1>` elements and all elements with class `.subtitle`.\n\nWhich selector should you use?",
+        "options": [
+          "h1 .subtitle",
+          "h1, .subtitle",
+          "h1 .subtitle *",
+          "h1 + .subtitle"
+        ],
+        "correct": 1,
+        "explanation": "A **grouping selector** uses a comma (`,`). `h1, .subtitle` applies the same rules to **both** all `<h1>` elements and all elements with class `.subtitle`."
+      }
+  
   ]
 }
