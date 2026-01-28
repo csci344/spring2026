@@ -266,7 +266,7 @@ li:has(input[type="checkbox"]) {
       to right,
       transparent,
       var(--border) 20%,
-      var(--border) 80%,
+      var(--border) 100%,
       transparent
     );
   }
@@ -335,7 +335,7 @@ li:has(input[type="checkbox"]) {
     @apply mt-6 pt-6 mb-3;
   }
 
-  /* Horizontal rule - 2px line, 80% width, centered */
+  /* Horizontal rule - 2px line, 100% width, centered */
   /* h2::after {
     content: "";
     position: absolute;
