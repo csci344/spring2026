@@ -22,7 +22,7 @@ export const baseTopics = [
           { 
             title: "Slides", 
             url: "https://docs.google.com/presentation/d/1bExOA_cV_sO1vzJd18si3FogUr0mCXMU/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
-            draft: 1 
+            draft: 0 
           },
         ],
         readings: [
@@ -418,8 +418,12 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Lecture files", url: "/course-files/lectures/lecture07.zip", draft: 1 },
+          { 
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1gDkJZ400V28ibN9WeZs4x4GBdYzXctXY/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          },
+          { title: "Lecture files", url: "/spring2026/course-files/lectures/lecture07.zip", draft: 0 },
         ],
         readings: [
           {
