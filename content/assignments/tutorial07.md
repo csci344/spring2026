@@ -3,8 +3,8 @@ title: "Get Started on HW3: GET, POST, and DELETE"
 type: "tutorial"
 num: 7
 draft: 1
-assigned_date: "2026-03-16"
-due_date: "2026-03-23"
+assigned_date: "2026-03-20"
+due_date: "2026-03-20"
 heading_max_level: 3
 order: 7
 points: 6

@@ -3,8 +3,8 @@ title: "JavaScript: Practice with higher-order iteration functions"
 type: "tutorial"
 num: 6
 draft: 1
-assigned_date: "2026-02-27"
-due_date: "2026-03-02"
+assigned_date: "2026-03-06"
+due_date: "2026-03-16"
 heading_max_level: 3
 order: 6
 points: 6

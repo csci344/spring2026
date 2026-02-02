@@ -552,77 +552,110 @@ export const baseTopics = [
             ),
           },
         ],
-      },
+      }
     ],
   },
 
   {
     id: 5,
-    title: "JavaScript: Foundational Concepts & Programming Review",
+    title: "Design Project",
     description:
-      "JavaScript is a versatile, high-level programming language that runs in web browsers, enabling interactivity and dynamic content. In this unit, we will review basic programming concepts using JavaScript.",
+      "Students will create an HTML/CSS project of their own choosing that demonstrates design principles, accessibility, and technical skills learned in HTML and CSS.",
     meetings: [
       {
         date: "Mo, Feb 9",
-        topic: "Intro to JavaScript",
+        topic: "Design Project Workshop",
         description: (
           <>
             <ul>
-              <li>JavaScript basics and syntax</li>
-              <li>Variables, functions, and control structures</li>
-              <li>Programming fundamentals review</li>
+              <li>Design principles review</li>
+              <li>Project planning and ideation</li>
+              <li>Design project kickoff</li>
             </ul>
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "Intro to the language", url: "/course-files/lectures/lecture09.zip", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                Please read the <a href="/spring2026/resources/programming-review" target="_blank">Intro to Programming with JavaScript</a> page.
-              </>
-            ),
-            url: "/spring2026/resources/programming-review",
-          },
         ],
       },
       {
         date: "We, Feb 11",
-        topic: "JavaScript Review",
-        holiday: true,
+        topic: "Design Project Work Day",
         description: (
           <>
-            <p>This day needs content.</p>
+            <ul>
+              <li>In-class time to work on design project</li>
+              <li>Peer feedback and iteration</li>
+            </ul>
           </>
         ),
+      },
+      {
+        date: "Fr, Feb 13",
+        topic: "Exam 1 Review & Nielsen Norman Group",
+        description: (
+          <>
+            <ul>
+              <li>Exam 1 review: HTML/CSS/Web Architecture/Design</li>
+              <li>Nielsen Norman Group: UX principles and usability heuristics</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
       },
     ],
   },
 
   {
     id: 6,
-    title: "JavaScript: Interacting with the DOM (Document Object Model)",
+    title: "Exam 1: HTML/CSS/Web Architecture/Design",
     description:
-      "In this unit, we will use JavaScript to manipulate the Document Object Model (DOM) and respond to user-initiated events, and dynamically generate content from data. By the end of this section, you will know enough to start building simple, interactive web applications.",
+      "Comprehensive exam covering web/internet architecture, HTML, CSS, design principles, and accessibility.",
     meetings: [
       {
         date: "Mo, Feb 16",
-        topic: "Working with the DOM: Part I",
+        topic: "Exam 1",
+        description: (
+          <>
+            <ul>
+              <li>Web and Internet infrastructure</li>
+              <li>HTML structure and semantic markup</li>
+              <li>CSS styling, layout, and responsive design</li>
+              <li>Design principles and accessibility</li>
+            </ul>
+          </>
+        ),
+      },
+    ],
+  },
+
+  {
+    id: 7,
+    title: "JavaScript: DOM Programming",
+    description:
+      "In this unit, we will use JavaScript to manipulate the Document Object Model (DOM) and respond to user-initiated events. By the end of this section, you will know enough to start building simple, interactive web applications.",
+    meetings: [
+      {
+        date: "We, Feb 18",
+        topic: "Working with the DOM",
         description: (
           <>
             <ul>
               <li>Introduction to the DOM</li>
               <li>Accessing and modifying DOM elements</li>
               <li>DOM manipulation basics</li>
+              <li>Event handling in JavaScript</li>
+              <li>DOM traversal and manipulation</li>
+              <li>Creating and modifying DOM elements dynamically</li>
             </ul>
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
           { title: "DOM manipulation practice (part 1)", url: "/course-files/lectures/lecture10.zip", draft: 1 },
+          { title: "DOM manipulation practice (part 2)", url: "/course-files/lectures/lecture11.zip", draft: 1 },
         ],
         readings: [
           {
@@ -646,6 +679,13 @@ export const baseTopics = [
               </>
             ),
           },
+          {
+            citation: (
+              <>
+                <a href="https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript" target="_blank">Understanding Events in JavaScript</a>. <em>Digital Ocean</em>
+              </>
+            ),
+          },
         ],
         optionalReadings: [
           {
@@ -656,34 +696,6 @@ export const baseTopics = [
             ),
             url: "/spring2026/course-files/activities/dom-tester",
           },
-        ],
-      },
-      {
-        date: "We, Feb 18",
-        topic: "Working with the DOM: Part II",
-        description: (
-          <>
-            <ul>
-              <li>Event handling in JavaScript</li>
-              <li>DOM traversal and manipulation</li>
-              <li>Creating and modifying DOM elements dynamically</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "DOM manipulation practice (part 2)", url: "/course-files/lectures/lecture11.zip", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="https://www.digitalocean.com/community/tutorials/understanding-events-in-javascript" target="_blank">Understanding Events in JavaScript</a>. <em>Digital Ocean</em>
-              </>
-            ),
-          },
-        ],
-        optionalReadings: [
           {
             citation: (
               <>
@@ -711,91 +723,79 @@ export const baseTopics = [
   },
 
   {
-    id: 7,
-    title: "Functional Programming",
+    id: 8,
+    title: "JavaScript: Programming Review & OOP",
     description:
-      "Functional programming is a programming paradigm that emphasizes immutability, pure functions, and composition over state and side effects. In this unit, we will explore the principles of functional programming and how they can be applied to JavaScript.",
+      "Review of JavaScript programming fundamentals and introduction to object-oriented programming concepts in JavaScript.",
     meetings: [
-        {
-          date: "Mo, Feb 23",
-          topic: "Overview of the JavaScript Language + Basic Programming",
-          description: (
-            <>
-              <ul>
-                <li>Review of JavaScript concepts covered so far</li>
-                <li>Practice problems and exercises</li>
-              </ul>
-            </>
-          ),
-          activities: [
-            { title: "Slides", url: "#", draft: 1 },
-            { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
-          ],
-          readings: [
-            {
-              citation: (
-                <>
-                  <a href="/spring2026/resources/js-01-basic-programming">Basic Programming in JavaScript</a>: Know this material well.
-                </>
-              ),
-            },
-            {
-              citation: (
-                <>
-                  <a href="/spring2026/resources/js-02-basic-programming-practice">Basic programming practice problems</a>
-                </>
-              ),
-            },
-            {
-              citation: (
-                <>
-                  <a href="/spring2026/resources/js-03-the-dom">Working with the DOM</a>
-                </>
-              ),
-            },
-            {
-              citation: (
-                <>
-                  <a href="/spring2026/resources/js-04-dom-practice">DOM practice problems</a>
-                </>
-              ),
-            },
-          ],
-        },
       {
-        date: "We, Feb 25",
-        topic: "Higher Order Functions",
+        date: "Mo, Feb 23",
+        topic: "JavaScript Programming Review",
         description: (
           <>
             <ul>
-              <li>Intro to functional programming</li>
-              <li>Higher order functions</li>
-              <li>forEach, map, filter, reduce</li>
+              <li>Review of JavaScript concepts covered so far</li>
+              <li>Variables, functions, and control structures</li>
+              <li>Practice problems and exercises</li>
             </ul>
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-        ]
+          { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="/spring2026/resources/programming-review" target="_blank">Intro to Programming with JavaScript</a>
+              </>
+            ),
+            url: "/spring2026/resources/programming-review",
+          },
+          {
+            citation: (
+              <>
+                <a href="/spring2026/resources/js-01-basic-programming">Basic Programming in JavaScript</a>
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        date: "We, Feb 25",
+        topic: "JavaScript Classes (OOP)",
+        description: (
+          <>
+            <ul>
+              <li>Introduction to object-oriented programming in JavaScript</li>
+              <li>Classes and instances</li>
+              <li>Constructors and methods</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
       }
     ],
   },
 
   {
-    id: 8,
-    title: "JavaScript: HTTP requests and the Fetch API",
+    id: 9,
+    title: "JavaScript: Higher-Order Functions & Closures",
     description:
-      "The Fetch API is a modern JavaScript interface for making HTTP requests to servers and handling responses. It simplifies fetching resources like JSON data, files, or text from external APIs or web services using promises for asynchronous operations. Understanding how to use the Fetch API, handle response statuses, and work with data formats like JSON is key to building dynamic, data-driven web applications.",
+      "Functional programming concepts in JavaScript, including higher-order functions, closures, and working with data using map, filter, reduce, and forEach.",
     meetings: [
       {
         date: "Mo, Mar 2",
-        topic: "Intro to HTTP",
+        topic: "Higher-Order Functions I: map, filter, reduce, forEach",
         description: (
           <>
             <ul>
-              <li>Introduction to HTTP protocol</li>
-              <li>HTTP methods and status codes</li>
-              <li>Using Postman for API testing</li>
+              <li>Introduction to higher-order functions</li>
+              <li>Working with arrays and data</li>
+              <li>Practice with real data sets</li>
             </ul>
           </>
         ),
@@ -806,14 +806,7 @@ export const baseTopics = [
           {
             citation: (
               <>
-                <a href="https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/" target="_blank">An introduction to HTTP: everything you need to know</a>. Free Code Camp
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                Sign for and download <a href="https://identity.getpostman.com/signup" target="_blank">Postman</a>.
+                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic programming practice problems</a>
               </>
             ),
           },
@@ -821,13 +814,80 @@ export const baseTopics = [
       },
       {
         date: "We, Mar 4",
-        topic: "Asynchronous Functions and the JavaScript Fetch API",
+        topic: "Higher-Order Functions II: create your own + closures",
+        description: (
+          <>
+            <ul>
+              <li>Advanced higher-order function patterns</li>
+              <li>Understanding closures</li>
+              <li>Data manipulation practice</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
+      },
+    ],
+  },
+
+  {
+    id: 10,
+    title: "Spring Break",
+    description: "No class",
+    meetings: [
+      { date: "Mo, Mar 9", topic: "Spring Break - No class", holiday: true },
+      { date: "We, Mar 11", topic: "Spring Break - No class", holiday: true },
+      { date: "Fr, Mar 13", topic: "Spring Break - No class", holiday: true },
+    ],
+  },
+
+  {
+    id: 11,
+    title: "JavaScript: Async/Await & Fetch",
+    description:
+      "The Fetch API is a modern JavaScript interface for making HTTP requests to servers and handling responses. Understanding how to use the Fetch API, handle response statuses, and work with data formats like JSON is key to building dynamic, data-driven web applications.",
+    meetings: [
+      {
+        date: "Mo, Mar 16",
+        topic: "Intro to HTTP & Fetch API",
+        description: (
+          <>
+            <ul>
+              <li>Introduction to HTTP protocol</li>
+              <li>HTTP methods and status codes</li>
+              <li>Using the Fetch API</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Tutorial 7", url: "/assignments/tutorial07", draft: 0 },
+        ],
+        assigned: {
+          titleShort: "HW3",
+          title: "Building a \"Vanilla\" JavaScript Client",
+          url: "/assignments/hw03/",
+          draft: 0,
+        },
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/" target="_blank">An introduction to HTTP: everything you need to know</a>. Free Code Camp
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        date: "We, Mar 18",
+        topic: "Async/await + Fetch API Practice",
         description: (
           <>
             <ul>
               <li>Async/await vs Promises</li>
-              <li>Using the Fetch API</li>
               <li>Making GET, POST, PUT, DELETE requests</li>
+              <li>Error handling and response parsing</li>
             </ul>
           </>
         ),
@@ -846,7 +906,7 @@ export const baseTopics = [
           {
             citation: (
               <>
-                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2" target="_blank">fetch GET examples</a>. Note: this example (and subsequent ones) demonstrate both "then" "async/await" techniques.
+                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-1-4-get-silvenleaf-21e2" target="_blank">fetch GET examples</a>
               </>
             ),
           },
@@ -857,70 +917,26 @@ export const baseTopics = [
               </>
             ),
           },
-          {
-            citation: (
-              <>
-                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-3-4-put-by-silvenleaf-3oe8" target="_blank">fetch PUT examples</a>. Note: PATCH works the same way as PUT. Recall that PATCH only updates specific attributes of a resource while PUT replaces the entire resource with a new version.
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://dev.to/silvenleaf/fetch-api-easiest-explanation-part-4-4-delete-by-silvenleaf-4376" target="_blank">fetch DELETE examples</a>.
-              </>
-            ),
-          },
         ],
-      },
-      {
-        date: "Fr, Mar 6",
-        topic: "TBD: Coming Soon!",
-holiday: true,
-        description: (
-          <>
-            <p>This day needs content.</p>
-          </>
-        ),
-      },
+      }
     ],
   },
 
   {
-    id: 9,
-    title: "Spring Break",
-    description: "No class",
-    meetings: [
-      { date: "Mo, Mar 9", topic: "Spring Break - No class", holiday: true },
-      { date: "We, Mar 11", topic: "Spring Break - No class", holiday: true },
-      { date: "Fr, Mar 13", topic: "Spring Break - No class", holiday: true },
-    ],
-  },
-
-  {
-    id: 10,
+    id: 12,
     title: "React",
     description:
       "React is a popular JavaScript library for building user interfaces, especially single-page applications (SPAs). It allows developers to create reusable components and manage the state of an application efficiently through a virtual DOM. React's declarative approach simplifies UI development and is widely adopted in modern web development.",
     meetings: [
       {
-        date: "We, Mar 18",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
-        description: (
-          <>
-            <p>This day needs content.</p>
-          </>
-        ),
-      },
-      {
-        date: "Mo, Mar 20",
-        topic: "React I",
+        date: "Mo, Mar 23",
+        topic: "React I: Components, JSX, Props",
         description: (
           <>
             <ul>
               <li>Introduction to React</li>
               <li>Components and JSX</li>
+              <li>Props and component composition</li>
               <li>Building user interfaces with React</li>
             </ul>
           </>
@@ -947,15 +963,14 @@ holiday: true,
         ],
       },
       {
-        date: "We, Mar 23",
-        topic: "React II",
+        date: "We, Mar 25",
+        topic: "React II: State & Effects",
         description: (
           <>
             <ul>
-              <li>Thinking in React</li>
               <li>State management and component hierarchy</li>
-              <li>Sharing state between components</li>
-              <li>Effects and side effects</li>
+              <li>useState and useEffect hooks</li>
+              <li>Thinking in React</li>
             </ul>
           </>
         ),
@@ -963,10 +978,28 @@ holiday: true,
           {
             citation: (
               <>
-                <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>. Make note of the steps: Break the UI into a component hierarchy, Build a static version in React, Find the minimal but complete representation of UI state (noting the difference between "props" and "state"), Identify where your state should live, Adding "inverse data flow"
+                <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>
               </>
             ),
           },
+        ],
+      },
+      {
+        date: "Mo, Mar 30",
+        topic: "React III: Sharing State & Syncing with External Data",
+        description: (
+          <>
+            <ul>
+              <li>Sharing state between components</li>
+              <li>Effects and side effects</li>
+              <li>Syncing with external data sources</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
+        readings: [
           {
             citation: (
               <>
@@ -974,8 +1007,6 @@ holiday: true,
               </>
             ),
           },
-        ],
-        optionalReadings: [
           {
             citation: (
               <>
@@ -983,6 +1014,8 @@ holiday: true,
               </>
             ),
           },
+        ],
+        optionalReadings: [
           {
             citation: (
               <>
@@ -996,128 +1029,51 @@ holiday: true,
   },
 
   {
-    id: 11,
-    title: "JavaScript Review",
-    description:
-      "Today's class will be dedicated to JavaScript programming review. Please review the study guide and practice problems, and come prepared to ask questions!",
-    meetings: [
-      {
-        date: "Mo, Mar 27",
-        topic: "JavaScript Review",
-        description: (
-          <>
-            <ul>
-              <li>Review of JavaScript language features</li>
-              <li>DOM manipulation review</li>
-              <li>Event handlers review</li>
-              <li>Higher-order functions review</li>
-              <li>Promises and async/await review</li>
-              <li>HTTP Requests using JavaScript review</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: "Language features",
-            url: "#",
-          },
-          {
-            citation: "DOM manipulation",
-            url: "#",
-          },
-          {
-            citation: "Event handlers",
-            url: "#",
-          },
-          {
-            citation: "Higher-order functions",
-            url: "#",
-          },
-          {
-            citation: "Promises",
-            url: "#",
-          },
-          {
-            citation: "HTTP Requests using JavaScript",
-            url: "#",
-          },
-          {
-            citation: "Passing functions as objects",
-            url: "#",
-          },
-        ],
-      },
-      {
-        date: "We, Mar 30",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
-        description: (
-          <>
-            <p>This day needs content.</p>
-          </>
-        ),
-      },
-      {
-        date: "Fr, Apr 1",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
-        description: (
-          <>
-            <p>This day needs content.</p>
-          </>
-        ),
-      },
-    ],
-  },
-
-  {
-    id: 12,
-    title: "Python",
-    description:
-      "Python is a versatile programming language widely used for web development, data analysis, and scripting. Students will learn the basics of Python syntax, functions, and libraries like Flask or FastAPI for server-side development. This topic bridges the gap between front-end and back-end development.",
-    meetings: [
-      {
-        date: "Mo, Apr 3",
-        topic: "Python Primer",
-        description: (
-          <>
-            <ul>
-              <li>Introduction to Python</li>
-              <li>Python syntax and basics</li>
-              <li>Functions and libraries</li>
-              <li>Preparing for server-side development</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Lecture files", url: "/course-files/lectures/lecture19.zip", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="https://books.trinket.io/pfe/index.html" target="_blank">Python for Everybody Textbook</a>, by Charles Severance (if you're new to Python)
-              </>
-            ),
-          },
-        ],
-      },
-    ],
-  },
-
-  {
     id: 13,
-    title: "Servers",
+    title: "Exam 2: JavaScript & React",
     description:
-      "Server-side architectures define how web applications process requests and serve responses from the server. This includes understanding client-server models, HTTP request-response cycles, and technologies like RESTful APIs and GraphQL. A solid grasp of server-side architecture is essential for building scalable and efficient web applications.",
+      "Comprehensive exam covering JavaScript (DOM, OOP, higher-order functions, closures, async/await, Fetch API) and React (components, props, state, effects).",
+    meetings: [
+      {
+        date: "We, Apr 1",
+        topic: "Exam 2 Review",
+        description: (
+          <>
+            <ul>
+              <li>Review of JavaScript: DOM manipulation, event handlers</li>
+              <li>Review of JavaScript: OOP classes, higher-order functions, closures</li>
+              <li>Review of JavaScript: Async/await and Fetch API</li>
+              <li>Review of React: Components, props, state, effects</li>
+            </ul>
+          </>
+        ),
+      },
+      {
+        date: "Fr, Apr 3",
+        topic: "Exam 2",
+        description: (
+          <>
+            <ul>
+              <li>JavaScript: DOM manipulation, event handlers</li>
+              <li>JavaScript: OOP classes, higher-order functions, closures</li>
+              <li>JavaScript: Async/await and Fetch API</li>
+              <li>React: Components, props, state, effects</li>
+            </ul>
+          </>
+        ),
+      },
+    ],
+  },
+
+  {
+    id: 14,
+    title: "Servers & APIs",
+    description:
+      "Understanding how to design and build RESTful APIs, including HTTP methods, endpoint design, authentication, and security. Students will learn to create their own API endpoints using a config-driven approach.",
     meetings: [
       {
         date: "Mo, Apr 6",
-        topic: "HTTP & REST",
+        topic: "HTTP & REST Fundamentals",
         description: (
           <>
             <ul>
@@ -1130,6 +1086,12 @@ holiday: true,
         activities: [
           { title: "Slides", url: "#", draft: 1 },
         ],
+        assigned: {
+          titleShort: "HW3",
+          title: "Building a \"Vanilla\" JavaScript Client",
+          url: "/assignments/hw03/",
+          draft: 0,
+        },
         readings: [
           {
             citation: (
@@ -1145,165 +1107,108 @@ holiday: true,
               </>
             ),
           },
-          {
-            citation: (
-              <>
-                Fielding, Roy (2000). <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm" target="_blank">Roy Fielding's original paper</a>. For your reference.
-              </>
-            ),
-          },
         ],
       },
       {
         date: "We, Apr 8",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
+        topic: "Defining Endpoints: Config-Driven API Design",
         description: (
           <>
-            <p>This day needs content.</p>
+            <ul>
+              <li>Introduction to config-driven API design</li>
+              <li>Designing your own API endpoints</li>
+              <li>Creating API configuration files</li>
+            </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "#", draft: 1 },
+        ],
       },
+
     ],
   },
-
   {
-    id: 14,
-    title: "Databases & Object-Relational Mappings",
+    id: 15,
+    title: "React + APIs Integration",
     description:
-      "Databases store and organize data used by web applications, while Object-Relational Mapping (ORM) tools allow developers to interact with databases using object-oriented programming. ORMs like SQLAlchemy simplify the process of querying, updating, and managing data in relational databases. Learning about databases and ORMs is crucial for building data-driven web applications.",
+      "Integrating React applications with custom APIs, working with student-designed endpoints, and building full-stack applications.",
     meetings: [
       {
         date: "Mo, Apr 13",
-        topic: "Intro to Databases",
+        topic: "Final Project: API Design Workshop",
         description: (
           <>
             <ul>
-              <li>Introduction to PostgreSQL</li>
-              <li>Database queries and operations</li>
-              <li>SQL basics: SELECT, INSERT, UPDATE, DELETE</li>
-              <li>Joins and relationships</li>
+              <li>Final project assigned</li>
+              <li>API design workshop</li>
+              <li>Designing your own API endpoints via config</li>
             </ul>
           </>
         ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Get started on Tutorial 10", url: "/assignments/tutorial10", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/about/" target="_blank">About PostgreSQL</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresqltutorial.com/psql-commands/" target="_blank">psql commands</a> (command line)
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/docs/current/tutorial-select.html" target="_blank">Querying a Table</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/docs/current/tutorial-join.html" target="_blank">Joins Between Tables</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/docs/current/tutorial-populate.html" target="_blank">Inserts</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/docs/current/tutorial-update.html" target="_blank">Updates</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/docs/current/tutorial-delete.html" target="_blank">Deletions</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.postgresql.org/docs/current/tutorial-agg.html" target="_blank">Aggregate Functions</a>
-              </>
-            ),
-          },
-        ],
       },
       {
         date: "We, Apr 15",
-        topic: "Intro to Object-Relational Mappings (ORMs)",
+        topic: "React with Custom APIs",
         description: (
           <>
             <ul>
-              <li>Introduction to ORMs</li>
-              <li>SQLAlchemy basics</li>
-              <li>Mapping database tables to Python objects</li>
-              <li>Querying with ORMs</li>
+              <li>Using student-designed endpoints in React</li>
+              <li>Connecting React components to custom APIs</li>
+              <li>Handling API responses and errors</li>
             </ul>
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "SQL Alchemy & Object-Relational Mappings", url: "/activities/intro-sql-alchemy", draft: 1 },
         ],
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="https://docs.sqlalchemy.org/en/20/orm/queryguide/index.html" target="_blank">SQL Alchemy Documentation</a>
-              </>
-            ),
-          },
+      },
+      {
+        date: "Fr, Apr 17",
+        topic: "Advanced React Patterns & Project Work",
+        description: (
+          <>
+            <ul>
+              <li>Advanced React patterns</li>
+              <li>Final project work time</li>
+              <li>API integration troubleshooting</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Tutorial 10", url: "/assignments/tutorial10", draft: 0 },
         ],
+      },
+      {
+        date: "Mo, Apr 20",
+        topic: "Final Project Work Day",
+        description: (
+          <>
+            <ul>
+              <li>In-class time to work on final project</li>
+              <li>API endpoint testing and debugging</li>
+              <li>Frontend-backend integration</li>
+            </ul>
+          </>
+        ),
       },
     ],
   },
 
   {
-    id: 15,
-    title: "Security & Authentication",
+    id: 16,
+    title: "Final Project",
     description:
-      "Web security ensures the protection of applications from common vulnerabilities like XSS, CSRF, and SQL injection. Authentication is the process of verifying user identity so that the application can tailor content and functionality while maintaining data privacy. In this unit, you will learn learn to identify risks and implement best practices such as input validation, secure authentication, and encryption. You will also learn about authentication strategies (e.g., JWT) in order to implement a secure login system.",
+      "Students will design their own API endpoints using a config-driven approach and build a React application that consumes those endpoints. This project integrates all concepts learned throughout the course.",
     meetings: [
       {
-        date: "Mo, Apr 20",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
-        description: (
-          <>
-            <p>This day needs content.</p>
-          </>
-        ),
-      },
-      {
         date: "Mo, Apr 22",
-        topic: "Security & Authentication",
+        topic: "Security & Authentication for APIs",
         description: (
           <>
             <ul>
               <li>Web security fundamentals</li>
-              <li>Common vulnerabilities (XSS, CSRF, SQL injection)</li>
-              <li>Authentication strategies</li>
+              <li>Authentication headers and security</li>
               <li>JWT tokens and session management</li>
             </ul>
           </>
@@ -1328,67 +1233,45 @@ holiday: true,
           },
         ],
       },
-    ],
-  },
-
-  {
-    id: 16,
-    title: "Course Synthesis",
-    description:
-      "In this unit, we will reflect on the concepts and skills learned throughout the course, including integrating frontend and backend technologies, ensuring security, and employing best practices in design and coding. We will also discuss some of the considerations not covered in this course and consider some next steps if you want to enhance your learning.",
-    meetings: [
       {
-        date: "Mo, Apr 27",
-        topic: "Reflection & Next Steps",
+        date: "We, Apr 24",
+        topic: "Final Project Work Day",
         description: (
           <>
             <ul>
-              <li>Course reflection and synthesis</li>
-              <li>Integrating frontend and backend technologies</li>
-              <li>Best practices in design and coding</li>
-              <li>Next steps for continued learning</li>
+              <li>In-class time to work on final project</li>
+              <li>Final touches and testing</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-        ],
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="https://hackernoon.com/how-it-feels-to-learn-javascript-in-2016-d3a717dd577f" target="_blank">How it feels to learn JavaScript in 2016</a>. Jose Aguinaga
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="https://www.youtube.com/watch?v=Uo3cL4nrGOk" target="_blank">Interview with Senior JS Developer</a> (Parody)
-              </>
-            ),
-          },
+          { title: "Tutorial 11", url: "/assignments/tutorial11", draft: 0 },
         ],
       },
       {
-        date: "We, Apr 29",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
+        date: "Mo, Apr 27",
+        topic: "Final Project Due",
         description: (
           <>
-            <p>This day needs content.</p>
+            <ul>
+              <li>Final project presentations</li>
+              <li>Course reflection and synthesis</li>
+            </ul>
           </>
         ),
       },
+    ],
+  },
+
+  {
+    id: 17,
+    title: "Final Exam",
+    description:
+      "The final exam will take place from 11:30am to 2:30pm on May 6th in 008 Whitesides (same class as our regular classroom).",
+    meetings: [
       {
-        date: "Fr, May 1",
-        topic: "TBD: Coming Soon!",
-        holiday: true,
-        description: (
-          <>
-            <p>This day needs content.</p>
-          </>
-        ),
+        date: "We, May 6",
+        topic: "Final Exam",
       },
     ],
   },
