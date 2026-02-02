@@ -547,10 +547,9 @@ export const baseTopics = [
           {
             citation: (
               <>
-                Please skim the <a href="/spring2026/resources/accessibility" target="_blank">Accessibility Resources</a>.
+                Please skim the <a href="/spring2026/resources/design-01-accessibility">Accessibility Resources</a>.
               </>
             ),
-            url: "/spring2026/resources/accessibility",
           },
         ],
       },
@@ -589,6 +588,16 @@ export const baseTopics = [
             url: "/spring2026/resources/programming-review",
           },
         ],
+      },
+      {
+        date: "We, Feb 11",
+        topic: "JavaScript Review",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
       },
     ],
   },
@@ -864,6 +873,16 @@ export const baseTopics = [
           },
         ],
       },
+      {
+        date: "Fr, Mar 6",
+        topic: "TBD: Coming Soon!",
+holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
+      },
     ],
   },
 
@@ -884,6 +903,16 @@ export const baseTopics = [
     description:
       "React is a popular JavaScript library for building user interfaces, especially single-page applications (SPAs). It allows developers to create reusable components and manage the state of an application efficiently through a virtual DOM. React's declarative approach simplifies UI development and is widely adopted in modern web development.",
     meetings: [
+      {
+        date: "We, Mar 18",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
+      },
       {
         date: "Mo, Mar 20",
         topic: "React I",
@@ -1021,6 +1050,26 @@ export const baseTopics = [
           },
         ],
       },
+      {
+        date: "We, Mar 30",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
+      },
+      {
+        date: "Fr, Apr 1",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
+      },
     ],
   },
 
@@ -1104,6 +1153,16 @@ export const baseTopics = [
             ),
           },
         ],
+      },
+      {
+        date: "We, Apr 8",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
       },
     ],
   },
@@ -1227,6 +1286,16 @@ export const baseTopics = [
       "Web security ensures the protection of applications from common vulnerabilities like XSS, CSRF, and SQL injection. Authentication is the process of verifying user identity so that the application can tailor content and functionality while maintaining data privacy. In this unit, you will learn learn to identify risks and implement best practices such as input validation, secure authentication, and encryption. You will also learn about authentication strategies (e.g., JWT) in order to implement a secure login system.",
     meetings: [
       {
+        date: "Mo, Apr 20",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
+      },
+      {
         date: "Mo, Apr 22",
         topic: "Security & Authentication",
         description: (
@@ -1300,6 +1369,26 @@ export const baseTopics = [
             ),
           },
         ],
+      },
+      {
+        date: "We, Apr 29",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
+      },
+      {
+        date: "Fr, May 1",
+        topic: "TBD: Coming Soon!",
+        holiday: true,
+        description: (
+          <>
+            <p>This day needs content.</p>
+          </>
+        ),
       },
     ],
   },
