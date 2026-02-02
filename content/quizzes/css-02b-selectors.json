@@ -34,9 +34,9 @@
     {
       "id": "q5",
       "question": "Recreate the styling shown below using a direct child selector.",
-      "instructions": "Use a direct child selector to add a hotpink border to only the direct children of the unordered list.",
+      "instructions": "Use a direct child selector to add a hotpink border to only the direct children of the unordered list with the class 'menu'.",
       "type": "javascript-dom",
-      "explanation": "A **direct child selector** uses the `>` symbol. Use `ul > li { border: 1px solid hotpink; }` to select only `<li>` elements that are direct children of `<ul>` elements."
+      "explanation": "A **direct child selector** uses the `>` symbol. Use `ul.menu > li { border: 1px solid hotpink; }` to select only `<li>` elements that are direct children of `<ul>` elements with the class 'menu'."
     },
     {
       "id": "q6",

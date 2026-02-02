@@ -20,6 +20,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
   const [isGeneratingReport, setIsGeneratingReport] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [revealedQuestions, setRevealedQuestions] = useState<Set<string>>(new Set());
+  const [isReviewMode, setIsReviewMode] = useState<boolean>(false);
   // Initialize from localStorage synchronously if available (client-side only)
   const [hasCompletedFromStorage, setHasCompletedFromStorage] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
@@ -60,6 +61,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
     isSelected,
     hasAnswered,
     getIncorrectQuestions,
+    handleCompleteQuiz,
   } = useQuizState(quizData, resourceSlug);
 
   // Use a ref to track the current circleWindowStart value to avoid infinite loops
@@ -215,7 +217,12 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
       setCurrentQuestionIndex(0);
     } else if (currentQuestionIndex < shuffledQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
-    } else if (currentQuestionIndex === shuffledQuestions.length - 1 && completed) {
+    } else if (currentQuestionIndex === shuffledQuestions.length - 1) {
+      // On last question - allow completion even if not all questions answered
+      if (!completed) {
+        // Mark as completed and show summary
+        handleCompleteQuiz();
+      }
       // Show summary
       setCurrentQuestionIndex(shuffledQuestions.length);
     }
@@ -237,6 +244,39 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
   const handleClearQuizWithReveals = () => {
     handleClearQuiz();
     setRevealedQuestions(new Set());
+    setIsReviewMode(false);
+  };
+
+  const handleReview = () => {
+    // Reveal all questions before starting review
+    const allQuestionIds = new Set(shuffledQuestions.map(q => q.id));
+    setRevealedQuestions(allQuestionIds);
+    setIsReviewMode(true);
+    
+    // Update localStorage to ensure quiz state is saved with all questions revealed
+    // The quiz state is already saved, but we'll ensure it's up to date
+    try {
+      const storageKey = `quiz-${resourceSlug}`;
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        const savedState = JSON.parse(saved);
+        // Update the saved state to ensure it's current
+        const updatedState = {
+          ...savedState,
+          selectedAnswers,
+          score,
+          completed: true,
+          timestamp: Date.now(),
+          randomMode,
+        };
+        localStorage.setItem(storageKey, JSON.stringify(updatedState));
+      }
+    } catch (error) {
+      console.error('Error updating localStorage for review:', error);
+    }
+    
+    // Start review by going to first question
+    setCurrentQuestionIndex(0);
   };
 
   // Don't render until questions are shuffled
@@ -323,7 +363,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
                   selectedAnswers={selectedAnswers}
                   resourceSlug={resourceSlug}
                   onClearQuiz={handleClearQuizWithReveals}
-                  onReview={() => setCurrentQuestionIndex(0)}
+                  onReview={handleReview}
                   isGeneratingReport={isGeneratingReport}
                   onGeneratingChange={setIsGeneratingReport}
                   isDark={isDark}
@@ -340,9 +380,9 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
                   isSelected={isSelected}
                   hasAnswered={hasAnswered}
                   completed={completed}
-                  isRevealed={revealedQuestions.has(currentQuestion.id)}
+                  isRevealed={isReviewMode || revealedQuestions.has(currentQuestion.id)}
                   onRevealAnswer={handleRevealAnswer}
-                  showSummary={showSummary}
+                  showSummary={showSummary || isReviewMode}
                   isDark={isDark}
                 />
               ) : null}
@@ -359,7 +399,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
           completed={completed}
           onPrevious={handlePrevious}
           onNext={handleNext}
-          canGoNext={!(shuffledQuestions.length > 0 && currentQuestionIndex >= shuffledQuestions.length - 1 && !completed)}
+          canGoNext={true}
           questions={shuffledQuestions}
           selectedAnswers={selectedAnswers}
           circleWindowStart={circleWindowStart}
@@ -367,7 +407,8 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
           onQuestionClick={setCurrentQuestionIndex}
           hasAnswered={hasAnswered}
           revealedQuestions={revealedQuestions}
-          showSummary={showSummary}
+          showSummary={showSummary || isReviewMode}
+          isReviewMode={isReviewMode}
           isDark={isDark}
         />
       )}

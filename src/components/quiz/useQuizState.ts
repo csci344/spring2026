@@ -400,6 +400,24 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
     });
   };
 
+  // Function to manually mark quiz as completed (allows completion without answering all questions)
+  const handleCompleteQuiz = () => {
+    setCompleted(true);
+    // Save to localStorage
+    try {
+      const state: QuizState = {
+        selectedAnswers,
+        score,
+        completed: true,
+        timestamp: Date.now(),
+        randomMode,
+      };
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    } catch (error) {
+      console.error('Error saving quiz completion:', error);
+    }
+  };
+
   return {
     selectedAnswers,
     score,
@@ -423,5 +441,6 @@ export function useQuizState(quizData: QuizData, resourceSlug: string) {
     isSelected,
     hasAnswered,
     getIncorrectQuestions,
+    handleCompleteQuiz,
   };
 }
