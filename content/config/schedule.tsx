@@ -569,6 +569,7 @@ export const baseTopics = [
           <>
             <ul>
               <li>Design principles review</li>
+              <li>Nielsen Norman Group: UX principles and usability heuristics</li>
               <li>Project planning and ideation</li>
               <li>Design project kickoff</li>
             </ul>
@@ -592,12 +593,11 @@ export const baseTopics = [
       },
       {
         date: "Fr, Feb 13",
-        topic: "Exam 1 Review & Nielsen Norman Group",
+        topic: "Exam 1 Review",
         description: (
           <>
             <ul>
               <li>Exam 1 review: HTML/CSS/Web Architecture/Design</li>
-              <li>Nielsen Norman Group: UX principles and usability heuristics</li>
             </ul>
           </>
         ),
