@@ -13,10 +13,14 @@ points: 6
 ## Overview
 This tutorial can be completed individually or in pairs. Working in pairs does not mean "splitting up the work" so that each person does half of the tasks. Rather, both parties should complete the tasks and help one another as questions arise. Because this tutorial is a bit longer than the previous ones, you may have until **Fri, 2/06 at 11:59PM** to complete it. We will use class time on Monday to work on the tutorial, but you are encouraged to start it before Monday's class.
 
-> ### References
+> ## Resources
 > CSS is best understood through practice, and by consulting online resources as needed. Here are a curated list of resources that should help you complete your tasks:
+>
+> ### Video Walkthroughs
+> * <a href="https://drive.google.com/file/d/1AKhX145K4paovJIZ3J7t6ukIKyn-Tt5p/view?usp=drive_link" target="_blank">CSS Grid Lecture</a> (2/2/2026)  
+> * <a href="https://drive.google.com/drive/folders/1cVJRamSL1mVmXQ8Qjwo1IjgbuIxWW7P5?usp=drive_link" target="_blank">Tutorial 2 Walkthrough Videos</a> (2/2/2026) 
 > 
-> #### Common CSS Properties and Techniques
+> ### Common CSS Properties and Techniques
 > * <a href="/spring2026/resources/css-01-rules-of-thumb">CSS Rules of Thumb</a> 
 > * <a href="/spring2026/resources/css-02-selectors">Selectors</a> (try this game for practice: [CSS Diner](https://flukeout.github.io/))
 > * <a href="/spring2026/resources/css-03-color">Color</a>
@@ -25,11 +29,11 @@ This tutorial can be completed individually or in pairs. Working in pairs does n
 > * <a href="/spring2026/resources/css-05-box-model">The Box Model</a>
 > * <a href="/spring2026/resources/css-09-media-queries">Media Queries</a>    
 >
-> #### CSS Grid
+> ### CSS Grid
 > * <a href="/spring2026/resources/css-08-grid">CSS Grid</a>  
 > * <a href="https://cssgridgarden.com/" target="_blank">CSS Grid Garden</a>: Please try to complete at least the first 10 levels 
 > 
-> #### Flex
+> ### Flex
 > 
 > * <a href="/spring2026/resources/css-07-flexbox">Flexbox</a>
 > * <a href="https://flexboxfroggy.com/" target="_blank">Flexbox Froggy</a>: Please try to complete at least the first 10 levels
@@ -63,7 +67,7 @@ Complete the first 14 steps of <a href="https://flukeout.github.io/" target="_bl
 <img class="small frame" src="/spring2026/images/tutorials/tutorial02/exercise01.png" />
 
 ### Task 2: Box Model Properties
-Open `02-box-model` and modify the CSS so that the card looks like the screenshot shown below. You should only need to use [Box Model](../resources/box-model/) properties.
+Open `02-box-model` and modify the CSS so that the card looks like the screenshot shown below. You should only need to use [Box Model](/spring2026/resources/css-05-box-model) properties.
 
 <img class="small" src="/spring2026/images/tutorials/tutorial02/exercise02.png" />
 

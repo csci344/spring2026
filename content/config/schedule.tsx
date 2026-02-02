@@ -423,7 +423,7 @@ export const baseTopics = [
             url: "https://docs.google.com/presentation/d/1gDkJZ400V28ibN9WeZs4x4GBdYzXctXY/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
             draft: 0 
           },
-          { title: "Lecture files", url: "/spring2026/course-files/lectures/lecture07.zip", draft: 0 },
+          { title: "Lecture files", url: "/course-files/lectures/lecture07.zip", draft: 0 },
         ],
         readings: [
           {

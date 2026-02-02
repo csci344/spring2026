@@ -5,6 +5,98 @@
   "questions": [
     {
       "id": "q1",
+      "question": "Add an event handler that changes the background:\n1. A button with id 'bgBtn'\n2. A div with id 'box'\n3. When the button is clicked, set the div background to 'lightblue'",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "Box should not be lightblue initially",
+          "selector": "#box",
+          "property": "style.backgroundColor",
+          "expected": ""
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking the button changes the background",
+          "event": {
+            "type": "click",
+            "selector": "#bgBtn"
+          },
+          "thenCheck": {
+            "selector": "#box",
+            "property": "style.backgroundColor",
+            "expected": "lightblue"
+          }
+        }
+      ],
+      "explanation": "Add a click listener to the button and set box.style.backgroundColor = 'lightblue'."
+    },
+    {
+      "id": "q2",
+      "question": "Add an event handler that adds text from the textbox to a list:\n1. An input with id 'itemInput'\n2. A button with id 'addItem'\n3. A ul with id 'items'\n4. When the button is clicked, add the input text as a new li",
+      "type": "javascript-dom",
+      "testCases": [
+        {
+          "type": "dom-check",
+          "description": "List starts empty",
+          "selector": "#items",
+          "property": "children.length",
+          "expected": 0
+        },
+        {
+          "type": "event-simulation",
+          "description": "Type into the input",
+          "event": {
+            "type": "input",
+            "selector": "#itemInput",
+            "value": "First item"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking the button adds a list item",
+          "event": {
+            "type": "click",
+            "selector": "#addItem"
+          },
+          "thenCheck": {
+            "selector": "#items",
+            "property": "children.length",
+            "expected": 1
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Add another item",
+          "event": {
+            "type": "input",
+            "selector": "#itemInput",
+            "value": "Second item"
+          },
+          "thenCheck": {
+            "selector": "#itemInput",
+            "property": "value",
+            "expected": "Second item"
+          }
+        },
+        {
+          "type": "event-simulation",
+          "description": "Clicking the button adds the second item",
+          "event": {
+            "type": "click",
+            "selector": "#addItem"
+          },
+          "thenCheck": {
+            "selector": "#items",
+            "property": "children.length",
+            "expected": 2
+          }
+        }
+      ],
+      "explanation": "Add a click listener to the button, create an li, set its textContent, and append it to the ul."
+    },
+    {
+      "id": "q3",
       "question": "Create a counter app:\n1. Display a number starting at 0\n2. Add a '+' button that increments the counter\n3. Add a '-' button that decrements the counter\n4. Add a 'Reset' button that sets the counter back to 0",
       "type": "javascript-dom",
       "testCases": [
@@ -58,7 +150,7 @@
       "explanation": "You need to add event listeners to each button and update the counter element's textContent based on the button clicked. Use addEventListener('click', ...) for each button."
     },
     {
-      "id": "q2",
+      "id": "q4",
       "question": "Create a form validation:\n1. An input field for email\n2. A submit button\n3. When the form is submitted, check if the email contains '@'\n4. If valid, show 'Valid email!' in a div with id 'message'\n5. If invalid, show 'Invalid email!' in the same div",
       "type": "javascript-dom",
       "testCases": [
@@ -111,7 +203,7 @@
       "explanation": "Add an event listener to the form's 'submit' event. Use preventDefault() to stop the default form submission, then check if the email input value includes '@'. Update the message div's textContent accordingly (you can use innerHTML or textContent, but textContent is preferred for plain text)."
     },
     {
-      "id": "q3",
+      "id": "q5",
       "question": "Create a todo list:\n1. An input field and 'Add' button\n2. When 'Add' is clicked, add the input value as a new list item to a <ul id='todoList'>\n3. Clear the input after adding\n4. Each list item should have a 'Delete' button that removes that item",
       "type": "javascript-dom",
       "testCases": [
@@ -190,7 +282,7 @@
       "explanation": "Add a click listener to the Add button. When clicked, create a new <li> element, add the input value as text, create a Delete button, append both to the list item, then append the list item to the ul. Add a click listener to each Delete button that removes its parent <li> element."
     },
     {
-      "id": "q4",
+      "id": "q6",
       "question": "Create a theme toggle:\n1. A button with id 'themeToggle'\n2. A div with id 'content' that has initial class 'light'\n3. When the button is clicked, toggle the 'content' div between 'light' and 'dark' classes\n4. The button text should show 'Switch to Dark' when content has 'light' class, and 'Switch to Light' when it has 'dark' class",
       "type": "javascript-dom",
       "testCases": [
@@ -245,7 +337,7 @@
       "explanation": "Add a click listener to the toggle button. Use classList.toggle() or classList.remove()/add() to switch between 'light' and 'dark' classes. Update the button's textContent based on the current theme."
     },
     {
-      "id": "q5",
+      "id": "q7",
       "question": "Create a character counter:\n1. A textarea with id 'textInput'\n2. A span with id 'charCount' that displays the number of characters\n3. The counter should update in real-time as the user types\n4. Display the count in the format: 'Characters: X'",
       "type": "javascript-dom",
       "testCases": [
