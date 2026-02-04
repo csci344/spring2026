@@ -1,0 +1,79 @@
+<div>
+    <h2>CSS Box Model Cheatsheet</h2>
+    <p>The box model describes how every HTML element is a rectangular box with content, padding, border, and margin. Understanding these properties is essential for layout and spacing.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Property</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>margin</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>margin: 10px;</code></li>
+                        <li><code>margin: 10px 20px;</code></li>
+                        <li><code>margin-top: 10px;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Space OUTSIDE the element, between elements</li>
+                        <li>Can be set for all sides or individually (top, right, bottom, left)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>padding</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>padding: 10px;</code></li>
+                        <li><code>padding: 10px 20px;</code></li>
+                        <li><code>padding-top: 10px;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Space INSIDE the element, between content and border</li>
+                        <li>Can be set for all sides or individually (top, right, bottom, left)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>border</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>border: 1px solid #ccc;</code></li>
+                        <li><code>border: dotted 1px #ccc;</code></li>
+                        <li><code>border-top: 2px solid red;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Border around the element (between padding and margin)</li>
+                        <li>Syntax: style width color (e.g., solid 1px #ccc)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>box-sizing</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box-sizing: border-box;</code></li>
+                        <li><code>box-sizing: content-box;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>border-box</strong>: padding and border included in width/height (recommended)</li>
+                        <li><strong>content-box</strong>: padding and border added to width/height (default)</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

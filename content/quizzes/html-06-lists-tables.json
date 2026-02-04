@@ -1,6 +1,7 @@
 {
   "quizName": "HTML Lists & Tables Quiz",
   "start_date": "2026-01-21",
+  "cheatsheet": "html-lists-tables.html",
   "questions": [
     {
       "id": "q1",

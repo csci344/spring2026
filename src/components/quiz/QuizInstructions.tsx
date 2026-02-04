@@ -7,6 +7,10 @@ interface QuizInstructionsProps {
   onStartQuiz: () => void;
   isDark: boolean;
   cheatsheetContent?: string;
+  quizName?: string;
+  hasCompleted?: boolean;
+  previousScore?: number;
+  totalQuestions?: number;
 }
 
 export default function QuizInstructions({
@@ -16,14 +20,37 @@ export default function QuizInstructions({
   onStartQuiz,
   isDark,
   cheatsheetContent,
+  quizName,
+  hasCompleted,
+  previousScore,
+  totalQuestions,
 }: QuizInstructionsProps) {
+  const scorePercentage = previousScore !== undefined && totalQuestions !== undefined && totalQuestions > 0
+    ? Math.round((previousScore / totalQuestions) * 100)
+    : 0;
+
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4" style={isDark ? { color: '#f9fafb' } : undefined}>
+        {/* Quiz Name */}
+        {quizName && (
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2" style={isDark ? { color: '#f9fafb' } : undefined}>
+            {quizName}
+          </h1>
+        )}
+        {/* Previous Score */}
+        {hasCompleted && previousScore !== undefined && totalQuestions !== undefined && (
+          <div className="mb-4">
+            <p className="text-lg text-gray-700 dark:text-gray-300" style={isDark ? { color: '#d1d5db' } : undefined}>
+              Previous score: <span className="font-semibold">{previousScore} / {totalQuestions}</span> ({scorePercentage}%)
+            </p>
+          </div>
+        )}
+        
+        <blockquote>
+        <h2>
           Quiz Instructions
         </h2>
-        <blockquote>
           <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300" style={isDark ? { color: '#d1d5db' } : undefined}>
             <li>Read each question carefully before selecting your answer</li>
             <li>You can navigate between questions using the Previous and Next buttons</li>
@@ -53,12 +80,14 @@ export function QuizInstructionsFooter({
   onClearQuiz,
   onStartQuiz,
   isDark,
+  hasCompleted,
 }: {
   randomMode: boolean;
   onToggleRandomMode: () => void;
   onClearQuiz: () => void;
   onStartQuiz: () => void;
   isDark: boolean;
+  hasCompleted?: boolean;
 }) {
   return (
     <div className="border-t border-gray-200 dark:border-gray-800" style={isDark ? { borderColor: '#374151' } : undefined}>
@@ -98,7 +127,7 @@ export function QuizInstructionsFooter({
             onClick={onStartQuiz}
             className="px-4 py-2 text-sm font-medium text-white bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 rounded-md transition-colors"
           >
-            Start Quiz →
+            {hasCompleted ? 'Review Quiz →' : 'Start Quiz →'}
           </button>
         </div>
       </div>

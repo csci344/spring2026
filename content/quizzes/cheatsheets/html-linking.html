@@ -1,0 +1,78 @@
+<div>
+    <h2>HTML Hyperlinks Cheatsheet</h2>
+    <p>Hyperlinks connect web pages together. The anchor tag (&lt;a&gt;) is used to create links to other pages, files, or sections within the same page.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Tag/Attribute</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>&lt;a&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;a href="page.html"&gt;Link Text&lt;/a&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Anchor tag for creating hyperlinks</li>
+                        <li>Requires href attribute</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>href</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>href="contact.html"</code></li>
+                        <li><code>href="https://example.com"</code></li>
+                        <li><code>href="#section"</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Specifies the link destination</li>
+                        <li>Can be relative path, absolute URL, or anchor (#id)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>target</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>target="_blank"</code></li>
+                        <li><code>target="_self"</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>_blank</strong>: opens in new tab/window</li>
+                        <li><strong>_self</strong>: opens in same window (default)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Path Types</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>href="page.html"</code></li>
+                        <li><code>href="../folder/page.html"</code></li>
+                        <li><code>href="/root/page.html"</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>Same directory</strong>: just filename</li>
+                        <li><strong>Parent directory</strong>: ../folder/file</li>
+                        <li><strong>Root-relative</strong>: /folder/file (from site root)</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

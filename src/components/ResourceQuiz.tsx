@@ -21,6 +21,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [revealedQuestions, setRevealedQuestions] = useState<Set<string>>(new Set());
   const [isReviewMode, setIsReviewMode] = useState<boolean>(false);
+  const [showResetMessage, setShowResetMessage] = useState<boolean>(false);
   // Track if we've already auto-entered review mode to prevent re-triggering
   const hasAutoEnteredReviewModeRef = useRef<boolean>(false);
   // Track if quiz was completed when first loaded (before any state updates)
@@ -295,6 +296,13 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
     setIsReviewMode(false);
     // Reset the auto-review flag so it can trigger again if quiz is completed again
     hasAutoEnteredReviewModeRef.current = false;
+    // Reset hasCompletedFromStorage so button text updates
+    setHasCompletedFromStorage(false);
+    // Show reset confirmation message
+    setShowResetMessage(true);
+    setTimeout(() => {
+      setShowResetMessage(false);
+    }, 3000); // Hide after 3 seconds
   };
 
   const handleReview = () => {
@@ -387,6 +395,14 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
       onClose={handleCloseDrawer}
       isDark={isDark}
     >
+      {/* Reset confirmation message */}
+      {showResetMessage && (
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 animate-fade-in-out pointer-events-none">
+          <div className="bg-green-600 dark:bg-green-500 text-white px-6 py-3 rounded-md shadow-lg">
+            <span className="text-sm font-medium">Quiz has been reset</span>
+          </div>
+        </div>
+      )}
       <div className="flex-1 overflow-y-auto pb-4">
         <div className="max-w-4xl mx-auto p-6">
           {/* Instructions Page */}
@@ -398,6 +414,10 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
               onStartQuiz={handleNext}
               isDark={isDark}
               cheatsheetContent={cheatsheetContent}
+              quizName={quizData.quizName}
+              hasCompleted={hasCompletedFromStorage || completed}
+              previousScore={hasCompletedFromStorage || completed ? score : undefined}
+              totalQuestions={hasCompletedFromStorage || completed ? shuffledQuestions.length : undefined}
             />
           ) : (
             <>
@@ -450,6 +470,7 @@ export default function ResourceQuiz({ quizData, resourceSlug, variant = 'deskto
           onClearQuiz={handleClearQuizWithReveals}
           onStartQuiz={handleNext}
           isDark={isDark}
+          hasCompleted={hasCompletedFromStorage || completed}
         />
       )}
       

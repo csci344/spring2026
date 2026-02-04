@@ -218,6 +218,7 @@ export interface QuizData {
   start_date?: string;
   draft?: number;
   folder?: string;
+  cheatsheet?: string;
   questions: QuizQuestion[];
 }
 
@@ -315,10 +316,6 @@ export function getQuizData(slug: string): QuizData | null {
   let quizPath = path.join(quizzesDirectory, `${slug}.json`);
   let actualQuizSlug = slug;
   
-  console.log('[getQuizData] Looking for quiz with slug:', slug);
-  console.log('[getQuizData] Exact path:', quizPath);
-  console.log('[getQuizData] Exact path exists:', fs.existsSync(quizPath));
-  
   if (!fs.existsSync(quizPath)) {
     // If exact match not found, try pattern matching
     // For example: "css-07-flexbox" should match "css-07a-flexbox.json" or "css-07b-flexbox.json"
@@ -353,27 +350,20 @@ export function getQuizData(slug: string): QuizData | null {
           
           actualQuizSlug = selectedQuiz.replace(/\.json$/, '');
           quizPath = path.join(quizzesDirectory, selectedQuiz);
-          console.log('[getQuizData] Pattern matching found quiz:', selectedQuiz);
-          console.log('[getQuizData] Actual quiz slug:', actualQuizSlug);
         } else {
-          console.log('[getQuizData] No matching quizzes found');
           return null;
         }
       } else {
-        console.log('[getQuizData] Slug pattern did not match');
         return null;
       }
     } else {
-      console.log('[getQuizData] Quizzes directory does not exist');
       return null;
     }
   }
   
   try {
-    console.log('[getQuizData] Loading quiz from:', quizPath);
     const fileContents = fs.readFileSync(quizPath, 'utf8');
     const quizData: QuizData = JSON.parse(fileContents);
-    console.log('[getQuizData] Quiz loaded, folder property:', quizData.folder);
     
     // Load template files from question directories if they exist
     // Use actualQuizSlug (the quiz file name) for loading templates, not the resource slug

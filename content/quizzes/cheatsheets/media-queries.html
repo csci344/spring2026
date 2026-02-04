@@ -1,0 +1,48 @@
+<div>
+    <h2>CSS Media Queries Cheatsheet</h2>
+    <p>Media queries allow you to apply different CSS styles based on screen size, device type, or other conditions. This is how you create responsive designs that work on phones, tablets, and desktops.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Property/Feature</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>@media</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>@media (min-width: 768px) { }</code></li>
+                        <li><code>@media (max-width: 767px) { }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Basic media query syntax</li>
+                        <li><strong>min-width</strong>: applies when screen is at least this wide</li>
+                        <li><strong>max-width</strong>: applies when screen is this wide or smaller</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Common Breakpoints</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>@media (min-width: 768px) { }</code></li>
+                        <li><code>@media (min-width: 1024px) { }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>768px</strong>: tablet devices</li>
+                        <li><strong>1024px</strong>: desktop devices</li>
+                        <li>Mobile-first: start with mobile styles, add larger screen styles with min-width</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

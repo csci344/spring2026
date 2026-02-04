@@ -1,6 +1,7 @@
 {
   "quizName": "CSS Selectors Quiz",
   "start_date": "2026-01-28",
+  "cheatsheet": "selectors.html",
   "questions": [
     {
       "id": "q1",

@@ -1,81 +1,108 @@
 <div>
     <h2>Flexbox Cheatsheet</h2>
+    <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It provides efficient alignment and distribution of space among items in a container.</p>
 
     <table class="cheatsheet-table">
         <thead>
             <tr>
-                <th style="width: 150px;">Property</th>
-                <th style="width: 200px;">Values</th>
+                <th style="width: 200px;">Property</th>
+                <th style="width: 350px;">Examples</th>
                 <th>Notes</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><code>display</code></td>
-                <td><code>flex</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>display: flex;</code></li>
+                    </ul>
+                </td>
                 <td>
                     <ul style="margin: 0; padding-left: 20px;">
                         <li>Makes the element a flex container</li>
                         <li>Required for all flexbox layouts</li>
-                        <li>Example: <code>display: flex;</code></li>
                     </ul>
                 </td>
             </tr>
             <tr>
                 <td><code>flex-direction</code></td>
-                <td><code>row</code> <code>column</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>flex-direction: row;</code></li>
+                        <li><code>flex-direction: column;</code></li>
+                    </ul>
+                </td>
                 <td>
                     <ul style="margin: 0; padding-left: 20px;">
                         <li><strong>row</strong> (default): Items flow horizontally</li>
                         <li><strong>column</strong>: Items flow vertically</li>
-                        <li>Example: <code>flex-direction: row;</code></li>
                     </ul>
                 </td>
             </tr>
             <tr>
                 <td><code>justify-content</code></td>
-                <td><code>center</code> <code>space-between</code> <code>space-around</code> <code>flex-start</code>
-                    <code>flex-end</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>justify-content: center;</code></li>
+                        <li><code>justify-content: space-between;</code></li>
+                        <li><code>justify-content: space-around;</code></li>
+                        <li><code>justify-content: flex-start;</code></li>
+                        <li><code>justify-content: flex-end;</code></li>
+                    </ul>
+                </td>
                 <td>
                     <ul style="margin: 0; padding-left: 20px;">
                         <li>Controls alignment along the main axis (horizontal for row, vertical for column)</li>
                         <li><strong>center</strong>: Centers items</li>
                         <li><strong>space-between</strong>: Equal space between items, no space at edges</li>
-                        <li>Example: <code>justify-content: center;</code></li>
                     </ul>
                 </td>
             </tr>
             <tr>
                 <td><code>align-items</code></td>
-                <td><code>center</code> <code>flex-start</code> <code>flex-end</code> <code>stretch</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>align-items: center;</code></li>
+                        <li><code>align-items: flex-start;</code></li>
+                        <li><code>align-items: flex-end;</code></li>
+                        <li><code>align-items: stretch;</code></li>
+                    </ul>
+                </td>
                 <td>
                     <ul style="margin: 0; padding-left: 20px;">
                         <li>Controls alignment along the cross axis (vertical for row, horizontal for column)</li>
                         <li><strong>center</strong>: Centers items</li>
                         <li><strong>stretch</strong>: Stretch to fill (default)</li>
-                        <li>Example: <code>align-items: center;</code></li>
                     </ul>
                 </td>
             </tr>
             <tr>
                 <td><code>flex-wrap</code></td>
-                <td><code>wrap</code> <code>nowrap</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>flex-wrap: wrap;</code></li>
+                        <li><code>flex-wrap: nowrap;</code></li>
+                    </ul>
+                </td>
                 <td>
                     <ul style="margin: 0; padding-left: 20px;">
                         <li><strong>wrap</strong>: Allows items to wrap to next line when they don't fit</li>
                         <li><strong>nowrap</strong> (default): Items stay on one line</li>
-                        <li>Example: <code>flex-wrap: wrap;</code></li>
                     </ul>
                 </td>
             </tr>
             <tr>
                 <td><code>gap</code></td>
-                <td><code>20px</code> (or any length)</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>gap: 20px;</code></li>
+                    </ul>
+                </td>
                 <td>
                     <ul style="margin: 0; padding-left: 20px;">
                         <li>Adds consistent spacing between flex items</li>
                         <li>Cleaner than using margins on individual items</li>
-                        <li>Example: <code>gap: 20px;</code></li>
                     </ul>
                 </td>
             </tr>

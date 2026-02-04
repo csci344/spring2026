@@ -1,0 +1,145 @@
+<div>
+    <h2>JavaScript DOM Cheatsheet</h2>
+    <p>The Document Object Model (DOM) allows JavaScript to interact with HTML elements. Use these methods to select elements, modify content, and handle events.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method/Property</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>getElementById</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>document.getElementById('myId');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects an element by its id attribute</li>
+                        <li>Returns a single element or null</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>querySelector</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>document.querySelector('#myId');</code></li>
+                        <li><code>document.querySelector('.myClass');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects the first element matching a CSS selector</li>
+                        <li>Returns a single element or null</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>querySelectorAll</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>document.querySelectorAll('.myClass');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects all elements matching a CSS selector</li>
+                        <li>Returns a NodeList (array-like)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>addEventListener</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.addEventListener('click', function() { });</code></li>
+                        <li><code>button.addEventListener('click', () => { });</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Attaches an event handler to an element</li>
+                        <li>Common events: 'click', 'input', 'change'</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>createElement</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>document.createElement('div');</code></li>
+                        <li><code>document.createElement('li');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Creates a new HTML element</li>
+                        <li>Returns the element (not yet added to page)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>appendChild</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>parent.appendChild(newElement);</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Adds an element as the last child of a parent</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>textContent</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.textContent = 'Hello';</code></li>
+                        <li><code>let text = element.textContent;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Gets or sets the text content of an element</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>style</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.style.backgroundColor = 'blue';</code></li>
+                        <li><code>element.style.display = 'none';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Modifies CSS styles of an element</li>
+                        <li>Use camelCase for property names (backgroundColor, not background-color)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>value</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>input.value = 'text';</code></li>
+                        <li><code>let val = input.value;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Gets or sets the value of form inputs (input, textarea, select)</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

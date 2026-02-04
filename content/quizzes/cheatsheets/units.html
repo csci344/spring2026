@@ -1,0 +1,121 @@
+<div>
+    <h2>CSS Units Cheatsheet</h2>
+    <p>CSS units determine how sizes are calculated. Absolute units are fixed, while relative units scale based on parent elements or viewport size. Use relative units for responsive design.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Unit</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>px</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>width: 100px;</code></li>
+                        <li><code>font-size: 16px;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Absolute unit: fixed size (pixels)</li>
+                        <li>Does not scale with parent or viewport</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>em</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>font-size: 1.5em;</code></li>
+                        <li><code>margin: 2em;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Relative unit: relative to parent element's font-size</li>
+                        <li>1.5em = 1.5 × parent's font-size</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>rem</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>font-size: 1.2rem;</code></li>
+                        <li><code>padding: 1rem;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Relative unit: relative to root element's font-size (usually &lt;html&gt;)</li>
+                        <li>More predictable than em (not affected by parent)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>%</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>width: 100%;</code></li>
+                        <li><code>height: 50%;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Relative unit: relative to parent element</li>
+                        <li>100% = 100% of parent's width/height</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>vw</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>width: 50vw;</code></li>
+                        <li><code>font-size: 5vw;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Viewport width: 1% of browser window width</li>
+                        <li>50vw = 50% of viewport width</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>vh</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>height: 100vh;</code></li>
+                        <li><code>min-height: 50vh;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Viewport height: 1% of browser window height</li>
+                        <li>100vh = full viewport height</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>fr</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>grid-template-columns: 1fr 2fr;</code></li>
+                        <li><code>grid-template-rows: 1fr 1fr 1fr;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Fraction: used in CSS Grid for flexible sizing</li>
+                        <li>Represents a fraction of available space</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

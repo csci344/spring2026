@@ -1,0 +1,106 @@
+<div>
+    <h2>HTML Forms Cheatsheet</h2>
+    <p>HTML forms collect user input and submit data to a server. Forms contain various input elements like text fields, buttons, checkboxes, and dropdowns.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Tag/Attribute</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>&lt;form&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;form action="/submit" method="post"&gt;&lt;/form&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Container for form elements</li>
+                        <li><strong>action</strong>: where form data is sent</li>
+                        <li><strong>method</strong>: get or post</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;input&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;input type="text" name="username"&gt;</code></li>
+                        <li><code>&lt;input type="email" name="email"&gt;</code></li>
+                        <li><code>&lt;input type="password" name="pass"&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Self-closing tag for various input types</li>
+                        <li><strong>type</strong>: text, email, password, checkbox, radio, etc.</li>
+                        <li><strong>name</strong>: identifies the input (required for submission)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;label&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;label for="username"&gt;Username:&lt;/label&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Label for form inputs (improves accessibility)</li>
+                        <li>Use <strong>for</strong> attribute to link to input id</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;textarea&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;textarea name="message" rows="4" cols="50"&gt;&lt;/textarea&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Multi-line text input</li>
+                        <li><strong>rows</strong> and <strong>cols</strong> set size</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;select&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;select name="country"&gt;&lt;option&gt;USA&lt;/option&gt;&lt;/select&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Dropdown menu</li>
+                        <li>Contains &lt;option&gt; elements</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>&lt;button&gt;</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>&lt;button type="submit"&gt;Submit&lt;/button&gt;</code></li>
+                        <li><code>&lt;button type="button"&gt;Click&lt;/button&gt;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Button element</li>
+                        <li><strong>type="submit"</strong>: submits the form</li>
+                        <li><strong>type="button"</strong>: regular button (no form submission)</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

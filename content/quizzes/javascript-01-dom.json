@@ -2,6 +2,7 @@
   "quizName": "JavaScript DOM Exercises",
   "start_date": "2026-02-01",
   "draft": 1,
+  "cheatsheet": "dom.html",
   "questions": [
     {
       "id": "q1",

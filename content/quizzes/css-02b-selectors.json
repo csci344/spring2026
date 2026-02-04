@@ -2,6 +2,7 @@
   "quizName": "CSS Selectors Practice (Coding Exercises)",
   "start_date": "2026-01-28",
   "draft": 0,
+  "cheatsheet": "selectors.html",
   "questions": [
     {
       "id": "q1",

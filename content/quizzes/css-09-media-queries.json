@@ -1,6 +1,7 @@
 {
   "quizName": "CSS Media Queries Quiz",
   "start_date": "2026-01-30",
+  "cheatsheet": "media-queries.html",
   "questions": [
     {
       "id": "q1",

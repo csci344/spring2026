@@ -30,6 +30,12 @@ Selectors tell CSS which HTML elements to style. Think of them as "targeting" sp
 
 There is an excellent [selector tester](http://www.w3schools.com/cssref/trysel.asp) available on the W3Schools website that does a deeper dive into some of the more complex selectors.
 
+## Quizzes
+
+Test your knowledge of CSS selectors with these quizzes:
+* [CSS Selectors Quiz](#take-the-quiz)
+* [CSS Selectors Practice (Coding Exercises)](#take-the-quiz)
+
 ## Basic Selector Examples
 
 ### Element Selector

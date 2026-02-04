@@ -1,0 +1,144 @@
+<div>
+    <h2>CSS Selectors Cheatsheet</h2>
+    <p>CSS selectors are patterns used to select and style HTML elements. They allow you to target specific elements, classes, IDs, or element relationships to apply styles.</p>
+
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Selector Type</th>
+                <th style="width: 350px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>Tag/Element</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>p { color: blue; }</code></li>
+                        <li><code>h1 { font-size: 2em; }</code></li>
+                        <li><code>div { margin: 10px; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects all elements of a specific type</li>
+                        <li>Uses the HTML element name directly</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>Class</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>.highlight { background-color: yellow; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects all elements with a specific class attribute</li>
+                        <li>Starts with a period (.)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>ID</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>#main-title { font-size: 32px; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects the element with a specific ID attribute</li>
+                        <li>Starts with a hash (#)</li>
+                        <li>IDs should be unique on a page</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>Descendant</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>div p { font-style: italic; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects elements that are descendants (at any nesting level)</li>
+                        <li>Uses a space between selectors</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>Direct Child</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>ul.menu > li { border: 1px solid hotpink; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects only direct children (not grandchildren)</li>
+                        <li>Uses the &gt; symbol</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>Grouping</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>h1, h2, h3 { color: red; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Applies the same styles to multiple selectors</li>
+                        <li>Uses a comma to separate selectors</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>Universal</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>* { margin: 0; padding: 0; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects all elements on the page</li>
+                        <li>Useful for resetting styles or applying global rules</li>
+                    </ul>
+                </td>
+            </tr><tr>
+                <td><code>Multiple Classes</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>.red.blue { color: purple; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects elements that have both classes (no space between)</li>
+                        <li>Chain class selectors together without spaces</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>Element + Class</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>td.dark { background-color: #333; }</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects specific elements that have a class</li>
+                        <li>Combine element name with class (no space)</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

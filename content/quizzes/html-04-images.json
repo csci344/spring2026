@@ -1,6 +1,7 @@
 {
   "quizName": "HTML Images Quiz",
   "start_date": "2026-01-21",
+  "cheatsheet": "html-images.html",
   "questions": [
     {
       "id": "q1",
