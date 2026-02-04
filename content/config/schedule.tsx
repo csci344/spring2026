@@ -518,7 +518,11 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { 
+            title: "Slides", 
+            url: "https://docs.google.com/presentation/d/1x3Jl24VkRICVy913N2Pf1LYEXM3sVpyq/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+            draft: 0 
+          },
         ],
         readings: [
           {
@@ -531,7 +535,7 @@ export const baseTopics = [
           {
             citation: (
               <>
-                Groves, Karl (Sept., 2013). <a href="https://karlgroves.com/2013/09/05/the-6-simplest-web-accessibility-tests-anyone-can-do" target="_blank">The 6 Simplest Web Accessibility Tests Anyone Can Do</a>.
+                Groves, Karl (Sept., 2013). <a href="https://karlgroves.com/the-6-simplest-web-accessibility-tests-anyone-can-do/" target="_blank">The 6 Simplest Web Accessibility Tests Anyone Can Do</a>.
               </>
             ),
           },
