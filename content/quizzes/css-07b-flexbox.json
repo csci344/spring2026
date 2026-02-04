@@ -2,6 +2,8 @@
   "quizName": "CSS Flexbox Quiz (Coding Exercises)",
   "start_date": "2026-01-30",
   "draft": 0,
+  "folder": "css-07b-flexbox",
+  "cheatsheet": "flexbox.html",
   "questions": [
     {
       "id": "q1",
