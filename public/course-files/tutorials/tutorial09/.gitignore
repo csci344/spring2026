@@ -1,9 +1,0 @@
-*.pyc
-.DS_Store
-bin
-lib
-Scripts
-env
-venv
-.venv
-poetry.lock
