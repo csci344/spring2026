@@ -2,7 +2,7 @@
 title: "CSS Frameworks (Tailwind)"
 type: "tutorial"
 num: 3
-draft: 1
+draft: 0
 assigned_date: "2026-02-06"
 due_date: "2026-02-09"
 heading_max_level: 3
@@ -10,12 +10,9 @@ order: 3
 points: 6
 ---
 
-> ## <span class="badge info">New</span> Getting Started Video Walkthrough
-> Here is a <a href="https://drive.google.com/drive/folders/1w8fkXxUfbAKrICKmWvrsLOs_sLtc5c-x?usp=sharing" target="_blank">video walkthrough</a> of Tutorial 3. Sorry about the confusion in class on Friday!
-
 > **About Today's Tutorial:** Today's tutorial is based on the <a href="https://www.youtube.com/watch?v=sNXfI3woBEw" target="_blank">Get Started With Tailwind CSS</a> video tutorial by John Komarnicki. If you would like additional context / explanation, please check out the video!
 >
-> Here are today's <a href="https://docs.google.com/presentation/d/1CeW14CVyrmWR1bZiMRMOtKpDq8T1hQP8/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">introductory slides</a>.
+> * Here are today's <a href="https://docs.google.com/presentation/d/1h5bsQUmOrtDlHITm8XROME6dGUN6kwk0/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">introductory slides</a>.
 
 ## Suggested Readings
 * [Theory] <a href="https://designlab.com/blog/guide-to-ux-design-systems" target="_blank">Design Systems 101: An Introductory Guide</a>
@@ -23,13 +20,22 @@ points: 6
 * [Practice] <a href="https://www.creative-tim.com/twcomponents/cheatsheet" target="_blank">Tailwind Cheatsheet</a>
 
 ## Set Up & Configuration
-Most practicing front-end developers use frameworks to help them organize and maintain their HTML, CSS, and JavaScript files. In this class, we will be using Node.js to help us manage various client-side frameworks. You already installed Node.js during the first week of CSCI344. When you did this, you installed a JavaScript engine (specifically, the V8 JavaScript Engine that powers Chrome), a built-in package manager, `npm` -- to manage and install dependencies, and a way to "transpile" higher-level languages (e.g., TypeScript, SCSS, CoffeeScript, React, etc.) into "vanilla" HTML, CSS, and JavaScript. Today, we're going to try using Node.js to help us work with a third-party CSS library and design system called **Tailwind**. Please follow the set up and configuration instructions below so that you can complete the tutorial.
+
+Most practicing front-end developers use frameworks to help them organize and maintain their HTML, CSS, and JavaScript files. In this class, we will be using Node.js to help us manage various client-side frameworks.
+
+You already installed Node.js during the first week of CSCI344. When you did this, you installed:
+1. A JavaScript engine (specifically, the V8 JavaScript Engine that powers Chrome)
+1. A built-in package manager, `npm` -- to manage and install dependencies
+
+These tools, among other things, provide a way to "transpile" higher-level languages (e.g., TypeScript, SCSS, CoffeeScript, React, etc.) into "vanilla" HTML, CSS, and JavaScript
+
+Today, we're going to try using Node.js to help us work with a third-party CSS library and design system called **Tailwind**. Please follow the set up and configuration instructions below so that you can complete the tutorial.
 
 <a href="/spring2026/course-files/tutorials/tutorial03.zip" class="nu-button">Download Tutorial Files <i class="fas fa-download"></i></a>
 
 Download the `tutorial03.zip` file, unzip it and move the unzipped tutorial03 folder into the `csci344/tutorials` folder (see diagram below).
 
-```
+```bash
 csci344
     |-- tutorials
     │   |-- tutorial02
@@ -68,106 +74,28 @@ If you did this correctly, a `package.json` file should have been created at the
 Next, you will install the Tailwind library by issuing the following command on the terminal:
 
 ```bash
-npm install -D tailwindcss@3.4.11
+npm install -D tailwindcss @tailwindcss/cli
+mkdir public
 ```
 
-This command asks the node package manager to go out to the Internet and download the tailwind.css library and any additional dependencies that tailwind requires. When the download is complete, you should see output on your terminal that looks like this:
-
-```bash
-added 113 packages, and audited 114 packages in 4s
-
-29 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
-```
-
-You should also notice that a `node_modules` directory has been created inside of `tutorial03`, which contains the third-party modules (tailwind and some dependencies) that you just downloaded from the Internet. We'll talk more about this in the coming weeks.
+This command asks the node package manager to go out to the Internet and download the tailwind.css library and any additional dependencies that tailwind requires. When the download is complete, you should notice that a `node_modules` directory has been created inside of `tutorial03`, which contains the third-party modules (tailwind and some dependencies) that you just downloaded from the Internet. We'll talk more about this in the coming weeks.
 
 > **Pro Tip**: Typically, you exclude third-party packages (like the ones in your `node_modules` folder) from version control. To do this in git, create a `.gitignore` file and specify all of the files and folders that you do not want to track. Note that this has already been done for you: if you open the `tutorial03/.gitignore` file in VS Code, you can see that `.gitignore` has excluded the `node_modules` folder.
 
-### 3. Configure Tailwind via the `tailwind.config.js` file
-Tailwind also requires that you create a special configuration file called `tailwind.config.js`. To autogenerate this file, type the following on the terminal:
+
+### 3. Start the Tailwind Bundler
 
 ```bash
-npx tailwindcss init
+npx tailwindcss -i ./src/input.css -o ./public/output.css --watch
 ```
 
-After generating it, you will edit `tailwind.config.js` by modifying the content entry as follows in order to tell the tailwind build process which of your website files will be using tailwind: 
+This script will rebuild your `public/output.css` CSS file **every time you save an HTML file**. So, as you add various tailwind classes to your `index.html` file, a new version of your stylesheet will be generated in `public/output.css`. Keep the terminal open so that this script can continue doing its job. It has to be running while you add classes to your HTML file.
 
-```
-content: ["./*html"],
-```
+> **Tips on the Tailwind bundler:** 
+> * The bundler command must be running in order for your Tailwind stylesheet to build correctly (`public/output.css`).
+> *  `public/output.css` is auto-generated by the bundler (do not edit it or your edits will be overwritten). 
 
-When you're done, your `tailwind.config.js` file should look like this:
-
-```js
-module.exports = {
-    content: ["./*html"],
-    theme: {
-        extend: {},
-    },
-    plugins: [],
-};
-```
-
-### 4. Configure your package.json
-You will also need to configure your `package.json` file so that you can compile your tailwind css files. To do this, you will add a "build:tailwind" entry to `package.json` inside of the "scripts" section. Note that in JSON, each key-value pair needs to be separated by a comma.
-
-```json
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:tailwind": "tailwindcss -i ./src/input.css -o public/output.css --watch"
-  }
-```
-
-When you're done, your `package.json` file should look like this:
-
-```json
-{
-  "name": "tutorial03",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:tailwind": "tailwindcss -i ./src/input.css -o public/output.css --watch"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "tailwindcss": "^3.4.10"
-  }
-}
-```
-
-### 5. Configure your stylesheet
-Open the `src/input.css` file in VS Code. It should be empty. In this file, you will add the following lines to the top of this file:
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-Thes three directives mean that when Tailwind builds your stylesheet, it will be drawing on styling classes that are defined in the `base`, `components`, and `utilities` libraries in the Tailwind package.
-
-### 6. Build your stylesheet
-Finally, you're ready to build your Tailwind stylesheet. To do this, issue the following command in the terminal:
-
-```bash
-npm run build:tailwind
-```
-
-This script will rebuild your `public/output.css` CSS file **every time you save your `index.html` file**. So, as you add various tailwind classes to your `index.html` file, a new version of `output.css` will be generated. Keep the terminal open so that this script can continue doing its job. It has to be running while you add classes to your HTML file.
-
-> **Tip:** Take a look at the `public/output.css` file in your code editor. 
-> * This file is generated by the tailwind bundler (which is run via  the `npm run build:tailwind` command). 
-> * You don't edit this file (or your edits will be overwritten) but this is the actual file that your browser will end up reading. 
-> 
-
-### 7. Link your compiled tailwind stylesheet
+### 4. Link your "bundled" Tailwind stylesheet
 Finally, add a link from your `index.html` file to your auto-generated Tailwind stylesheet (`public/output.css`) by adding the following link within the `<head>` tag of your `index.html` file: 
 
 ```html
@@ -192,19 +120,16 @@ Your entire `index.html` file should look something like this (ensure that your 
 </html>
 ```
 
-### 8. Install Tailwind CSS IntelliSense
+### 5. Install Tailwind CSS IntelliSense
 Finally, to make it more convenient for you to use the Tailwind library, please install the **"Tailwind CSS IntelliSense"** extension in VS Code. You will click the "Extensions" icon (left toolbar, looks like 4 squares), search for **"Tailwind CSS IntelliSense"**, and install it:
 
 <img class="large frame" src="/spring2026/images/tutorials/tutorial03/extension.png" />
 
-### 9. Review
+### Configuration Summary
 To recap what you've done, you:
 1. Created a new Node.js project (`npm init -y`)
-1. Installed the dependencies (external JavaScript libraries) that allow you to work with tailwind (`npm install -D tailwindcss`)
-1. Configured tailwind to "watch" your `index.html` file (within `tailwind.config.js`) so that it automatically builds your CSS file when you make changes.
-1. Imported some Tailwind style modules in your `src/input.css`
-1. Taught node.js how to compile your `src/input.css` stylesheet by adding the `build:tailwind` entry to `package.json`.
-1. Ran the tailwind compilation script to continuously generate the `public/output.css` file as you make changes to your `index.html` file.
+1. Installed the dependencies (external JavaScript libraries) that allow you to work with tailwind (`npm install -D tailwindcss @tailwindcss/cli`)
+1. Ran the tailwind bundler to automatically build your `public/output.css` file as you make changes to your `index.html` file (`npx tailwindcss -i ./src/input.css -o ./public/output.css --watch`).
 1. Linked your `index.html` to `public/output.css` 
 1. Installed the "Tailwind CSS IntelliSense" extension to make coding easier.
 
@@ -260,9 +185,8 @@ Your `src/input.css` stylesheet should now look like this:
 
 ```css
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 ```
 
 Once you've done this, you're going to make some changes to your `tailwind.config.js` file's theme property as follows:
@@ -413,15 +337,17 @@ One thing you might be thinking is "geee, this is really repetitive and tedious!
 > If you think that front-end web dev might be something you'd like to pursue, I recommend that you spend a little more time with the Tailwind framework by looking at some pre-made templates and widgets. Here's a suggested set of tasks:
 > 
 > 1. Browse some of the free Tailwind widget / theme websites:
-    * <a href="https://tailwindcss.com/docs/container" target="_blank">Tailwind Documentation</a>
-    * <a href="https://www.hyperui.dev/" target="_blank">HyperUI</a>
-    * <a href="https://merakiui.com/components" target="_blank">MerakiUI</a>
-    * <a href="https://www.tailwindawesome.com/?price=free&type=template" target="_blank">Tailwind Awesome</a>   
+>
+>    * <a href="https://tailwindcss.com/docs/container" target="_blank">Tailwind Documentation</a>
+>    * <a href="https://tailblocks.cc/" target="_blank">Tailblocks</a>
+>    * <a href="https://merakiui.com/components" target="_blank">MerakiUI</a>
+>    * <a href="https://www.tailwindawesome.com/?price=free&type=template" target="_blank">Tailwind Awesome</a>   
 > 1. Try to find some HTML snippets common widgets (such as the ones listed below), and paste them into the `get_creative.html` webpage:
-    * A header / nav bar
-    * A landing section (sometimes called a "Hero Section")
-    * A card
-    * A footer
+>
+>    * A header / nav bar
+>    * A landing section (sometimes called a "Hero Section")
+>    * A card
+>    * A footer
 > 1. Try to customize the colors, widths, etc. of the frankenstein page you just made.
 > 1. If you want to take a look at a sample, take a look at <a href="https://vanwars.github.io/csci344/tutorials/tutorial03/get-creative.html" target="_blank">Sarah's Tailwind experiments</a>.
 

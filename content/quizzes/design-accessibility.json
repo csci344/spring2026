@@ -1,0 +1,225 @@
+{
+  "quizName": "Design & Accessibility Quiz",
+  "start_date": "2026-02-06",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "What are the four main principles of composition discussed in the lecture?",
+      "options": [
+        "Balance, Unity, Rhythm, Emphasis",
+        "Proximity, Alignment, Repetition, Contrast",
+        "Color, Typography, Spacing, Layout",
+        "Hierarchy, Scale, Proportion, Movement"
+      ],
+      "correct": 1,
+      "explanation": "The four main principles of composition are Proximity, Alignment, Repetition, and Contrast. These principles help create effective visual designs."
+    },
+    {
+      "id": "q2",
+      "question": "According to the principle of proximity, what does physical closeness imply?",
+      "options": [
+        "That items are visually balanced",
+        "That items have a relationship",
+        "That items are aligned properly",
+        "That items have high contrast"
+      ],
+      "correct": 1,
+      "explanation": "The principle of proximity states that physical closeness implies a relationship. Group related items together and separate items that are not related."
+    },
+    {
+      "id": "q3",
+      "question": "What box model properties can help you create proximity and alignment?",
+      "options": [
+        "Color and background-color",
+        "Padding and margin",
+        "Font-size and font-weight",
+        "Border-width and border-style"
+      ],
+      "correct": 1,
+      "explanation": "Padding and margin are box model properties that control spacing around elements. Margin creates space between elements (proximity), while padding creates space inside elements. Both can be used to create alignment and control the visual relationships between elements."
+    },
+    {
+      "id": "q5",
+      "question": "For contrast to be effective, what must it be?",
+      "options": [
+        "Subtle and understated",
+        "Strong and bold",
+        "Monochromatic",
+        "Complementary in hue"
+      ],
+      "correct": 1,
+      "explanation": "For contrast to be effective, it must be strong and bold. Contrast can be created through size, color (cool v. warm), whitespace, or asymmetry."
+    },
+    {
+      "id": "q6",
+      "question": "Approximately what percentage of the U.S. population has some form of a disability?",
+      "options": [
+        "10%",
+        "15%",
+        "26%",
+        "35%"
+      ],
+      "correct": 2,
+      "explanation": "Approximately 26% of the U.S. population has some form of a disability. This makes accessibility a critical consideration in web design."
+    },
+    {
+      "id": "q7",
+      "question": "What legal precedent established that the Americans with Disabilities Act (ADA) applies to websites?",
+      "options": [
+        "The Amazon ruling",
+        "The Domino's Pizza ruling",
+        "The Google ruling",
+        "The Facebook ruling"
+      ],
+      "correct": 1,
+      "explanation": "The Domino's Pizza ruling established that the ADA applies to websites, making inaccessibility potentially illegal."
+    },
+    {
+      "id": "q11",
+      "question": "What is the standard for web accessibility?",
+      "options": [
+        "ADA Guidelines",
+        "WCAG (Web Content Accessibility Guidelines)",
+        "Section 508",
+        "W3C Standards"
+      ],
+      "correct": 1,
+      "explanation": "WCAG (Web Content Accessibility Guidelines) is the set of standards for web accessibility. There are plenty of accessibility resources available to help you get started."
+    },
+    {
+      "id": "q13",
+      "question": "What should you always set for a webpage to improve accessibility?",
+      "options": [
+        "The viewport meta tag",
+        "The language attribute (e.g., <html lang=\"en\">)",
+        "The charset encoding",
+        "The title tag"
+      ],
+      "correct": 1,
+      "explanation": "You should always set the language of a webpage (e.g., <html lang=\"en\">) to improve accessibility, especially for screen readers."
+    },
+    {
+      "id": "q14",
+      "question": "Why is semantic HTML important for accessibility?",
+      "options": [
+        "It makes pages load faster",
+        "It provides meaning and structure that screen readers can understand",
+        "It reduces file size",
+        "It improves SEO only"
+      ],
+      "correct": 1,
+      "explanation": "Semantic HTML provides meaning and structure that screen readers and other assistive technologies can understand, making content more accessible to users with disabilities."
+    },
+    {
+      "id": "q15",
+      "question": "What is the purpose of the alt attribute on images?",
+      "options": [
+        "To provide a tooltip when hovering over the image",
+        "To provide alternative text that describes the image for screen readers and when images fail to load",
+        "To specify the image file path",
+        "To set the image dimensions"
+      ],
+      "correct": 1,
+      "explanation": "The alt attribute provides alternative text that describes the image. This is essential for screen readers to convey image content to blind users, and it's also displayed when images fail to load."
+    },
+    {
+      "id": "q16",
+      "question": "What should you do if an image is purely decorative and doesn't convey important information?",
+      "options": [
+        "Leave the alt attribute empty (alt=\"\")",
+        "Describe the image in detail",
+        "Use the filename as alt text",
+        "Omit the alt attribute entirely"
+      ],
+      "correct": 0,
+      "explanation": "For decorative images that don't convey important information, you should use an empty alt attribute (alt=\"\"). This tells screen readers to skip the image, preventing unnecessary announcements."
+    },
+    {
+      "id": "q17",
+      "question": "Why is keyboard navigation important for accessibility?",
+      "options": [
+        "It makes websites faster to use",
+        "Many users with mobility disabilities cannot use a mouse and rely on keyboard navigation",
+        "It's required by law",
+        "It improves SEO"
+      ],
+      "correct": 1,
+      "explanation": "Keyboard navigation is essential because many users with mobility disabilities cannot use a mouse and rely entirely on keyboard navigation. All interactive elements must be keyboard accessible."
+    },
+    {
+      "id": "q21",
+      "question": "What does ARIA stand for and what is its purpose?",
+      "options": [
+        "Accessible Rich Internet Applications - provides additional semantic information for assistive technologies",
+        "Automated Responsive Interface Attributes - makes pages responsive",
+        "Advanced Responsive Internet Applications - improves performance",
+        "Accessible Responsive Internet Attributes - handles mobile layouts"
+      ],
+      "correct": 0,
+      "explanation": "ARIA stands for Accessible Rich Internet Applications. It provides additional semantic information through attributes that help assistive technologies understand and interact with web content, especially for dynamic content."
+    },
+    {
+      "id": "q22",
+      "question": "What should you use for descriptive links to improve accessibility?",
+      "options": [
+        "Click here",
+        "More info here",
+        "Descriptive text like 'accessibility resources'",
+        "URL addresses"
+      ],
+      "correct": 2,
+      "explanation": "You should use descriptive links (e.g., 'accessibility resources') rather than generic text like 'more info here' or 'click here' to improve accessibility, especially for screen readers."
+    },
+    {
+      "id": "q23",
+      "question": "What can the WAVE browser extension help you check? (Select all that apply)",
+      "type": "select-all",
+      "options": [
+        "Missing alt text on images",
+        "Color contrast issues",
+        "Missing form labels",
+        "Missing heading structure",
+        "Keyboard navigation problems",
+        "Missing language attribute"
+      ],
+      "correct": [0, 1, 2, 3, 4, 5],
+      "explanation": "The WAVE browser extension can help check many accessibility issues including missing alt text, color contrast problems, missing form labels, heading structure issues, keyboard navigation problems, and missing language attributes. It's a comprehensive accessibility testing tool."
+    },
+    {
+      "id": "q24",
+      "question": "What is the purpose of heading hierarchy (h1, h2, h3, etc.) for accessibility?",
+      "options": [
+        "To make text larger",
+        "To provide document structure that screen readers can navigate",
+        "To improve page load speed",
+        "To add visual styling only"
+      ],
+      "correct": 1,
+      "explanation": "Heading hierarchy provides document structure that screen readers can use to navigate. Users can jump between headings to quickly understand and navigate the page structure, similar to a table of contents."
+    },
+    {
+      "id": "q26",
+      "question": "What is the purpose of captions and transcripts for video and audio content?",
+      "options": [
+        "To improve SEO",
+        "To make content accessible to deaf and hard-of-hearing users, as well as users in noisy environments",
+        "To reduce file size",
+        "To improve video quality"
+      ],
+      "correct": 1,
+      "explanation": "Captions and transcripts make audio and video content accessible to deaf and hard-of-hearing users. They're also helpful for users in noisy environments, users learning a language, and for SEO purposes."
+    },
+    {
+      "id": "q27",
+      "question": "What should you avoid when designing for users with color blindness?",
+      "options": [
+        "Using any colors at all",
+        "Relying solely on color to convey important information",
+        "Using high contrast colors",
+        "Using semantic HTML"
+      ],
+      "correct": 1,
+      "explanation": "You should avoid relying solely on color to convey important information. Instead, use additional indicators like icons, text labels, or patterns. For example, don't just use red/green to indicate errors/success - also include text or icons."
+    }
+  ]
+}

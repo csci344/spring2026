@@ -568,14 +568,14 @@ export const baseTopics = [
     meetings: [
       {
         date: "Mo, Feb 9",
-        topic: "Design Project Workshop",
+        topic: "UX/UI Design: Wireframing",
         description: (
           <>
             <ul>
-              <li>Design principles review</li>
-              <li>Nielsen Norman Group: UX principles and usability heuristics</li>
-              <li>Project planning and ideation</li>
-              <li>Design project kickoff</li>
+              <li>Introduction to wireframing and information architecture</li>
+              <li>Layout, hierarchy, and user flows</li>
+              <li>Creating low-fidelity wireframes in Figma</li>
+              <li>Instagram wireframing practice</li>
             </ul>
           </>
         ),
@@ -585,12 +585,14 @@ export const baseTopics = [
       },
       {
         date: "We, Feb 11",
-        topic: "Design Project Work Day",
+        topic: "UX/UI Design: High-Fidelity Prototypes",
         description: (
           <>
             <ul>
-              <li>In-class time to work on design project</li>
-              <li>Peer feedback and iteration</li>
+              <li>Visual design principles: color, typography, spacing</li>
+              <li>Creating high-fidelity prototypes in Figma</li>
+              <li>Design systems and consistency</li>
+              <li>Peer review and feedback</li>
             </ul>
           </>
         ),

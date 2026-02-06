@@ -4,6 +4,7 @@ group: "Design"
 group_order: 3
 order: 1
 quicklink: 0
+quizzes: ["design-accessibility"]
 ---
 
 
