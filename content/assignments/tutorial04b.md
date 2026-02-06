@@ -1,22 +1,21 @@
 ---
-title: "Instagram High-Fidelity Prototype"
-type: activity
+title: "Instagram High-Fidelity Prototype in Figma"
+type: "tutorial"
+num: 4b
 draft: 1
-due_date: "2026-02-11"
-start_date: "2026-02-11"
+assigned_date: "2026-02-11"
+due_date: "2026-02-18"
 heading_max_level: 3
-num: 5b
+order: 5
+points: 6
 ---
 
-# Instagram High-Fidelity Prototype in Figma
+In this activity, you will transform your wireframes into a polished, high-fidelity prototype with colors, typography, spacing, and visual design.
 
-**Goal:** Transform your wireframes into a polished, high-fidelity prototype with colors, typography, spacing, and visual design.
+> ## Assigned Readings & Videos
+> * <a href="" target="_blank">R1</a>
+> * <a href="" target="_blank">R1</a>
 
-**Time:** 70 minutes
-
-**Prerequisites:** You should have completed the Instagram wireframes activity from Day 1.
-
----
 
 ## Why High-Fidelity Prototypes?
 

@@ -562,25 +562,33 @@ export const baseTopics = [
 
   {
     id: 5,
-    title: "Design Project",
+    title: "Mockups & Wireframes",
     description:
-      "Students will create an HTML/CSS project of their own choosing that demonstrates design principles, accessibility, and technical skills learned in HTML and CSS.",
+      "Students will create mockups and wireframes for their PhotoApp project.",
     meetings: [
       {
         date: "Mo, Feb 9",
         topic: "UX/UI Design: Wireframing",
         description: (
           <>
-            <ul>
-              <li>Introduction to wireframing and information architecture</li>
-              <li>Layout, hierarchy, and user flows</li>
-              <li>Creating low-fidelity wireframes in Figma</li>
-              <li>Instagram wireframing practice</li>
-            </ul>
+            <p>Part 1 of a two-part tutorial on low-fidelity prototyping.</p>
           </>
         ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="https://www.youtube.com/watch?v=iyrEStiTZh0" target="_blank">Figma Wireframe Tutorial for Beginners</a>. Aliena Cai
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                <a href="https://www.interaction-design.org/literature/topics/low-fidelity-prototypes" target="_blank">Low-Fidelity Prototypes</a>. Interaction Design Foundation
+              </>
+            ),
+          },
         ],
       },
       {

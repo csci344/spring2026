@@ -80,6 +80,7 @@ td {
   border-color: var(--border);
   color: var(--foreground);
   word-wrap: break-word;
+  vertical-align: top;
 }
 
 th {
@@ -87,6 +88,12 @@ th {
   border-color: var(--border);
   background: var(--table-header);
   color: var(--foreground);
+}
+
+.wireframe-rules-table td,
+.wireframe-rules-table th {
+  border-left: solid 1px var(--border) !important;
+  vertical-align: top;
 }
 
 /* a {

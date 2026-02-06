@@ -1,12 +1,19 @@
 ---
 title: "Instagram Wireframes in Figma"
-type: activity
+type: "tutorial"
+num: 4a
 draft: 1
-due_date: "2026-02-09"
-start_date: "2026-02-09"
+assigned_date: "2026-02-09"
+due_date: "2026-02-18"
 heading_max_level: 3
-num: 5a
+order: 5
+points: 6
 ---
+
+> ## Assigned Readings & Videos
+> Before completing this tutorial, please watch the tutorial Figma video, and complete the low-fidelity prototype reading:
+> 1. <a href="https://www.youtube.com/watch?v=iyrEStiTZh0" target="_blank">Figma Wireframe Tutorial for Beginners</a>. Aliena Cai
+> 1. <a href="https://www.interaction-design.org/literature/topics/low-fidelity-prototypes" target="_blank">Low-Fidelity Prototypes</a>. Interaction Design Foundation
 
 In this activity, you will create a low-fidelity wireframe of the Instagram feed screen to practice layout, hierarchy, and information architecture.
 
@@ -102,32 +109,10 @@ Recreate the Instagram feed screen wireframes shown in the starter file for both
 </table>
 
 
-## 4. Submission
-
-Export your wireframes as images or share your Figma file link.
-
-**What you should have:**
-- [ ] Mobile feed screen wireframe (375px width)
-  - [ ] Navigation bar at the top
-  - [ ] Stories section
-  - [ ] At least 2-3 post cards with all required elements
-- [ ] Desktop feed screen wireframe (1200px width)
-  - [ ] Two-column layout (main content + sidebar)
-  - [ ] Navigation bar at the top
-  - [ ] Stories section
-  - [ ] At least 2-3 post cards in left column
-  - [ ] Right sidebar with profile and suggestions
-
-
-## Tips for Success
-
-- **Don't overthink it!** Wireframes are meant to be quick and rough
-- **Focus on structure**, not perfection
-- **Use placeholders** liberally ("Image here", "Username", etc.)
-- **Think about mobile** - Instagram is primarily a mobile app
-- **Compare with the real app** - look at Instagram on your phone to understand the layout
-
+## 4. Checklist
+- [ ] The wireframe is black and white with no pictures: just grayscale rectangles and text.
+- [ ] The wireframe represents all of the elements pictured in the screenshot
+- [ ] You have completed both the mobile wireframe and the desktop wireframe.
 
 ## Next Steps
-
-During our next class, we'll take these wireframes and turn them into high-fidelity prototypes with colors, typography, and visual design!
+When you're done with your low-fidelity mockup, move on to [Tutorial 04b](tutorial04b) (high-fidelity mockup).

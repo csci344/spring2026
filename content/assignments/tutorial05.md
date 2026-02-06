@@ -1,202 +1,92 @@
 ---
-title: "Programming Review with JavaScript"
+title: "JavaScript: Event Handlers"
 type: "tutorial"
 num: 5
 draft: 1
-assigned_date: "2026-02-27"
-due_date: "2026-03-02"
+assigned_date: "2026-02-20"
+due_date: "2026-02-23"
 heading_max_level: 3
 order: 5
 points: 6
 ---
 
-## Part 1. Set Up
+## Introduction 
+The goal of today's tutorial is to:
+1. Help you practice using JavaScript to target and modify HTML elements in your DOM Tree.
+1. Continue practicing your CSS skills.
+1. Exploring some common UX/UI widgets and how they're implemented using JavaScript.
 
-### 1. Download and examine the code
+<blockquote class="info">
+<h2>Cheatsheet</h2>
 
-Download the Tutorial 5 zip file, unzip it, and save it inside of your `tutorials` folder: 
+</blockquote>
 
-<a href="/spring2026/course-files/tutorials/tutorial04.zip" class="nu-button">Tutorial 5 Starter Files <i class="fas fa-download"></i></a>
+## Your Tasks
 
-Open your index.html file inside the `tutorial04` folder and take a look at it. You should see a very simple HTML file that looks like this:
+<a href="/spring2026/course-files/tutorials/tutorial06.zip" class="nu-button">Download Tutorial 5 <i class="fas fa-download"></i></a> 
 
-```html
-<!DOCTYPE html>
-<html lang="en">
+Please download the tutorial06.zip file, unzip it, and move the tutorials folder inside of your `csci344/tutorials` folder. Then complete the tasks:
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js" defer></script>
-    <script src="utilities.js" defer></script>
-    <script src="main.js" defer></script>
-    <title>Loop & Function Practice</title>
-</head>
+### 1. Theme Switcher
+Open `styles.css` and scroll down to ~line 70. You will see three classes ( `ocean`, `desert`, and `high-contrast`) which correspond to three different themes. If you apply any of these classes to the `<body></body>` tag and preview your HTML, you will see that the theme changes. Try it out! 
 
-<body>
-    <main>
-    </main>
-</body>
+You job is to make the buttons dynamically change the theme of the web page as pictured below. When you're done, your web page should look like this:
 
-</html>
-```
+<img class="large frame" src="/spring2026/images/tutorials/tutorial06/theme-switcher.gif" />
 
-This HTML file uses a third-party library called `p5.js` to draw various shapes on an HTML5 canvas. You can <a href="https://p5js.org/reference/" target="_blank">take a look at the documentation here</a>. For this tutorial, you will be editing the `main.js` file:
+### Hints:
+1. Inside of `index.js`, create a single function called `changeClass()` that has one parameter, which will store the name of the class as a string.
+2. Within the `changeClass()` function body, set the body's class attribute to the name of the class passed into the function. If the `default` button is clicked, just unset the class on the body tag.
+3. Attach your `changeClass()` function to the click event of each button. Make sure you're passing in the correct argument. 
+4. Use the cheatsheet associated with this tutorial to figure out how to modify the class attribute.
 
-```js
-let canvasWidth = window.innerWidth;
-let canvasHeight = window.innerHeight;
+### Optional
+If you have time, try creating your own theme in the `styles.css` file and creating another button so that when you click on the new button, your theme shows up.
 
-// in p5.js, the function runs on page load:
-function setup() {
-    createCanvas(canvasWidth, canvasHeight);
+### 2. Hamburger Menu
+As you probably already know, a hamburger menu is a common design pattern for showing and hiding the navigation of your web page if you are on a mobile device. The logic of the hamburger menu implementation is as follows:
 
-    // invoke any drawing functions inside of setup.
-    // functions should all go between "createCanvas()" and "drawGrid()"
-    draw5Circles();
-    //draw5RedSquares();
-    drawGrid(canvasWidth, canvasHeight);
-}
+#### CSS Tasks (already done for you)
+Preview the `index.html` and notices the responsive styling. Then take a look at the `styles.css` file and see what's going on. Please note the following:
 
-// my first function
-function draw5Circles() {
-    noFill();
-    // fill('red');
-    circle(100, 200, 50); // centerX, centerY, diameter
-    circle(100, 250, 50);
-    circle(100, 300, 50);
-    circle(100, 350, 50);
-    circle(100, 400, 50);
-}
+* **Desktop View**: Navigation is showing. Hamburger menu button is hidden.
+* **Mobile View**: Navigation is hidden. Hamburger menu is showing.
+* **Additional Classes**
+    * **Button styling**: If both the `menu-toggle` and `active` classes are added to the `button` element, the hamburger will morph into an "X", indicating that the menu is open.
+    * **Mobile navigation**: If both the `nav-links` and `active` classes are added to the `ul` element, the menu will display on the right-hand side.
 
-function draw5RedSquares() {
-    fill("red");
-    square(320, 200, 50); // topLeftX, topLeftY, width
-    square(320, 250, 50);
-    square(320, 300, 50);
-    square(320, 350, 50);
-    square(320, 400, 50);
-}
-```
+#### JavaScript (your task)
+Your job is to modify the JavaScript file so that it achieves the effect shown below. Specifically:
+* When the hamburger menu is clicked when the menu is hidden, the `active` class is **added to** both the `button` and `ul` elements.
+* When the hamburger menu is clicked when the menu is visible, the `active` class is **removed from** both the `button` and `ul` elements.
 
-The most important thing to understand in the `main.js` file is that `setup()` runs when the page first loads. This means that if you want to draw anything, the `setup()` function needs to invoke the function that does the drawing.
-* Note in the code sample above, `draw5Circles()` is invoked in the setup. If you uncomment `draw5RedSquares()`, 5 squares will be drawn as well.
+**Hint**: Consider using the `classList.toggle("some_class")` method (see cheatsheet above, or google it).
 
-### 2. View file in Web Browser 
-Once you've taken a look at the code in VS Code, view it in your browser using the Live Server plugin you installed on Monday. It should look something like this:
-
-<img class="frame small" src="/spring2026/images/tutorials/tutorial04/circles.png" />
-
-Try uncommenting **`draw5RedSquares();`** to see what happens!
-
-## Part 2. Completing the Exercises
-Now that you're set up, please complete the 6 tasks below. You are more than welcome to work collaboratively on this assignment and to use ChatGPT -- not as a replacement for critical thinking, but as a way to refresh yourself on important programming techniques.
-
-### 1. While Loop - 5 Times
-Create a function called `draw5CirclesWhile()` that uses a while loop to draw the same 5 circles. Instead of copying the same circle function invocation 5 times, your function will use a **while loop** instead. Each time the loop iterates, the circle should be drawn below the previous. Don't forget to invoke your new function inside of the `setup()` function body. Consider using different x-positions for your circles so that they don't draw on top of the existing ones. Pseudocode:
-
-```python
-while less that 5 circles drawn:
-    draw another circle directly below the first
-```
-
-### 2. For Loop - 5 Times
-Create a function called `draw5CirclesFor()` that uses a for loop to draw the same 5 circles. Instead of copying the same circle function invocation 5 times, your function will use a **for loop** instead. Each time the loop iterates, the circle should be drawn below the previous. Don't forget to invoke your new function inside of the `setup()` function body. Consider using different x-positions for your circles so that they don't draw on top of the existing ones.
-
-### 3. For Loop - N Times
-Create a function called `drawNCircles(n)` that uses a for loop to draw any number of circles in a vertical column. If I invoke your function as follows: `drawNCircles(20)` it should draw 20 circles in a vertical column. Consider using different starting x and y position for your circles so that they don't draw on top of the existing ones.
-
-### 4. For Loop - More flexibility
-Create a function called `drawNCirclesFlexible(n, size, x, y)` that uses a for loop to draw  a column of circles of any size, starting at any x, y position. If I invoke your function within the `setup()` function as follows...
-
-```js
-function setup() {
-    // sets up the canvas:
-    createCanvas(canvasWidth, canvasHeight);
-
-    // code invoking the function you just wrote:
-    drawNCirclesFlexible(30, 25, 400, 0);
-    drawNCirclesFlexible(4, 100, 100, 200);
-    drawNCirclesFlexible(8, 50, 700, 100);
-
-    // draws grid at the end:
-    drawGrid(canvasWidth, canvasHeight);
-}
-``` 
-...it should produce the following picture:
-
-<img class="frame medium" src="/spring2026/images/tutorials/tutorial04/flexi-circles.png" />
-
-### 5. For Loop - Even more flexibility
-Create a function called `drawNShapesFlexible(n, size, x, y, shape)` that uses a for loop to draw  a column of shapes of any size, starting at any x, y position. If the shape === "circle", it will draw a column of circles. Otherwise it will draw a column of squares. If I invoke your function within the `setup()` function as follows...
-
-```js
-function setup() {
-    // sets up the canvas:
-    createCanvas(canvasWidth, canvasHeight);
-
-    // code invoking the function you just wrote:
-    drawNShapesFlexible(30, 30, 335, 0, "square");
-    drawNShapesFlexible(4, 100, 120, 200, "circle");
-    drawNShapesFlexible(8, 50, 725, 25, "square");
-
-    // draws grid at the end:
-    drawGrid(canvasWidth, canvasHeight);
-}
-``` 
-...it should produce the following picture (pick any color you want):
-
-<img class="frame medium" src="/spring2026/images/tutorials/tutorial04/flexi-shapes.png" />
-
-### 6. For Loop - Still more flexibility
-Create a function called `drawNShapesDirectionFlexible(n, size, x, y, shape, direction)` that uses a for loop to draw  a column of shapes of any size, starting at any x, y position. 
-* If the shape === "circle", it will draw a column of circles. Otherwise it will draw a column of squares.
-* If direction === "row", it will draw a column of shapes. Otherwise it will draw a column of shapes.
-
-If I invoke your function within the `setup()` function as follows...
-
-```js
-function setup() {
-    // sets up the canvas:
-    createCanvas(canvasWidth, canvasHeight);
-
-    // code invoking the function you just wrote:
-    drawNShapesDirectionFlexible(30, 30, 335, 0, "square", "column");
-    drawNShapesDirectionFlexible(4, 100, 120, 200, "circle", "row");
-    drawNShapesDirectionFlexible(8, 50, 725, 425, "circle", "row");
-
-    // draws grid at the end:
-    drawGrid(canvasWidth, canvasHeight);
-}
-``` 
-...it should produce the following picture (pick any color you want):
-
-<img class="frame medium" src="/spring2026/images/tutorials/tutorial04/flexi-shapes-directions.png" />
-
-### 7. [Optional] Make some algorithmic art
-Create some interesting art based on the techniques you experimented with. Use the `fill()` function to change the colors. Use the `Math.random()` function to randomly place your shapes, or to randomly change the sizes and colors of your shapes. Here are some drawings you could make:
-
-<div class="grid">
-    <img class="span2" src="/spring2026/images/tutorials/tutorial04/art-0.png" /> 
-    <img class="span2" src="/spring2026/images/tutorials/tutorial04/art-1.png" /> 
-    <img src="/spring2026/images/tutorials/tutorial04/art-4.png" /> 
-    <img src="/spring2026/images/tutorials/tutorial04/art-3.png" /> 
+#### Demo
+<div class="container">
+    <img class="small frame" src="/spring2026/images/tutorials/tutorial06/hamburger.gif" />
+    <img class="small frame" src="/spring2026/images/tutorials/tutorial06/desktop-hamburger.png" />
 </div>
 
-> ## For Folks Wanting More Programming Practice...
-> I highly recommend that you review all of [these introductory exercises](../resources/programming-review#step6), using JavaScript. Here's a suggested workflow:
-> 
-> 1. Review the reference materials (e.g., data, expressions and statements, control, etc.)
-> 2. Select a problem to try (say, 6.1.1. Data Type Conversion).
-> 3. Make a new directory inside of your `csci344` folder called `programming-practice`
-> 4. Inside of your `programming-practice`, create a file called `data-type-practice.mjs` (`.mjs` indicates that you're making a JavaScript module).
-> 5. Write the code to solve the problem.
-> 6. Open GitBash (Windows) or Terminal (Mac) and navigate to your `programming-practice` folder. If you don't know how to do this, come to office hours.
-> 7. Test your solution using the node interpreter on the command line:<br>`node data-type-practice.mjs`
->
-> If you have any questions about how to do this, please come to office hours!
+### 3. Carousel
+If you were on a front-end team and in need of a carousel, you would probably use a pre-made widget from an existing design system / UI kit. That said, it is useful to understand how these widgets work so that you understand the basic idea.
 
-## What to turn in
-Please commit and push all of your edits to GitHub. Then, paste a link to your GitHub Repository and to your GitHub pages in the Moodle submission.
+Given this, please open the `03-carousel` folder and make the following changes:
+1. Add comments to the `index.js` file explaining what each of the statements does.
+2. **[Optional]** 
+    * Stylize the buttons using one of the font-awesome icons (or some other image or icon).
+    * Change out the photos.
+    * Make any additional stylistic changes you see fit.
+
+> For this task, you may not use an AI assistant to comment the `index.js` code for you. YOU need to do it.
+
+## What to Submit
+Please make sure that you have completed the following:
+
+* Implemented the font size adjuster
+* Implemented the hamburger menu
+* Commented the carousel widget JavaScript code explaining how it works.
+
+When you're done, please create a link from your homepage to each of your Tutorial 5 web pages (see <a href="https://vanwars.github.io/csci344" target="_blank">Sarah's homepage</a> for an example). Then, commit and push all of your edits to GitHub and, paste a link to your GitHub Repository and to your GitHub pages in the Moodle submission.
+
+* If you collaborated with someone, please list your partner's name in the comments section.
