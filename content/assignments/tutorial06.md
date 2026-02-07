@@ -2,7 +2,7 @@
 title: "Programming Review with JavaScript"
 type: "tutorial"
 num: 6
-draft: 0
+draft: 1
 assigned_date: "2026-02-27"
 due_date: "2026-03-02"
 heading_max_level: 3
@@ -16,9 +16,9 @@ points: 6
 
 Download the Tutorial 6 zip file, unzip it, and save it inside of your `tutorials` folder: 
 
-<a href="/spring2026/course-files/tutorials/tutorial05.zip" class="nu-button">Tutorial 6 Starter Files <i class="fas fa-download"></i></a>
+<a href="/spring2026/course-files/tutorials/tutorial06.zip" class="nu-button">Tutorial 6 Starter Files <i class="fas fa-download"></i></a>
 
-Open your index.html file inside the `tutorial05` folder and take a look at it. You should see a very simple HTML file that looks like this:
+Open your index.html file inside the `tutorial06` folder and take a look at it. You should see a very simple HTML file that looks like this:
 
 ```html
 <!DOCTYPE html>
@@ -87,7 +87,7 @@ The most important thing to understand in the `main.js` file is that `setup()` r
 ### 2. View file in Web Browser 
 Once you've taken a look at the code in VS Code, view it in your browser using the Live Server plugin you installed on Monday. It should look something like this:
 
-<img class="frame small" src="/spring2026/images/tutorials/tutorial05/circles.png" />
+<img class="frame small" src="/spring2026/images/tutorials/tutorial06/circles.png" />
 
 Try uncommenting **`draw5RedSquares();`** to see what happens!
 
@@ -127,7 +127,7 @@ function setup() {
 ``` 
 ...it should produce the following picture:
 
-<img class="frame medium" src="/spring2026/images/tutorials/tutorial05/flexi-circles.png" />
+<img class="frame medium" src="/spring2026/images/tutorials/tutorial06/flexi-circles.png" />
 
 ### 5. For Loop - Even more flexibility
 Create a function called `drawNShapesFlexible(n, size, x, y, shape)` that uses a for loop to draw  a column of shapes of any size, starting at any x, y position. If the shape === "circle", it will draw a column of circles. Otherwise it will draw a column of squares. If I invoke your function within the `setup()` function as follows...
@@ -148,7 +148,7 @@ function setup() {
 ``` 
 ...it should produce the following picture (pick any color you want):
 
-<img class="frame medium" src="/spring2026/images/tutorials/tutorial05/flexi-shapes.png" />
+<img class="frame medium" src="/spring2026/images/tutorials/tutorial06/flexi-shapes.png" />
 
 ### 6. For Loop - Still more flexibility
 Create a function called `drawNShapesDirectionFlexible(n, size, x, y, shape, direction)` that uses a for loop to draw  a column of shapes of any size, starting at any x, y position. 
@@ -173,16 +173,16 @@ function setup() {
 ``` 
 ...it should produce the following picture (pick any color you want):
 
-<img class="frame medium" src="/spring2026/images/tutorials/tutorial05/flexi-shapes-directions.png" />
+<img class="frame medium" src="/spring2026/images/tutorials/tutorial06/flexi-shapes-directions.png" />
 
 ### 7. [Optional] Make some algorithmic art
 Create some interesting art based on the techniques you experimented with. Use the `fill()` function to change the colors. Use the `Math.random()` function to randomly place your shapes, or to randomly change the sizes and colors of your shapes. Here are some drawings you could make:
 
 <div class="grid">
-    <img class="span2" src="/spring2026/images/tutorials/tutorial05/art-0.png" /> 
-    <img class="span2" src="/spring2026/images/tutorials/tutorial05/art-1.png" /> 
-    <img src="/spring2026/images/tutorials/tutorial05/art-4.png" /> 
-    <img src="/spring2026/images/tutorials/tutorial05/art-3.png" /> 
+    <img class="span2" src="/spring2026/images/tutorials/tutorial06/art-0.png" /> 
+    <img class="span2" src="/spring2026/images/tutorials/tutorial06/art-1.png" /> 
+    <img src="/spring2026/images/tutorials/tutorial06/art-4.png" /> 
+    <img src="/spring2026/images/tutorials/tutorial06/art-3.png" /> 
 </div>
 
 > ## For Folks Wanting More Programming Practice...

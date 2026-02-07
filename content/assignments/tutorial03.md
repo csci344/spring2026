@@ -63,6 +63,12 @@ csci344
     npm init -y
     ```
 
+> #### Attention Windows Users
+> If this command give you an error, there may be a permissions issue. One of the students in the class solved this issue by opening a PowerShell window as an administrator and running the following command:
+> 
+> `Set-ExecutionPolicy RemoteSigned`
+> After you run this command, try running `npm init -y` again.
+
 If you did this correctly, a `package.json` file should have been created at the root of your `tutorial03` directory. `package.json` is a configuration file that helps you to (among other things): 
 
 1. Keep track of various dependencies that you install to make a client-side web app, and
@@ -209,7 +215,7 @@ By making these changes, you're expanding the available fonts and colors that Ta
 
 ```js
 module.exports = {
-    content: ["./*html"],
+    content: ["./*.html", "./src/**/*.{html,js}"],
     theme: {
         extend: {
             colors: {
@@ -226,7 +232,7 @@ module.exports = {
 ```
 
 ### 3. Center the card
-As you may recall from Tutorial 3, to center the child, you need to set some style properties on the parent (usually either flex or grid). Given this, you will add the following classes to the outermost div:
+As you may recall from Tutorial 2, to center the child, you need to set some style properties on the parent (usually either flex or grid). Given this, you will add the following classes to the outermost div:
 
 * font-Poppins (which you just defined in your `tailwind.config.js` file)
 * flex
