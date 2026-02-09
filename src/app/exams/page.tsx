@@ -19,6 +19,7 @@ interface ExamData {
   external_url?: string;
   external_type?: string;
   excluded?: boolean;
+  no_render?: number;
 }
 
 
@@ -40,13 +41,14 @@ export default async function ExamsPage() {
       notes: postData.notes,
       draft: postData.draft,
       excluded: postData.excluded,
+      no_render: postData.no_render,
     };
   }));
 
   // Combine markdown assignments with external assignments
   let exams: ExamData[] = [...markdownExams];
-  // Filter out excluded exams (drafts are shown but not linkable)
-  exams = exams.filter(exam => !exam.excluded);
+  // Filter out excluded exams and no_render exams (drafts are shown but not linkable)
+  exams = exams.filter(exam => !exam.excluded && exam.no_render !== 1);
 
   // Sort exams
   exams.sort((a, b) => {

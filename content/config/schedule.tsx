@@ -574,6 +574,9 @@ export const baseTopics = [
             <p>Part 1 of a two-part tutorial on prototyping: Creating low-fidelity wireframes.</p>
           </>
         ),
+        activities: [
+            { title: "Slides", url: "https://docs.google.com/presentation/d/1AIWnVQGvImABnueI6yHqlD-8O9ZBFdH0/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 }
+        ],
         readings: [
           {
             citation: (
@@ -604,11 +607,9 @@ export const baseTopics = [
         date: "Fr, Feb 13",
         topic: "Exam 1 Review",
         description: (
-          <>
-            <ul>
-              <li>Exam 1 review: HTML/CSS/Web Architecture/Design</li>
-            </ul>
-          </>
+          <p>
+            Exam 1 review: HTML/CSS/Web Architecture/Design
+          </p>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
@@ -624,7 +625,7 @@ export const baseTopics = [
           },
           {
             title: "Practice Exam 1: Written Portion",
-            url: "/exams/exam01-written",
+            url: "https://docs.google.com/document/d/1W4dldHoWEA4h5533J5Gf1a0mkeDKa19s/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true",
             draft: 0
           },
           {
@@ -647,14 +648,9 @@ export const baseTopics = [
         date: "Mo, Feb 16",
         topic: "Exam 1",
         description: (
-          <>
-            <ul>
-              <li>Web and Internet infrastructure</li>
-              <li>HTML structure and semantic markup</li>
-              <li>CSS styling, layout, and responsive design</li>
-              <li>Design principles and accessibility</li>
-            </ul>
-          </>
+          <p>
+            A link to the exam will be posted here at the beginning of class. The first 1/3 of the exam will be written. The second 2/3 of the exam will be coding.
+          </p>
         ),
       },
     ],

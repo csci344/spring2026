@@ -483,12 +483,12 @@ export class TestRunner {
     // Normalize rgb values: ensure spaces after commas
     // e.g., "rgb(0,0,255)" -> "rgb(0, 0, 255)"
     color = color.replace(/rgb\(([^)]+)\)/g, (match, content) => {
-      const parts = content.split(',').map(p => p.trim());
+      const parts = content.split(',').map((p: string) => p.trim());
       return `rgb(${parts.join(', ')})`;
     });
     // Normalize rgba values: ensure spaces after commas
     color = color.replace(/rgba\(([^)]+)\)/g, (match, content) => {
-      const parts = content.split(',').map(p => p.trim());
+      const parts = content.split(',').map((p: string) => p.trim());
       return `rgba(${parts.join(', ')})`;
     });
     return color.trim();
@@ -668,12 +668,12 @@ export class TestRunner {
       // Normalize rgb values: ensure spaces after commas
       // e.g., "rgb(0,0,255)" -> "rgb(0, 0, 255)"
       color = color.replace(/rgb\(([^)]+)\)/g, (match, content) => {
-        const parts = content.split(',').map(p => p.trim());
+        const parts = content.split(',').map((p: string) => p.trim());
         return `rgb(${parts.join(', ')})`;
       });
       // Normalize rgba values: ensure spaces after commas
       color = color.replace(/rgba\(([^)]+)\)/g, (match, content) => {
-        const parts = content.split(',').map(p => p.trim());
+        const parts = content.split(',').map((p: string) => p.trim());
         return `rgba(${parts.join(', ')})`;
       });
       return color.trim();

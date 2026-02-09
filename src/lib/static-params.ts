@@ -23,12 +23,13 @@ export function isPlaceholderSlug(slug: string, contentType: 'activities' | 'ass
 }
 
 /**
- * Validates if a post should be rendered (not excluded).
+ * Validates if a post should be rendered (not excluded and not marked as no_render).
  * Note: Drafts are allowed to be rendered (accessible via direct URL),
  * but should be filtered out from index pages.
  */
 export function shouldRenderPost(postData: PostData): boolean {
-  return !postData.excluded;
+  // Don't render if excluded or if no_render flag is set to 1
+  return !postData.excluded && postData.no_render !== 1;
 }
 
 /**
@@ -42,12 +43,14 @@ export async function generateStaticParamsForContentType(
   try {
     const postIds = getAllPostIds(contentType);
     
-    // Include ALL posts (including drafts) so they can be pre-generated
-    // The page component will handle returning 404 for drafts
+    // Include ALL posts (including drafts and no_render items) so they can be pre-generated
+    // The page component will handle returning 404 for drafts and no_render items
+    // We must include no_render items in static generation because Next.js with output: export
+    // requires all routes to be pre-generated, but the page will return 404 via validatePostForRender
     const allPosts = await Promise.all(
       postIds.map(async ({ params }) => {
         try {
-          // Just verify the post can be loaded - don't filter by draft status here
+          // Just verify the post can be loaded - don't filter by draft or no_render status here
           await getPostData(params.id, contentType);
           return { slug: params.id };
         } catch {

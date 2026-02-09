@@ -19,6 +19,7 @@ interface AssignmentData {
   external_url?: string;
   external_type?: string;
   excluded?: boolean;
+  no_render?: number;
 }
 
 
@@ -40,13 +41,14 @@ export default async function AssignmentsPage() {
       notes: postData.notes,
       draft: postData.draft,
       excluded: postData.excluded,
+      no_render: postData.no_render,
     };
   }));
 
   // Combine markdown assignments with external assignments
   let assignments: AssignmentData[] = [...markdownAssignments, ...externalAssignments];
-  // Filter out excluded assignments (drafts are shown but not linkable)
-  assignments = assignments.filter(assignment => !assignment.excluded);
+  // Filter out excluded assignments and no_render assignments (drafts are shown but not linkable)
+  assignments = assignments.filter(assignment => !assignment.excluded && assignment.no_render !== 1);
 
   // Sort assignments
   assignments.sort((a, b) => {

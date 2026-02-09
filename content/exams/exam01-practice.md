@@ -1,10 +1,9 @@
 ---
-title: "Practice Exam 1: HTML + CSS"
+title: "HTML + CSS"
 type: "practice exam"
-num: 1a
+num: 1
 draft: 0
 assigned_date: "2026-02-13"
-due_date: "2026-02-16"
 heading_max_level: 3
 order: 2
 points: 100

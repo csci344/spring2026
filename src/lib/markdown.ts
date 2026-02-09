@@ -37,6 +37,7 @@ export interface PostData {
   heading_max_level?: number;
   quicklink?: number;
   quizzes?: string[];
+  no_render?: number;
 }
 
 export function getAllPostIds(subdirectory?: string) {
