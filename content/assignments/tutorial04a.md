@@ -2,7 +2,7 @@
 title: "Instagram Wireframes in Figma"
 type: "tutorial"
 num: 4a
-draft: 1
+draft: 0
 assigned_date: "2026-02-09"
 due_date: "2026-02-18"
 heading_max_level: 3
@@ -25,58 +25,7 @@ Wireframes are the blueprint of your design. They help you:
 - Identify **user flows** and interactions
 - Get feedback on **functionality** before investing time in visual design
 
-
-## 2. Setup: Getting Started with Figma
-
-1. Go to [figma.com](https://www.figma.com/) and sign in (or create a free account)
-2. Open the starter file: [Instagram Wireframes Starter](https://figma.com/file/STARTER_FILE_LINK) (your instructor will provide the link)
-3. Click the **"..." menu** in the top right corner
-4. Select **"Duplicate"** to create your own copy
-5. Rename your file: `Instagram Wireframes - [Your Name]`
-
-The starter file already has:
-- A **mobile frame** (375px width) set up for you
-- A **desktop frame** (1200px width) set up for you
-- Both frames are ready for you to add your wireframe elements
-
-### 2.1. Figma Basics (Quick Reference)
-
-| Shortcut | Action |
-|----------|--------|
-| **R** | Rectangle tool - Draw boxes for content areas |
-| **T** | Text tool - Add labels and placeholder text |
-| **F** | Frame tool - Create frames for different screens (like artboards) |
-| **Cmd/Ctrl +** | Zoom in |
-| **Cmd/Ctrl -** | Zoom out |
-| **Spacebar + Drag** | Pan (move around the canvas) |
-
-## 3. Wireframe the Feed Screen
-
-Recreate the Instagram feed screen wireframes shown in the starter file for both **mobile** and **desktop** versions.
-
-### 3.1. Mobile Version
-
-1. **Find the mobile frame:**
-   - Click on the mobile frame in the left sidebar to select it
-   - You'll see a reference image showing what the mobile feed should look like
-
-2. **Recreate the wireframe:**
-   - Using rectangles, circles, and text labels, recreate the layout shown in the reference image
-   - Focus on matching the structure, spacing, and hierarchy
-   - Use placeholders for text (e.g., "Username", "Caption text...")
-
-### 3.2. Desktop Version
-
-1. **Find the desktop frame:**
-   - Click on the desktop frame in the left sidebar to select it
-   - You'll see a reference image showing what the desktop feed should look like
-
-2. **Recreate the wireframe:**
-   - Using rectangles, circles, and text labels, recreate the layout shown in the reference image
-   - Pay attention to the two-column layout (main content on left, sidebar on right)
-   - Use placeholders for text (e.g., "Username", "Caption text...")
-
-#### Wireframing Rules:
+### Wireframing Rules:
 
 <table class="wireframe-rules-table">
   <thead>
@@ -100,8 +49,7 @@ Recreate the Instagram feed screen wireframes shown in the starter file for both
         <ul>
           <li>Add colors or styling</li>
           <li>Use actual images</li>
-          <li>Worry about perfect alignment (this is a sketch!)</li>
-          <li>Add detailed text (use placeholders like "Username", "Caption text...")</li>
+          <li>Worry about fonts, custom assets, etc.</li>
         </ul>
       </td>
     </tr>
@@ -109,8 +57,70 @@ Recreate the Instagram feed screen wireframes shown in the starter file for both
 </table>
 
 
+## 2. Setup: Getting Started with Figma
+
+1. Go to [figma.com](https://www.figma.com/) and sign in (or create a free account)
+2. Open the Tutorial 4 starter file: <a href="https://www.figma.com/design/tzJx5GzGNNEMrMxFiSVMVt/Instagram-Mockup?node-id=25-81&m=dev&t=Eq3O478tlqXDa5Nx-1" target="_blank">Instagram Wireframes Starter</a>
+3. Click the **"..." menu** in the top right corner
+4. Select **"Duplicate"** to create your own copy
+5. Rename your file: `Instagram Wireframes - [Your Name]`
+
+The starter file already has:
+- A **mobile frame** (375px width) set up for you
+- A **desktop frame** (1200px width) set up for you
+- Both frames are ready for you to add your wireframe elements
+
+### 2.1. Figma Basics (Quick Reference)
+
+| Shortcut | Action |
+|----------|--------|
+| **R** | Rectangle tool - Draw boxes for content areas |
+| **T** | Text tool - Add labels and placeholder text |
+| **F** | Frame tool - Create frames for different screens (like artboards) |
+| **Cmd/Ctrl +** | Zoom in |
+| **Cmd/Ctrl -** | Zoom out |
+| **Shift + 1** | Zoom to fit (re-center canvas) |
+| **Spacebar + Drag** | Pan (move around the canvas) |
+
+## 3. Wireframe the Feed Screen
+
+Recreate the Instagram feed screen wireframes shown in the starter file for both **mobile** and **desktop** versions.
+
+> **Wireframe Ground Rules**
+> 1. No colors (but you can use grayscale)
+> 1. No images
+> 1. Use only one font -- but you can use variants (bold, italics, size, uppercase, etc.)
+
+### 3.1. Mobile Version
+
+1. **Find the mobile frame:**
+   - Click on the mobile frame in the left sidebar to select it
+   - You'll see a reference image showing what the mobile feed should look like
+
+2. **Recreate the wireframe:**
+   - Using rectangles, circles, and text labels, recreate the layout shown in the reference image
+   - Focus on matching the structure, spacing, and hierarchy
+   - Use placeholders for text (e.g., "Username", "Caption text...")
+
+
+<img class="border mx-auto border-gray-300" style="max-width:300px;" src="/spring2026/images/tutorials/tutorial04/ss-mobile-lofi.png" />
+
+### 3.2. Desktop Version
+
+1. **Find the desktop frame:**
+   - Click on the desktop frame in the left sidebar to select it
+   - You'll see a reference image showing what the desktop feed should look like
+
+2. **Recreate the wireframe:**
+   - Using rectangles, circles, and text labels, recreate the layout shown in the reference image
+   - Pay attention to the two-column layout (main content on left, sidebar on right)
+   - Use placeholders for text (e.g., "Username", "Caption text...")
+
+<img class="border mx-auto border-gray-300" src="/spring2026/images/tutorials/tutorial04/ss-desktop-lofi.png" />
+
+
 ## 4. Checklist
-- [ ] The wireframe is black and white with no pictures: just grayscale rectangles and text.
+- [ ] The wireframe is grayscale with no pictures: just rectangles, circles, and text.
 - [ ] The wireframe represents all of the elements pictured in the screenshot
 - [ ] You have completed both the mobile wireframe and the desktop wireframe.
 

@@ -94,6 +94,7 @@ th {
 .wireframe-rules-table th {
   border-left: solid 1px var(--border) !important;
   vertical-align: top;
+  width: 50%;
 }
 
 /* a {
@@ -139,10 +140,10 @@ li {
 }
 
 blockquote {
-  @apply bg-yellow-50 dark:bg-yellow-800 border border-yellow-200 dark:border-yellow-800 p-4 !mb-10;
+  @apply mt-8 bg-yellow-50 dark:bg-yellow-800 border border-yellow-200 dark:border-yellow-800 p-4 !mb-10;
 }
 
-blockquote h2 {
+blockquote h2, blockquote h3, blockquote h4, blockquote h5 {
   @apply !mt-0;
 }
 

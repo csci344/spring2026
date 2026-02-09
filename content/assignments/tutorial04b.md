@@ -1,8 +1,8 @@
 ---
-title: "Instagram High-Fidelity Prototype in Figma"
+title: "Instagram High-Fidelity Design & Style Guide in Figma"
 type: "tutorial"
 num: 4b
-draft: 1
+draft: 0
 assigned_date: "2026-02-11"
 due_date: "2026-02-18"
 heading_max_level: 3
@@ -10,198 +10,153 @@ order: 5
 points: 6
 ---
 
-In this activity, you will transform your wireframes into a polished, high-fidelity prototype with colors, typography, spacing, and visual design.
+## Overview
+Now that you've created your low-fidelity prototype, you are going to practice creating a "high-fidelity" prototype. In practice, high-fidelity prototypes serve two purposes:
 
-> ## Assigned Readings & Videos
-> * <a href="" target="_blank">R1</a>
-> * <a href="" target="_blank">R1</a>
+1. They provide a way for designers to give instructions to developers: "This is what you need to build."
+1. They can also be used to generate "design tokens" -- which are JSON files that can generate style variables for CSS and other native styling languages.
+
+In this activity, you will complete three tasks (inspired by <a href="https://www.youtube.com/watch?v=oHTaB7aT7XU" target="_blank">this video tutorial</a>):
+
+1. Create a high-fidelity prototype
+1. Create Figma Styles
+1. Generate a style guide using a Figma plugin
 
 
-## Why High-Fidelity Prototypes?
+> ### Tips
+> 
+> - **Design first, extract later** - Focus on making your design look good, then extract the styles
+> - **Use consistent colors** - This makes it easier to create styles later
+> - **Keep it simple** - You don't need to recreate every detail of Instagram
+> - **Reference Instagram (Optional)** - If you have an Instagram account, look at the real app for color and spacing ideas
 
-High-fidelity prototypes show how your design will actually look and feel. They help you:
-- Test **visual design** decisions (colors, typography, spacing)
-- Evaluate **accessibility** (contrast, readability)
-- Communicate your design vision to others
-- Identify **usability issues** before building
 
----
+## 1. Create a High-Fidelity Prototype
 
-## Part 1: Set Up Your Design System (15 minutes)
+Transform your wireframe from Day 1 into a polished, high-fidelity design. Choose **either mobile OR desktop** (not both).
 
-Before adding colors and styling, establish your design system.
+### 1.1. Open your wireframe on Figma
+Open your wireframe file from Day 1 and select **either** the mobile (375px) **or** desktop (1200px) feed screen. 
 
-### Color Palette
+### 1.2. Make a copy of your wireframe Frame
+After selecting you preferred layout (mobile or desktop):
 
-Instagram uses a specific color palette. Research and document:
+1. Make a copy of the the entire low-fidelity frame
+2. Paste a duplicate to the left or right of the original frame.
+3. Give your copy a different name in the left-hand navigator.
+4. Begin converting it to a high-fidelity prototype.
 
-- **Primary color**: Instagram's signature gradient (purple to pink to orange)
-- **Background colors**: White, light gray, dark mode options
-- **Text colors**: Black, dark gray, light gray
-- **Accent colors**: Blue for links, red for likes
+Here is how Sarah laid our her Figma page:
 
-**In Figma:**
-1. Create a **Color Styles** section
-2. Use the **Eyedropper tool (I)** to sample colors from Instagram
-3. Save colors as **styles** for easy reuse
+<img class="large frame" src="/spring2026/images/tutorials/tutorial04/low-high-prototype.png" />
 
-### Typography
+### 1.3. Add colors
+- Use the **Eyedropper tool (I)** to sample colors from Instagram, or use the color picker
+- Apply colors to backgrounds, text, and interactive elements
+- Use Instagram's color palette: white, light gray, black/dark gray, blue (links), red (likes)
 
-Document the typography you'll use:
+### 1.4. Add typography
+- Set font sizes: 12px (captions), 14px (body), 16px (headings)
+- Set font weights: Regular, Medium, Bold
+- Use system fonts (Inter, sans-serif) for body copy and Comfortaa for the top-level headers.
 
-- **Font family**: Instagram uses a custom font (you can use system fonts like San Francisco, Roboto, or Helvetica)
-- **Font sizes**: Headings, body text, captions, labels
-- **Font weights**: Regular, medium, bold
+### 1.5. Add visual polish
+- Profile pictures: Make circles, add borders
+- Icons: Use simple shapes or text symbols (heart, comment, share)
+- Image placeholders: Add some real images.
+- Consistent spacing (8px, 16px, 24px) between elements
 
-**In Figma:**
-1. Create **Text Styles** for different text types
-2. Use consistent sizing (e.g., 14px for body, 16px for headings)
 
-### Spacing System
+## 2. Create Figma Styles
 
-Establish a spacing system (e.g., 4px, 8px, 16px, 24px, 32px):
+Now extract the colors and typography you used into Figma Styles. Styles are reusable design tokens that can be applied across your design.
 
-- Use consistent spacing between elements
-- Create visual rhythm and hierarchy
-- Make the design feel cohesive
+> ### Video Walkthrough
+> If you need a hint, I have recorded a <a href="https://drive.google.com/file/d/1V7XAOsmJnC7Up2Ah_sRYV1zyK6ljhSZj/view?usp=sharing" target="_blank">video walkthrough</a> to show you how to create the styles.
 
----
+### 2.1. Create Color Styles:
 
-## Part 2: Design the Feed Screen (30 minutes)
+1. **Select an element** that uses a color you want to save (e.g., a background rectangle, text element)
 
-Take your wireframe and add visual design.
+2. **Create a color style:**
+   - In the right panel, click the **color swatch** (for fills) or **text color** (for text)
+   - Click the **"+" icon** next to "Styles" (or the four-dot icon)
+   - Name it (e.g., "Background", "Text Primary", "Accent Blue")
+   - Click "Create style"
 
-### Step-by-Step:
+3. **Repeat for all your colors:**
+   - Select different colored elements and save each as a style
+   - Create styles for: Background, Text Primary, Text Secondary, Accent Blue, Accent Red, etc.
+   - Create at least 3 color styles
 
-1. **Add colors:**
-   - Background: White or light gray
-   - Navigation bar: White with border
-   - Post cards: White background with subtle shadow/border
+### 2.2. Create Text Styles
 
-2. **Add typography:**
-   - Username: Bold, 14px
-   - Caption: Regular, 14px
-   - Comments: Regular, 14px, gray color
+1. **Select a text element** that has the typography you want to save
 
-3. **Add spacing:**
-   - Consistent padding around elements
-   - Space between posts
-   - Proper margins
+2. **Create a text style:**
+   - In the right panel, click the **text style dropdown** (shows "None")
+   - Click the **"+" icon**
+   - Name it (e.g., "Body Text", "Body Text Bold", "Caption")
+   - Click "Create style"
 
-4. **Add visual details:**
-   - Profile pictures (circles with borders)
-   - Icons for actions (heart, comment, share, save)
-   - Like count and comment count
-   - Timestamp
+3. **Repeat for different text types:**
+   - Select text elements with different sizes/weights and save each as a style
+   - Create styles for: Body Text (14px, Regular), Body Text Bold (14px, Bold), Caption (12px, Regular)
+   - Create at least 3 text styles
 
-5. **Add images (placeholders):**
-   - Use rectangles with a subtle pattern or gradient
-   - Or use Figma's image placeholders
-   - Label them clearly
+> **Tip:** Once created, you can apply styles to other elements by selecting them and choosing the style from the dropdown in the right panel.
 
-### Design Principles to Apply:
+Once you're done, you will be able to see the styles you create at the bottom of the right-hand panel (just make sure that no elements are selected). Your styles panel should look something like this:
 
-- **Proximity**: Related items grouped together
-- **Alignment**: Elements aligned to a grid
-- **Contrast**: Text readable against backgrounds
-- **Repetition**: Consistent styling throughout
+<img class="border border-gray-300" style="max-width:300px;" src="/spring2026/images/tutorials/tutorial04/styles-panel.png" />
 
----
+## 3. Generate Style Guide with Plugin
 
-## Part 3: Design One Additional Screen (20 minutes)
+Use the "Automatic Style Guide" plugin to automatically generate a style guide from your design.
 
-Choose **one** screen to design in high-fidelity:
+### 3.1. Install the Plugin:
 
-- **Profile Screen** (recommended - builds on feed design)
-- **Post Detail Screen**
-- **Search/Explore Screen**
+1. In Figma, go to **Menu → Plugins → Browse plugins in Community**
+2. Search for **"Automatic Style Guide"**
+3. Click **"Install"** (or **"Run"** if already installed)
 
-Apply the same design system:
-- Use the same color palette
-- Use the same typography
-- Use the same spacing system
-- Maintain visual consistency
+### 3.2. Use the Plugin:
 
----
+1. **Run the plugin:**
+   - Go to **Menu → Plugins → Automatic Style Guide**
+   - The plugin will scan your design for colors, typography, and styles
 
-## Part 4: Peer Review (5 minutes)
+2. **Generate the style guide:**
+   - Follow the plugin's prompts
+   - It will create a new frame or page with your style guide
+   - The style guide will include:
+     - Color palette
+     - Typography system
+     - Spacing (if detected)
 
-Share your prototype with a classmate and get feedback on:
+3. **Review and organize:**
+   - Check that all your colors and typography are captured
+   - Add labels or descriptions if needed
 
-1. **Visual hierarchy**: Is it clear what's most important?
-2. **Readability**: Can you easily read all text?
-3. **Consistency**: Do colors, fonts, and spacing feel cohesive?
-4. **Accessibility**: Is there enough contrast? Is text readable?
+Your style guide should look something like this (just a few screenshots):
 
-### Quick Feedback Questions:
+<img class="large frame" src="/spring2026/images/tutorials/tutorial04/styleguide-colors.png" />
 
-- What stands out first when you look at this screen?
-- Is the text easy to read?
-- Do the colors work well together?
-- What would you change?
 
----
+<img class="large frame" src="/spring2026/images/tutorials/tutorial04/styleguide-fonts.png" />
 
-## Design Rationale
 
-Write a brief (2-3 sentences) explanation of your design choices:
+## Checklist
 
-- **Why did you choose these colors?**
-- **How does your typography support readability?**
-- **How does spacing create visual hierarchy?**
+- [ ] High-fidelity prototype created (mobile OR desktop)
+- [ ] At least 3 color styles created
+- [ ] At least 3 text styles created
+- [ ] Automatic Style Guide plugin installed and run
+- [ ] Style guide generated and reviewed
 
----
 
-## Submission
-
-Export your high-fidelity prototype as images or share your Figma file link.
-
-**What you should have:**
-- ✅ Feed screen in high-fidelity
-- ✅ One additional screen in high-fidelity
-- ✅ Design system documented (colors, typography, spacing)
-- ✅ Brief design rationale
-
----
-
-## Tips for Success
-
-- **Start with your wireframe** - don't redesign from scratch
-- **Use Figma's styles** - create color and text styles for consistency
-- **Reference the real app** - look at Instagram to understand their design choices
-- **Focus on one screen at a time** - don't try to do everything
-- **Test accessibility** - use Figma's contrast checker
-- **Keep it simple** - you don't need to recreate every detail
-
----
-
-## Figma Tips
-
-### Useful Shortcuts:
-- **Cmd/Ctrl + D**: Duplicate selected element
-- **Cmd/Ctrl + G**: Group elements
-- **Cmd/Ctrl + Shift + G**: Ungroup
-- **Opt/Alt + Drag**: Duplicate while dragging
-- **Shift + Drag**: Constrain proportions
-
-### Useful Features:
-- **Auto Layout**: For responsive designs
-- **Components**: For reusable elements (buttons, icons)
-- **Styles**: For colors, text, and effects
-- **Frames**: For different screen sizes
-
----
-
-## Reflection
-
-Think about how this high-fidelity prototype compares to your wireframe:
-
-- What changed when you added visual design?
-- What design principles did you apply?
-- How will these skills help you in your final project?
-
----
-
-## Next Steps
-
-You've now practiced wireframing and high-fidelity prototyping with Instagram. These same skills will help you design your own app for the final project!
+## What to turn in
+1. Update your Figma file permissions so that anyone with the link can view your Figma file.
+2. Copy the link to Figma.
+3. Create a link from your homepage to your Figma file (see <a href="https://vanwars.github.io/csci344" target="_blank">Sarah's homepage</a> for an example). 
+4. Commit and push your edits to your homepage to GitHub and, paste a link to your GitHub Repository and to your GitHub pages in the Moodle submission.
