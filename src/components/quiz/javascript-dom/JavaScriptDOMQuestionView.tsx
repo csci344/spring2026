@@ -156,6 +156,7 @@ export default function JavaScriptDOMQuestionView({
         question.testCases,  // Legacy JSON format
         question.testCode     // New JavaScript format
       );
+      
       setTestResults(results);
       onAnswerSelect(question.id, { html, css, js, testResults: results }, results.allPassed);
     } catch (error) {

@@ -571,7 +571,7 @@ export const baseTopics = [
         topic: "UX/UI Design: Wireframing",
         description: (
           <>
-            <p>Part 1 of a two-part tutorial on low-fidelity prototyping.</p>
+            <p>Part 1 of a two-part tutorial on prototyping: Creating low-fidelity wireframes.</p>
           </>
         ),
         readings: [
@@ -595,13 +595,8 @@ export const baseTopics = [
         date: "We, Feb 11",
         topic: "UX/UI Design: High-Fidelity Prototypes",
         description: (
-          <>
-            <ul>
-              <li>Visual design principles: color, typography, spacing</li>
-              <li>Creating high-fidelity prototypes in Figma</li>
-              <li>Design systems and consistency</li>
-              <li>Peer review and feedback</li>
-            </ul>
+            <>
+            <p>Part 2 of a two-part tutorial on prototyping: Creating high-fidelity prototypes in Figma.</p>
           </>
         ),
       },
@@ -617,6 +612,26 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
+          {
+            title: "Study Guide",
+            url: "https://docs.google.com/document/d/1tza9v5tG2HfPfI8id2xiIfd1MNamEMRH/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true",
+            draft: 0
+          },
+          { 
+            title: "Practice Exam 1: Coding Portion",
+            url: "/exams/exam01-practice",
+            draft: 0
+          },
+          {
+            title: "Practice Exam 1: Written Portion",
+            url: "/exams/exam01-written",
+            draft: 0
+          },
+          {
+            title: "Practice Interactive Quizzes",
+            url: "/quizzes",
+            draft: 0
+          }
         ],
       },
     ],
