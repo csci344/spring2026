@@ -1,0 +1,52 @@
+:root {
+  --bg: #0b1220;
+  --panel: #111827;
+  --panel2: #0f172a;
+  --border: #334155;
+  --border2: #475569;
+  --text: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.panel {
+  background: var(--panel2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.layout {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+
+  /* TODO: Mobile-first layout here (stacked) */
+}
+
+/* Give main/aside some height so the layout is obvious */
+.main { min-height: 200px; }
+.aside { min-height: 140px; }
+
+@media (min-width: 800px) {
+  .layout {
+    /* TODO: Desktop layout here (nav full width above 2 columns) */
+  }
+}
+

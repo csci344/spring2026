@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bad HTML Practice (Answers)</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <header class="card">
+      <span class="tag">Task</span>
+      <h1>Fix the HTML</h1>
+      <p class="muted">The goal is to make this page semantic and valid. Yes, this is intentionally wrong.</p>
+
+      <nav aria-label="Page sections" class="muted">
+        <a href="#overview">Overview</a>
+        <a href="#contact">Form</a>
+        <a href="#page-footer">Footer</a>
+        <a href="#contact"><strong>Jump to Contact</strong></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="card" id="overview" aria-labelledby="overview-heading">
+        <h2 id="overview-heading">Overview</h2>
+
+        <img src="../../01-broken-links/assets/logo.svg" alt="CSCI 344 logo" />
+
+        <ul>
+          <li>Use semantic tags</li>
+          <li>Fix headings</li>
+          <li>Fix the form labels</li>
+        </ul>
+      </section>
+
+      <section class="card" id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+
+        <form>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Your name" />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+          <label for="topic">Topic</label>
+          <input id="topic" name="topic" type="text" placeholder="Exam question" />
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="card" id="page-footer">
+      <h2>Footer</h2>
+      <p class="muted">CSCI 344</p>
+    </footer>
+  </div>
+</body>
+
+</html>
+

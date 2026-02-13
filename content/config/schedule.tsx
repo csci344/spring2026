@@ -607,20 +607,39 @@ export const baseTopics = [
         date: "Fr, Feb 13",
         topic: "Exam 1 Review",
         description: (
-          <p>
-            Exam 1 review: HTML/CSS/Web Architecture/Design
-          </p>
+          <>
+            <p>
+                Exam 1 will be completed during class on Monday, 2/16. It is due at the end of class.
+            </p>
+            <ul>
+                <li><strong>1/3 of the exam will paper-based:</strong>
+                    <ul>
+                        <li>For this portion, you will not be able to use a computer, but you may bring a 1-page cheatsheet.</li>
+                    </ul>
+                </li>
+                <li><strong>2/3 ot the exam will be coding exercises.</strong> For this portion of the quiz:
+                    <ul>
+                        <li>You MAY use the course website, as well as any notes, lecture files, or internet reference materials to complete the quiz.</li>
+                        <li>You MAY NOT (a) use any Generative AI tools or (b) communicate with another human being during the quiz.</li>
+                    </ul>
+                </li>
+            </ul>
+          </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
           {
             title: "Study Guide",
             url: "https://docs.google.com/document/d/1tza9v5tG2HfPfI8id2xiIfd1MNamEMRH/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true",
             draft: 0
           },
           { 
-            title: "Practice Exam 1: Coding Portion",
+            title: "Practice Exam 1: Coding Portion (Sample Exam 1)",
             url: "/exams/exam01-practice",
+            draft: 0
+          },
+          { 
+            title: "Practice Exam 1: Coding Portion (Sample Exam 2)",
+            url: "/activities/exam01-practice-activity",
             draft: 0
           },
           {

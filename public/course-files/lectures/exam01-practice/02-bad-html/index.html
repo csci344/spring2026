@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bad HTML Practice</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Intentionally bad HTML starts here -->
+    <div class="card">
+      <span class="tag">Task</span>
+      <h2>Exam 01 Practice</h2>
+      <h1>Fix the HTML</h1>
+
+      <p class="muted">
+        The goal is to make this page semantic and valid.
+        <div>Yes, this is intentionally wrong.</div>
+      </p>
+
+      <!-- Intentionally broken semantics: nav links not in nav, and anchor wraps block content -->
+      <a href="#contact">
+        <div>
+          <strong>Jump to Contact</strong>
+        </div>
+      </a>
+
+      <div class="muted" id="section">
+        <div>Links:</div>
+        <div>
+          <a href="#section">Overview</a>
+          <a href="#section">Form</a>
+          <a href="#section">Footer</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="section">
+      <h2>Overview</h2>
+      <!-- Intentionally missing alt -->
+      <img src="../01-broken-links/assets/logo.svg" />
+
+      <!-- Intentionally bad list structure -->
+      <ul>
+        <div><li>Use semantic tags</li></div>
+        <div><li>Fix headings</li></div>
+        <div><li>Fix the form labels</li></div>
+      </ul>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>Contact</h2>
+
+      <!-- Intentionally incorrect form/labels/ids -->
+      <form>
+        <label>Name</label>
+        <input id="field" type="text" placeholder="Your name" />
+
+        <label for="field">Email</label>
+        <input id="field" type="email" placeholder="you@example.com" />
+
+        <label for="topic">Topic</label>
+        <input type="text" placeholder="Exam question" />
+
+        <button>Submit</button>
+      </form>
+    </div>
+
+    <!-- Intentionally invalid footer placement and nesting -->
+    <p class="card">
+      <footer>
+        <h2>Footer</h2>
+        <p class="muted">CSCI 344</p>
+      </footer>
+    </p>
+  </div>
+</body>
+
+</html>
+

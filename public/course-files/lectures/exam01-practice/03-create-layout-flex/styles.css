@@ -1,0 +1,90 @@
+:root {
+  --bg: #0b1220;
+  --panel: #111827;
+  --panel2: #0f172a;
+  --border: #334155;
+  --border2: #475569;
+  --text: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* TODO: Use flex to match target.svg */
+
+.site-header {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+}
+
+.logo {
+  background: #1f2937;
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  width: 140px;
+}
+
+.nav a {
+  display: inline-block;
+  background: #1f2937;
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.site-main {
+  margin-top: 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  min-height: 372px;
+}
+
+.sidebar {
+  background: var(--panel2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 18px;
+  min-height: 324px;
+}
+
+.content {
+  background: var(--panel2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 18px;
+  min-height: 324px;
+}
+
+.cards {
+  margin-top: 44px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  min-height: 120px;
+  padding: 14px;
+}
+

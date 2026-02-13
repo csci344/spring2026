@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam 01 Practice (Review Day)</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: rgba(17, 24, 39, 0.88);
+      --border: rgba(148, 163, 184, 0.25);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, #1f2937 0%, var(--bg) 60%);
+      color: var(--text);
+    }
+
+    a, a:visited { color: var(--text); }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .muted { color: var(--muted); }
+
+    code {
+      background: rgba(148, 163, 184, 0.12);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+
+    ul { padding-left: 1.25rem; }
+    li { margin: 8px 0; }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Exam 01 Practice (Review Day)</h1>
+      <p class="muted">
+        These exercises are meant to feel like the kinds of small, focused tasks you’ll see on Exam 01.
+      </p>
+      <p class="muted">
+        How to use: open an exercise’s <code>index.html</code> in your browser, then edit the starter <code>styles.css</code> to match the target.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Exercises</h2>
+      <ul>
+        <li>
+          <a href="./01-broken-links/index.html">01 — Broken links</a>
+          <span class="muted"> (fix broken navigation/assets)</span>
+        </li>
+        <li>
+          <a href="./02-bad-html/index.html">02 — Bad HTML</a>
+          <span class="muted"> (fix invalid structure/semantics)</span>
+        </li>
+        <li>
+          <a href="./03-create-layout-flex/index.html">03 — Create layout (Flexbox)</a>
+          <span class="muted"> (match <a href="/images/exams/exam01-practice/target-q03.svg">target</a>)</span>
+        </li>
+        <li>
+          <a href="./04-create-layout-grid/index.html">04 — Create layout (Grid)</a>
+          <span class="muted"> (match <a href="/images/exams/exam01-practice/target-q04.svg">target</a>)</span>
+        </li>
+        <li>
+          <a href="./05-create-layout-responsive/index.html">05 — Responsive layout (Mobile vs Desktop)</a>
+          <span class="muted">
+            (match <a href="/images/exams/exam01-practice/target-mobile-q05.svg">mobile target</a> and
+            <a href="/images/exams/exam01-practice/target-desktop-q05.svg">desktop target</a>)
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+
+</html>
+
