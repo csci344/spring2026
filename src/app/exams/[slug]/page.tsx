@@ -59,7 +59,11 @@ export default async function ExamPage({ params }: ExamPageProps) {
             type={postData.type}
             num={postData.num}
           />
-          { postData.due_date && <p className="mt-2 text-lg font-bold">Due {formatDate(postData.due_date)} at 11:59pm</p> }
+          {postData.due_date && (
+            <p className="mt-2 text-lg font-bold">
+              This exam will take place {formatDate(postData.due_date)} during class.
+            </p>
+          )}
           {isStyleGuideDemo && <StyleGuideStyles />}
           <MarkdownContent content={postData.content} />
         </div>
