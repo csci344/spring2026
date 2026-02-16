@@ -1,5 +1,5 @@
 ---
-title: "Exam 1: Web Architecture, HTML + CSS, Design"
+title: "Web Architecture, HTML + CSS, Design"
 type: "exam"
 num: 1
 draft: 0
@@ -45,18 +45,8 @@ You are going to build the webpage pictured below. Partial credit will be given.
 ### Desktop
 <img class="medium" src="/spring2026/images/exams/exam01/ss-desktop.png" />
 
-<table class="layout">
-<tr>
-    <td style="width: 415px;">
-        <h3>Tablet</h3>
-        <img style="width: 100%;" src="/spring2026/images/exams/exam01/ss-tablet.png" />
-    </td>
-    <td style="width: 285px;">
-        <h3>Mobile</h3>
-        <img style="width: 100%;" src="/spring2026/images/exams/exam01/ss-mobile.png" />
-    </td>
-</tr>
-</table>
+### Mobile
+<img style="width: 285px" src="/spring2026/images/exams/exam01/ss-mobile.png" />
 
 
 
@@ -79,7 +69,8 @@ You are going to build the webpage pictured below. Partial credit will be given.
     <a href="/spring2026/course-files/exams/exam01.zip" class="nu-button">Download Starter Files <i class="fas fa-download"></i></a>
 
 1. Copy the `exam01` folder into the `exams` folder you just created.
-1. Inside of the `exam01` folder, create a **brand new HTML file** called `index.html` that is in **the root** of the `exam01` folder. If you did it correctly, your file structure should look like this:
+1. Inside of the `exam01` folder, create a **brand new HTML file** called `index.html` that is in **the root** of the `exam01` folder (see folder structure below).
+1. Create a CSS file called `styles.css` that is also in the root of the `exam01` folder (see folder structure below).
 
     ```bash
     exam01
@@ -89,17 +80,15 @@ You are going to build the webpage pictured below. Partial credit will be given.
     │   ├── img3.jpg
     │   ├── img4.jpg
     │   ├── img5.jpg
-    │   ├── img6.jpg
-    │   ├── img7.jpg
-    │   ├── img8.jpg
-    │   └── img9.jpg
-    ├── index.html      <-- Your new HTML file
-    └── pages
-       ├── about.html
-       └── contact.html
+    │   └── img6.jpg
+    ├── index.html          <-- Your new HTML file
+    ├── pages
+    │   ├── about.html
+    │   └── contact.html
+    └── styles.css          <-- Your new CSS file
     ```
 
-1. Edit `index.html` file by adding an HTML “skeleton” with the following tags:
+1. Copy/paste the following boilerplate into `index.html` (then you will edit it in Part 2):
 
     ```html
     <!DOCTYPE html>
@@ -113,6 +102,29 @@ You are going to build the webpage pictured below. Partial credit will be given.
         
     </body>
     </html>
+    ```
+
+1. Copy/paste the following boilerplate into `styles.css` (then you will edit it in Part 3):
+
+    ```css
+    @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+
+    /* 3.1 Body */
+
+    /* 3.2 Header + nav */
+
+    /* 3.3 Custom font */
+
+    /* 3.4 Main */
+
+    /* 3.5 Gallery layout */
+
+    /* 3.6 Card styling */
+
+    /* 3.7 Footer */
+
+    /* 3.8 Media queries */
     ```
 
 ## Part 2: HTML Tasks (40 Points)
@@ -150,7 +162,7 @@ Create the header section pictured below (links should work):
 
 
 ### 2.4. Photo Container (16 Points)
-Inside of the "photo-container" section you will make **9 div tags (one for each image)**. 
+Inside of the "photo-container" section you will make **6 div tags (one for each image)**. 
 * Each div tag should be assigned a class of `card`.    
 * Each div tag will contain an `img` tag and a `p` tag (for the caption). 
     * Each `img` tag will point to one of the images in the `images` folder. 
@@ -169,27 +181,6 @@ Create **one** footer section below your `main` section using the `footer` tag. 
 
 
 ## Part 3: CSS Tasks (56 Points)
-Create a CSS file called `styles.css` that is a ***direct child*** of the `exam01` folder. If you did it correctly, your file structure should look like this:
-
-```shell
-exam01
-├── images
-│   ├── img1.jpg
-│   ├── img2.jpg
-│   ├── img3.jpg
-│   ├── img4.jpg
-│   ├── img5.jpg
-│   ├── img6.jpg
-│   ├── img7.jpg
-│   ├── img8.jpg
-│   └── img9.jpg
-├── index.html
-├── pages
-│   ├── about.html
-│   └── contact.html
-└── styles.css          <-- Your new CSS file
-```
-
 Edit your `index.html` file by adding a link to your stylesheet. Then, complete the following tasks within `styles.css`:
 
 ### 3.1. Body (4 Points)
@@ -217,7 +208,13 @@ Style the header so that it looks like this:
     
 
 ### 3.3. Custom Font (8 Points)
-Use the <a href="https://fonts.google.com/specimen/Tangerine" target="_blank">“Tangerine” Google font</a> to style the `h2` tag.
+Use the “Tangerine” Google font to style the `h2` tag. Note that the Google font has **already been included** in the starter `styles.css`. Your job is to add the following style properties to the `h2` tag:
+
+```css
+font-family: "Tangerine", cursive;
+font-style: normal;
+```
+
 <img src="/spring2026/images/exams/exam01/tangerine.png" />
 
 
@@ -248,13 +245,9 @@ Create some style rules to set the footer’s background color to `#222222`, and
 
 ### 3.8. Responsive Design with Media Queries  (8 Points)
 
-1. When the width of the screen is less than `1100px`, the `photo-container` section should have **two** equally-spaced columns as shown below:
-    
-    <img style="width: 400px; margin-bottom: 20px;" src="/spring2026/images/exams/exam01/ss-tablet.png" />
+When the width of the screen is less than `700px`, the `photo-container` section should have **one** column as shown below:
 
-1. When the width of the screen is less than `600px`, the `photo-container` section should have **one** column as shown below:
-
-    <img style="width: 285px" src="/spring2026/images/exams/exam01/ss-mobile.png" />
+<img style="width: 285px" src="/spring2026/images/exams/exam01/ss-mobile.png" />
 
 
 ## Part 4: Accessibility Tasks (4 Points)
