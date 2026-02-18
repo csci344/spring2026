@@ -685,21 +685,12 @@ export const baseTopics = [
         date: "We, Feb 18",
         topic: "Working with the DOM",
         description: (
-          <>
-            <ul>
-              <li>Introduction to the DOM</li>
-              <li>Accessing and modifying DOM elements</li>
-              <li>DOM manipulation basics</li>
-              <li>Event handling in JavaScript</li>
-              <li>DOM traversal and manipulation</li>
-              <li>Creating and modifying DOM elements dynamically</li>
-            </ul>
+          <>Introduction to  DOM Manipulation with JavaScrit
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "DOM manipulation practice (part 1)", url: "/course-files/lectures/lecture10.zip", draft: 1 },
-          { title: "DOM manipulation practice (part 2)", url: "/course-files/lectures/lecture11.zip", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1GXkBOYo2qAo58WBo_PEMepqMFKkUJI-z/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+          { title: "Lecture files", url: "/course-files/lectures/lecture09.zip", draft: 0 },
         ],
         readings: [
           {
@@ -730,15 +721,15 @@ export const baseTopics = [
               </>
             ),
           },
-        ],
-        optionalReadings: [
           {
             citation: (
               <>
                 Sarah's interactive <a href="/spring2026/course-files/activities/dom-tester/index.html" target="_blank">DOM manipulation worksheet</a>
               </>
             ),
-          },
+          }
+        ],
+        optionalReadings: [
           {
             citation: (
               <>

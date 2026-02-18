@@ -340,7 +340,7 @@ export default function Meeting({
           variant="desktop"
           autoOpen={true}
           onClose={() => setOpenQuizSlug(null)}
-          cheatsheetContent={openQuiz.cheatsheetContent}
+          cheatsheetContent={openQuiz.cheatsheetContent ?? undefined}
         />
       </div>
     )}
