@@ -1,132 +1,350 @@
+:root {
+    --bg: #f6f7fb;
+    --panel: #ffffff;
+    --panel-2: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: rgba(15, 23, 42, 0.14);
+    --shadow: 0 12px 35px rgba(2, 6, 23, 0.08);
+    --accent: #6d28d9;
+    --accent-2: #16a34a;
+    --focus: rgba(109, 40, 217, 0.20);
+}
+
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+        "Segoe UI Emoji";
+    background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(109, 40, 217, 0.10), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(22, 163, 74, 0.08), transparent 55%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+    min-height: 100vh;
 }
 
 header {
-    padding: 20px 30px;
-    min-height: 130px;
-    background-color: #CCC;
-    display: flex;
-    justify-content: space-between;
+    padding: 22px 26px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "left"
+        "editor";
     align-items: center;
-    gap: 15px;
+    gap: 18px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-left {
+    grid-area: left;
+}
+
+.rule-builder {
+    grid-area: editor;
+}
+
+.header-left h1 {
+    margin: 0 0 4px 0;
+    font-size: 1.3rem;
+    letter-spacing: 0.2px;
+}
+
+.subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
+.subtitle code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.92em;
+    background: rgba(15, 23, 42, 0.04);
+    padding: 2px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
 }
 
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 30px;
-    min-height: calc(100vh - 130px);
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+    padding: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 main section {
-    padding: 20px;
-    background-color: #F4F4F4;
-    max-width: 50vw;
+    padding: 18px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
 }
 
-
-form span {
-    font-size: 1.6em;
-    font-weight: 600;
-    font-family: monospace;
+.output h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.05rem;
 }
 
-#formula {
+.output ul {
+    margin: 0 0 16px 18px;
+    color: var(--muted);
+}
+
+.output h1 {
+    font-size: 0.95rem;
+    margin: 18px 0 10px 0;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.rule-builder {
     display: flex;
-    column-gap: 15px;
-    align-items: flex-end;
-    margin-bottom: 10px;
+    flex-direction: column;
+    gap: 8px;
+    justify-self: end;
+    width: 100%;
 }
 
-
-#formula>div {
-    display: flex;
-    column-gap: 15px;
-    align-items: flex-end;
+.editor {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 1.02rem;
+    line-height: 1.55;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 10px 26px rgba(2, 6, 23, 0.06);
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: visible;
+    position: relative;
 }
 
-
-.item {
-    padding: 10px;
-    border: solid 2px #CCC;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    background-color: #F6F6F6;
+.token {
+    color: rgba(15, 23, 42, 0.9);
+    font-weight: 650;
 }
 
-form input {
-    min-width: 200px;
-    font-size: 1.1em;
-    line-height: 1.4em;
-    background: transparent;
+.edit-field {
+    display: inline-block;
+    min-width: 160px;
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 0px;
+    border: 1px solid transparent;
+    border-bottom: 2px solid rgba(109, 40, 217, 0.35);
+    background: rgba(109, 40, 217, 0.05);
+    color: rgba(15, 23, 42, 0.92);
+    vertical-align: baseline;
+}
+
+.edit-field[contenteditable="true"]:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(71, 85, 105, 0.65);
+}
+
+.edit-input {
+    font: inherit;
+    line-height: inherit;
+    width: 320px;
+    max-width: 60vw;
+}
+
+.edit-input::placeholder {
+    color: rgba(71, 85, 105, 0.65);
+}
+
+.hint-group {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.hint-input-wrap {
+    position: relative;
+    display: inline-block;
+    z-index: 30;
+}
+
+.hint-input-wrap .edit-input {
+    padding-right: 78px; /* room for attached Hint button */
+}
+
+.hint-button-attached {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 2px 10px;
+    border-radius: 0;
     border: 0;
-    border-bottom: solid 2px black;
-    text-align: center;
+    line-height: 1.4;
 }
 
-form input:focus {
+.hint-button {
+    font: inherit;
+    line-height: inherit;
+    padding: 2px 10px;
+    /* border-radius: 999px;
+    border: 1px solid rgba(109, 40, 217, 0.25);
+    background: rgba(109, 40, 217, 0.06); */
+    color: rgba(109, 40, 217, 0.95);
+    cursor: pointer;
+    user-select: none;
+}
+
+.hint-button:hover {
+    background: rgba(109, 40, 217, 0.10);
+}
+
+.hint-button:focus-visible {
     outline: 0;
-    border-bottom: solid 2px blue;
+    box-shadow: 0 0 0 4px var(--focus);
 }
 
-form button {
-    font-size: 1.1em;
-    line-height: 1.4em;
+.hint-menu {
+    position: absolute; /* default; JS will switch to fixed to avoid overflow clipping */
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 18px 45px rgba(2, 6, 23, 0.12);
+    padding: 6px;
+    display: grid;
+    gap: 4px;
+    z-index: 1000;
+    max-height: 240px;
+    overflow: auto;
 }
 
-form input#thing-to-change {
-    min-width: 250px;
-    font-size: 1.2em;
-    line-height: 1.5em;
+.hint-menu[hidden] {
+    display: none !important;
+}
+
+.hint-menu button {
+    font: inherit;
+    text-align: left;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: rgba(15, 23, 42, 0.92);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.hint-menu button:hover,
+.hint-menu button:focus-visible {
+    outline: 0;
+    border-color: rgba(109, 40, 217, 0.18);
+    background: rgba(109, 40, 217, 0.06);
+}
+
+.edit-field:focus {
+    outline: 0;
+    border-color: rgba(109, 40, 217, 0.22);
+    border-bottom-color: rgba(109, 40, 217, 0.70);
+    box-shadow: 0 0 0 4px var(--focus);
+}
+
+.editor-hint {
+    color: rgba(71, 85, 105, 0.8);
+    font-size: 0.9rem;
+}
+
+kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.88em;
+    padding: 2px 6px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: rgba(248, 250, 252, 1);
 }
 
 .button {
-    background-color: rgb(79, 67, 182);
+    background: linear-gradient(180deg, rgba(109, 40, 217, 0.95), rgba(79, 70, 229, 0.92));
     color: white;
-    padding: 5px 20px;
-    border-radius: 4px;
-    font-size: 1.3em;
-    border: solid 1px #FFF;
-    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 10px 22px rgba(109, 40, 217, 0.18);
+    cursor: pointer;
+    white-space: nowrap;
 }
 
+.button:hover {
+    filter: brightness(1.05);
+}
 
+.button:active {
+    transform: translateY(1px);
+}
+
+.button:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 4px var(--focus), 0 10px 22px rgba(109, 40, 217, 0.18);
+}
 
 pre {
-    font-size: 1.2em;
-    font-weight: 500;
-    font-family: monospace;
+    font-size: 0.98rem;
+    font-weight: 520;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     min-height: 50px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(248, 250, 252, 1);
+    overflow: auto;
     white-space: pre-wrap;
-    /* css-3 */
-    white-space: -moz-pre-wrap;
-    /* Mozilla, since 1999 */
-    white-space: -pre-wrap;
-    /* Opera 4-6 */
-    white-space: -o-pre-wrap;
-    /* Opera 7 */
     word-wrap: break-word;
 }
 
-@media screen and (max-width: 1100px) {
+pre code {
+    display: block;
+}
 
-    form span {
-        font-size: 1.4em;
+/* highlight.js default theme is light; keep highlighting but let our dark panels win */
+.hljs {
+    background: transparent !important;
+}
+
+@media screen and (max-width: 1100px) {
+    header {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "left"
+            "editor"
+            ;
+        align-items: start;
     }
 
-    header {
-        flex-direction: column;
-        align-items: flex-start;
+    .rule-builder {
+        justify-self: stretch;
+    }
+
+    main {
+        grid-template-columns: 1fr;
     }
 }
 
 @media screen and (max-width: 700px) {
+    .rule-builder {
+        width: 100%;
+    }
 
-
-    #formula {
-        flex-direction: column;
-        align-items: flex-start;
+    .edit-field {
+        min-width: 0;
+        max-width: 100%;
     }
 }

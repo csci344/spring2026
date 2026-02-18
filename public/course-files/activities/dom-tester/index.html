@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>DOM Demo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Tester</title>
     <link rel="stylesheet" href="page.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -15,32 +17,55 @@
 
 <body>
     <header>
-        <form onsubmit="updateScreen(event)">
-            <section id="formula">
-                <div>
-                    <span>let</span>
-                    <span>myElement</span>
-                    <span>=</span>
-                </div>
-                <div>
-                    <span>document.querySelector("</span>
-                    <input id="selector" type="text" placeholder="selector" />
-                    <span>");</span>
-                </div>
-            </section>
-            <section id="formula">
-                <div>
-                    <span>myElement.</span>
-                    <input id="thing-to-change" type="text" placeholder="attribute or style.property" />
-                    <span>=</span>
-                </div>
-                <div><span>"</span>
-                    <input id="value" type="text" placeholder="new value" />
-                    <span>";</span>
-                </div>
-            </section>
-        </form>
-        <button class="button"><i class="fa-solid fa-plus"></i> Add Rule</button>
+        <div class="header-left">
+            <h1>DOM Tester</h1>
+            <p class="subtitle">Practice <code>querySelector</code> and DOM updates by building small “rules”.</p>
+        </div>
+
+        <div class="rule-builder" role="group" aria-label="Rule builder">
+            <div class="editor" aria-label="Editable JavaScript rule">
+                <span class="token">let</span>
+                <span class="token">myElement</span>
+                <span class="token">=</span>
+                <span class="token">document.querySelector("</span>
+                <span id="selector" class="edit-field" contenteditable="true" spellcheck="false"
+                    data-placeholder='' role="textbox"
+                    aria-label='CSS selector (example: "#section1")'></span>
+                <span class="token">");</span>
+                <br />
+                <span class="token">myElement.</span>
+                <span class="hint-group">
+                    <span class="hint-input-wrap">
+                        <input id="thing-to-change" class="edit-field edit-input"
+                            placeholder=""
+                            aria-label='Thing to change (example: style.backgroundColor or innerHTML)'
+                            autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" />
+                        <div id="prop-hint-menu" class="hint-menu" role="listbox" aria-label="Suggested properties" hidden>
+                            <button type="button" role="option" data-value="style.backgroundColor">style.backgroundColor</button>
+                            <button type="button" role="option" data-value="style.color">style.color</button>
+                            <button type="button" role="option" data-value="style.border">style.border</button>
+                            <button type="button" role="option" data-value="style.display">style.display</button>
+                            <button type="button" role="option" data-value="style.visibility">style.visibility</button>
+                            <button type="button" role="option" data-value="innerHTML">innerHTML</button>
+                            <button type="button" role="option" data-value="textContent">textContent</button>
+                            <button type="button" role="option" data-value="className">className</button>
+                            <button type="button" role="option" data-value="id">id</button>
+                            <button type="button" role="option" data-value="src">src</button>
+                            <button type="button" role="option" data-value="alt">alt</button>
+                        </div>
+                        <button id="prop-hint-btn" class="hint-button hint-button-attached" type="button"
+                            aria-haspopup="listbox" aria-controls="prop-hint-menu" aria-expanded="false">Hint</button>
+                    </span>
+                </span>
+                <span class="token">=</span>
+                <span class="token">"</span>
+                <span id="value" class="edit-field" contenteditable="true" spellcheck="false"
+                    data-placeholder='' role="textbox"
+                    aria-label='New value (example: \"red\")'></span>
+                <span class="token">";</span>
+            </div>
+            <div class="editor-hint">Tip: press <kbd>Enter</kbd> to apply.</div>
+        </div>
     </header>
     <main>
         <section class="output">
@@ -54,8 +79,7 @@
             </ul>
             <div>
                 <h1>HTML</h1>
-                <pre id="code">
-                    <code class="language-html">
+                <pre id="code"><code class="language-html">
 &lt;div class=&quot;container&quot;&gt;
     &lt;section id=&quot;section1&quot; class=&quot;box&quot;&gt;Section 1&lt;/section&gt;
     &lt;section id=&quot;section2&quot; class=&quot;box&quot;&gt;Section 2&lt;/section&gt;
@@ -64,8 +88,7 @@
     &lt;img id=&quot;img2&quot; class=&quot;box&quot; src=&quot;images/cat.jpg&quot /&gt;
     &lt;img id=&quot;img3&quot; class=&quot;box&quot; src=&quot;images/dog.jpg&quot /&gt;
 &lt;/div&gt;
-                    </code>
-                </pre>
+                </code></pre>
                 <h1>JavaScript</h1>
                 <pre><code class="language-js" id="js"></code></pre>
 
