@@ -1,0 +1,14 @@
+/* The .active class highlights the box */
+#box {
+  padding: 10px;
+  border: 2px solid #ccc;
+  background: white;
+  transition: all 0.3s;
+}
+
+#box.active {
+  background: #4CAF50;
+  color: white;
+  border-color: #45a049;
+  font-weight: bold;
+}

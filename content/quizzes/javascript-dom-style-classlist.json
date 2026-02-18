@@ -1,0 +1,104 @@
+{
+  "quizName": "DOM Style Properties & classList",
+  "start_date": "2026-02-18",
+  "draft": 0,
+  "cheatsheet": "javascript-dom-style-classlist.html",
+  "questions": [
+    {
+      "id": "q01",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it adds the class 'active' to the element with id 'box'.",
+      "explanation": "Inside the Run button's click handler, call document.querySelector('#box').classList.add('active')."
+    },
+    {
+      "id": "q02",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it removes the class 'disabled' from the element with id 'btn'.",
+      "explanation": "Inside the Run handler, call btn.classList.remove('disabled')."
+    },
+    {
+      "id": "q03",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets the element with id 'card' to have className exactly 'card featured'.",
+      "explanation": "In the Run handler, set card.className = 'card featured'."
+    },
+    {
+      "id": "q04",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it changes the image with id 'pic' so its src ends with 'bird.jpg'.",
+      "explanation": "In the Run handler, set img.src (or setAttribute) so it ends with 'bird.jpg'."
+    },
+    {
+      "id": "q05",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #box.style.backgroundColor to 'rgb(255, 0, 0)' (red).",
+      "explanation": "Inside the Run handler, assign box.style.backgroundColor to 'red' or 'rgb(255, 0, 0)'."
+    },
+    {
+      "id": "q06",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #box.style.borderWidth to '4px'.",
+      "explanation": "Assign element.style.borderWidth = '4px'."
+    },
+    {
+      "id": "q07",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #box.style.borderColor to 'blue'.",
+      "explanation": "Assign element.style.borderColor = 'blue'."
+    },
+    {
+      "id": "q08",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets data-status=\"ready\" on #box using dataset.",
+      "explanation": "Use element.dataset.status = 'ready'."
+    },
+    {
+      "id": "q09",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it adds aria-label=\"Close\" to the button with id 'closeBtn'.",
+      "explanation": "Use setAttribute('aria-label','Close')."
+    },
+    {
+      "id": "q10",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it adds the class 'item' to every <li> inside #list.",
+      "explanation": "Use document.querySelectorAll('#list li') and loop."
+    },
+    {
+      "id": "q11",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that if #box has class 'active', it sets #status.textContent to 'ON', otherwise 'OFF'.",
+      "explanation": "Use classList.contains('active') and a conditional."
+    },
+    {
+      "id": "q12",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that clicking #hideBtn sets #box.style.display to 'none'.",
+      "explanation": "Add a click listener and set style.display."
+    },
+    {
+      "id": "q13",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that clicking #hideBtn sets #box.style.visibility to 'hidden'.",
+      "explanation": "Use style.visibility = 'hidden'."
+    },
+    {
+      "id": "q14",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it ensures #box ends up WITH class 'active' using classList.toggle(..., true).",
+      "explanation": "Use element.classList.toggle('active', true)."
+    },
+    {
+      "id": "q15",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #box.style.borderStyle to 'solid' and borderWidth to '2px'.",
+      "explanation": "Assign style.borderStyle and style.borderWidth."
+    },
+    {
+      "id": "q16",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that when #toggleBtn is clicked, it toggles 'active' on #box and sets its backgroundColor to 'gold' when active, otherwise ''.",
+      "explanation": "Toggle class; then conditional to set style.backgroundColor."
+    }
+  ]
+}

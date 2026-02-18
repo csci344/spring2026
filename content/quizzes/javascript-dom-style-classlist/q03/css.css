@@ -1,0 +1,13 @@
+/* The .featured class adds special styling to cards */
+.card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+}
+
+.card.featured {
+  border: 2px solid #ffc107;
+  background: #fff9e6;
+  box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}

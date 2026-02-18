@@ -1,0 +1,16 @@
+/* The .open class will show the panel content */
+#panel {
+    margin-top: 10px;
+    padding: 0px 10px;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s;
+}
+
+#panel.open {
+    height: 100px;
+    padding: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+}
+  

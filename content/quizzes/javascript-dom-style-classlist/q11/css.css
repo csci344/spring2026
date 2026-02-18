@@ -1,0 +1,18 @@
+/* The .active class changes the status display */
+#box {
+  padding: 10px;
+  border: 2px solid #ccc;
+  background: white;
+}
+
+#box.active {
+  background: #4CAF50;
+  color: white;
+  border-color: #45a049;
+}
+
+#status {
+  padding: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+}

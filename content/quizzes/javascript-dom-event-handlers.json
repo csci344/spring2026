@@ -1,0 +1,38 @@
+{
+  "quizName": "DOM Event Handlers & Functions",
+  "start_date": "2026-02-18",
+  "draft": 0,
+  "cheatsheet": "javascript-dom-event-handlers.html",
+  "questions": [
+    {
+      "id": "q01",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function. When the user clicks the button, add / remove the 'open' class from the 'panel' div.",
+      "explanation": "In the Run handler, attach a click listener to the button that calls panel.classList.toggle('open')."
+    },
+    {
+      "id": "q02",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function. When the user clicks the button, add the text from the input to the output div.",
+      "explanation": "Add a click listener; read input.value; set output.textContent."
+    },
+    {
+      "id": "q03",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function. When the user clicks the button, append a new list item with the input text to the list.",
+      "explanation": "Use insertAdjacentHTML('beforeend', `<li>...</li>`)."
+    },
+    {
+      "id": "q04",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function. When the form is submitted, prevent the default behavior and set the status text to 'Submitted'.",
+      "explanation": "Use e.preventDefault() in a submit handler."
+    },
+    {
+      "id": "q05",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function. When the user clicks the button, change the image src so it ends with 'cat.jpg'.",
+      "explanation": "Add a click listener and set img.src."
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+<div>
+    <h2>DOM Event Handlers & Functions Cheatsheet</h2>
+    <p>Learn how to create functions and attach event listeners to make interactive web pages.</p>
+
+    <h3>Creating the runCode() Function</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Pattern</th>
+                <th style="width: 400px;">Example</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>function runCode()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;// your code here<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Define the function that will be called by the Run button</li>
+                        <li>The HTML button has <code>onclick="runCode()"</code></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Adding Event Listeners</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>addEventListener</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>button.addEventListener('click', function() {<br>&nbsp;&nbsp;// code here<br>});</code></li>
+                        <li><code>button.addEventListener('click', () => {<br>&nbsp;&nbsp;// code here<br>});</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Attaches an event handler to an element</li>
+                        <li>First argument: event type (string)</li>
+                        <li>Second argument: function to run when event occurs</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>querySelector</code> + <code>addEventListener</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>const btn = document.querySelector('#myBtn');<br>btn.addEventListener('click', function() {<br>&nbsp;&nbsp;// code here<br>});</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>First select the element, then add the listener</li>
+                        <li>Use inside <code>runCode()</code> to set up event handlers</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Common Event Types</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Event Type</th>
+                <th style="width: 400px;">Example</th>
+                <th>When It Fires</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>'click'</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>button.addEventListener('click', function() { });</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>When user clicks a button or element</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>'submit'</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>form.addEventListener('submit', function(e) {<br>&nbsp;&nbsp;e.preventDefault();<br>});</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>When a form is submitted</li>
+                        <li>Usually need <code>e.preventDefault()</code> to stop page reload</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Preventing Default Behavior</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Example</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>preventDefault()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>form.addEventListener('submit', function(e) {<br>&nbsp;&nbsp;e.preventDefault();<br>&nbsp;&nbsp;// your code here<br>});</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Stops the browser's default action (like form submission)</li>
+                        <li>Call on the event object (usually named <code>e</code> or <code>event</code>)</li>
+                        <li>Must be inside the event handler function</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Reading Input Values</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Property</th>
+                <th style="width: 400px;">Example</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>input.value</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>const input = document.querySelector('#nameInput');<br>const text = input.value;</code></li>
+                        <li><code>output.textContent = input.value;</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Gets the current value from an input field</li>
+                        <li>Use inside event handler to read what user typed</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Complete Examples</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Task</th>
+                <th style="width: 400px;">Solution</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Click to toggle class</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const btn = document.querySelector('#toggleBtn');<br>&nbsp;&nbsp;const panel = document.querySelector('#panel');<br>&nbsp;&nbsp;btn.addEventListener('click', function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;panel.classList.toggle('open');<br>&nbsp;&nbsp;});<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Set up listener inside <code>runCode()</code></li>
+                        <li>Toggle class when button is clicked</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Click to copy input to output</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const btn = document.querySelector('#addBtn');<br>&nbsp;&nbsp;const input = document.querySelector('#nameInput');<br>&nbsp;&nbsp;const output = document.querySelector('#output');<br>&nbsp;&nbsp;btn.addEventListener('click', function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;output.textContent = input.value;<br>&nbsp;&nbsp;});<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Read <code>input.value</code></li>
+                        <li>Set <code>output.textContent</code></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Form submit with preventDefault</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const form = document.querySelector('#myForm');<br>&nbsp;&nbsp;const status = document.querySelector('#status');<br>&nbsp;&nbsp;form.addEventListener('submit', function(e) {<br>&nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();<br>&nbsp;&nbsp;&nbsp;&nbsp;status.textContent = 'Submitted';<br>&nbsp;&nbsp;});<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Event handler receives event object as parameter</li>
+                        <li>Call <code>e.preventDefault()</code> first</li>
+                        <li>Then do your DOM updates</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Toggle with conditional text</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const btn = document.querySelector('#toggleBtn');<br>&nbsp;&nbsp;const panel = document.querySelector('#panel');<br>&nbsp;&nbsp;btn.addEventListener('click', function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;panel.classList.toggle('open');<br>&nbsp;&nbsp;&nbsp;&nbsp;if (panel.classList.contains('open')) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn.textContent = 'Close';<br>&nbsp;&nbsp;&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;btn.textContent = 'Open';<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;});<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Toggle the class first</li>
+                        <li>Check with <code>classList.contains()</code></li>
+                        <li>Update button text based on state</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Click to change image src</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const btn = document.querySelector('#swapBtn');<br>&nbsp;&nbsp;const img = document.querySelector('#pic');<br>&nbsp;&nbsp;btn.addEventListener('click', function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;img.src = 'cat.jpg';<br>&nbsp;&nbsp;});<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Set <code>img.src</code> to change the image</li>
+                        <li>Can use full path or relative path</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Key Patterns</h3>
+    <ul>
+        <li><strong>Always define <code>runCode()</code> function</strong> - This is called by the Run button</li>
+        <li><strong>Select elements first</strong> - Use <code>querySelector()</code> to get elements</li>
+        <li><strong>Add listeners inside <code>runCode()</code></strong> - Set up event handlers when function runs</li>
+        <li><strong>Read values when event fires</strong> - Access <code>input.value</code> inside the event handler</li>
+        <li><strong>Use <code>preventDefault()</code> for forms</strong> - Stop default form submission behavior</li>
+    </ul>
+</div>

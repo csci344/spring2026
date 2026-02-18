@@ -1,0 +1,16 @@
+/* The .item class styles list items */
+#list {
+  list-style: none;
+  padding: 0;
+}
+
+#list li {
+  padding: 5px;
+  margin: 2px 0;
+}
+
+#list li.item {
+  background: #e3f2fd;
+  border-left: 3px solid #2196F3;
+  padding-left: 10px;
+}

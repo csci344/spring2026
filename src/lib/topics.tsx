@@ -1,4 +1,4 @@
-import { getAllPosts, PostData, getAllQuizMetadata, QuizMetadata, getQuizData, QuizData } from './markdown';
+import { getAllPosts, PostData, getAllQuizMetadata, QuizMetadata, getQuizData, getQuizCheatsheet, QuizData } from './markdown';
 import React from 'react';
 import { baseTopics } from '../../content/config/schedule';
 import { getCourseConfig } from './config';
@@ -280,12 +280,33 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           
           meeting.scheduleQuizzes = convertedScheduleQuizzes;
           
-          // Keep only Quiz objects (with title/slug) in quizzes array
-          meeting.quizzes = quizzesArray.filter(isQuiz);
-          // If no Quiz objects remain, set to undefined
-          if (meeting.quizzes.length === 0) {
-            meeting.quizzes = undefined;
+        // Keep only Quiz objects (with title/slug) in quizzes array
+        const manualQuizzes = quizzesArray.filter(isQuiz);
+        // Enrich manual quizzes with quizData and cheatsheetContent if not already present
+        meeting.quizzes = manualQuizzes.map((quiz: Quiz) => {
+          if (!quiz.quizData && quiz.slug) {
+            const quizData = getQuizData(quiz.slug);
+            const cheatsheetContent = getQuizCheatsheet(quizData, quiz.slug);
+            return {
+              ...quiz,
+              quizData: quizData || undefined,
+              cheatsheetContent: cheatsheetContent || undefined
+            };
           }
+          // If quizData exists but cheatsheetContent doesn't, load it
+          if (quiz.quizData && !quiz.cheatsheetContent && quiz.slug) {
+            const cheatsheetContent = getQuizCheatsheet(quiz.quizData, quiz.slug);
+            return {
+              ...quiz,
+              cheatsheetContent: cheatsheetContent || undefined
+            };
+          }
+          return quiz;
+        });
+        // If no Quiz objects remain, set to undefined
+        if (meeting.quizzes.length === 0) {
+          meeting.quizzes = undefined;
+        }
         }
       }
       
@@ -336,10 +357,12 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
       // Create auto-populated quiz entries (include full quiz data for client-side rendering)
       const autoQuizzes = matchingQuizzes.map((quiz: QuizMetadata) => {
         const quizData = getQuizData(quiz.slug);
+        const cheatsheetContent = getQuizCheatsheet(quizData, quiz.slug);
         return {
           title: quiz.quizName,
           slug: quiz.slug,
           quizData: quizData || undefined,
+          cheatsheetContent: cheatsheetContent || undefined,
           draft: 0
         };
       });

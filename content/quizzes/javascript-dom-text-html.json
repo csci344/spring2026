@@ -1,0 +1,56 @@
+{
+  "quizName": "DOM Text & HTML Manipulation",
+  "start_date": "2026-02-18",
+  "draft": 0,
+  "cheatsheet": "javascript-dom-text-html.html",
+  "questions": [
+    {
+      "id": "q01",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #message.innerHTML to <strong>Hello</strong> (so the word is bold).",
+      "explanation": "Inside the Run handler, assign message.innerHTML to the HTML string."
+    },
+    {
+      "id": "q02",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #message.textContent to <strong>Hello</strong> (showing the angle brackets as text).",
+      "explanation": "Inside the Run handler, use textContent so the HTML is not parsed."
+    },
+    {
+      "id": "q03",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it uses insertAdjacentHTML to append <li>Third</li> to the end of <ul id='list'>.",
+      "explanation": "In the Run handler, call list.insertAdjacentHTML('beforeend', '<li>Third</li>')."
+    },
+    {
+      "id": "q04",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it inserts <p id='note'>Note</p> immediately before the element with id 'target'.",
+      "explanation": "Inside the Run handler, call target.insertAdjacentHTML('beforebegin', ...)."
+    },
+    {
+      "id": "q05",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it adds one new <li> to #list so it has 3 <li> total.",
+      "explanation": "Append or insertAdjacentHTML one new list item."
+    },
+    {
+      "id": "q06",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it creates a new <button id='newBtn'>Click me</button> and appends it inside #container.",
+      "explanation": "Use document.createElement('button'), set id/textContent, then appendChild."
+    },
+    {
+      "id": "q07",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it removes the element with id 'toRemove' from the page.",
+      "explanation": "Use element.remove() or parent.removeChild(element)."
+    },
+    {
+      "id": "q08",
+      "type": "javascript-dom",
+      "question": "Modify the runCode() function body so that it sets #container.innerHTML to exactly '<p>Done</p>'.",
+      "explanation": "Assign container.innerHTML."
+    }
+  ]
+}

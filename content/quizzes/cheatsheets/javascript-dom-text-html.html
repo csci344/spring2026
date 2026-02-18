@@ -1,0 +1,354 @@
+<div>
+    <h2>DOM Text & HTML Manipulation Cheatsheet</h2>
+    <p>Learn how to modify text content, insert HTML, and create new elements in the DOM.</p>
+
+    <h3>Creating the runCode() Function</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Pattern</th>
+                <th style="width: 400px;">Example</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>function runCode()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;// your code here<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Define the function that will be called by the Run button</li>
+                        <li>The HTML button has <code>onclick="runCode()"</code></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Selecting Elements</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>querySelector</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>const message = document.querySelector('#message');</code></li>
+                        <li><code>const list = document.querySelector('#list');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects a single element by CSS selector</li>
+                        <li>Use <code>#id</code> for IDs</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Text Content vs HTML</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Property</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>textContent</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.textContent = 'Hello';</code></li>
+                        <li><code>element.textContent = '&lt;strong&gt;Hello&lt;/strong&gt;';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Sets plain text (HTML is escaped)</li>
+                        <li>Angle brackets appear as text, not HTML</li>
+                        <li>Use when you want to display HTML tags as text</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>innerHTML</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.innerHTML = '&lt;strong&gt;Hello&lt;/strong&gt;';</code></li>
+                        <li><code>element.innerHTML = '&lt;p&gt;Done&lt;/p&gt;';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Sets HTML content (parsed as HTML)</li>
+                        <li>HTML tags are rendered, not shown as text</li>
+                        <li>Use when you want to insert actual HTML elements</li>
+                        <li>⚠️ Be careful with user input (security risk)</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Inserting HTML</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>insertAdjacentHTML</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.insertAdjacentHTML('beforeend', '&lt;li&gt;Third&lt;/li&gt;');</code></li>
+                        <li><code>element.insertAdjacentHTML('beforebegin', '&lt;p&gt;Note&lt;/p&gt;');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Inserts HTML at a specific position</li>
+                        <li>First param: position ('beforebegin', 'afterbegin', 'beforeend', 'afterend')</li>
+                        <li>Second param: HTML string</li>
+                        <li>Doesn't replace existing content</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Position values</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>'beforebegin'</code> - Before the element</li>
+                        <li><code>'afterbegin'</code> - Inside, at the start</li>
+                        <li><code>'beforeend'</code> - Inside, at the end (append)</li>
+                        <li><code>'afterend'</code> - After the element</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Most common: <code>'beforeend'</code> to append</li>
+                        <li>Use <code>'beforebegin'</code> to insert before</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Creating New Elements</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>createElement</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>const btn = document.createElement('button');</code></li>
+                        <li><code>const li = document.createElement('li');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Creates a new element (not yet on page)</li>
+                        <li>Pass tag name as string</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>appendChild</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>container.appendChild(btn);</code></li>
+                        <li><code>list.appendChild(li);</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Adds element as last child of parent</li>
+                        <li>Element must be created first</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Setting properties</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>btn.id = 'newBtn';</code></li>
+                        <li><code>btn.textContent = 'Click me';</code></li>
+                        <li><code>li.textContent = 'Item';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Set properties before or after appending</li>
+                        <li>Use <code>id</code> for ID attribute</li>
+                        <li>Use <code>textContent</code> for text</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Removing Elements</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>remove()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.remove();</code></li>
+                        <li><code>const toRemove = document.querySelector('#toRemove');<br>toRemove.remove();</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Removes element from the page</li>
+                        <li>Simplest method</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Complete Examples</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Task</th>
+                <th style="width: 400px;">Solution</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Set innerHTML</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const msg = document.querySelector('#message');<br>&nbsp;&nbsp;msg.innerHTML = '&lt;strong&gt;Hello&lt;/strong&gt;';<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>HTML is parsed and rendered</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Set textContent</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const msg = document.querySelector('#message');<br>&nbsp;&nbsp;msg.textContent = '&lt;strong&gt;Hello&lt;/strong&gt;';<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Shows angle brackets as text</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Append with insertAdjacentHTML</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const list = document.querySelector('#list');<br>&nbsp;&nbsp;list.insertAdjacentHTML('beforeend', '&lt;li&gt;Third&lt;/li&gt;');<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>'beforeend' appends to the end</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Insert before with insertAdjacentHTML</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const target = document.querySelector('#target');<br>&nbsp;&nbsp;target.insertAdjacentHTML('beforebegin', '&lt;p id="note"&gt;Note&lt;/p&gt;');<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>'beforebegin' inserts before the element</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Create and append element</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const container = document.querySelector('#container');<br>&nbsp;&nbsp;const btn = document.createElement('button');<br>&nbsp;&nbsp;btn.id = 'newBtn';<br>&nbsp;&nbsp;btn.textContent = 'Click me';<br>&nbsp;&nbsp;container.appendChild(btn);<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Create, configure, then append</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Remove element</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const toRemove = document.querySelector('#toRemove');<br>&nbsp;&nbsp;toRemove.remove();<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Simple one-line removal</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Replace all content</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const container = document.querySelector('#container');<br>&nbsp;&nbsp;container.innerHTML = '&lt;p&gt;Done&lt;/p&gt;';<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Replaces all existing content</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Key Patterns</h3>
+    <ul>
+        <li><strong>Always define <code>runCode()</code> function</strong> - This is called by the Run button</li>
+        <li><strong>Select elements first</strong> - Use <code>querySelector()</code> to get elements</li>
+        <li><strong>Use <code>textContent</code> for plain text</strong> - HTML is escaped, shows as text</li>
+        <li><strong>Use <code>innerHTML</code> for HTML</strong> - HTML is parsed and rendered</li>
+        <li><strong>Use <code>insertAdjacentHTML</code> to add without replacing</strong> - Appends or inserts at specific position</li>
+        <li><strong>Create elements with <code>createElement</code></strong> - Then set properties and append</li>
+    </ul>
+</div>

@@ -225,14 +225,104 @@ export class TestRunner {
     });
   }
 
-  private buildHTML(html: string, css: string, js: string): string {
+  private buildHTML(html: string, css: string, js: string, imageData?: Record<string, string>): string {
+    // Replace image src attributes with base64 data URIs if imageData is provided
+    let processedHtml = html;
+    if (imageData && Object.keys(imageData).length > 0) {
+      // Use regex to find and replace img src attributes
+      processedHtml = html.replace(/<img([^>]*)\ssrc=["']([^"']+)["']([^>]*)>/gi, (match, before, src, after) => {
+        // Extract filename from src (handle both "filename.jpg" and "images/filename.jpg")
+        const filename = src.split('/').pop() || src;
+        
+        // If we have base64 data for this filename, replace the src
+        if (imageData[filename]) {
+          return `<img${before} src="${imageData[filename]}"${after}>`;
+        }
+        
+        // Otherwise, return the original match
+        return match;
+      });
+    }
+    
+    // Create image mapping script if imageData is provided
+    // This intercepts when students set img.src = 'filename.jpg' and converts it to base64
+    const imageMappingScript = imageData && Object.keys(imageData).length > 0 ? `
+      // Map image filenames to base64 data URIs
+      (function() {
+        const imageMap = ${JSON.stringify(imageData)};
+        
+        // Intercept src property setter for all img elements
+        const originalDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src') || 
+                                   Object.getOwnPropertyDescriptor(Object.getPrototypeOf(Object.getPrototypeOf(document.createElement('img'))), 'src');
+        
+        // Store original setter if it exists
+        const originalSetter = originalDescriptor ? originalDescriptor.set : null;
+        
+        // Override the src setter
+        Object.defineProperty(HTMLImageElement.prototype, 'src', {
+          set: function(value) {
+            // Extract filename from the value (handle paths like "images/cat.jpg" or "cat.jpg")
+            const filename = value.split('/').pop() || value;
+            
+            // If this filename exists in our image map, use the base64 data URI
+            if (imageMap[filename]) {
+              // Store the original filename in a data attribute for testing
+              this.setAttribute('data-original-src', filename);
+              // Store the base64 URI in a hidden attribute
+              this.setAttribute('data-base64-src', imageMap[filename]);
+              // Use original setter if available, otherwise set directly
+              if (originalSetter) {
+                originalSetter.call(this, imageMap[filename]);
+              } else {
+                this.setAttribute('src', imageMap[filename]);
+              }
+            } else {
+              // Not in our map, clear the data attributes and set normally
+              this.removeAttribute('data-original-src');
+              this.removeAttribute('data-base64-src');
+              if (originalSetter) {
+                originalSetter.call(this, value);
+              } else {
+                this.setAttribute('src', value);
+              }
+            }
+          },
+          get: function() {
+            // If we have a stored original filename (set via our interceptor), return that
+            // This allows tests to check img.src.endsWith('cat.jpg') and it will work
+            const originalSrc = this.getAttribute('data-original-src');
+            if (originalSrc) {
+              return originalSrc;
+            }
+            // Otherwise return the actual src value
+            return this.getAttribute('src') || '';
+          },
+          configurable: true
+        });
+        
+        // Also intercept setAttribute('src', ...) calls for compatibility
+        const originalSetAttribute = Element.prototype.setAttribute;
+        Element.prototype.setAttribute = function(name, value) {
+          if (name === 'src' && this.tagName === 'IMG') {
+            const filename = value.split('/').pop() || value;
+            if (imageMap[filename]) {
+              this.setAttribute('data-original-src', filename);
+              return originalSetAttribute.call(this, name, imageMap[filename]);
+            }
+          }
+          return originalSetAttribute.call(this, name, value);
+        };
+      })();
+    ` : '';
+    
     return `<!DOCTYPE html>
 <html>
 <head>
   <style>${css || ''}</style>
 </head>
-<body>${html || ''}</body>
+<body>${processedHtml || ''}</body>
 <script>
+  ${imageMappingScript}
   ${js || ''}
 </script>
 </html>`;

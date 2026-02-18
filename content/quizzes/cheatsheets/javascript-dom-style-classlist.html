@@ -1,0 +1,409 @@
+<div>
+    <h2>DOM Style Properties & classList Cheatsheet</h2>
+    <p>Learn how to manipulate CSS styles, classes, and element properties using JavaScript.</p>
+
+    <h3>Creating the runCode() Function</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Pattern</th>
+                <th style="width: 400px;">Example</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>function runCode()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;// your code here<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Define the function that will be called by the Run button</li>
+                        <li>The HTML button has <code>onclick="runCode()"</code></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Selecting Elements</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>querySelector</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>const box = document.querySelector('#box');</code></li>
+                        <li><code>const btn = document.querySelector('#btn');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects a single element by CSS selector</li>
+                        <li>Use <code>#id</code> for IDs, <code>.class</code> for classes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>querySelectorAll</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>const items = document.querySelectorAll('#list li');</code></li>
+                        <li><code>for (const item of items) {<br>&nbsp;&nbsp;item.classList.add('active');<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Selects all matching elements</li>
+                        <li>Returns a NodeList (array-like)</li>
+                        <li>Use a loop to modify each element</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Working with Classes</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method/Property</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>classList.add()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.classList.add('active');</code></li>
+                        <li><code>box.classList.add('highlight', 'bold');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Adds one or more classes to an element</li>
+                        <li>Doesn't remove existing classes</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>classList.remove()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.classList.remove('disabled');</code></li>
+                        <li><code>btn.classList.remove('hidden', 'inactive');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Removes one or more classes from an element</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>classList.toggle()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.classList.toggle('open');</code></li>
+                        <li><code>element.classList.toggle('active', true);</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Adds class if missing, removes if present</li>
+                        <li>Second parameter (true/false) forces add/remove</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>classList.contains()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>if (box.classList.contains('active')) {<br>&nbsp;&nbsp;// do something<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Returns true if element has the class, false otherwise</li>
+                        <li>Useful for conditional logic</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>className</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.className = 'card featured';</code></li>
+                        <li><code>card.className = 'card';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Sets all classes at once (replaces existing)</li>
+                        <li>Use space-separated string for multiple classes</li>
+                        <li>Prefer <code>classList</code> for adding/removing individual classes</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Working with Styles</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Property</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>style.backgroundColor</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box.style.backgroundColor = 'red';</code></li>
+                        <li><code>box.style.backgroundColor = 'rgb(255, 0, 0)';</code></li>
+                        <li><code>box.style.backgroundColor = ''; // clear</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Use camelCase: <code>backgroundColor</code> not <code>background-color</code></li>
+                        <li>Set to empty string to clear the style</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>style.borderWidth</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box.style.borderWidth = '4px';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Always include units (px, em, etc.)</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>style.borderColor</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box.style.borderColor = 'blue';</code></li>
+                        <li><code>box.style.borderColor = '#0000ff';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Use color names, hex codes, or rgb()</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>style.borderStyle</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box.style.borderStyle = 'solid';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Common values: 'solid', 'dashed', 'dotted', 'none'</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>style.display</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box.style.display = 'none'; // hide</code></li>
+                        <li><code>box.style.display = 'block'; // show</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>'none' removes element from layout</li>
+                        <li>Element takes up no space when hidden</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>style.visibility</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>box.style.visibility = 'hidden'; // hide</code></li>
+                        <li><code>box.style.visibility = 'visible'; // show</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>'hidden' hides element but keeps space</li>
+                        <li>Element still takes up space in layout</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Working with Attributes</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Method/Property</th>
+                <th style="width: 400px;">Examples</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><code>dataset</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>element.dataset.status = 'ready';</code></li>
+                        <li><code>// Sets data-status="ready"</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Accesses <code>data-*</code> attributes</li>
+                        <li>Converts kebab-case to camelCase</li>
+                        <li><code>data-status</code> → <code>dataset.status</code></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>setAttribute()</code></td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>btn.setAttribute('aria-label', 'Close');</code></li>
+                        <li><code>img.setAttribute('src', 'image.jpg');</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Sets any attribute on an element</li>
+                        <li>First param: attribute name</li>
+                        <li>Second param: attribute value</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><code>src</code> (direct property)</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>img.src = 'bird.jpg';</code></li>
+                        <li><code>img.src = 'images/cat.jpg';</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>For images, can set <code>src</code> directly</li>
+                        <li>Same as <code>setAttribute('src', ...)</code></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Complete Examples</h3>
+    <table class="cheatsheet-table">
+        <thead>
+            <tr>
+                <th style="width: 200px;">Task</th>
+                <th style="width: 400px;">Solution</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Add class</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const box = document.querySelector('#box');<br>&nbsp;&nbsp;box.classList.add('active');<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Select element, then add class</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Set className</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const card = document.querySelector('#card');<br>&nbsp;&nbsp;card.className = 'card featured';<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Replaces all classes with new value</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Set style property</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const box = document.querySelector('#box');<br>&nbsp;&nbsp;box.style.backgroundColor = 'red';<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Use camelCase for CSS properties</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Add class to multiple elements</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const items = document.querySelectorAll('#list li');<br>&nbsp;&nbsp;for (const item of items) {<br>&nbsp;&nbsp;&nbsp;&nbsp;item.classList.add('item');<br>&nbsp;&nbsp;}<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Use <code>querySelectorAll</code> and loop</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Conditional based on class</td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><code>function runCode() {<br>&nbsp;&nbsp;const box = document.querySelector('#box');<br>&nbsp;&nbsp;const status = document.querySelector('#status');<br>&nbsp;&nbsp;if (box.classList.contains('active')) {<br>&nbsp;&nbsp;&nbsp;&nbsp;status.textContent = 'ON';<br>&nbsp;&nbsp;} else {<br>&nbsp;&nbsp;&nbsp;&nbsp;status.textContent = 'OFF';<br>&nbsp;&nbsp;}<br>}</code></li>
+                    </ul>
+                </td>
+                <td>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li>Check class with <code>contains()</code></li>
+                        <li>Use if/else for conditional logic</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Key Patterns</h3>
+    <ul>
+        <li><strong>Always define <code>runCode()</code> function</strong> - This is called by the Run button</li>
+        <li><strong>Select elements first</strong> - Use <code>querySelector()</code> or <code>querySelectorAll()</code></li>
+        <li><strong>Use camelCase for style properties</strong> - <code>backgroundColor</code> not <code>background-color</code></li>
+        <li><strong>Use <code>classList</code> for individual classes</strong> - Better than <code>className</code> for add/remove</li>
+        <li><strong>Use <code>className</code> to set all classes</strong> - When you need to replace all classes at once</li>
+    </ul>
+</div>

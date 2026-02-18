@@ -1,0 +1,12 @@
+/* The .active class will be toggled along with background color */
+#box {
+  padding: 15px;
+  border: 2px solid #ccc;
+  background: white;
+  transition: all 0.3s;
+}
+
+#box.active {
+  border-color: #ffc107;
+  font-weight: bold;
+}

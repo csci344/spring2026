@@ -735,10 +735,9 @@ export const baseTopics = [
           {
             citation: (
               <>
-                Sarah's interactive <a href="/spring2026/course-files/activities/dom-tester" target="_blank">DOM manipulation worksheet</a>
+                Sarah's interactive <a href="/spring2026/course-files/activities/dom-tester/index.html" target="_blank">DOM manipulation worksheet</a>
               </>
             ),
-            url: "/spring2026/course-files/activities/dom-tester",
           },
           {
             citation: (
