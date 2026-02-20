@@ -764,7 +764,7 @@ export const baseTopics = [
     meetings: [
       {
         date: "Mo, Feb 23",
-        topic: "JavaScript Programming Review",
+        topic: "Intro to JavaScript + Programming Review",
         description: (
           <>
             <ul>
@@ -776,19 +776,18 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "JavaScript Review So Far", url: "/activities/practice-quiz02a", draft: 1 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="/spring2026/resources/js-03-basic-programming">Basic Programming in JavaScript</a>
+                <a href="/resources/js-03-basic-programming">Basic Programming in JavaScript</a>
               </>
             ),
           },{
             citation: (
               <>
-                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic Programming practice problems</a>
+                <a href="/resources/js-02-basic-programming-practice">Basic Programming practice problems</a>
               </>
             ),
           },
@@ -808,6 +807,9 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
+          { title: "JavaScript Classes Tutorial", url: "/spring2026/activities/js-classes-tutorial" },
+          { title: "Classes Practice Game", url: "/spring2026/activities/js-classes-game" },
+          { title: "JavaScript Classes Quiz", url: "/spring2026/quizzes/javascript-classes" },
         ],
       }
     ],

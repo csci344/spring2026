@@ -1,0 +1,122 @@
+{
+  "quizName": "JavaScript Fundamentals",
+  "start_date": "2026-02-23",
+  "draft": 1,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What is the difference between `let` and `const` in JavaScript?",
+      "options": [
+        "`let` is for numbers, `const` is for strings",
+        "`let` can be reassigned, `const` cannot be reassigned",
+        "`let` is for local variables, `const` is for global variables",
+        "There is no difference"
+      ],
+      "correct": 1,
+      "explanation": "`let` allows reassignment, while `const` creates a constant that cannot be reassigned (though object properties can still change)."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What will `console.log(5 == '5')` output?",
+      "options": [
+        "true",
+        "false",
+        "undefined",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "The `==` operator performs type coercion, so it converts the string '5' to a number before comparing, resulting in true."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What will `console.log(5 === '5')` output?",
+      "options": [
+        "true",
+        "false",
+        "undefined",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "The `===` operator performs strict equality without type coercion, so it compares both value and type. Since 5 (number) !== '5' (string), it returns false."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "Which function declaration can be called before it's defined?",
+      "options": [
+        "Arrow functions only",
+        "Function declarations only",
+        "Both function declarations and arrow functions",
+        "Neither"
+      ],
+      "correct": 1,
+      "explanation": "Function declarations are 'hoisted' to the top of their scope, so they can be called before they appear in the code. Arrow functions are not hoisted."
+    },
+    {
+      "id": "q05",
+      "type": "select-all",
+      "question": "Which of the following are valid ways to declare a function in JavaScript? (Select all that apply)",
+      "options": [
+        "function myFunc() { }",
+        "const myFunc = () => { }",
+        "let myFunc = function() { }",
+        "function = myFunc() { }"
+      ],
+      "correct": [0, 1, 2],
+      "explanation": "The first three are valid: function declarations, arrow functions, and function expressions. The fourth is invalid syntax."
+    },
+    {
+      "id": "q06",
+      "type": "javascript-dom",
+      "question": "Complete the function to return the sum of two numbers.",
+      "explanation": "Use the return statement to return the sum of a and b."
+    },
+    {
+      "id": "q07",
+      "type": "javascript-dom",
+      "question": "Complete the function to check if a number is even. Return true if the number is even, false otherwise.",
+      "explanation": "Use the modulus operator (%) to check if the number divided by 2 has a remainder of 0."
+    },
+    {
+      "id": "q08",
+      "type": "javascript-dom",
+      "question": "Complete the function to find the maximum of three numbers. Return the largest number.",
+      "explanation": "Use if/else statements or Math.max() to find the largest of the three numbers."
+    },
+    {
+      "id": "q09",
+      "type": "javascript-dom",
+      "question": "Complete the function to calculate the factorial of a number. Return n * (n-1) * (n-2) * ... * 1. Assume n >= 0.",
+      "explanation": "Use a loop to multiply numbers from 1 to n, or use recursion."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nlet x = 5;\nif (x > 3) {\n    console.log('A');\n} else if (x > 10) {\n    console.log('B');\n} else {\n    console.log('C');\n}\n```",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "Nothing"
+      ],
+      "correct": 0,
+      "explanation": "Since x (5) is greater than 3, the first condition is true, so 'A' is printed. The else-if and else blocks are not evaluated."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "What will this loop output?\n\n```javascript\nfor (let i = 0; i < 3; i++) {\n    console.log(i);\n}\n```",
+      "options": [
+        "0, 1, 2",
+        "1, 2, 3",
+        "0, 1, 2, 3",
+        "Nothing"
+      ],
+      "correct": 0,
+      "explanation": "The loop starts at i=0, continues while i<3, and increments i after each iteration. So it prints 0, 1, and 2."
+    }
+  ]
+}

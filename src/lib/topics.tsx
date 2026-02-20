@@ -330,7 +330,8 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           title: activity.title,
           url: `/activities/${activity.id}/`,
           draft: activity.draft || 0,
-          excluded: activity.excluded ? 1 : 0
+          excluded: activity.excluded ? 1 : 0,
+          order: activity.order
         }));
       
       // Create auto-populated assignment entries for assigned (all matches, including drafts)
@@ -340,7 +341,8 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           titleShort: titleShort,
           title: assignment.title,
           url: `/assignments/${assignment.id}/`,
-          draft: assignment.draft || 0
+          draft: assignment.draft || 0,
+          order: assignment.order
         };
       });
       
@@ -351,7 +353,8 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           titleShort: titleShort,
           title: assignment.title,
           url: `/assignments/${assignment.id}/`,
-          draft: assignment.draft || 0
+          draft: assignment.draft || 0,
+          order: assignment.order
         };
       });
       
@@ -376,6 +379,17 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
         const newAutoActivities = autoActivities.filter((a: Activity) => !existingUrls.has(a.url));
         meeting.activities = [...existingActivities, ...newAutoActivities];
       }
+      // Sort activities: first by order, then alphabetically by title (always sort if activities exist)
+      if (Array.isArray(meeting.activities) && meeting.activities.length > 0) {
+        meeting.activities.sort((a: Activity, b: Activity) => {
+          const orderA = 'order' in a && typeof a.order === 'number' ? a.order : 999999;
+          const orderB = 'order' in b && typeof b.order === 'number' ? b.order : 999999;
+          if (orderA !== orderB) {
+            return orderA - orderB;
+          }
+          return a.title.localeCompare(b.title);
+        });
+      }
       
       // Merge assigned assignments: add all auto-populated ones (including drafts)
       if (autoAssignedAssignments.length > 0) {
@@ -398,6 +412,18 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           if (newAssignedAssignments.length > 0) {
             meeting.assigned = [meeting.assigned, ...newAssignedAssignments];
           }
+        }
+        // Sort assigned assignments: first by order, then alphabetically by title
+        if (Array.isArray(meeting.assigned)) {
+          meeting.assigned.sort((a: Assignment | string, b: Assignment | string) => {
+            if (typeof a === 'string' || typeof b === 'string') return 0;
+            const orderA = 'order' in a && typeof a.order === 'number' ? a.order : 999999;
+            const orderB = 'order' in b && typeof b.order === 'number' ? b.order : 999999;
+            if (orderA !== orderB) {
+              return orderA - orderB;
+            }
+            return a.title.localeCompare(b.title);
+          });
         }
       }
       
@@ -435,6 +461,18 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           if (newDueAssignments.length > 0) {
             meeting.due = [meeting.due, ...newDueAssignments];
           }
+        }
+        // Sort due assignments: first by order, then alphabetically by title
+        if (Array.isArray(meeting.due)) {
+          meeting.due.sort((a: Assignment | string, b: Assignment | string) => {
+            if (typeof a === 'string' || typeof b === 'string') return 0;
+            const orderA = 'order' in a && typeof a.order === 'number' ? a.order : 999999;
+            const orderB = 'order' in b && typeof b.order === 'number' ? b.order : 999999;
+            if (orderA !== orderB) {
+              return orderA - orderB;
+            }
+            return a.title.localeCompare(b.title);
+          });
         }
       }
     });

@@ -2,7 +2,7 @@
 title: "Programming Review with JavaScript"
 type: "tutorial"
 num: 6
-draft: 1
+draft: 0
 assigned_date: "2026-02-27"
 due_date: "2026-03-02"
 heading_max_level: 3

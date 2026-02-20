@@ -9,7 +9,7 @@ heading_max_level: 3
 | **Term** | Spring 2026 |
 | **Professor** | Dr. Sarah Van Wart (she/her) |
 | **Email** | svanwart@unca.edu |
-| **Office Hours** | MWF 3:30pm - 4:30pm, RRO 220 |
+| **Office Hours** | Tu/Th: 1:00-2:00PM<br> Friday: 3:30-4:30PM<br>RRO, Rm. 220 |
 | **Class Time / Location** | MWF 2:00-3:15PM, WHI 008 |
 | **Prerequisites** | CSCI 201 or instructor permission |
 | **Notes** | One year of programming experience is strongly recommended |
