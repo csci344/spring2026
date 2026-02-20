@@ -2,7 +2,7 @@
 title: "Higher Order Array Functions: Practice"
 group: "JavaScript Resources"
 group_order: 4
-order: 6
+order: 7
 quicklink: 0
 heading_max_level: 3
 ---

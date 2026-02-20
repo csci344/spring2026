@@ -2,7 +2,7 @@
 title: "DOM Practice Problems"
 group: "JavaScript Resources"
 group_order: 4
-order: 4
+order: 5
 quicklink: 0
 ---
 

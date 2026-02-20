@@ -38,6 +38,7 @@ export interface PostData {
   quicklink?: number;
   quizzes?: string[];
   no_render?: number;
+  hide_from_list?: number;
 }
 
 export function getAllPostIds(subdirectory?: string) {

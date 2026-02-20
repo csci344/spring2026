@@ -2,7 +2,7 @@
 title: "Basic Programming in JavaScript"
 group: "JavaScript Resources"
 group_order: 4
-order: 1
+order: 3
 quicklink: 0
 heading_max_level: 3
 ---

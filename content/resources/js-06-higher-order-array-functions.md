@@ -2,7 +2,7 @@
 title: "Higher Order Array Functions"
 group: "JavaScript Resources"
 group_order: 4
-order: 5
+order: 6
 quicklink: 0
 ---
 

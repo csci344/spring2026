@@ -782,15 +782,13 @@ export const baseTopics = [
           {
             citation: (
               <>
-                <a href="/spring2026/resources/programming-review" target="_blank">Intro to Programming with JavaScript</a>
+                <a href="/spring2026/resources/js-03-basic-programming">Basic Programming in JavaScript</a>
               </>
             ),
-            url: "/spring2026/resources/programming-review",
-          },
-          {
+          },{
             citation: (
               <>
-                <a href="/spring2026/resources/js-01-basic-programming">Basic Programming in JavaScript</a>
+                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic Programming practice problems</a>
               </>
             ),
           },

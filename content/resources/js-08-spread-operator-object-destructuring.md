@@ -2,7 +2,7 @@
 title: "Object Destructuring & the Spread Operator"
 group: "JavaScript Resources"
 group_order: 4
-order: 7
+order: 8
 quicklink: 0
 heading_max_level: 3
 ---

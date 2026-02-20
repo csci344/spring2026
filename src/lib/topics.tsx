@@ -154,7 +154,7 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
     return !a.excluded;
   });
   const assignmentsWithAssignedDate = allAssignments.filter(a => a.assigned_date);
-  const assignmentsWithDueDate = allAssignments.filter(a => a.due_date);
+  const assignmentsWithDueDate = allAssignments.filter(a => a.due_date && a.hide_from_list !== 1);
   const quizzesWithDates = allQuizzes.filter(q => q.start_date);
   
   // Create maps for quick lookup by date

@@ -9,11 +9,12 @@ quicklink: 0
 
 Here are some basic concepts and practice problems for the JavaScript portion of the course.
 
-1. [Basic Programming Concepts](js-01-basic-programming)
+1. [DOM Cheatsheet](js-01-dom-cheatsheet)
 2. [Basic Programming Practice](js-02-basic-programming-practice)
-3. [The DOM](js-03-the-dom)
-4. [DOM Manipulation Practice](js-04-dom-practice)
-5. [Higher Order Array Functions](js-05-higher-order-array-functions)
-6. [Higher Order Practice](js-06-higher-order-practice)
-7. [The Spread Operator & Object Destructuring](js-07-spread-operator-object-destructuring)
+3. [Basic Programming Concepts](js-03-basic-programming)
+4. [The DOM](js-04-the-dom)
+5. [DOM Manipulation Practice](js-05-dom-practice)
+6. [Higher Order Array Functions](js-06-higher-order-array-functions)
+7. [Higher Order Practice](js-07-higher-order-practice)
+8. [The Spread Operator & Object Destructuring](js-08-spread-operator-object-destructuring)
 

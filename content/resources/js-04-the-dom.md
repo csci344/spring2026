@@ -77,7 +77,7 @@ console.log('last child\'s parent:', parent);
 ```
 
 #### More practice
-Use Sarah's interactive <a href="course-files/activities/dom-tester" target="_blank">DOM manipulation worksheet</a> to get more practice!
+Use Sarah's interactive <a href="/spring2026/course-files/activities/dom-tester/index.html" target="_blank">DOM manipulation worksheet</a> to get more practice!
 
 
 ## Template Literals
