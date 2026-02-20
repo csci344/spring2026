@@ -807,10 +807,7 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "JavaScript Classes Tutorial", url: "/spring2026/activities/js-classes-tutorial" },
-          { title: "Classes Practice Game", url: "/spring2026/activities/js-classes-game" },
-          { title: "JavaScript Classes Quiz", url: "/spring2026/quizzes/javascript-classes" },
-        ],
+        ]
       }
     ],
   },
