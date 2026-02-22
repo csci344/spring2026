@@ -1,0 +1,202 @@
+{
+  "quizName": "JavaScript vs Java: Comparison Quiz",
+  "start_date": "2026-02-23",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "In JavaScript, which keyword is used for a variable that cannot be reassigned (similar to Java's `final`)?",
+      "options": [
+        "let",
+        "const",
+        "var",
+        "final"
+      ],
+      "correct": 1,
+      "explanation": "`const` in JavaScript is similar to Java's `final` - it creates a constant that cannot be reassigned. However, object properties can still change."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconsole.log(5 == '5');\nconsole.log(5 === '5');\n```",
+      "options": [
+        "true, true",
+        "true, false",
+        "false, false",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "`==` performs type coercion, so 5 == '5' is true. `===` performs strict equality without coercion, so 5 === '5' is false (number vs string)."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nlet x = 5;\nif (x == '5') {\n    console.log('A');\n} else {\n    console.log('B');\n}\n```",
+      "options": [
+        "A",
+        "B",
+        "Error",
+        "Nothing"
+      ],
+      "correct": 0,
+      "explanation": "The `==` operator performs type coercion, so the number 5 is considered equal to the string '5', and 'A' is printed."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nlet x = 5;\nif (x === '5') {\n    console.log('A');\n} else {\n    console.log('B');\n}\n```",
+      "options": [
+        "A",
+        "B",
+        "Error",
+        "Nothing"
+      ],
+      "correct": 1,
+      "explanation": "The `===` operator performs strict equality without type coercion. Since 5 (number) !== '5' (string), the condition is false and 'B' is printed."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "What is the JavaScript equivalent of Java's `System.out.println()`?",
+      "options": [
+        "print()",
+        "console.log()",
+        "System.out.println()",
+        "log()"
+      ],
+      "correct": 1,
+      "explanation": "In JavaScript, `console.log()` is used to print output to the console, similar to Java's `System.out.println()`."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "In JavaScript, what syntax is used for string interpolation (embedding variables in strings), compared to Java's `String.format()`?",
+      "options": [
+        "JavaScript uses `String.format()` just like Java",
+        "JavaScript uses template literals with backticks and `${variableName}`",
+        "JavaScript doesn't support string interpolation",
+        "JavaScript uses `printf()` like C"
+      ],
+      "correct": 1,
+      "explanation": "JavaScript uses template literals (backticks) with `${variableName}` for string interpolation, which is different from Java's `String.format(\"text %s\", variable)` approach. Both achieve similar results but with different syntax."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What is a major difference between Java and JavaScript arrays?\n\n**Java:**\n```java\nint[] numbers = {1, 2, 3};  // Can only hold integers\n```\n\n**JavaScript:**\n```javascript\nconst arr = [1, 'hello', true];  // Can hold mixed types\n```",
+      "options": [
+        "Java arrays can hold mixed types, JavaScript cannot",
+        "JavaScript arrays can hold mixed types (numbers, strings, booleans), Java arrays have a fixed type",
+        "Both languages work the same way",
+        "Neither language supports arrays"
+      ],
+      "correct": 1,
+      "explanation": "JavaScript arrays can hold elements of different types in the same array (e.g., `[1, 'hello', true]`). Java arrays must have a single type - you declare `int[]` for integers, `String[]` for strings, etc."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "How do you declare a function in JavaScript that is most similar to a Java method?\n\n**Java:**\n```java\npublic static int add(int a, int b) {\n    return a + b;\n}\n```",
+      "options": [
+        "function add(a, b) { return a + b; }",
+        "const add = (a, b) => a + b;",
+        "int add(int a, int b) { return a + b; }",
+        "Both A and B are similar (no return types or parameter types needed)"
+      ],
+      "correct": 3,
+      "explanation": "Both function declarations and arrow functions are similar to Java methods, but JavaScript doesn't require return types or parameter types. The syntax is simpler - just `function add(a, b)` or `const add = (a, b) =>`."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What is a key difference between Java and JavaScript regarding variable types?",
+      "options": [
+        "JavaScript requires type declarations, Java doesn't",
+        "Java is dynamically typed, JavaScript is statically typed",
+        "JavaScript is dynamically typed (variables can change types), Java is statically typed (fixed types)",
+        "Both languages are statically typed"
+      ],
+      "correct": 2,
+      "explanation": "JavaScript is dynamically typed - a variable can hold different types of values. In Java, once you declare `int x`, it can only hold integers. In JavaScript, `let x = 5` followed by `x = 'hello'` is valid."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "What is the error in this code?\n\n```javascript\nconst x = 5;\nx = 10;\nconsole.log(x);\n```",
+      "options": [
+        "No error, it will print 10",
+        "Syntax error: missing semicolon",
+        "TypeError: Assignment to constant variable",
+        "ReferenceError: x is not defined"
+      ],
+      "correct": 2,
+      "explanation": "You cannot reassign a variable declared with `const`. Attempting to do so will throw a TypeError, similar to trying to reassign a `final` variable in Java."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfor (let i = 0; i < 3; i++) {\n    console.log(i);\n}\n```",
+      "options": [
+        "0, 1, 2",
+        "1, 2, 3",
+        "0, 1, 2, 3",
+        "Nothing"
+      ],
+      "correct": 0,
+      "explanation": "JavaScript for loops work very similarly to Java. The loop starts at i=0, continues while i<3, and increments i after each iteration, printing 0, 1, and 2."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst numbers = [1, 2, 3];\nnumbers.push(4);\nconsole.log(numbers.length);\n```",
+      "options": [
+        "3",
+        "4",
+        "Error",
+        "undefined"
+      ],
+      "correct": 1,
+      "explanation": "JavaScript arrays are dynamic - they can grow and shrink. The `push()` method adds an element, so the length becomes 4. Unlike Java arrays, JavaScript arrays don't have a fixed size."
+    },
+    {
+      "id": "q13",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nlet x = 5;\nconsole.log(typeof x);\nx = 'hello';\nconsole.log(typeof x);\n```",
+      "options": [
+        "number, number",
+        "string, string",
+        "number, string",
+        "Error"
+      ],
+      "correct": 2,
+      "explanation": "JavaScript is dynamically typed - variables can change types. Initially x is a number, then it becomes a string. This is different from Java where variables have fixed types."
+    },
+    {
+      "id": "q14",
+      "type": "multiple-choice",
+      "question": "How does JavaScript's template literal syntax compare to Java's string formatting?\n\n**Java:**\n```java\nString name = \"Alice\";\nint age = 25;\nString message = String.format(\"Hi, I'm %s and I'm %d years old.\", name, age);\n```\n\n**JavaScript:**\n```javascript\nconst name = 'Alice';\nconst age = 25;\nconst message = `Hi, I'm ${name} and I'm ${age} years old.`;\n```",
+      "options": [
+        "They work exactly the same way",
+        "JavaScript uses backticks and ${} instead of format strings with %s and %d",
+        "Java uses backticks, JavaScript uses format strings",
+        "Neither language supports string formatting"
+      ],
+      "correct": 1,
+      "explanation": "JavaScript uses template literals (backticks) with `${variableName}` for interpolation, while Java uses `String.format()` with format specifiers like `%s` for strings and `%d` for integers. JavaScript's syntax is more concise."
+    },
+    {
+      "id": "q15",
+      "type": "multiple-choice",
+      "question": "What is a key difference between Java and JavaScript arrays?",
+      "options": [
+        "Java arrays can hold mixed types, JavaScript arrays cannot",
+        "JavaScript arrays can hold mixed types and are dynamic (can grow/shrink), Java arrays have fixed types and fixed size",
+        "Both languages have identical array behavior",
+        "JavaScript arrays have fixed size, Java arrays are dynamic"
+      ],
+      "correct": 1,
+      "explanation": "JavaScript arrays are more flexible: they can hold mixed types (numbers, strings, booleans, etc.) and can grow/shrink dynamically. Java arrays have a fixed type (e.g., `int[]`) and fixed size once created."
+    }
+  ]
+}

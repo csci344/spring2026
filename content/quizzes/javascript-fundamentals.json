@@ -1,7 +1,7 @@
 {
   "quizName": "JavaScript Fundamentals",
   "start_date": "2026-02-23",
-  "draft": 1,
+  "draft": 0,
   "questions": [
     {
       "id": "q01",
@@ -70,27 +70,55 @@
     },
     {
       "id": "q06",
-      "type": "javascript-dom",
-      "question": "Complete the function to return the sum of two numbers.",
-      "explanation": "Use the return statement to return the sum of a and b."
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconsole.log(add(2, 3));\n\nfunction add(a, b) {\n    return a + b;\n}\n```",
+      "options": [
+        "5",
+        "undefined",
+        "Error: add is not defined",
+        "NaN"
+      ],
+      "correct": 0,
+      "explanation": "Function declarations are hoisted, so they can be called before they're defined. The function will execute and return 5."
     },
     {
       "id": "q07",
-      "type": "javascript-dom",
-      "question": "Complete the function to check if a number is even. Return true if the number is even, false otherwise.",
-      "explanation": "Use the modulus operator (%) to check if the number divided by 2 has a remainder of 0."
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconsole.log(subtract(5, 2));\n\nconst subtract = (a, b) => a - b;\n```",
+      "options": [
+        "3",
+        "undefined",
+        "Error: Cannot access 'subtract' before initialization",
+        "NaN"
+      ],
+      "correct": 2,
+      "explanation": "Arrow functions are NOT hoisted. Trying to call subtract before it's defined will cause a ReferenceError."
     },
     {
       "id": "q08",
-      "type": "javascript-dom",
-      "question": "Complete the function to find the maximum of three numbers. Return the largest number.",
-      "explanation": "Use if/else statements or Math.max() to find the largest of the three numbers."
+      "type": "multiple-choice",
+      "question": "What is the error in this code?\n\n```javascript\nconst x = 5;\nx = 10;\nconsole.log(x);\n```",
+      "options": [
+        "No error, it will print 10",
+        "Syntax error: missing semicolon",
+        "TypeError: Assignment to constant variable",
+        "ReferenceError: x is not defined"
+      ],
+      "correct": 2,
+      "explanation": "You cannot reassign a variable declared with `const`. Attempting to do so will throw a TypeError."
     },
     {
       "id": "q09",
-      "type": "javascript-dom",
-      "question": "Complete the function to calculate the factorial of a number. Return n * (n-1) * (n-2) * ... * 1. Assume n >= 0.",
-      "explanation": "Use a loop to multiply numbers from 1 to n, or use recursion."
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nlet count = 0;\nfor (let i = 0; i < 5; i++) {\n    count += i;\n}\nconsole.log(count);\n```",
+      "options": [
+        "0",
+        "10",
+        "15",
+        "20"
+      ],
+      "correct": 1,
+      "explanation": "The loop adds i to count each iteration: 0 + 1 + 2 + 3 + 4 = 10."
     },
     {
       "id": "q10",

@@ -54,8 +54,8 @@ export default async function AssignmentPage({ params }: AssignmentPageProps) {
         tocMaxLevel={heading_max_level || 2}
       >
         <div className="mb-4">
-          <Link href="/activities" className="text-blue-600 dark:text-blue-400 hover:underline">
-            Activities
+          <Link href="/" className="text-blue-600 dark:text-blue-400 hover:underline">
+            Schedule
           </Link>
           {' > '}
           <span className="text-gray-900 dark:text-gray-100">{postData.title}</span>

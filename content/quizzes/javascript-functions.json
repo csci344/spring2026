@@ -1,0 +1,215 @@
+{
+  "quizName": "JavaScript Functions: Declarations vs Arrow Functions",
+  "start_date": "2026-02-25",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "Which type of function can be called before it's defined in the code?",
+      "options": [
+        "Function declarations only",
+        "Arrow functions only",
+        "Both function declarations and arrow functions",
+        "Neither"
+      ],
+      "correct": 0,
+      "explanation": "Function declarations are 'hoisted' to the top of their scope, so they can be called before they appear in the code. Arrow functions are NOT hoisted."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconsole.log(add(2, 3));\n\nfunction add(a, b) {\n    return a + b;\n}\n```",
+      "options": [
+        "5",
+        "undefined",
+        "Error: add is not defined",
+        "NaN"
+      ],
+      "correct": 0,
+      "explanation": "Function declarations are hoisted, so they can be called before they're defined. The function will execute and return 5."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconsole.log(subtract(5, 2));\n\nconst subtract = (a, b) => a - b;\n```",
+      "options": [
+        "3",
+        "undefined",
+        "Error: Cannot access 'subtract' before initialization",
+        "NaN"
+      ],
+      "correct": 2,
+      "explanation": "Arrow functions are NOT hoisted. Trying to call subtract before it's defined will cause a ReferenceError because const variables are in the 'temporal dead zone' until initialization."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfunction greet(name = 'Guest') {\n    console.log('Hello, ' + name);\n}\ngreet();\ngreet('Alice');\n```",
+      "options": [
+        "Hello, Guest, Hello, Alice",
+        "Hello, undefined, Hello, Alice",
+        "Error",
+        "Hello, , Hello, Alice"
+      ],
+      "correct": 0,
+      "explanation": "Default parameters allow you to provide a fallback value. When greet() is called without arguments, name defaults to 'Guest'. When called with 'Alice', it uses that value."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfunction calculate(a, b, operation = 'add') {\n    if (operation === 'add') return a + b;\n    if (operation === 'multiply') return a * b;\n    return a - b;\n}\nconsole.log(calculate(5, 3));\nconsole.log(calculate(5, 3, 'multiply'));\n```",
+      "options": [
+        "8, 15",
+        "undefined, 15",
+        "Error",
+        "8, undefined"
+      ],
+      "correct": 0,
+      "explanation": "Default parameters allow functions to work with optional arguments. When calculate(5, 3) is called, operation defaults to 'add', so it returns 8. When 'multiply' is provided, it returns 15."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "Which syntax is correct for an arrow function that returns a value?",
+      "options": [
+        "const add = (a, b) => return a + b;",
+        "const add = (a, b) => { return a + b };",
+        "const add = (a, b) => a + b;",
+        "Both B and C are correct"
+      ],
+      "correct": 3,
+      "explanation": "Arrow functions can use either explicit return with curly braces `{ return ... }` or implicit return without braces for single expressions. Both `(a, b) => { return a + b }` and `(a, b) => a + b` are valid."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What is the error in this code?\n\n```javascript\nfunction multiply = (a, b) => a * b;\n```",
+      "options": [
+        "No error, this is valid syntax",
+        "Missing parentheses around parameters",
+        "Cannot use 'function' keyword with arrow function syntax",
+        "Missing return statement"
+      ],
+      "correct": 2,
+      "explanation": "You cannot combine the `function` keyword with arrow function syntax. Use either `function multiply(a, b) { return a * b; }` or `const multiply = (a, b) => a * b;`"
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfunction multiply(a, b = 1) {\n    return a * b;\n}\nconsole.log(multiply(5));\nconsole.log(multiply(5, 3));\n```",
+      "options": [
+        "5, 15",
+        "undefined, 15",
+        "Error",
+        "NaN, 15"
+      ],
+      "correct": 0,
+      "explanation": "Default parameters allow functions to work with missing arguments. When multiply(5) is called, b defaults to 1, so 5 * 1 = 5. When multiply(5, 3) is called, b is 3, so 5 * 3 = 15."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst greet = (name, title = 'Mr.') => {\n    return `Hello, ${title} ${name}`;\n};\nconsole.log(greet('Smith'));\nconsole.log(greet('Jones', 'Dr.'));\n```",
+      "options": [
+        "Hello, Mr. Smith, Hello, Dr. Jones",
+        "Hello, undefined Smith, Hello, Dr. Jones",
+        "Error",
+        "Hello, , Smith, Hello, Dr. Jones"
+      ],
+      "correct": 0,
+      "explanation": "Arrow functions can use default parameters just like regular functions. When greet('Smith') is called, title defaults to 'Mr.'. When 'Dr.' is provided, it uses that value instead."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "Which arrow function does NOT need a return statement?",
+      "options": [
+        "const add = (a, b) => { return a + b; }",
+        "const add = (a, b) => a + b;",
+        "const add = (a, b) => { a + b; }",
+        "Both A and B are correct"
+      ],
+      "correct": 1,
+      "explanation": "Arrow functions without curly braces have implicit return. `(a, b) => a + b` automatically returns the result. With curly braces, you need an explicit return statement."
+    },
+    {
+      "id": "q15",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst print = (x) => console.log(x);\nconst result = print(5);\nconsole.log(result);\n```",
+      "options": [
+        "5, undefined",
+        "5, 5",
+        "Error",
+        "undefined, undefined"
+      ],
+      "correct": 0,
+      "explanation": "The arrow function calls console.log(5) which prints 5, but console.log doesn't return a value (it returns undefined). So result is undefined, which is then printed."
+    },
+    {
+      "id": "q16",
+      "type": "multiple-choice",
+      "question": "What is wrong with this arrow function?\n\n```javascript\nconst double = x => { x * 2 };\nconsole.log(double(5));\n```",
+      "options": [
+        "Nothing, it will print 10",
+        "Missing return statement - will print undefined",
+        "Cannot use arrow function without parentheses",
+        "Missing semicolon"
+      ],
+      "correct": 1,
+      "explanation": "When using curly braces in an arrow function, you need an explicit return statement. Without it, the function returns undefined. It should be `{ return x * 2; }` or use implicit return: `x => x * 2`."
+    },
+    {
+      "id": "q11",
+      "type": "select-all",
+      "question": "Which of the following are valid methods for defining a function in JavaScript? (Select all that apply)",
+      "options": [
+        "function myFunc() { }",
+        "const myFunc = () => { }",
+        "let myFunc = function() { }",
+        "arrow myFunc = () => { }"
+      ],
+      "correct": [0, 1, 2],
+      "explanation": "The first three are valid: function declarations, arrow functions assigned to const, and function expressions assigned to let. The fourth uses invalid syntax ('arrow' is not a keyword)."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfunction greet(name, greeting = 'Hello') {\n    console.log(greeting + ', ' + name);\n}\ngreet('Alice');\ngreet('Bob', 'Hi');\n```",
+      "options": [
+        "Hello, Alice, Hi, Bob",
+        "undefined, Alice, Hi, Bob",
+        "Error",
+        "Hello, undefined, Hi, Bob"
+      ],
+      "correct": 0,
+      "explanation": "Default parameters work for any parameter position. When greet('Alice') is called, greeting defaults to 'Hello'. When greet('Bob', 'Hi') is called, 'Hi' is used instead of the default."
+    },
+    {
+      "id": "q13",
+      "type": "multiple-choice",
+      "question": "What is wrong with this arrow function?\n\n```javascript\nconst process = (x) => {\n    x * 2\n};\nconsole.log(process(5));\n```",
+      "options": [
+        "Nothing, it will print 10",
+        "Missing return statement",
+        "Cannot use arrow function for this",
+        "Missing parentheses around parameter"
+      ],
+      "correct": 1,
+      "explanation": "When using curly braces in an arrow function, you need an explicit return statement. Without it, the function returns undefined. It should be `{ return x * 2; }` or use implicit return: `x => x * 2`."
+    },
+    {
+      "id": "q14",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst square = x => x * x;\nconst cube = x => { return x * x * x; };\nconsole.log(square(3));\nconsole.log(cube(3));\n```",
+      "options": [
+        "9, 27",
+        "undefined, 27",
+        "Error",
+        "9, undefined"
+      ],
+      "correct": 0,
+      "explanation": "Both arrow functions work correctly. The first uses implicit return (no braces needed for single expression), the second uses explicit return with braces. Both return the expected values."
+    }
+  ]
+}

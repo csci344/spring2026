@@ -1,0 +1,202 @@
+{
+  "quizName": "JavaScript Destructuring & Spread Operator",
+  "start_date": "2026-03-04",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What does object destructuring do?",
+      "options": [
+        "Creates a new object",
+        "Extracts properties from an object into variables",
+        "Merges two objects together",
+        "Deletes properties from an object"
+      ],
+      "correct": 1,
+      "explanation": "Object destructuring extracts properties from an object and assigns them to variables. For example: `const { name, age } = user;` creates variables `name` and `age` from the `user` object."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst user = { name: 'Alice', age: 25, city: 'NYC' };\nconst { name, age } = user;\nconsole.log(name, age);\n```",
+      "options": [
+        "undefined undefined",
+        "Alice 25",
+        "{ name: 'Alice', age: 25 }",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "Destructuring extracts `name` and `age` from the `user` object into separate variables, so `name` is 'Alice' and `age` is 25."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst colors = ['red', 'green', 'blue'];\nconst [first, second] = colors;\nconsole.log(first, second);\n```",
+      "options": [
+        "red green",
+        "['red', 'green']",
+        "0 1",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "Array destructuring extracts elements by position. `first` gets the first element ('red') and `second` gets the second element ('green')."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "What does the spread operator (`...`) do with arrays?",
+      "options": [
+        "Combines arrays into a single value",
+        "Expands an array into individual elements",
+        "Filters array elements",
+        "Sorts array elements"
+      ],
+      "correct": 1,
+      "explanation": "The spread operator expands an array into individual elements. For example: `[...arr1, ...arr2]` spreads out all elements from both arrays into a new array."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst arr1 = [1, 2, 3];\nconst arr2 = [4, 5, 6];\nconst combined = [...arr1, ...arr2];\nconsole.log(combined);\n```",
+      "options": [
+        "[1, 2, 3]",
+        "[4, 5, 6]",
+        "[1, 2, 3, 4, 5, 6]",
+        "Error"
+      ],
+      "correct": 2,
+      "explanation": "The spread operator expands both arrays, and they're combined into a new array: `[1, 2, 3, 4, 5, 6]`."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst obj1 = { a: 1, b: 2 };\nconst obj2 = { c: 3, d: 4 };\nconst merged = { ...obj1, ...obj2 };\nconsole.log(merged);\n```",
+      "options": [
+        "{ a: 1, b: 2 }",
+        "{ c: 3, d: 4 }",
+        "{ a: 1, b: 2, c: 3, d: 4 }",
+        "Error"
+      ],
+      "correct": 2,
+      "explanation": "The spread operator merges objects. Properties from `obj1` and `obj2` are combined into a new object: `{ a: 1, b: 2, c: 3, d: 4 }`."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfunction greet({ name, age }) {\n    return `Hi, I'm ${name} and I'm ${age} years old.`;\n}\nconst user = { name: 'Bob', age: 30, city: 'LA' };\nconsole.log(greet(user));\n```",
+      "options": [
+        "Hi, I'm Bob and I'm 30 years old.",
+        "Hi, I'm undefined and I'm undefined years old.",
+        "Error: Cannot destructure",
+        "Hi, I'm name and I'm age years old."
+      ],
+      "correct": 0,
+      "explanation": "Function parameters can be destructured. The function extracts `name` and `age` from the passed object, even though the object also has a `city` property."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst original = [1, 2, 3];\nconst copy = [...original];\ncopy.push(4);\nconsole.log(original);\n```",
+      "options": [
+        "[1, 2, 3, 4]",
+        "[1, 2, 3]",
+        "[4]",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "The spread operator creates a shallow copy. Changes to `copy` don't affect `original`, so `original` remains `[1, 2, 3]`."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst user = {\n    name: 'Alice',\n    address: { city: 'NYC', zip: '10001' }\n};\nconst { address: { city } } = user;\nconsole.log(city);\n```",
+      "options": [
+        "NYC",
+        "{ city: 'NYC', zip: '10001' }",
+        "undefined",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "Nested destructuring can extract properties from nested objects. `const { address: { city } } = user;` extracts the `city` from the nested `address` object."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst obj1 = { a: 1, b: 2 };\nconst obj2 = { b: 3, c: 4 };\nconst merged = { ...obj1, ...obj2 };\nconsole.log(merged);\n```",
+      "options": [
+        "{ a: 1, b: 2, c: 4 }",
+        "{ a: 1, b: 3, c: 4 }",
+        "{ b: 2, b: 3, c: 4 }",
+        "Error: duplicate key"
+      ],
+      "correct": 1,
+      "explanation": "When spreading objects with duplicate keys, the later object's values overwrite the earlier ones. So `b: 3` from `obj2` overwrites `b: 2` from `obj1`."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst numbers = [1, 2, 3, 4, 5];\nconst [first, , third] = numbers;\nconsole.log(first, third);\n```",
+      "options": [
+        "1 2",
+        "1 3",
+        "2 4",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "You can skip elements in array destructuring by leaving empty spaces. `[first, , third]` gets the first element (1), skips the second, and gets the third (3)."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nfunction createTodo({ text, completed = false }) {\n    return { text, completed };\n}\nconst todo = createTodo({ text: 'Learn React' });\nconsole.log(todo);\n```",
+      "options": [
+        "{ text: 'Learn React', completed: false }",
+        "{ text: 'Learn React' }",
+        "{ completed: false }",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "Default parameters work with destructuring. Since `completed` wasn't provided, it uses the default value `false`. The function returns `{ text: 'Learn React', completed: false }`."
+    },
+    {
+      "id": "q13",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst arr = [1, 2, 3];\nconst newArr = [0, ...arr, 4];\nconsole.log(newArr);\n```",
+      "options": [
+        "[0, 1, 2, 3, 4]",
+        "[1, 2, 3, 0, 4]",
+        "[0, [1, 2, 3], 4]",
+        "Error"
+      ],
+      "correct": 0,
+      "explanation": "The spread operator can be used to add elements. `[0, ...arr, 4]` creates a new array with 0, then all elements from `arr`, then 4: `[0, 1, 2, 3, 4]`."
+    },
+    {
+      "id": "q14",
+      "type": "multiple-choice",
+      "question": "Which pattern is commonly used in React for receiving component props?",
+      "options": [
+        "function Component(props) { const name = props.name; }",
+        "function Component({ name, age }) { }",
+        "function Component(...props) { }",
+        "function Component(props.name) { }"
+      ],
+      "correct": 1,
+      "explanation": "In React, props are commonly destructured in the function parameters: `function Component({ name, age }) { }`. This is cleaner than accessing `props.name` and `props.age` inside the function."
+    },
+    {
+      "id": "q15",
+      "type": "multiple-choice",
+      "question": "What will this code output?\n\n```javascript\nconst original = { a: 1, b: 2 };\nconst updated = { ...original, b: 3 };\nconsole.log(updated);\n```",
+      "options": [
+        "{ a: 1, b: 2 }",
+        "{ a: 1, b: 3 }",
+        "{ a: 1, b: 2, b: 3 }",
+        "Error"
+      ],
+      "correct": 1,
+      "explanation": "The spread operator creates a new object with all properties from `original`, then `b: 3` overwrites the `b` property. This pattern is common in React for updating state immutably."
+    }
+  ]
+}

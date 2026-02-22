@@ -153,7 +153,7 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
     // Exclude if excluded is truthy (handles boolean true, number 1, etc.)
     return !a.excluded;
   });
-  const assignmentsWithAssignedDate = allAssignments.filter(a => a.assigned_date);
+  const assignmentsWithAssignedDate = allAssignments.filter(a => a.assigned_date && a.hide_from_list !== 1);
   const assignmentsWithDueDate = allAssignments.filter(a => a.due_date && a.hide_from_list !== 1);
   const quizzesWithDates = allQuizzes.filter(q => q.start_date);
   
@@ -331,7 +331,7 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           url: `/activities/${activity.id}/`,
           draft: activity.draft || 0,
           excluded: activity.excluded ? 1 : 0,
-          order: activity.order
+          order: activity.ordering ?? activity.order
         }));
       
       // Create auto-populated assignment entries for assigned (all matches, including drafts)

@@ -758,7 +758,7 @@ export const baseTopics = [
 
   {
     id: 8,
-    title: "JavaScript: Programming Review & OOP",
+    title: "JavaScript: Intro to the Language & Programming Review",
     description:
       "Review of JavaScript programming fundamentals and introduction to object-oriented programming concepts in JavaScript.",
     meetings: [
@@ -769,8 +769,46 @@ export const baseTopics = [
           <>
             <ul>
               <li>Review of JavaScript concepts covered so far</li>
-              <li>Variables, functions, and control structures</li>
+              <li>Mapping Java concepts to JavaScript concepts</li>
               <li>Practice problems and exercises</li>
+            </ul>
+          </>
+        ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1oIedtmNZ_w0FM966tM4WjUj_eoUoMGno/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="/spring2026/resources/js-01-java-comparison">JavaScript vs Java: Quick Reference</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                <a href="/spring2026/resources/js-03-basic-programming">Basic Programming in JavaScript</a>
+              </>
+            ),
+          },{
+            citation: (
+              <>
+                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic Programming practice problems</a>
+              </>
+            ),
+          },
+        ],
+      },
+      {
+        date: "We, Feb 25",
+        topic: "JavaScript Fundamentals: Functions & Control Structures Practice",
+        description: (
+          <>
+            <ul>
+              <li>Hands-on practice with functions and control structures</li>
+              <li>Function declarations vs arrow functions</li>
+              <li>DOM manipulation practice</li>
             </ul>
           </>
         ),
@@ -781,33 +819,11 @@ export const baseTopics = [
           {
             citation: (
               <>
-                <a href="/resources/js-03-basic-programming">Basic Programming in JavaScript</a>
-              </>
-            ),
-          },{
-            citation: (
-              <>
-                <a href="/resources/js-02-basic-programming-practice">Basic Programming practice problems</a>
+                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic Programming practice problems</a>
               </>
             ),
           },
         ],
-      },
-      {
-        date: "We, Feb 25",
-        topic: "JavaScript Classes (OOP)",
-        description: (
-          <>
-            <ul>
-              <li>Introduction to object-oriented programming in JavaScript</li>
-              <li>Classes and instances</li>
-              <li>Constructors and methods</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-        ]
       }
     ],
   },
@@ -832,12 +848,20 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
+          { title: "Array Methods Practice", url: "/spring2026/activities/js-05-array-methods-practice", draft: 0 },
         ],
         readings: [
           {
             citation: (
               <>
-                <a href="/spring2026/resources/js-02-basic-programming-practice">Basic programming practice problems</a>
+                <a href="/spring2026/resources/js-06-higher-order-array-functions">Higher Order Array Functions</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                <a href="/spring2026/resources/js-07-higher-order-practice">Higher Order Practice</a>
               </>
             ),
           },
@@ -851,12 +875,23 @@ export const baseTopics = [
             <ul>
               <li>Advanced higher-order function patterns</li>
               <li>Understanding closures</li>
+              <li>Destructuring and spread operator</li>
               <li>Data manipulation practice</li>
             </ul>
           </>
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
+          { title: "Destructuring & Spread Practice", url: "/spring2026/activities/js-06-destructuring-practice", draft: 1 },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                <a href="/spring2026/resources/js-08-spread-operator-object-destructuring">Spread Operator & Object Destructuring</a>
+              </>
+            ),
+          },
         ],
       },
     ],
@@ -1063,7 +1098,7 @@ export const baseTopics = [
     id: 13,
     title: "Exam 2: JavaScript & React",
     description:
-      "Comprehensive exam covering JavaScript (DOM, OOP, higher-order functions, closures, async/await, Fetch API) and React (components, props, state, effects).",
+      "Comprehensive exam covering JavaScript (DOM, higher-order functions, closures, async/await, Fetch API) and React (components, props, state, effects).",
     meetings: [
       {
         date: "We, Apr 1",
@@ -1072,7 +1107,7 @@ export const baseTopics = [
           <>
             <ul>
               <li>Review of JavaScript: DOM manipulation, event handlers</li>
-              <li>Review of JavaScript: OOP classes, higher-order functions, closures</li>
+              <li>Review of JavaScript: Higher-order functions, closures</li>
               <li>Review of JavaScript: Async/await and Fetch API</li>
               <li>Review of React: Components, props, state, effects</li>
             </ul>
@@ -1086,7 +1121,7 @@ export const baseTopics = [
           <>
             <ul>
               <li>JavaScript: DOM manipulation, event handlers</li>
-              <li>JavaScript: OOP classes, higher-order functions, closures</li>
+              <li>JavaScript: Higher-order functions, closures</li>
               <li>JavaScript: Async/await and Fetch API</li>
               <li>React: Components, props, state, effects</li>
             </ul>

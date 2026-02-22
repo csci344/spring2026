@@ -36,7 +36,7 @@ You will complete Tutorial 5 in four short parts:
 3. [Tutorial 5C: Carousel](/spring2026/assignments/tutorial05c) (starter code provided)
 4. [Tutorial 5D: Todo List](/spring2026/assignments/tutorial05d) (build from scratch)
 
-Please see the [JavaScript Cheatsheet](/spring2026/resources/js-dom-cheatsheet) for syntax help and examples.
+Please see the [JavaScript Cheatsheet](/spring2026/resources/js-01-dom-cheatsheet) for syntax help and examples.
 
 
 ## What to Submit
