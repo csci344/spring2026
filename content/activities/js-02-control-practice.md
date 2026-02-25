@@ -2,7 +2,7 @@
 title: "Control Structures Practice"
 type: "activity"
 start_date: "2026-02-25"
-draft: 1
+draft: 0
 heading_max_level: 3
 ordering: 2
 ---
@@ -36,8 +36,8 @@ console.log(getGrade(55));  // Should print "F"
 
 Run it with: `node grade-calculator.mjs`
 
-<button data-toggle-answer="answer-1" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-1" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 function getGrade(score) {
@@ -54,7 +54,6 @@ function getGrade(score) {
     }
 }
 ```
-</div>
 
 ## Exercise 2: Switch Statement - Day of Week
 
@@ -74,8 +73,8 @@ console.log(getDayName(3));  // Should print "Tuesday"
 console.log(getDayName(7));  // Should print "Saturday"
 ```
 
-<button data-toggle-answer="answer-2" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-2" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 function getDayName(dayNumber) {
@@ -99,7 +98,6 @@ function getDayName(dayNumber) {
     }
 }
 ```
-</div>
 
 ## Exercise 3: While Loop - Countdown
 
@@ -115,8 +113,8 @@ let count = 10;
 console.log("Blast off!");
 ```
 
-<button data-toggle-answer="answer-3" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-3" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 let count = 10;
@@ -128,7 +126,6 @@ while (count > 0) {
 
 console.log("Blast off!");
 ```
-</div>
 
 ## Exercise 4: For Loop - Multiplication Table
 
@@ -142,8 +139,8 @@ const number = 5;
 // Your for loop here
 ```
 
-<button data-toggle-answer="answer-4" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-4" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 const number = 5;
@@ -152,7 +149,6 @@ for (let i = 1; i <= 10; i++) {
     console.log(`${number} x ${i} = ${number * i}`);
 }
 ```
-</div>
 
 ## Exercise 5: Nested Loops - Pattern
 
@@ -169,8 +165,8 @@ Create a file called `pattern.mjs`:
 // Your nested loops here
 ```
 
-<button data-toggle-answer="answer-5" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-5" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 for (let i = 1; i <= 5; i++) {
@@ -181,7 +177,6 @@ for (let i = 1; i <= 5; i++) {
     console.log(line);
 }
 ```
-</div>
 
 ## Exercise 6: Loop with Conditionals - Even Numbers
 
@@ -193,8 +188,8 @@ Create a file called `even-numbers.mjs`:
 // Your code here
 ```
 
-<button data-toggle-answer="answer-6" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-6" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 for (let i = 0; i <= 20; i++) {
@@ -203,7 +198,6 @@ for (let i = 0; i <= 20; i++) {
     }
 }
 ```
-</div>
 
 ## Exercise 7: Array Iteration
 
@@ -223,8 +217,8 @@ let max = numbers[0];
 console.log("Max:", max);
 ```
 
-<button data-toggle-answer="answer-7" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-7" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 const numbers = [12, 45, 3, 22, 48, 9, 27, 30, 5, 44, 20];
@@ -245,7 +239,6 @@ for (let i = 1; i < numbers.length; i++) {
 }
 console.log("Max:", max);
 ```
-</div>
 
 ## Exercise 8: For...of Loop
 
@@ -258,8 +251,8 @@ const fruits = ["apple", "banana", "cherry", "date"];
 // Your code here
 ```
 
-<button data-toggle-answer="answer-8" class="bg-blue-500 hover:bg-blue-600 text-white border-0 px-4 py-2 rounded cursor-pointer mb-2 transition-colors duration-200">Show Solution</button>
-<div id="answer-8" class="bg-green-50 rounded mt-2 mb-4 px-4 transition-all duration-[400ms] ease-out">
+<!-- collapsible closed -->
+### Show Solution
 
 ```javascript
 const fruits = ["apple", "banana", "cherry", "date"];
@@ -268,7 +261,6 @@ for (let fruit of fruits) {
     console.log(fruit.toUpperCase());
 }
 ```
-</div>
 
 ## Additional Practice
 

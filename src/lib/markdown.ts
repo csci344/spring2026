@@ -206,13 +206,15 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
 
   // Post-process HTML to make h3 headings collapsible based on <!-- collapsible --> comments
   // Find all <!-- collapsible --> comments and their associated h3 positions
-  const collapsibleCommentRegex = /<!--\s*collapsible\s*-->/gi;
+  // Support <!-- collapsible --> (open by default) and <!-- collapsible closed --> (closed by default)
+  const collapsibleCommentRegex = /<!--\s*collapsible(\s+closed)?\s*-->/gi;
   const collapsibleSections: Array<{ 
     commentIndex: number; 
     commentLength: number;
     h3Start: number;
     h3End: number;
     h3Content: string;
+    isClosed: boolean;
   }> = [];
   let collapsibleMatch;
   
@@ -220,6 +222,7 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
   while ((collapsibleMatch = collapsibleCommentRegex.exec(contentHtml)) !== null) {
     const commentIndex = collapsibleMatch.index;
     const commentLength = collapsibleMatch[0].length;
+    const isClosed = collapsibleMatch[1] !== undefined; // Check if "closed" was in the comment
     
     // Find the next h3 heading after this comment
     const afterComment = contentHtml.substring(commentIndex + commentLength);
@@ -239,14 +242,15 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
         commentLength,
         h3Start,
         h3End,
-        h3Content
+        h3Content,
+        isClosed
       });
     }
   }
   
   // Second pass: process in reverse order to avoid index shifting
   for (let i = collapsibleSections.length - 1; i >= 0; i--) {
-    const { commentIndex, commentLength, h3Start, h3End, h3Content } = collapsibleSections[i];
+    const { commentIndex, commentLength, h3Start, h3End, h3Content, isClosed } = collapsibleSections[i];
     
     // Find the boundary: either the next collapsible section's comment OR the next heading of equal or greater level
     const afterH3 = contentHtml.substring(h3End);
@@ -282,9 +286,11 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
     const sectionContent = contentHtml.substring(h3End, sectionEnd);
     
       // Create the collapsible details structure
-      // Convert h3 to summary and wrap everything in details open
+      // Convert h3 to summary and wrap everything in details
       // Add mb-4 class for when it's closed (CSS will handle the conditional styling)
-      const detailsContent = `<details open class="mb-4">
+      // Use "open" attribute only if not closed by default
+      const openAttr = isClosed ? '' : ' open';
+      const detailsContent = `<details${openAttr} class="mb-4">
   <summary>${h3Content}</summary>
   ${sectionContent}
 </details>`;

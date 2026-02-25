@@ -18,16 +18,6 @@ points: 6
     * `styles.css`
     * `script.js`.
 
-> ## What This Exercise Practices
-> - Creating and working with arrays of objects
-> - Using object properties to access data
-> - Using `for` loops to iterate through arrays
-> - Using template literals to create HTML strings
-> - Using the ternary operator for conditional values
-> - Handling form submissions with event listeners
-> - Using `parseFloat()` to convert strings to numbers
-> - Using `.push()` to add items to arrays
-
 <!-- collapsible -->
 ### Starter HTML Code
 Copy the HTML starter code into `index.html`:
@@ -146,6 +136,11 @@ h1 {
   box-sizing: border-box;
 }
 
+#productPrice {
+  flex: 0 0 150px;
+  max-width: 150px;
+}
+
 .form-group select {
   cursor: pointer;
 }
@@ -262,21 +257,21 @@ h1 {
 ```
 
 ## 2. Displaying Products
-Your job is to write the JavaScript functionality to display products from an array.
+Your job is to write the JavaScript functionality to display products from an array and allow the user to add new products to the website as shown below.
+
+<img class="large frame" src="/spring2026/images/tutorials/tutorial06/exercise3.png" />
 
 Please refer to the [JavaScript Cheatsheet](#javascript-cheatsheet) at the bottom of the page, which lists all of the relevant JavaScript language features that you will need to complete the assignment.
 
 <!-- collapsible -->
 ### 1. Create an array of product objects and select elements
-At the top of your JavaScript file:
-1. Create a `const` array called `products` with at least 3 product objects. Each object should have these properties:
-   - `name` (string)
-   - `price` (number)
-   - `description` (string)
-   - `category` (string)
-   - `inStock` (boolean)
-2. Use `document.querySelector()` to select the `#productGrid` element and store it in a `const` variable.
-3. Use `document.querySelector()` to select the `#productForm` element and store it in a `const` variable.
+At the top of your JavaScript file, create a `const` array called `products` with at least 3 product objects. Each object should have these properties:
+- `name` (string)
+- `price` (number)
+- `description` (string)
+- `category` (string)
+- `inStock` (boolean)
+
 
 > **Tip**: You can check if it worked by printing the array and elements to the console. View the console in the browser inspector.
 
@@ -288,12 +283,14 @@ Create a function called `formatPrice()` that takes a price (number) as a parame
 
 <!-- collapsible -->
 ### 3. Create a function to create product card HTML
-Create a function called `createProductCard()` that takes a product object as a parameter and returns an HTML string using template literals. The HTML should include:
-- The product name in an `<h2>` tag
-- The formatted price in a `<div>` with class `price`
-- The description in a `<p>` tag with class `description`
-- The category in a `<span>` with class `category`
-- A stock status badge: if `inStock` is `true`, show "In Stock" with class `stock-status in-stock`, otherwise show "Out of Stock" with class `stock-status out-of-stock`
+Create a function called `createProductCard()`. It should:
+1. Take a product object as a parameter and
+2. Return an HTML string using template literals The HTML should include:
+    - The product name in an `<h2>` tag
+    - The formatted price in a `<div>` with class `price`
+    - The description in a `<p>` tag with class `description`
+    - The category in a `<span>` with class `category`
+    - A stock status badge: if `inStock` is `true`, show "In Stock" with class `stock-status in-stock`, otherwise show "Out of Stock" with class `stock-status out-of-stock`
 
 > **Tip**: Use the ternary operator (`condition ? valueIfTrue : valueIfFalse`) to determine the stock status HTML.
 
@@ -315,16 +312,30 @@ Now you'll add functionality to allow users to add new products via the form.
 
 <!-- collapsible -->
 ### 1. Handle form submission
-Add an event listener to the `productForm` for the `'submit'` event. In the event handler:
-1. Call `event.preventDefault()` to prevent the form from submitting normally.
-2. Get the values from each form field using `document.querySelector()` and `.value` (or `.checked` for the checkbox).
-3. Convert the price value to a number using `parseFloat()`.
-4. Create a new product object with the form values.
-5. Add the new product to the `products` array using `.push()`.
-6. Call `renderProducts()` to update the display.
-7. Reset the form using `.reset()`.
+Form submission has a few quirks (as noted in the [JavaScript Cheatsheet](#javascript-cheatsheet)), so we're providing some starter code here:
 
-> **Tip**: Use `.trim()` on text inputs to remove extra whitespace. Use `.checked` for checkbox values (returns `true` or `false`).
+```javascript
+function addItemToList(event) {
+  // Prevent the default form submission behavior (which would reload the page)
+  event.preventDefault();
+  // TODO: Add your code here
+  
+}
+
+productForm.addEventListener('submit', addItemToList);
+```
+
+Inside the `addItemToList` function, complete the following steps:
+1. Get the values from each form field and store each in a variable.
+2. Convert the price value to a number.
+3. Create a new product object with the form values.
+4. Add the new product to the `products` array using `.push()`.
+5. Call `renderProducts()` to update the display.
+6. Reset the form using `.reset()`.
+
+> **Tips**: 
+> * Use `.trim()` on text inputs to remove extra whitespace. 
+> * Use `.checked` for checkbox values (returns `true` or `false`), and `.value` for anything else.
 
 <!-- collapsible -->
 ### 2. Initialize the display
