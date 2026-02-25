@@ -341,7 +341,7 @@ Inside the `addItemToList` function, complete the following steps:
 ### 2. Initialize the display
 At the bottom of your JavaScript file, call `renderProducts()` to display the initial products when the page loads.
 
-## 4. JavaScript Cheatsheet
+## 4. JavaScript Cheatsheet <span id="javascript-cheatsheet"></span>
 Here's a list of JavaScript language features you'll need to complete this exercise:
 
 <table>

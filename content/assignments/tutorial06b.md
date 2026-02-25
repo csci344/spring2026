@@ -116,7 +116,7 @@ Create a function called `displayItems()` that:
 At the bottom of your JavaScript file, call `displayItems()` to initialize the list when the page loads.
 
 <!-- collapsible -->
-### JavaScript Cheatsheet
+### JavaScript Cheatsheet <span id="javascript-cheatsheet"></span>
 Here's a list of JavaScript language features you'll need to complete this exercise:
 
 <table>

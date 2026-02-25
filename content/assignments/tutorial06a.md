@@ -124,7 +124,7 @@ Create four functions:
 Call `updateDisplay()` at the bottom of your JavaScript file to initialize the display.
 
 <!-- collapsible -->
-### JavaScript Cheatsheet
+### JavaScript Cheatsheet <span id="javascript-cheatsheet"></span>
 Here's a list of JavaScript language features you'll need to complete this exercise:
 
 <table>
