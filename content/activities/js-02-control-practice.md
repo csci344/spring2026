@@ -154,15 +154,13 @@ for (let i = 1; i <= 10; i++) {
 
 Create a file called `pattern.mjs`:
 
-```javascript
-// Use nested loops to print this pattern:
-// *
-// **
-// ***
-// ****
-// *****
-
-// Your nested loops here
+```text
+Use nested loops to print this pattern:
+ 
+**
+***
+****
+*****
 ```
 
 <!-- collapsible closed -->
@@ -182,7 +180,7 @@ for (let i = 1; i <= 5; i++) {
 
 Create a file called `even-numbers.mjs`:
 
-```javascript
+```text
 // Use a for loop to print only the even numbers from 0 to 20
 
 // Your code here

@@ -11,7 +11,7 @@ points: 6
 ---
 
 ## Overview
-This tutorial focuses on **JavaScript fundamentals** with DOM manipulation: functions, control structures, arrays, objects, and template literals. Complete 2-3 quick exercises, then one longer activity.
+This tutorial focuses on **JavaScript fundamentals** with DOM manipulation: functions, control structures, arrays, objects, and template literals. Complete 2-3 shorter exercises, then one longer activity.
 
 ## Setup
 Create a new folder called `tutorial06` inside your `csci344/tutorials` folder. You'll create the files for each activity as you work through them.
@@ -47,9 +47,9 @@ If you collaborated with someone, include your partner's name in your submission
 
 ## Completion Checklist
 
-- [ ] Completed Tutorial 6A: Functions & Control (Quick)
-- [ ] Completed Tutorial 6B: Arrays & Template Literals (Quick)
-- [ ] Completed Tutorial 6C: Objects & Product Display (Longer)
+- [ ] Completed Tutorial 6A: Functions & Control
+- [ ] Completed Tutorial 6B: Arrays & Template Literals
+- [ ] Completed Tutorial 6C: Objects & Product Display
 - [ ] Created links from homepage to each Tutorial 6 page
 - [ ] Committed and pushed changes to GitHub
 - [ ] Submitted GitHub repository and GitHub Pages link

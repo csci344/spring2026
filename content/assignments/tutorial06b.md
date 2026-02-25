@@ -150,7 +150,7 @@ const length = fruits.length;  // 3
 <td>
 <pre><code class="hljs language-javascript" data-no-copy="true">const name = 'Alice';
 const greeting = `Hello, ${name}!`;  // 'Hello, Alice!'
-const html = `&lt;div&gt;${name}&lt;/div&gt;`;
+const html = `<div>${name}</div>`;
 </code></pre>
 </td>
 </tr>
@@ -166,14 +166,14 @@ const divEl = document.querySelector('div');
 <td><strong>innerHTML</strong></td>
 <td>
 <pre><code class="hljs language-javascript" data-no-copy="true">element.innerHTML = '';  // Clear content
-element.innerHTML = '&lt;p&gt;Hello&lt;/p&gt;';  // Set content
+element.innerHTML = `<p>Hello</p>`;  // Set content
 </code></pre>
 </td>
 </tr>
 <tr>
 <td><strong>insertAdjacentHTML</strong></td>
 <td>
-<pre><code class="hljs language-javascript" data-no-copy="true">element.insertAdjacentHTML('beforeend', '&lt;li&gt;Item&lt;/li&gt;');
+<pre><code class="hljs language-javascript" data-no-copy="true">element.insertAdjacentHTML('beforeend', `<li>Item</li>`);
 // 'beforeend' adds content inside the element, at the end
 </code></pre>
 </td>

@@ -170,7 +170,7 @@ const inputEl = document.querySelector('#firstName');
 <td><strong>Updating Text or Inner HTML</strong></td>
 <td>
 <pre><code class="hljs language-javascript" data-no-copy="true">counterEl.textContent = count;
-counterEl.innerHTML = `&lt;p&gt;${count}&lt;/p&gt;`;</code></pre>
+counterEl.innerHTML = `<p>${count}</p>`;</code></pre>
 </td>
 </tr>
 <tr>
