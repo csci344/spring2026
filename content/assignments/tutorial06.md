@@ -2,7 +2,7 @@
 title: "JavaScript Fundamentals: Functions, Control, Arrays & Objects"
 type: "tutorial"
 num: 6
-draft: 1
+draft: 0
 assigned_date: "2026-02-27"
 due_date: "2026-03-02"
 heading_max_level: 3
@@ -18,11 +18,10 @@ Create a new folder called `tutorial06` inside your `csci344/tutorials` folder. 
 
 ## Complete the Activities
 
-1. **[Tutorial 6A: Functions & Control](/spring2026/assignments/tutorial06a)** (short exercises) - Simple counter with buttons
-2. **[Tutorial 6B: Arrays & Template Literals](/spring2026/assignments/tutorial06b)** (short exercises) - Display items from an array
-3. **[Tutorial 6C: Objects & Product Display](/spring2026/assignments/tutorial06c)** (Main activity) - Build a product catalog
+1. [Counter Exercise](/spring2026/assignments/tutorial06a) - Practice with functions, event handlers, DOM manipulation, if/else statements.
+2. [Displaying Data](/spring2026/assignments/tutorial06b) - Practice with loops, template literals, DOM manipulation.
+3. [Objects & Product Display](/spring2026/assignments/tutorial06c) - Build a product catalog
 
-Please see the [JavaScript Cheatsheet](/spring2026/resources/js-01-dom-cheatsheet) for syntax help and examples.
 
 ## What to Submit
 After completing all activities (6A, 6B, and 6C), please:
@@ -35,16 +34,16 @@ After completing all activities (6A, 6B, and 6C), please:
 
 If you collaborated with someone, include your partner's name in your submission comments.
 
-> ## Summary of JavaScript Concepts Used
-> 
-> | Concept | Tutorial | Purpose |
-> |---------|----------|---------|
-> | **Functions** | 6A, 6C | Reusable blocks of code |
-> | **Control Structures** | 6A, 6C | if/else for decision making |
-> | **Arrays** | 6B, 6C | Store lists of data |
-> | **Template Literals** | 6B, 6C | Create HTML strings with variables |
-> | **Objects** | 6C | Store related data together |
-> | **Array Methods** | 6B, 6C | forEach, filter, map |
+## Summary of JavaScript Concepts Used
+
+| Concept | Tutorial | Purpose |
+|---------|----------|---------|
+| **Functions** | 6A, 6C | Reusable blocks of code |
+| **Control Structures** | 6A, 6C | if/else for decision making |
+| **Arrays** | 6B, 6C | Store lists of data |
+| **Template Literals** | 6B, 6C | Create HTML strings with variables |
+| **Objects** | 6C | Store related data together |
+| **Array Methods** | 6B, 6C | forEach, filter, map |
 
 ## Completion Checklist
 

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import { triggerConfetti } from '@/lib/utils';
+import hljs from 'highlight.js';
 
 interface MarkdownContentProps {
   content: string;
@@ -107,6 +108,11 @@ export default function MarkdownContent({ content, className }: MarkdownContentP
     const codeBlocks = contentRef.current.querySelectorAll('pre code');
     
     codeBlocks.forEach((codeElement) => {
+      const codeEl = codeElement as HTMLElement;
+
+      // Allow opting out of the copy button with data-no-copy="true"
+      if (codeEl.getAttribute('data-no-copy') === 'true') return;
+
       const preElement = codeElement.parentElement as HTMLElement;
       
       // Skip if we've already added a copy button
@@ -234,6 +240,51 @@ export default function MarkdownContent({ content, className }: MarkdownContentP
         button.dataset.listenerAdded = '';
       });
     };
+  }, [content]);
+
+  // Highlight code blocks that weren't processed by remark-highlight.js
+  // (e.g., code blocks inside HTML tables)
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    // Find all code blocks with language classes
+    const codeBlocks = contentRef.current.querySelectorAll<HTMLElement>(
+      'code[class*="language-"]'
+    );
+
+    codeBlocks.forEach((codeBlock) => {
+      // Check if this code block has already been highlighted
+      // (remark-highlight.js adds spans with hljs classes)
+      const hasHighlighting = codeBlock.querySelector('.hljs-keyword, .hljs-string, .hljs-function, .hljs-number, .hljs-variable');
+      
+      // Only highlight if it hasn't been processed yet
+      if (!hasHighlighting) {
+        // Extract language from class (e.g., "language-javascript" -> "javascript")
+        const classList = Array.from(codeBlock.classList);
+        const languageClass = classList.find((cls) => cls.startsWith('language-'));
+        const language = languageClass ? languageClass.replace('language-', '') : 'javascript';
+
+        try {
+          // Get the raw code text
+          const code = codeBlock.textContent || '';
+          
+          // Highlight the code
+          const highlighted = hljs.highlight(code, {
+            language: language,
+            ignoreIllegals: true,
+          });
+          
+          // Replace the content with highlighted HTML
+          codeBlock.innerHTML = highlighted.value;
+          
+          // Ensure hljs class is present for styling
+          codeBlock.classList.add('hljs');
+        } catch (error) {
+          // If highlighting fails, just ensure hljs class is present for styling
+          codeBlock.classList.add('hljs');
+        }
+      }
+    });
   }, [content]);
 
 //   useEffect(() => {
