@@ -33,7 +33,8 @@ export default function AssignmentsList({
     }
     
     const isDraft = assignment.draft && assignment.draft === 1;
-    const isTutorial = assignment.titleShort?.startsWith('Tutorial') || false;
+    // Check type field first: if 'tutorial', it's a tutorial; if 'homework', it's not; otherwise fall back to titleShort
+    const isTutorial = assignment.type === 'tutorial' || (assignment.type !== 'homework' && assignment.titleShort?.startsWith('Tutorial')) || false;
     const showCheckbox = type === 'due' && !isDraft; // Show checkbox for non-draft "due" items
     
     // Extract assignment ID from URL (e.g., "/assignments/hw01/" -> "hw01")

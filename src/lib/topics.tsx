@@ -342,7 +342,8 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           title: assignment.title,
           url: `/assignments/${assignment.id}/`,
           draft: assignment.draft || 0,
-          order: assignment.order
+          order: assignment.order,
+          type: assignment.type
         };
       });
       
@@ -354,7 +355,8 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           title: assignment.title,
           url: `/assignments/${assignment.id}/`,
           draft: assignment.draft || 0,
-          order: assignment.order
+          order: assignment.order,
+          type: assignment.type
         };
       });
       
@@ -557,7 +559,8 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
             titleShort: titleShort,
             title: assignment.title,
             url: `/assignments/${assignment.id}/`,
-            draft: assignment.draft || 0
+            draft: assignment.draft || 0,
+            type: assignment.type
           };
         });
         

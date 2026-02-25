@@ -1,5 +1,5 @@
 ---
-title: "Arrays & Template Literals"
+title: "Arrays & Template Literals Exercise"
 type: "tutorial"
 num: 6b
 draft: 0
@@ -11,13 +11,26 @@ order: 6
 points: 6
 ---
 
-## Goal (Quick Exercise - ~10 minutes)
-Display a list of items from an array using template literals and loops.
+## 1. Setup
+* Create a `tutorial06` folder (if you haven't already). 
+* Within `tutorial06`, create another folder called `02-item-list` folder for this exercise
+* Within `02-item-list`, create three files:
+    * `index.html`
+    * `styles.css`
+    * `script.js`.
 
-## Setup
-Create a folder `02-item-list` inside `tutorial06` with `index.html`, `styles.css`, and `script.js`.
+> ## What This Exercise Practices
+> - Creating and working with arrays
+> - Using `for` loops to iterate through arrays
+> - Using template literals (backticks) to create HTML strings
+> - Selecting DOM elements with `document.querySelector()`
+> - Using `innerHTML` to clear element content
+> - Using `insertAdjacentHTML()` to add HTML to the DOM
 
-### HTML
+<!-- collapsible -->
+### Starter HTML Code
+Copy the HTML starter code into `index.html`:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +50,8 @@ Create a folder `02-item-list` inside `tutorial06` with `index.html`, `styles.cs
 </html>
 ```
 
-### CSS
+<!-- collapsible -->
+### Starter CSS Code
 ```css
 body {
   font-family: Arial, sans-serif;
@@ -67,37 +81,119 @@ body {
 }
 ```
 
-## JavaScript Tasks
+## 2. JavaScript Tasks
+Your job is to write the JavaScript functionality from scratch so that your application displays all items from an array in a list. 
 
-### 1. Create an array
-```javascript
-const items = ['Apple', 'Banana', 'Orange', 'Grape', 'Mango'];
-const itemList = document.querySelector('#itemList');
-```
+<img class="small frame" src="/spring2026/images/tutorials/tutorial06/exercise2.png" />
 
+Please refer to the [JavaScript Cheatsheet](#javascript-cheatsheet) at the bottom of the page, which lists all of the relevant JavaScript language features that you will need to complete the assignment.
+
+<!-- collapsible -->
+### 1. Create an array and select the list element
+At the top of your JavaScript file:
+1. Create a `const` array called `items` with at least 5 string values (e.g., `['Apple', 'Banana', 'Orange', 'Grape', 'Mango']`).
+2. Use `document.querySelector()` to select the `#itemList` element and store it in a `const` variable.
+
+> **Tip**: You can check if it worked by printing the array and element to the console using `console.log(items)` and `console.log(itemList)`. View the console in the browser inspector.
+
+<!-- collapsible -->
 ### 2. Create a function to display items
-Use a loop and template literals:
+Create a function called `displayItems()` that:
+1. Clears the `itemList` element by setting its `innerHTML` to an empty string (`''`).
+2. Uses a `for` loop to iterate through the `items` array (from index `0` to `items.length`).
+3. Inside the loop:
+   - Use template literals (backticks) to create an HTML string for each list item
+   - Add the HTML string to the `itemList` element
 
-```javascript
-function displayItems() {
-  // 1. Clear itemList using innerHTML = ''
-  
-  // 2. Create a for loop that goes from 0 to items.length
-  
-  // 3. Inside the loop:
-  //    - Use template literals (backticks) to create an HTML string
-  //    - The HTML should be: `<li>${items[i]}</li>`
-  //    - Store this in a variable (e.g., listItemHTML)
-  //    - Use insertAdjacentHTML('beforeend', listItemHTML) to add it to itemList
-}
-```
+> **Tip**: Template literals use backticks (`` ` ``) instead of quotes, and allow you to embed expressions using `${...}`. Examples:
+> * `${ myVar }`
+> * `${ 2 + 2 }`
+> * `${ Math.random() * 5 }`
+> * `${ myVar.toString().toUpperCase() }`
 
+<!-- collapsible -->
 ### 3. Call the function
-```javascript
-displayItems();
-```
+At the bottom of your JavaScript file, call `displayItems()` to initialize the list when the page loads.
+
+<!-- collapsible -->
+### JavaScript Cheatsheet
+Here's a list of JavaScript language features you'll need to complete this exercise:
+
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Arrays</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">const fruits = ['Apple', 'Banana', 'Orange'];
+const firstFruit = fruits[0];  // 'Apple'
+const length = fruits.length;  // 3
+</code></pre>
+</td>
+</tr>
+<tr>
+<td><strong>For Loops</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">for (let i = 0; i < array.length; i++) {
+  console.log(array[i]);
+}
+</code></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Template Literals</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">const name = 'Alice';
+const greeting = `Hello, ${name}!`;  // 'Hello, Alice!'
+const html = `&lt;div&gt;${name}&lt;/div&gt;`;
+</code></pre>
+</td>
+</tr>
+<tr>
+<td><strong>DOM Selection</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">const listEl = document.querySelector('#itemList');
+const divEl = document.querySelector('div');
+</code></pre>
+</td>
+</tr>
+<tr>
+<td><strong>innerHTML</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">element.innerHTML = '';  // Clear content
+element.innerHTML = '&lt;p&gt;Hello&lt;/p&gt;';  // Set content
+</code></pre>
+</td>
+</tr>
+<tr>
+<td><strong>insertAdjacentHTML</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">element.insertAdjacentHTML('beforeend', '&lt;li&gt;Item&lt;/li&gt;');
+// 'beforeend' adds content inside the element, at the end
+</code></pre>
+</td>
+</tr>
+<tr>
+<td><strong>Functions</strong></td>
+<td>
+<pre><code class="hljs language-javascript" data-no-copy="true">function myFunction() {
+  // code here
+}
+
+// Call the function
+myFunction();
+</code></pre>
+</td>
+</tr>
+</tbody>
+</table>
 
 ## Test
-Verify that all items from the array appear in the list.
+Verify that all items from the array appear in the list when you open the page in your browser.
 
 <a href="/spring2026/assignments/tutorial06" class="nu-button">← Back to Tutorial 6</a>

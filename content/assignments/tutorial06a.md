@@ -11,10 +11,18 @@ order: 6
 points: 6
 ---
 
-## Setup
-Create a folder `01-counter` inside `tutorial06` with `index.html`, `styles.css`, and `script.js`.
+## 1. Setup
+* Create a `tutorial06` folder (if you haven't already). 
+* Within `tutorial06`, create another folder called `01-counter` folder for this exercise
+* Within `01-counter`, create three files:
+    * `index.html`
+    * `styles.css`
+    * `script.js`.
 
-### HTML
+<!-- collapsible -->
+### Starter HTML Code
+Copy the HTML starter code into `index.html`:
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,12 +45,9 @@ Create a folder `01-counter` inside `tutorial06` with `index.html`, `styles.css`
 </html>
 ```
 
-<details>
-  <summary>HTML Starter Code</summary>
-  <p>Your hint content here...</p>
-</details>
 
-### CSS
+<!-- collapsible -->
+### Starter CSS Code
 ```css
 body {
   font-family: Arial, sans-serif;
@@ -80,12 +85,12 @@ button {
 #resetBtn { background-color: #2196F3; color: white; }
 ```
 
-## JavaScript Tasks
+## 2. JavaScript Tasks
 Your job is to write the JavaScript functionality from scratch so that your application behaves as shown below. Please refer to the [JavaScript Cheatsheet](#javascript-cheatsheet) at the bottom of the page, which lists all of the relevant JavaScript language features that you will need to complete the assignment.
 
 <img class="small frame" src="/spring2026/images/tutorials/tutorial06/counter.gif" />
 
-
+<!-- collapsible -->
 ### 1. Create variables and select elements
 At the top of your JavaScript file, create global variables to store:
 1. The current count (start at `0`).
@@ -98,6 +103,7 @@ Use `document.querySelector()` for each element selection.
 
 > **Tip**: You can check if it worked by printing the variable values to the console using `console.log(yourValueHere)`. View the console in the browser inspector.
 
+<!-- collapsible -->
 ### 2. Create functions
 Create four functions:
 
@@ -108,13 +114,18 @@ Create four functions:
 | `reset()` | Set the count back to 0, then call `updateDisplay()` |
 | `updateDisplay()` | <ul><li>Update the counter display text to the current count.</li><li>Use <code>if / else if / else</code> for color:<ul><li> <code>count</code> is positive: set color to green (<code>#4CAF50</code>)</li><li><code>count</code> is negative: set color to red (<code>#f44336</code>)</li><li><code>count</code> is zero: set color to gray (<code>#666</code>)</li></ul></li></ul> |
 
+<!-- collapsible -->
 ### 3. Attach functions to buttons
 - Add a `'click'` event listener to each of the three buttons. You can either do this using the JavaScript method or using the HTML method (see the cheatsheet below)
 
+<!-- collapsible -->
 ### 4. Run `updateDisplay()` on initialization
-Call `updateDisplay()` at the bottom of your JavaScript file to initialize the display
 
+Call `updateDisplay()` at the bottom of your JavaScript file to initialize the display.
+
+<!-- collapsible -->
 ### JavaScript Cheatsheet
+Here's a list of JavaScript language features you'll need to complete this exercise:
 
 <table>
 <thead>

@@ -35,6 +35,7 @@ export interface Assignment {
   title: string;
   url?: string;
   draft?: number;
+  type?: string;
 }
 
 export interface MeetingData {
