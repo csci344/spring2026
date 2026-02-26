@@ -11,6 +11,12 @@ order: 6
 points: 6
 ---
 
+<!-- info -->
+> ## Walthrough Videos Available
+> If you get stuck or need help, I have made some <a href="https://drive.google.com/drive/folders/1Gx4Duv06HYmU6pI7SVqe9idsztj0qfjQ" target="_blank">walkthrough videos</a>. 
+> 
+> Please try to do as much as you can on your own before referring to the videos: following along can be helpful for learning, but it doesn't engage your brain in the same way as trying to solve these problems on your own. Good luck!
+
 ## 1. Setup 
 * Within `tutorial06`, create another folder called `03-product-catalog` folder for this exercise
 * Within `03-product-catalog`, create three files:
@@ -284,8 +290,8 @@ Create a function called `formatPrice()` that takes a price (number) as a parame
 <!-- collapsible -->
 ### 3. Create a function to create product card HTML
 Create a function called `createProductCard()`. It should:
-1. Take a product object as a parameter and
-2. Return an HTML string using template literals The HTML should include:
+1. Take a product object as a parameter
+2. Return an HTML string using template literals. The HTML should include:
     - The product name in an `<h2>` tag
     - The formatted price in a `<div>` with class `price`
     - The description in a `<p>` tag with class `description`

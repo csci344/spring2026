@@ -158,46 +158,56 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
   // The placeholders were inserted before GFM processing to avoid disabled checkboxes
   contentHtml = await postprocessCheckboxes(contentHtml, id);
 
-  // Post-process HTML to add classes to lists based on markdown comments
-  // Look for comments like <!-- list-tight --> or <!-- list-spaced --> before lists
-  // Handle cases where there might be whitespace, <p> tags, or newlines between comment and list
-  const commentRegex = /<!--\s*(list-tight|list-spaced)\s*-->/gi;
-  const matches: Array<{ index: number; className: string; length: number }> = [];
-  let commentMatch;
+  // Post-process HTML to add classes to elements based on markdown comments
+  // Generic handler: any comment like <!-- class-name --> will add that class to the next HTML element
+  // Examples: <!-- list-tight -->, <!-- list-spaced -->, <!-- info -->, etc.
+  // Matches valid CSS class names (alphanumeric, hyphens, underscores)
+  // Excludes "collapsible" which is handled separately
+  const classCommentRegex = /<!--\s*((?!collapsible)[a-zA-Z0-9_-]+)\s*-->/gi;
+  const classMatches: Array<{ index: number; className: string; length: number }> = [];
+  let classCommentMatch;
   
   // Collect all matches first
-  while ((commentMatch = commentRegex.exec(contentHtml)) !== null) {
-    matches.push({
-      index: commentMatch.index,
-      className: commentMatch[1],
-      length: commentMatch[0].length
+  while ((classCommentMatch = classCommentRegex.exec(contentHtml)) !== null) {
+    classMatches.push({
+      index: classCommentMatch.index,
+      className: classCommentMatch[1],
+      length: classCommentMatch[0].length
     });
   }
   
   // Process matches in reverse order to avoid index shifting
-  for (let i = matches.length - 1; i >= 0; i--) {
-    const { index: commentIndex, className, length: commentLength } = matches[i];
+  for (let i = classMatches.length - 1; i >= 0; i--) {
+    const { index: commentIndex, className, length: commentLength } = classMatches[i];
     
-    // Find the next list element after this comment
+    // Find the next HTML element after this comment (any tag)
+    // Skip over whitespace, <p> tags, and other inline elements
     const afterComment = contentHtml.substring(commentIndex + commentLength);
-    const listMatch = afterComment.match(/<[ou]l[^>]*>/);
+    const elementMatch = afterComment.match(/<([a-zA-Z][a-zA-Z0-9]*)[^>]*>/);
     
-    if (listMatch && listMatch.index !== undefined) {
-      const listIndex = commentIndex + commentLength + listMatch.index;
-      const listTag = listMatch[0];
+    if (elementMatch && elementMatch.index !== undefined) {
+      const elementIndex = commentIndex + commentLength + elementMatch.index;
+      const elementTag = elementMatch[0];
+      const tagName = elementMatch[1];
       
-      // Add the class to the list element
-      let newListTag: string;
-      if (listTag.includes('class=')) {
-        // If class already exists, append to it
-        newListTag = listTag.replace(/class="([^"]*)"/, `class="$1 ${className}"`);
+      // Add the class to the element
+      let newElementTag: string;
+      if (elementTag.includes('class=')) {
+        // If class already exists, append to it (avoid duplicates)
+        newElementTag = elementTag.replace(/class="([^"]*)"/, (match, existingClasses) => {
+          const classes = existingClasses.split(/\s+/);
+          if (classes.includes(className)) {
+            return match; // Class already exists, don't add it again
+          }
+          return `class="${existingClasses} ${className}"`;
+        });
       } else {
         // If no class exists, add it
-        newListTag = listTag.replace(/(<[ou]l)([^>]*>)/, `$1 class="${className}"$2`);
+        newElementTag = elementTag.replace(/(<[a-zA-Z][a-zA-Z0-9]*)([^>]*>)/, `$1 class="${className}"$2`);
       }
       
-      // Replace the list tag in the HTML
-      contentHtml = contentHtml.substring(0, listIndex) + newListTag + contentHtml.substring(listIndex + listTag.length);
+      // Replace the element tag in the HTML
+      contentHtml = contentHtml.substring(0, elementIndex) + newElementTag + contentHtml.substring(elementIndex + elementTag.length);
       
       // Remove the comment
       contentHtml = contentHtml.substring(0, commentIndex) + contentHtml.substring(commentIndex + commentLength);
