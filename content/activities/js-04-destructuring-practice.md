@@ -8,21 +8,18 @@ ordering: 2
 ---
 
 ## Goal
-Practice using destructuring and the spread operator with DOM manipulation. These are essential patterns in React for working with props and state.
+Practice using destructuring and the spread operator with arrays and objects. These patterns are essential for working with data in JavaScript.
 
 ## Setup
 
-Download the starter files:
+1. Create a folder for this activity (e.g., `destructuring-practice`).
+2. Each exercise will be a separate `.mjs` file that you can run with Node.js.
 
-<a href="/spring2026/course-files/activities/js-destructuring-practice.zip" class="nu-button">Download Starter Files <i class="fas fa-download"></i></a>
 
-After downloading and unzipping, open `index.html` in your browser using Live Server.
-
-See the downloads folder for hints.
 
 ## Exercise 1: Object Destructuring
 
-Create a function `createUserCard` that takes a user object and uses destructuring to extract properties:
+Create `exercise1-object-destructuring.mjs` and use destructuring to extract properties from a user object:
 
 ```javascript
 const user = {
@@ -32,130 +29,162 @@ const user = {
     city: "New York"
 };
 
-function createUserCard(user) {
-    // Use destructuring to extract name, age, and email
-    // Return an HTML string for a user card
-}
+// Use destructuring to extract name, age, and email
+// Print them to the console
 ```
 
-**Hints:**
-- Use `const { name, age, email } = user;` to destructure
-- Use template literals to create the HTML
+Run: `node exercise1-object-destructuring.mjs`. Expected output:
+
+<!-- no-copy-button -->
+```text
+Alice
+25
+alice@example.com
+```
 
 ## Exercise 2: Array Destructuring
 
-Create a function that uses array destructuring:
+Create `exercise2-array-destructuring.mjs` and use array destructuring to extract the first two colors:
 
 ```javascript
 const colors = ['red', 'green', 'blue', 'yellow'];
 
-function getFirstTwoColors(colors) {
-    // Use array destructuring to get the first two colors
-    // Return an object with first and second properties
-}
+// Use array destructuring to get the first two colors
+// Print them to the console
+```
+
+Run: `node exercise2-array-destructuring.mjs`. Expected output:
+
+<!-- no-copy-button -->
+```text
+red
+green
 ```
 
 ## Exercise 3: Spread Operator with Arrays
 
-Create a function that combines arrays using the spread operator:
+Create `exercise3-spread-arrays.mjs` and use the spread operator to combine arrays:
 
 ```javascript
 const todos1 = ['Buy groceries', 'Finish homework'];
 const todos2 = ['Call mom', 'Read docs'];
 
-function combineTodos(todos1, todos2) {
-    // Use spread operator to combine the arrays
-    // Return the combined array
-}
+// Use spread operator to combine the arrays
+// Print the combined array
+```
+
+Run: `node exercise3-spread-arrays.mjs`. Expected output:
+
+<!-- no-copy-button -->
+```js
+['Buy groceries', 'Finish homework', 'Call mom', 'Read docs']
 ```
 
 ## Exercise 4: Spread Operator with Objects
 
-Create a function that merges user objects:
+Create `exercise4-spread-objects.mjs` and use the spread operator to merge objects:
 
 ```javascript
 const basicInfo = { name: "Bob", age: 30 };
 const contactInfo = { email: "bob@example.com", phone: "555-1234" };
 
-function mergeUserInfo(basicInfo, contactInfo) {
-    // Use spread operator to merge the objects
-    // Return the merged object
-}
+// Use spread operator to merge the objects
+// Print the merged object
 ```
 
-## Exercise 5: Destructuring Function Parameters
+Run: `node exercise4-spread-objects.mjs`. Expected output:
 
-Create a function that uses destructuring in the parameter list:
+<!-- no-copy-button -->
+```js
+{ name: 'Bob', age: 30, email: 'bob@example.com', phone: '555-1234' }
+```
+
+## Exercise 5: Copying Arrays with Spread
+
+Create `exercise5-copy-array.mjs` and use the spread operator to create a copy of an array:
 
 ```javascript
-function createTodoItem({ text, completed = false, priority = 'medium' }) {
-    // The function receives an object and destructures it in the parameters
-    // Use the destructured values to create HTML
-    // Return an HTML string
-}
+const original = [1, 2, 3, 4, 5];
 
-// Call it like this:
-createTodoItem({ text: "Learn React", completed: false, priority: "high" });
+// Use spread operator to create a copy
+// Modify the copy (add a new element)
+// Print both arrays to show they are independent
 ```
 
-## Exercise 6: Spread Operator for DOM Updates
+Run: `node exercise5-copy-array.mjs`. Expected output:
 
-Create a function that uses spread to add todos to a list:
+<!-- no-copy-button -->
+```js
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5, 6]
+```
+
+## Exercise 6: Copying Objects with Spread
+
+Create `exercise6-copy-object.mjs` and use the spread operator to create a copy of an object:
 
 ```javascript
-const existingTodos = ['Task 1', 'Task 2'];
-const newTodos = ['Task 3', 'Task 4'];
+const original = { name: "Charlie", age: 28, city: "Boston" };
 
-function addTodosToList(existingTodos, newTodos) {
-    // Use spread operator to combine arrays
-    // Use forEach or map to add each todo to the DOM
-    // Use insertAdjacentHTML to add items
-}
+// Use spread operator to create a copy
+// Modify the copy (change the age)
+// Print both objects to show they are independent
 ```
 
-## Exercise 7: Nested Destructuring
+Run: `node exercise6-copy-object.mjs`. Expected output:
 
-Create a function that destructures nested objects:
+<!-- no-copy-button -->
+```js
+{ name: 'Charlie', age: 28, city: 'Boston' }
+{ name: 'Charlie', age: 29, city: 'Boston' }
+```
+
+## Exercise 7: Combining Destructuring and Spread
+
+Create `exercise7-combine.mjs` and combine destructuring with spread to extract some properties and keep the rest:
 
 ```javascript
 const user = {
-    name: "Charlie",
-    address: {
-        street: "123 Main St",
-        city: "Boston",
-        zip: "02101"
-    }
+    name: "Diana",
+    age: 32,
+    email: "diana@example.com",
+    city: "Seattle",
+    country: "USA"
 };
 
-function getUserLocation(user) {
-    // Use nested destructuring to get city from address
-    // Return the city name
-}
+// Use destructuring to extract name and age
+// Use rest operator (...) to collect the remaining properties
+// Print the extracted values and the rest object
 ```
 
-## Challenge: Build a Component-Like Function
+Run: `node exercise7-combine.mjs`. Expected output:
 
-Create a reusable function that mimics React component patterns:
-
-```javascript
-function renderUserCard(props) {
-    // Destructure props object
-    // Use spread to add default values
-    // Return HTML string
-    // This pattern is very similar to React components!
-}
+<!-- no-copy-button -->
+```text
+Diana
+32
+{ email: 'diana@example.com', city: 'Seattle', country: 'USA' }
 ```
+
+## Checklist
+
+1. [ ] Completed `exercise1-object-destructuring.mjs`
+2. [ ] Completed `exercise2-array-destructuring.mjs`
+3. [ ] Completed `exercise3-spread-arrays.mjs`
+4. [ ] Completed `exercise4-spread-objects.mjs`
+5. [ ] Completed `exercise5-copy-array.mjs`
+6. [ ] Completed `exercise6-copy-object.mjs`
+7. [ ] Completed `exercise7-combine.mjs`
 
 ## Key Takeaways
 
 - Destructuring extracts values from objects/arrays into variables
-- Spread operator (`...`) expands arrays/objects
-- Destructuring in function parameters is common in React (props)
-- Spread is used for copying and merging data
-- These patterns are essential for React props and state management
+- Spread operator (`...`) expands arrays/objects for copying and merging
+- Destructuring in function parameters allows flexible function signatures
+- Spread creates shallow copies of arrays and objects
+- Rest operator (`...`) collects remaining properties/elements
 
 ## Next Steps
 
 - Review [Spread Operator & Object Destructuring](/spring2026/resources/js-08-spread-operator-object-destructuring)
-- Practice these patterns - you'll use them constantly in React!
-- Get ready for React components where props are destructured
+- Practice these patterns - they're essential for working with data in JavaScript

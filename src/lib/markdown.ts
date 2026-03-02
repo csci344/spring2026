@@ -141,18 +141,90 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
 
   // Post-process HTML to preserve whitespace in code blocks inside table cells
   // Store original code content in data attribute before any processing
+  // Also decode HTML entities in code blocks (remark/highlight.js may escape them)
+  // IMPORTANT: We decode entities carefully to avoid breaking highlight.js span structure
   contentHtml = contentHtml.replace(
     /(<pre><code[^>]*>)([\s\S]*?)(<\/code><\/pre>)/g,
     (match, openTag, codeContent, closeTag) => {
+      // Extract the original code text by removing highlight.js markup
+      // This gives us the clean code without any HTML entities
+      const originalCode = codeContent
+        .replace(/<span[^>]*>/g, '')  // Remove opening span tags
+        .replace(/<\/span>/g, '')     // Remove closing span tags
+        .replace(/&#x3C;/gi, '<')      // Decode hex entities
+        .replace(/&#x3c;/gi, '<')
+        .replace(/&#60;/g, '<')        // Decode decimal entities
+        .replace(/&lt;/g, '<')         // Decode named entities
+        .replace(/&#x3E;/gi, '>')
+        .replace(/&#x3e;/gi, '>')
+        .replace(/&#62;/g, '>')
+        .replace(/&gt;/g, '>')
+        .replace(/&#x26;/gi, '&')
+        .replace(/&#38;/g, '&')
+        .replace(/&amp;/g, '&')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+      
       // Store the original code content in a data attribute, preserving all whitespace
-      // Use a simple encoding: replace spaces with a placeholder, then encode
-      // This preserves the exact whitespace structure
-      const encodedCode = encodeURIComponent(codeContent);
+      const encodedCode = encodeURIComponent(originalCode);
       // Add data attribute to preserve original code
       const openTagWithData = openTag.replace(/(<code[^>]*)(>)/, `$1 data-original-code="${encodedCode}"$2`);
+      
+      // For HTML code blocks, we need to re-highlight with decoded entities
+      // But we'll let the client-side handle this to avoid breaking the structure here
+      // Just return the content as-is for now - the client will decode properly
       return openTagWithData + codeContent + closeTag;
     }
   );
+
+  // Post-process HTML to handle <!-- no-copy-button --> comments
+  // Find all <!-- no-copy-button --> comments and add data-no-copy="true" to the following code block
+  const noCopyButtonCommentRegex = /<!--\s*no-copy-button\s*-->/gi;
+  const noCopyButtonMatches: Array<{ index: number; length: number }> = [];
+  let noCopyButtonMatch;
+  
+  // First pass: collect all no-copy-button comment positions
+  while ((noCopyButtonMatch = noCopyButtonCommentRegex.exec(contentHtml)) !== null) {
+    noCopyButtonMatches.push({
+      index: noCopyButtonMatch.index,
+      length: noCopyButtonMatch[0].length
+    });
+  }
+  
+  // Second pass: process in reverse order to avoid index shifting
+  for (let i = noCopyButtonMatches.length - 1; i >= 0; i--) {
+    const { index: commentIndex, length: commentLength } = noCopyButtonMatches[i];
+    
+    // Find the next <pre><code> block after this comment
+    const afterComment = contentHtml.substring(commentIndex + commentLength);
+    const codeBlockMatch = afterComment.match(/<pre><code([^>]*)>/);
+    
+    if (codeBlockMatch && codeBlockMatch.index !== undefined) {
+      const codeBlockIndex = commentIndex + commentLength + codeBlockMatch.index;
+      const codeBlockTag = codeBlockMatch[0];
+      const existingAttrs = codeBlockMatch[1] || '';
+      
+      // Check if data-no-copy already exists
+      if (!existingAttrs.includes('data-no-copy')) {
+        // Add data-no-copy="true" to the code tag
+        let newCodeBlockTag: string;
+        const trimmedAttrs = existingAttrs.trim();
+        if (trimmedAttrs) {
+          // If attributes exist, add data-no-copy to them (ensure space before data-no-copy)
+          newCodeBlockTag = `<pre><code${existingAttrs} data-no-copy="true">`;
+        } else {
+          // If no attributes, just add data-no-copy
+          newCodeBlockTag = `<pre><code data-no-copy="true">`;
+        }
+        
+        // Replace the code block tag
+        contentHtml = contentHtml.substring(0, codeBlockIndex) + newCodeBlockTag + contentHtml.substring(codeBlockIndex + codeBlockTag.length);
+      }
+      
+      // Remove the comment
+      contentHtml = contentHtml.substring(0, commentIndex) + contentHtml.substring(commentIndex + commentLength);
+    }
+  }
 
   // Post-process HTML to convert checkbox placeholders to stateful checkboxes
   // The placeholders were inserted before GFM processing to avoid disabled checkboxes

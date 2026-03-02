@@ -74,9 +74,14 @@ table {
   box-shadow: 0 0 7px rgba(0, 0, 0, .1);
 }
 
+table.width-auto {
+    width: auto !important;
+}
+
 th,
 td {
   @apply border-b p-2;
+  background: var(--background);
   border-color: var(--border);
   color: var(--foreground);
   word-wrap: break-word;
@@ -151,6 +156,10 @@ blockquote > *:last-child {
   @apply !mb-0;
 }
 
+blockquote .hljs, blockquote code {
+    @apply bg-white dark:bg-black;
+}
+
 .dark blockquote {
   background-color: #1f2937 !important;
   border-color: #4b5563 !important;
@@ -161,6 +170,10 @@ blockquote > *:last-child {
 blockquote.info {
   @apply bg-green-50 p-4 rounded-lg border-green-300 dark:!border-green-500 dark:!bg-green-900;
 }
+
+blockquote.reference {
+    @apply bg-blue-50 p-4 rounded-lg border-blue-300 dark:!border-blue-900 dark:!bg-blue-950;
+  }
   
 ul + blockquote.info,
 ol + blockquote.info,

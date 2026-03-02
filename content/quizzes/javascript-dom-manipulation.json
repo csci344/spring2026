@@ -1,0 +1,152 @@
+{
+  "quizName": "DOM Manipulation & Events",
+  "start_date": "2026-03-04",
+  "draft": 0,
+  "cheatsheet": "javascript-dom-manipulation.html",
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "Which statement best describes document.querySelector()?",
+      "options": [
+        "It selects all elements that match a CSS selector and returns a NodeList.",
+        "It selects the first element that matches a CSS selector and returns that element.",
+        "It selects an element only by its id and returns that element.",
+        "It selects elements only by their tag name and returns an array."
+      ],
+      "correct": 1,
+      "explanation": "document.querySelector() returns the first element in the document that matches the given CSS selector."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "You want to select all elements with the class todo-item. Which method is the best choice?",
+      "options": [
+        "document.getElementById('.todo-item')",
+        "document.querySelector('.todo-item')",
+        "document.querySelectorAll('.todo-item')",
+        "document.getElementsByTagName('.todo-item')"
+      ],
+      "correct": 2,
+      "explanation": "document.querySelectorAll('.todo-item') returns a static NodeList of all elements matching the CSS selector .todo-item."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What is a correct way to select a single element with id main-form?",
+      "options": [
+        "document.querySelector('#main-form')",
+        "document.querySelector('.main-form')",
+        "document.querySelector('main-form')",
+        "document.querySelectorAll('#main-form')[1]"
+      ],
+      "correct": 0,
+      "explanation": "Using document.querySelector('#main-form') selects the first element in the document with id=\"main-form\"."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "Given container.insertAdjacentHTML('beforeend', '<p>Hello!</p>'), where will the new <p> be inserted?",
+      "options": [
+        "As the first child inside the container element.",
+        "As the last child inside the container element.",
+        "Immediately before the container element in the DOM.",
+        "Immediately after the container element in the DOM."
+      ],
+      "correct": 1,
+      "explanation": "The 'beforeend' position inserts the HTML as the last child inside the target element."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "Which value for the position argument of insertAdjacentHTML will insert HTML before the element itself (as a sibling)?",
+      "options": [
+        "\"afterbegin\"",
+        "\"beforebegin\"",
+        "\"beforeend\"",
+        "\"afterend\""
+      ],
+      "correct": 1,
+      "explanation": "The 'beforebegin' position inserts HTML immediately before the element, as a sibling in the DOM tree."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "Given <input type=\"text\" id=\"username\">, which JavaScript line correctly reads the current text that the user typed?",
+      "options": [
+        "const username = document.querySelector('#username').textContent;",
+        "const username = document.querySelector('#username').value;",
+        "const username = document.querySelector('#username').innerHTML;",
+        "const username = document.getElementsByTagName('input').textContent;"
+      ],
+      "correct": 1,
+      "explanation": "Form controls store their current text in the value property, not textContent or innerHTML."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "In a form submit event handler, why do we often call event.preventDefault()?",
+      "options": [
+        "To stop all JavaScript on the page from running.",
+        "To prevent the browser from submitting the form and reloading the page.",
+        "To clear all inputs in the form automatically.",
+        "To permanently disable the submit button."
+      ],
+      "correct": 1,
+      "explanation": "event.preventDefault() stops the browser's default submit behavior, allowing you to handle the data in JavaScript instead of doing a full page reload."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What is the recommended way to attach a click event handler to a button with id save-btn using JavaScript?",
+      "options": [
+        "<button id=\"save-btn\" onclick=\"handleSave()\"></button>",
+        "const btn = document.querySelector('#save-btn'); btn.onclick = handleSave;",
+        "const btn = document.querySelector('#save-btn'); btn.addEventListener('click', handleSave);",
+        "document.addEventListener('click', handleSave);"
+      ],
+      "correct": 2,
+      "explanation": "addEventListener is the recommended pattern because it cleanly attaches handlers, allows multiple listeners, and separates behavior from markup."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "Which of the following is an inline event handler defined in HTML?",
+      "options": [
+        "button.addEventListener('click', submitForm);",
+        "<button id=\"submit-btn\">Submit</button>",
+        "<button onclick=\"submitForm()\">Submit</button>",
+        "const btn = document.querySelector('#submit-btn'); btn.onclick = submitForm;"
+      ],
+      "correct": 2,
+      "explanation": "An inline handler is defined directly in the HTML attribute, such as onclick=\"submitForm()\"."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "Which of these is a good reason to prefer addEventListener over inline event attributes like onclick?",
+      "options": [
+        "Inline handlers are not supported in modern browsers.",
+        "addEventListener allows attaching multiple handlers to the same event on the same element.",
+        "addEventListener only works for forms, making code shorter.",
+        "Inline handlers always run slower than addEventListener."
+      ],
+      "correct": 1,
+      "explanation": "addEventListener supports multiple handlers on the same element and keeps JavaScript separate from HTML, improving maintainability."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "Given <p id=\"status\">Not logged in</p>, which line correctly updates the text to Logged in using JavaScript?",
+      "options": [
+        "document.querySelector('#status').innerHTML = '<p>Logged in</p>';",
+        "document.querySelector('#status').textContent = 'Logged in';",
+        "document.querySelector('#status').value = 'Logged in';",
+        "document.querySelector('#status').innerText = '<p>Logged in</p>';"
+      ],
+      "correct": 1,
+      "explanation": "For plain text updates, textContent is the safest and clearest way to change the visible text inside an element."
+    }
+  ]
+}
+

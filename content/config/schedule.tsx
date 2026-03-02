@@ -844,21 +844,13 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Array Methods Practice", url: "/spring2026/activities/js-05-array-methods-practice", draft: 0 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1ffTd3JaSkDIGoDSVYGcnv9w3EX70CPEc/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
           {
             citation: (
               <>
                 <a href="/spring2026/resources/js-06-higher-order-array-functions">Higher Order Array Functions</a>
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                <a href="/spring2026/resources/js-07-higher-order-practice">Higher Order Practice</a>
               </>
             ),
           },
@@ -870,6 +862,7 @@ export const baseTopics = [
         description: (
           <>
             <ul>
+              <li>Collaborative review of Topic 8 concepts (functions, control structures, DOM manipulation)</li>
               <li>Advanced higher-order function patterns</li>
               <li>Understanding closures</li>
               <li>Destructuring and spread operator</li>
@@ -879,7 +872,6 @@ export const baseTopics = [
         ),
         activities: [
           { title: "Slides", url: "#", draft: 1 },
-          { title: "Destructuring & Spread Practice", url: "/spring2026/activities/js-06-destructuring-practice", draft: 1 },
         ],
         readings: [
           {

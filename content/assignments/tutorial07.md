@@ -1,8 +1,8 @@
 ---
-title: "JavaScript: Practice with higher-order iteration functions"
+title: "JavaScript: Higher-Order Functions & DOM Manipulation"
 type: "tutorial"
 num: 7
-draft: 1
+draft: 0
 assigned_date: "2026-03-06"
 due_date: "2026-03-16"
 heading_max_level: 3
@@ -10,88 +10,48 @@ order: 7
 points: 6
 ---
 
-For Tutorial 7, you will make a UNCA Course Search interface for the Computer Science Department that works like this:
+## Overview
+This tutorial focuses on **higher-order array functions** (`forEach`, `map`, `filter`, `toSorted`), **destructuring and object copying**, and **DOM manipulation**. Complete 3 exercises that build on each other.
 
-<img class="frame screenshot" src="/spring2026/images/tutorials/tutorial07/demo-course-search.gif" />
+## Setup
+Create a new folder called `tutorial07` inside your `csci344/tutorials` folder. You'll create the files for each activity as you work through them.
 
-Please download the starter files below and then complete the following tasks:
+## Complete the Activities
 
-<a href="/spring2026/course-files/tutorials/tutorial07.zip" class="nu-button">Tutorial 7 Starter Files<i class="fas fa-download"></i></a> 
+1. [Array Methods Practice](/spring2026/assignments/tutorial07a) - Practice with `forEach`, `map`, `filter`, and `toSorted` using Node.js
+2. [Destructuring & Object Copying](/spring2026/assignments/tutorial07b) - Practice array/object destructuring and copying objects
+3. [Course Search Interface](/spring2026/assignments/tutorial07c) - Build a searchable course catalog with DOM manipulation
 
-## I. Implement the helper functions
+## What to Submit
+After completing all activities (7A, 7B, and 7C), please:
 
-### 1. Filter functions
-Implement two filter functions (which should return either true or false):
-* `isClassFull`: This function will take a course object as an argument and return `true` if the course is full, and `false` if it is not.
-* `doesTermMatch`: This function will take a course object as an argument and return `true` if the course "matches" the search term, and `false` if it does not.
-    * Use your discretion to determine a good matching algorithm. For instance, you could return `true` if the search string matches (or partially matches) one or more of the data fields (Code, CRN, Title, one of the instructor's names, etc.).
+1. Create links from your homepage to your Tutorial 7C page.
+2. Commit and push your changes to GitHub.
+3. Submit both:
+   - your GitHub repository link
+   - your GitHub Pages link
 
-```js
-// Part 1.1a
-const isClassFull = course => {
-    // modify this
-    return true;
-}
+If you collaborated with someone, include your partner's name in your submission comments.
 
-// Part 1.1b
-const doesTermMatch = course => {
-    // modify this
-    return true;
-}
-```
+## Summary of JavaScript Concepts Used
 
-> #### Tips
-> Use some of the <a href="https://www.javascripttutorial.net/javascript-string-methods/" target="_blank">JavaScript built-in string methods</a>. It also might be useful to convert everything to uppercase / lowercase. Some particularly useful methods to checkout:
-> 
-> * includes()
-> * toUpperCase()
-> * toLowerCase()
+| Concept | Tutorial | Purpose |
+|---------|----------|---------|
+| **forEach** | 7A, 7C | Iterate over arrays and perform actions |
+| **map** | 7A, 7C | Transform array elements into new values |
+| **filter** | 7A, 7C | Select elements that match criteria |
+| **toSorted** | 7A | Create sorted copies of arrays |
+| **Destructuring** | 7B | Extract values from arrays and objects |
+| **Spread Operator** | 7B | Copy and merge arrays/objects |
+| **Object Copying** | 7B | Shallow and deep copying techniques |
+| **Template Literals** | 7C | Create HTML strings with variables |
+| **DOM Manipulation** | 7C | Update page content dynamically |
 
-### 2. "Data to HTML" function
-Implement the `dataToHTML` function, which takes a course object as an argument and returns an HTML string that represents the course.
-* See the `index.html` file to examine the structure of the HTML "card" that represents a course.
+## Completion Checklist
 
-```js
-// Part 1.2
-const dataToHTML = (course) => {
-    // modify this to be more detailed
-    return `
-        <section class="course">
-            ${course.Code}
-        </section>
-    `;
-};
-```
-
-> #### Tips
-> * Use a template literal (backticks).
-> * Feel free to create some helper variables to format the string output.
-
-## II. Implement the showMatchingCourses function / event handler
-
-### Implement the showMatchingCourses function
-To actually display relevant course "cards" to the screen, you will also need to implement a `showMatchingCourses` function. To do this, use the built-in **filter** and **forEach** higher-order array methods -- and any relevant DOM methods -- to build the interface. Specifically, you will:
-
-1. Clear out the existing courses in the DOM.
-1. Use the array's built in "filter" method, which takes a filter function as an argument, to return an array of objects that match the search criteria.
-    * You will make use of the  `isClassFull` and `doesTermMatch` functions.
-    * Consider chaining multiple invocations of the filter method to progressively winnow down the courses matching the search criteria.<br>For instance: `const matches = courseList.filter(isClassFull).filter(doesTermMatch)`).
-1. Use the array's built in "forEach" method to:
-    * Generate an HTML snippet of the course (by invoking the `dataToHTML` function), and
-    * Insert the HTML snippet into the DOM (suggestion: use the `insertAdjacentHTML` method).
-
-```js
-// Part 2
-const showMatchingCourses = () => {
-    console.log(`Search term: ${searchTerm}`);
-    console.log(`Only show open classes: ${openOnly}`);
-    console.log(`Course data: ${courseList}`);
-
-    // output all of the matching courses to the screen:
-};
-```
-
-## III. What to Submit
-When you're done, please create a link from your homepage to your Tutorial 7 web page (see Sarah's homepage for an example). Then, commit and push all of your edits to GitHub and, paste a link to your GitHub Repository and to your GitHub pages in the Moodle submission.
-
-If you collaborated with someone, please list your partner's name in the comments section.
+- [ ] Completed Tutorial 7A: Array Methods Practice
+- [ ] Completed Tutorial 7B: Destructuring & Object Copying
+- [ ] Completed Tutorial 7C: Course Search Interface
+- [ ] Created link from homepage to Tutorial 7C page
+- [ ] Committed and pushed changes to GitHub
+- [ ] Submitted GitHub repository and GitHub Pages link
