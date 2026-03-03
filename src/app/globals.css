@@ -204,6 +204,23 @@ ol ul li {
   @apply !mb-0;
 }
 
+.list-tight li {
+    @apply !mb-0;
+}
+  
+.extra-list-spacing li {
+    @apply mb-12;
+}
+  
+.list-spaced li {
+    @apply mb-4;
+}
+
+.alpha-list {
+    list-style: lower-alpha;
+    padding-left: 1rem;
+}
+
 /* Hide bullets for list items with checkboxes and use flexbox layout */
 li:has(input[type="checkbox"]) {
     list-style: none;
@@ -264,13 +281,7 @@ li:has(input[type="checkbox"]) {
   }
 }
 
-.list-tight li {
-  @apply !mb-0;
-}
 
-.list-spaced li {
-  @apply mb-4;
-}
 
 /* Tutorial02 specific styles - remove margin from li in blockquotes */
 .assignment-page-tutorial02 blockquote li {
