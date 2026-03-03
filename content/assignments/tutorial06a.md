@@ -19,7 +19,7 @@ points: 6
     * `styles.css`
     * `script.js`.
 
-<!-- collapsible -->
+{% collapsible %}
 ### Starter HTML Code
 Copy the HTML starter code into `index.html`:
 
@@ -46,7 +46,7 @@ Copy the HTML starter code into `index.html`:
 ```
 
 
-<!-- collapsible -->
+{% collapsible %}
 ### Starter CSS Code
 ```css
 body {
@@ -90,7 +90,7 @@ Your job is to write the JavaScript functionality from scratch so that your appl
 
 <img class="small frame" src="/spring2026/images/tutorials/tutorial06/counter.gif" />
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. Create variables and select elements
 At the top of your JavaScript file, create global variables to store:
 1. The current count (start at `0`).
@@ -103,7 +103,7 @@ Use `document.querySelector()` for each element selection.
 
 > **Tip**: You can check if it worked by printing the variable values to the console using `console.log(yourValueHere)`. View the console in the browser inspector.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. Create functions
 Create four functions:
 
@@ -114,16 +114,16 @@ Create four functions:
 | `reset()` | Set the count back to 0, then call `updateDisplay()` |
 | `updateDisplay()` | <ul><li>Update the counter display text to the current count.</li><li>Use <code>if / else if / else</code> for color:<ul><li> <code>count</code> is positive: set color to green (<code>#4CAF50</code>)</li><li><code>count</code> is negative: set color to red (<code>#f44336</code>)</li><li><code>count</code> is zero: set color to gray (<code>#666</code>)</li></ul></li></ul> |
 
-<!-- collapsible -->
+{% collapsible %}
 ### 3. Attach functions to buttons
 - Add a `'click'` event listener to each of the three buttons. You can either do this using the JavaScript method or using the HTML method (see the cheatsheet below)
 
-<!-- collapsible -->
+{% collapsible %}
 ### 4. Run `updateDisplay()` on initialization
 
 Call `updateDisplay()` at the bottom of your JavaScript file to initialize the display.
 
-<!-- collapsible -->
+{% collapsible %}
 ### JavaScript Cheatsheet <span id="javascript-cheatsheet"></span>
 Here's a list of JavaScript language features you'll need to complete this exercise:
 

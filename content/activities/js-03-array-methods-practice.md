@@ -39,7 +39,7 @@ console.log(doubled);  // Should print [2, 4, 6, 8, 10]
 
 Run it with: `node map-numbers.mjs`
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -65,7 +65,7 @@ console.log(upperWords);
 // Should print ["HELLO", "WORLD", "JAVASCRIPT", "PRACTICE"]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -98,7 +98,7 @@ console.log(names);
 // Should print ["Alice", "Bob", "Charlie"]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -127,7 +127,7 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(evens);  // Should print [2, 4, 6, 8, 10]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -152,7 +152,7 @@ const words = ["apple", "banana", "cherry", "date", "elderberry"];
 console.log(longWords);  // Should print ["banana", "cherry", "elderberry"]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -188,7 +188,7 @@ const todos = [
 console.log(completedTodos);  // Should print an array with 5 completed todos
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -221,7 +221,7 @@ const numbers = [1, 2, 3, 4, 5];
 // Your code here
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -245,7 +245,7 @@ const fruits = ["apple", "banana", "cherry"];
 // Your code here
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -273,7 +273,7 @@ const products = [
 // Your code here
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -303,7 +303,7 @@ const words = ["Hello", "world", "from", "JavaScript"];
 console.log(sentence);  // Should print "Hello world from JavaScript"
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -350,7 +350,7 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 console.log(result);  // Should print [6, 12, 18, 24, 30]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -385,7 +385,7 @@ const students = [
 console.log(gradeANames);  // Should print "Bob, Diana"
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript

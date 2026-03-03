@@ -25,7 +25,7 @@ points: 6
 
 Before working on the exercises, familiarize yourself with these patterns:
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. Destructuring
 Destructuring allows you to extract values from arrays or properties from objects into separate variables. It's a convenient way to access data without repeatedly using dot notation or bracket notation.
 
@@ -43,7 +43,7 @@ const person = { firstName: "Bob", yearsOld: 25 };
 const { firstName: first, yearsOld: age } = person;  // first = 'Bob', age = 25
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. Copying Objects and Arrays
 The spread operator (`...`) can be used to create copies of arrays and objects. When copying objects, this creates a "shallow" copy<sup><a href="#footnote-1">1</a></sup> where top-level properties are independent, but nested arrays or objects are still shared between the original and copy.
 
@@ -65,7 +65,7 @@ const arrCopy = [...arr];
 ## Your Tasks
 Please complete the 3 destructuring exercises below:
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 1. Spread operator with arrays
 
 Create `exercise1-spread-array.mjs` and use the spread operator to combine arrays:
@@ -80,12 +80,12 @@ const fruits2 = ['orange', 'grape'];
 
 Run: `node exercise1-spread-array.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 ['apple', 'banana', 'orange', 'grape']
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 2. Spread operator with objects
 
 Create `exercise2-spread-object.mjs` and use the spread operator to merge objects:
@@ -100,12 +100,12 @@ const contactInfo = { email: "diana@example.com", phone: "555-1234" };
 
 Run: `node exercise2-spread-object.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 { name: 'Diana', age: 22, email: 'diana@example.com', phone: '555-1234' }
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 3. Shallow copy of an object
 
 Create `exercise3-shallow-copy.mjs` and create a shallow copy of an object:
@@ -125,7 +125,7 @@ const original = {
 
 Run: `node exercise3-shallow-copy.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 // Original: 
 { 

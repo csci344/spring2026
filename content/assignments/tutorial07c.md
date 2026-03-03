@@ -186,7 +186,7 @@ header {
 
 ## Create the JavaScript File (`main.js`)
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. Global Variables
 
 ```javascript
@@ -194,7 +194,7 @@ let searchTerm = "";
 let openOnly = false;
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. Helper Functions
 
 #### 2.1. `isClassFull(course)`
@@ -270,7 +270,7 @@ Some samples of how the cards should look for open and closed courses:
 ```
 
 
-<!-- collapsible -->
+{% collapsible %}
 ### 3. Main Functions
 
 #### 3.1. `showMatchingCourses()`
@@ -302,7 +302,7 @@ function filterCourses() {
 
 In the HTML starter code above, the text input and checkbox already call `filterCourses()` using `onkeyup` and `onchange` attributes.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 4. Initial Render
 
 At the bottom of your `main.js` file, call `showMatchingCourses()` once so that all courses display when the page loads:

@@ -1058,6 +1058,27 @@ pre code {
   color: var(--foreground);
 }
 
+.answer-sm {
+    @apply mb-4 border border-black dark:border-white p-4 rounded-lg;
+    height: 50px;
+}
+
+.answer-md {
+    @apply mb-4 border border-black dark:border-white p-4 rounded-lg;
+    height: 150px;
+}
+
+.answer-lg {
+    @apply mb-4 border border-black dark:border-white p-4 rounded-lg;
+    height: 300px;
+}
+
+.answer-xl {
+    @apply mb-4 border border-black dark:border-white p-4 rounded-lg;
+    height: 450px;
+}
+
+
 /* Fade in/out animation for reset message */
 @keyframes fade-in-out {
   0% {

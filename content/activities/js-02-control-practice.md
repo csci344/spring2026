@@ -36,7 +36,7 @@ console.log(getGrade(55));  // Should print "F"
 
 Run it with: `node grade-calculator.mjs`
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -73,7 +73,7 @@ console.log(getDayName(3));  // Should print "Tuesday"
 console.log(getDayName(7));  // Should print "Saturday"
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -113,7 +113,7 @@ let count = 10;
 console.log("Blast off!");
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -139,7 +139,7 @@ const number = 5;
 // Your for loop here
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -163,7 +163,7 @@ Use nested loops to print this pattern:
 *****
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -186,7 +186,7 @@ Create a file called `even-numbers.mjs`:
 // Your code here
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -215,7 +215,7 @@ let max = numbers[0];
 console.log("Max:", max);
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript
@@ -249,7 +249,7 @@ const fruits = ["apple", "banana", "cherry", "date"];
 // Your code here
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### Show Solution
 
 ```javascript

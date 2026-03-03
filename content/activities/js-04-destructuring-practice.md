@@ -35,7 +35,7 @@ const user = {
 
 Run: `node exercise1-object-destructuring.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```text
 Alice
 25
@@ -55,7 +55,7 @@ const colors = ['red', 'green', 'blue', 'yellow'];
 
 Run: `node exercise2-array-destructuring.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```text
 red
 green
@@ -75,7 +75,7 @@ const todos2 = ['Call mom', 'Read docs'];
 
 Run: `node exercise3-spread-arrays.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 ['Buy groceries', 'Finish homework', 'Call mom', 'Read docs']
 ```
@@ -94,7 +94,7 @@ const contactInfo = { email: "bob@example.com", phone: "555-1234" };
 
 Run: `node exercise4-spread-objects.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 { name: 'Bob', age: 30, email: 'bob@example.com', phone: '555-1234' }
 ```
@@ -113,7 +113,7 @@ const original = [1, 2, 3, 4, 5];
 
 Run: `node exercise5-copy-array.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [1, 2, 3, 4, 5]
 [1, 2, 3, 4, 5, 6]
@@ -133,7 +133,7 @@ const original = { name: "Charlie", age: 28, city: "Boston" };
 
 Run: `node exercise6-copy-object.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 { name: 'Charlie', age: 28, city: 'Boston' }
 { name: 'Charlie', age: 29, city: 'Boston' }
@@ -159,7 +159,7 @@ const user = {
 
 Run: `node exercise7-combine.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```text
 Diana
 32

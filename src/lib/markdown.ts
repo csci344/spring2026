@@ -7,6 +7,7 @@ import gfm from 'remark-gfm';
 import highlight from 'remark-highlight.js';
 import smartypants from 'remark-smartypants';
 import { preprocessCheckboxes, postprocessCheckboxes } from './markdown-checkboxes';
+import { preprocessMarkdownTags } from './markdown-tags';
 
 const postsDirectory = path.join(process.cwd(), 'content');
 const quizzesDirectory = path.join(process.cwd(), 'content', 'quizzes');
@@ -105,6 +106,10 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
   }
   
   markdownContent = processedLines.join('\n');
+
+  // Pre-process custom markdown tags (e.g. {% no-copy %}, {% collapsible %})
+  // This rewrites them into HTML comments that the HTML post-processors understand
+  markdownContent = preprocessMarkdownTags(markdownContent);
   
   // Pre-process checkboxes: replace [ ] patterns with placeholders
   // This prevents GFM from converting them into disabled task list items
@@ -231,11 +236,11 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
   contentHtml = await postprocessCheckboxes(contentHtml, id);
 
   // Post-process HTML to add classes to elements based on markdown comments
-  // Generic handler: any comment like <!-- class-name --> will add that class to the next HTML element
-  // Examples: <!-- list-tight -->, <!-- list-spaced -->, <!-- info -->, etc.
-  // Matches valid CSS class names (alphanumeric, hyphens, underscores)
+  // Generic handler: any comment like <!-- .class-name --> (with dot prefix) will add that class to the next HTML element
+  // Examples: <!-- .list-tight -->, <!-- .list-spaced -->, <!-- .info -->, etc.
+  // Matches valid CSS class names (alphanumeric, hyphens, underscores) with required dot prefix
   // Excludes "collapsible" which is handled separately
-  const classCommentRegex = /<!--\s*((?!collapsible)[a-zA-Z0-9_-]+)\s*-->/gi;
+  const classCommentRegex = /<!--\s*\.([a-zA-Z0-9_-]+)\s*-->/gi;
   const classMatches: Array<{ index: number; className: string; length: number }> = [];
   let classCommentMatch;
   

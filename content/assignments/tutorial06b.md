@@ -27,7 +27,7 @@ points: 6
 > - Using `innerHTML` to clear element content
 > - Using `insertAdjacentHTML()` to add HTML to the DOM
 
-<!-- collapsible -->
+{% collapsible %}
 ### Starter HTML Code
 Copy the HTML starter code into `index.html`:
 
@@ -50,7 +50,7 @@ Copy the HTML starter code into `index.html`:
 </html>
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### Starter CSS Code
 ```css
 body {
@@ -88,7 +88,7 @@ Your job is to write the JavaScript functionality from scratch so that your appl
 
 Please refer to the [JavaScript Cheatsheet](#javascript-cheatsheet) at the bottom of the page, which lists all of the relevant JavaScript language features that you will need to complete the assignment.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. Create an array and select the list element
 At the top of your JavaScript file:
 1. Create a `const` array called `items` with at least 5 string values (e.g., `['Apple', 'Banana', 'Orange', 'Grape', 'Mango']`).
@@ -96,7 +96,7 @@ At the top of your JavaScript file:
 
 > **Tip**: You can check if it worked by printing the array and element to the console using `console.log(items)` and `console.log(itemList)`. View the console in the browser inspector.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. Create a function to display items
 Create a function called `displayItems()` that:
 1. Clears the `itemList` element by setting its `innerHTML` to an empty string (`''`).
@@ -111,11 +111,11 @@ Create a function called `displayItems()` that:
 > * `${ Math.random() * 5 }`
 > * `${ myVar.toString().toUpperCase() }`
 
-<!-- collapsible -->
+{% collapsible %}
 ### 3. Call the function
 At the bottom of your JavaScript file, call `displayItems()` to initialize the list when the page loads.
 
-<!-- collapsible -->
+{% collapsible %}
 ### JavaScript Cheatsheet <span id="javascript-cheatsheet"></span>
 Here's a list of JavaScript language features you'll need to complete this exercise:
 

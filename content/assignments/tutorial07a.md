@@ -26,12 +26,12 @@ points: 6
 
 Before working on the exercises, familiarize yourself with these array methods:
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. forEach
 `forEach` invokes a callback function on every element in an array. It doesn't return a value. Rather, it's used for side effects like printing or modifying elements.
 
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```javascript
 const numbers = [1, 2, 3];
 
@@ -47,7 +47,7 @@ numbers.forEach((num) => {
 });
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. map
 Like `forEach`, `map` invokes a callback function on every element in an array. The callback function returns a value for each element, and these return values become the elements in the new array. The key difference from `forEach` is that `map` returns a new array with the transformed values, while the original array remains unchanged.
 
@@ -56,7 +56,7 @@ const numbers = [1, 2, 3];
 const doubled = numbers.map((num) => num * 2);  // [2, 4, 6]
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### 3. filter
 `filter` creates a new array with only the elements that pass a test. The callback function must return `true` or `false` for each element. Elements where the callback returns `true` are included in the new array, while elements where it returns `false` are excluded. The original array is not modified.
 
@@ -65,7 +65,7 @@ const numbers = [1, 2, 3, 4, 5];
 const evens = numbers.filter((num) => num % 2 === 0);  // [2, 4]
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### 4. toSorted
 `toSorted` creates a sorted copy of an array. It doesn't modify the original array. Without a comparison function, it sorts elements as strings (which works for numbers but may not give the expected order). You can provide a comparison function that takes two elements (`a` and `b`) and returns a negative number if `a` should come before `b`, zero if they're equal, or a positive number if `a` should come after `b`.
 
@@ -81,12 +81,12 @@ const students = [
 const byGrade = students.toSorted((a, b) => b.grade - a.grade);  // Highest first
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### Summary of higher-order functions
 
 Here is a quick guide to each of the higher-order functions used here:
 
-<!-- width-auto -->
+<!-- .width-auto -->
 | Function | Purpose | Callback Function Requirements |
 |----------|---------|-------------------------------|
 | `forEach` | Performs an action for each element (side effects like printing) | Takes three parameters: `(element, index, array)`. First parameter (element) is required; `index` and `array` are optional. Returns nothing (used for side effects). |
@@ -99,7 +99,7 @@ Here is a quick guide to each of the higher-order functions used here:
 ## Your Tasks
 Please complete the following 9 exercises. When you're done, you should have 9 `*.mjs` files inside of `tutorial07/01-array-methods`.
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 1. Use `forEach` to display student names to the console
 
 Create `exercise1-foreach.mjs` and use `forEach` to print each student's name:
@@ -118,7 +118,7 @@ const students = [
 
 Run: `node exercise1-foreach.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```text
 Alice
 Bob
@@ -128,7 +128,7 @@ Eve
 ```
 
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 2. Use `map` to create a new array of strings with just students names
 
 Create `exercise2-map.mjs` and use `map` to create an array of student names, then print it:
@@ -147,17 +147,17 @@ const students = [
 
 Run: `node exercise2-map.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```text
 ["Alice", "Bob", "Charlie", "Diana", "Eve"]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 3. Use `map` to format student information
 
 Create `exercise3-map-format.mjs` and use `map` to create an array of HTML strings that look like this:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```html
 <p><strong>Alice:</strong> Computer Science</p>
 ```
@@ -179,7 +179,7 @@ const students = [
 
 Run: `node exercise3-map-format.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [
     "<p><strong>Alice:</strong> Computer Science</p>",
@@ -201,7 +201,7 @@ Run: `node exercise3-map-format.mjs`. Expected output:
 > This would insert all the HTML strings into the container element, displaying each student's information as formatted HTML on the page.
 
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 4. Use `filter` to find students by major
 
 Create `exercise4-filter-major.mjs` and use `filter` to find all Computer Science majors, then print the array:
@@ -220,7 +220,7 @@ const students = [
 
 Run: `node exercise4-filter-major.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [
     { name: "Alice", age: 20, grade: 85, major: "Computer Science" },
@@ -230,7 +230,7 @@ Run: `node exercise4-filter-major.mjs`. Expected output:
 ```
 
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 5. Use `filter` to find younger students
 
 Create `exercise5-filter-age.mjs` and use `filter` to find all students age 20 or younger, then print the array:
@@ -249,7 +249,7 @@ const students = [
 
 Run: `node exercise5-filter-age.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [
     { name: "Alice", age: 20, grade: 85, major: "Computer Science" },
@@ -259,7 +259,7 @@ Run: `node exercise5-filter-age.mjs`. Expected output:
 ```
 
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 6. Use `toSorted` to sort students by major
 
 Create `exercise6-sorted.mjs` and use `toSorted` to sort students alphabetically by major, then print the sorted array:
@@ -278,7 +278,7 @@ const students = [
 
 Run: `node exercise6-sorted.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [
     { name: "Alice", age: 20, grade: 85, major: "Computer Science" },
@@ -289,7 +289,7 @@ Run: `node exercise6-sorted.mjs`. Expected output:
 ]
 ```
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 7. Use `toSorted` to sort by grade
 
 Create `exercise7-sorted-grade.mjs` and use `toSorted` to sort students by grade (highest first), then print the sorted array:
@@ -308,7 +308,7 @@ const students = [
 
 Run: `node exercise7-sorted-grade.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [
     { name: "Diana", age: 22, grade: 95, major: "Physics" },
@@ -320,7 +320,7 @@ Run: `node exercise7-sorted-grade.mjs`. Expected output:
 ```
 
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 8. Combine methods - filter and map
 
 Create `exercise8-combine.mjs` and chain `filter` and `map`: filter for Computer Science majors with grade >= 85, then map to extract names:
@@ -339,13 +339,13 @@ const students = [
 
 Run: `node exercise8-combine.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [ "Alice", "Eve" ]
 ```
 
 
-<!-- collapsible closed -->
+{% collapsible closed %}
 ### 9. Challenge - complex data processing
 
 Create `exercise9-challenge.mjs` and chain `filter`, `toSorted`, and `map`: filter for Computer Science majors, sort by grade (lowest first), then format as `"<p><strong>NAME:</strong> GRADE (MAJOR)</p>`:
@@ -364,7 +364,7 @@ const students = [
 
 Run: `node exercise9-challenge.mjs`. Expected output:
 
-<!-- no-copy-button -->
+{% no-copy %}
 ```js
 [
     "<p><strong>Charlie:</strong> 78 (Computer Science)</p>",

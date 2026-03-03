@@ -11,7 +11,7 @@ order: 6
 points: 6
 ---
 
-<!-- info -->
+<!-- .info -->
 > ## Walthrough Videos Available
 > If you get stuck or need help, I have made some <a href="https://drive.google.com/drive/folders/1Gx4Duv06HYmU6pI7SVqe9idsztj0qfjQ" target="_blank">walkthrough videos</a>. 
 > 
@@ -24,7 +24,7 @@ points: 6
     * `styles.css`
     * `script.js`.
 
-<!-- collapsible -->
+{% collapsible %}
 ### Starter HTML Code
 Copy the HTML starter code into `index.html`:
 
@@ -83,7 +83,7 @@ Copy the HTML starter code into `index.html`:
 </html>
 ```
 
-<!-- collapsible -->
+{% collapsible %}
 ### Starter CSS Code
 ```css
 body {
@@ -269,7 +269,7 @@ Your job is to write the JavaScript functionality to display products from an ar
 
 Please refer to the [JavaScript Cheatsheet](#javascript-cheatsheet) at the bottom of the page, which lists all of the relevant JavaScript language features that you will need to complete the assignment.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. Create an array of product objects and select elements
 At the top of your JavaScript file, create a `const` array called `products` with at least 3 product objects. Each object should have these properties:
 - `name` (string)
@@ -281,13 +281,13 @@ At the top of your JavaScript file, create a `const` array called `products` wit
 
 > **Tip**: You can check if it worked by printing the array and elements to the console. View the console in the browser inspector.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. Create a function to format price
 Create a function called `formatPrice()` that takes a price (number) as a parameter and returns a formatted string with a dollar sign and two decimal places (e.g., `999.99` becomes `"$999.99"`).
 
 > **Tip**: Use `.toFixed(2)` to format the number to 2 decimal places, and use template literals to add the dollar sign.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 3. Create a function to create product card HTML
 Create a function called `createProductCard()`. It should:
 1. Take a product object as a parameter
@@ -303,7 +303,7 @@ Create a function called `createProductCard()`. It should:
 Your cards should look something like this:
 <img class="small frame" src="/spring2026/images/tutorials/tutorial06/product-card1.png" /> <img class="small frame" src="/spring2026/images/tutorials/tutorial06/product-card2.png" />
 
-<!-- collapsible -->
+{% collapsible %}
 ### 4. Create a function to render products
 Create a function called `renderProducts()` that:
 1. Clears the `productGrid` element by setting its `innerHTML` to an empty string.
@@ -316,7 +316,7 @@ Create a function called `renderProducts()` that:
 ## 3. Adding Products via Form
 Now you'll add functionality to allow users to add new products via the form.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 1. Handle form submission
 Form submission has a few quirks (as noted in the [JavaScript Cheatsheet](#javascript-cheatsheet)), so we're providing some starter code here:
 
@@ -343,7 +343,7 @@ Inside the `addItemToList` function, complete the following steps:
 > * Use `.trim()` on text inputs to remove extra whitespace. 
 > * Use `.checked` for checkbox values (returns `true` or `false`), and `.value` for anything else.
 
-<!-- collapsible -->
+{% collapsible %}
 ### 2. Initialize the display
 At the bottom of your JavaScript file, call `renderProducts()` to display the initial products when the page loads.
 
