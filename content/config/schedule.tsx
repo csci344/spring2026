@@ -827,9 +827,9 @@ export const baseTopics = [
 
   {
     id: 9,
-    title: "JavaScript: Higher-Order Functions & Closures",
+    title: "JavaScript: Higher-Order Functions & Destructuring",
     description:
-      "Functional programming concepts in JavaScript, including higher-order functions, closures, and working with data using map, filter, reduce, and forEach.",
+      "Functional programming concepts in JavaScript, including higher-order functions, and working with data using map, filter, toSorted, and forEach.",
     meetings: [
       {
         date: "Mo, Mar 2",
@@ -858,20 +858,22 @@ export const baseTopics = [
       },
       {
         date: "We, Mar 4",
-        topic: "Higher-Order Functions II: create your own + closures",
+        topic: "Destructuring, the Spread Operator, & JavaScript Quiz",
         description: (
           <>
             <ul>
-              <li>Collaborative review of Topic 8 concepts (functions, control structures, DOM manipulation)</li>
-              <li>Advanced higher-order function patterns</li>
-              <li>Understanding closures</li>
-              <li>Destructuring and spread operator</li>
-              <li>Data manipulation practice</li>
+              <li>Review of destructuring and the spread operator</li>
+              <li>Practice manipulating arrays and objects with modern JS syntax</li>
+              <li>In-class quiz on JavaScript topics covered on or before Feb 17</li>
             </ul>
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { 
+            title: "Slides", 
+            url: "#", 
+            draft: "https://docs.google.com/presentation/d/1IspLSreCJtJnfFEs-mEBQqBZXu0M7_oJ/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" 
+        },
         ],
         readings: [
           {
@@ -915,15 +917,7 @@ export const baseTopics = [
             </ul>
           </>
         ),
-        activities: [
-          { title: "Tutorial 7", url: "/assignments/tutorial07", draft: 0 },
-        ],
-        assigned: {
-          titleShort: "HW3",
-          title: "Building a \"Vanilla\" JavaScript Client",
-          url: "/assignments/hw03/",
-          draft: 0,
-        },
+
         readings: [
           {
             citation: (

@@ -1158,3 +1158,34 @@ pre code {
     opacity: 1;
     transform: translateY(0);
 }
+
+
+/* Print stylesheet overrides */
+
+.print-only {
+    display: none;
+}
+@media print {
+    .page-break {
+        break-before: page;          /* modern */
+        page-break-before: always;   /* older browsers */
+    }
+
+    h1 {
+        @apply mt-0 mb-4;
+    }
+
+    /* Hide global navigation and side navigation in print */
+    nav,                       /* all semantic nav regions (breadcrumbs, TOCs, etc.) */
+    #breadcrumbs,             /* breadcrumbs */
+    .quick-links-nav,          /* right-hand quick links */
+    footer, 
+    .resources-nav {           /* resources sidebar nav */
+        display: none !important;
+    }
+
+    .print-only {
+        @apply block mb-12;
+    }
+}
+

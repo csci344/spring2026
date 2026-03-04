@@ -1,11 +1,14 @@
 ---
-title: "JavaScript Review Quiz (Up to March 2)"
+title: "JavaScript Review Quiz (Up to Feb 27)"
 type: "activity"
 start_date: "2026-03-04"
 heading_max_level: 3
 ordering: 3
 draft: 0
 ---
+
+<!-- .print-only -->
+Your Name: ________________________________________
 
 ## Part A – Multiple Choice
 
@@ -37,7 +40,10 @@ Circle the best answer for each question.
    - `undefined`  
    - Throws an error  
 
-1. **What is the result of this code?**
+<div class="page-break"></div>
+
+<!-- .extra-list-spacing -->
+3. **What is the result of this code?**
 
     {% no-copy %}
     ```javascript
@@ -51,15 +57,36 @@ Circle the best answer for each question.
     - `undefined`  
     - Throws an error  
 
-1. **Which `if` statement correctly checks that `age` is at least 18?**
+1. **Which of the following functions all do the same thing?** 
 
+    {% no-copy %}
+    ```javascript
+    function add(a, b) {                // Option A
+        return a + b;
+    }
+    
+    const add = (a, b) => {             // Option B
+        return a + b;
+    }
+
+    const add = (a, b) => a + b;        // Option C
+    
+
+    function add = (a, b) => a + b;     // Option D
+    ```
+
+    **Circle all that apply:**
+    
     <!-- .alpha-list -->
-   - `if (age = 18) { ... }`  
-   - `if (age => 18) { ... }`  
-   - `if (age >= 18) { ... }`  
-   - `if (age == 18 && age == 21) { ... }`  
+   - Option A  
+   - Option B  
+   - Option C  
+   - Option D  
 
-1. **What does this code block print to the screen?**
+<div class="page-break"></div>
+
+<!-- .extra-list-spacing -->
+5. **What does this code block print to the screen?**
 
     {% no-copy %}
     ```javascript
@@ -75,21 +102,24 @@ Circle the best answer for each question.
    - `5`  
    - `"2 3"`  
 
-1. **Which of the following loops will run exactly 5 times?**
+1. **Given this function definition:**
+
+    {% no-copy %}
+    ```javascript
+    function greet(name, age) {
+        return `Hello, ${name}! You are ${age} years old.`;
+    }
+    ```
+
+    **Which of the following function calls will work (not throw an error)?** Circle all that apply.
 
     <!-- .alpha-list -->
-   - `for (let i = 1; i <= 5; i++) { /* ... */ }`
-   - `for (let i = 0; i < 5; i++) { /* ... */ }`
-   - `for (let i = 0; i <= 5; i++) { /* ... */ }`
-   - Both (a) and (b)
-
-1. **Which statement is true about arrays in JavaScript?**
-
-    <!-- .alpha-list -->
-   - Arrays can only store numbers.  
-   - The first element in an array is at index `1`.  
-   - Arrays can store different types (numbers, strings, objects).  
-   - Arrays cannot be changed after they are created.  
+   - `greet('Alice')`  
+   - `greet('Bob', 25)`  
+   - `greet(25, 'Alice')`  
+   - `greet('Charlie', 30, 'extra')`  
+   - All of the above (though not all invocations will work as intended)
+   - None of the above
 
 1. **Given:**
 
@@ -106,7 +136,10 @@ Circle the best answer for each question.
     - `user(name)`  
     - `user->name`  
 
-1. **Which line correctly selects the first element with class `card`?**
+<div class="page-break"></div>
+
+<!-- .extra-list-spacing -->
+8. **Which line correctly selects the first element with class `card`?**
 
     <!-- .alpha-list -->
    - `document.getElementById('.card')`  
@@ -150,13 +183,68 @@ Circle the best answer for each question.
     - To clear all form fields automatically  
     - To disable the submit button  
 
+<div class="page-break"></div>
 
----
+<!-- .extra-list-spacing -->
+12. **Given this HTML:**
+    
+    {% no-copy %}
+    ```html
+    <button id="toggle-btn">Toggle</button>
+    <div id="box" class="hidden">Content</div>
+    ```
+    
+    **And this JavaScript:**
+    
+    {% no-copy %}
+    ```javascript
+    const box = document.getElementById('box');
+    box.classList.toggle('hidden');
+    ```
+    
+    What happens when this code runs?
+
+    <!-- .alpha-list -->
+    - The `hidden` class is added to the box  
+    - The `hidden` class is removed from the box  
+    - The `hidden` class is toggled (added if missing, removed if present)  
+    - Nothing happens because `classList.toggle` doesn't work on divs  
+
+
+1. **Given this code:**
+    
+    {% no-copy %}
+    ```javascript
+    const heading = document.getElementById('title');
+    heading.style.color = 'blue';
+    ```
+    
+    What does this do?
+
+    <!-- .alpha-list -->
+    - Adds a CSS class called `color` with value `blue`  
+    - Sets the inline style `color` property to `blue`  
+    - Changes the text content to "blue"  
+    - Nothing, because `style.color` is not a valid property  
+
+1. **Which method correctly selects an element by its ID?**
+
+    <!-- .alpha-list -->
+    - `document.querySelector('#myId')`  
+    - `document.getElementById('myId')`  
+    - Both (a) and (b) are correct  
+    - Neither (a) nor (b) work for IDs  
+
+
+<div class="page-break"></div>
+
 
 ## Part B – Short Answer (Code Reading)
 
-13. **What does this code log to the console?**
+<!-- .extra-list-spacing -->
+15. **What does this code log to the console?**
 
+    {% no-copy %}
     ```javascript
     let total = 0;
     for (let i = 1; i <= 3; i++) {
@@ -167,17 +255,42 @@ Circle the best answer for each question.
 
     <p class="answer-md"></p>
 
-1. **What will be the value of `message` after this code runs?**
+1. **Given this array of objects, what will be logged to the console?**
 
+    {% no-copy %}
     ```javascript
-    const isMember = true;
-    let message = "";
+    const students = [
+        { name: 'Alice', grade: 90 },
+        { name: 'Bob', grade: 85 },
+        { name: 'Charlie', grade: 88 }
+    ];
 
-    if (isMember) {
-        message = "Welcome back!";
-    } else {
-        message = "Please sign up.";
-    }
+    console.log(students[1].name);
+    ```
+
+    <p class="answer-md"></p>
+
+
+<div class="page-break"></div>
+
+<!-- .extra-list-spacing -->
+17. **Given this arrow function with default parameters:**
+
+    {% no-copy %}
+    ```javascript
+    const greet = (name, greeting = 'Hello') => {
+        return `${greeting}, ${name}!`;
+    };
+    ```
+
+    **What will be the output of each function call?**
+
+    {% no-copy %}
+    ```javascript
+    console.log(greet());
+    console.log(greet('Alice'));
+    console.log(greet('Bob', 'Hi'));
+    console.log(greet('Hi', 'Bob'));
     ```
 
     <p class="answer-md"></p>
@@ -193,6 +306,7 @@ Circle the best answer for each question.
     ```
 
     **JavaScript:**
+    
     {% no-copy %}
     ```javascript
     const button = document.querySelector('#hello-btn');
@@ -203,45 +317,42 @@ Circle the best answer for each question.
     });
     ```
 
-    <!-- .alpha-list -->
-    - What happens when the user clicks the button?  
+    What happens when the user clicks the button?  
 
         <p class="answer-md"></p>
-
-    - If the programmer decided to add the event handler in the HTML file instead, how would they do it? 
-
-        <p class="answer-md"></p>
-        
 
     
 
----
+<div class="page-break"></div>
 
 ## Part C – Short Answer (Code Writing)
 
-16. **Write a function `isEven(n)` that returns `true` if `n` is even and `false` otherwise.**
+<!-- .extra-list-spacing -->
+19. **Rewrite this function declaration as an arrow function:**
 
-    <p class="answer-xl"></p>
+    {% no-copy %}
+    ```javascript
+    function multiply(a, b) {
+        return a * b;
+    }
+    ```
 
-1. **Write a `for` loop that prints the numbers from 1 to 5 (inclusive) to the console.**
-
-    
-    <p class="answer-xl"></p>
+    <p class="answer-md"></p>
 
 1. You have this HTML:
 
     {% no-copy %}
     ```html
     <input type="text" id="item-input">
-    <button id="add-btn">Add</button>
+    <button id="add-btn" onclick="addTodo()">Add</button>
     <ul id="items"></ul>
     ```
 
-    Write JavaScript that:
+    Write a JavaScript function named `addTodo` that:
 
     - Reads the text from `#item-input` when the button is clicked  
     - Appends a new `<li>` with that text to `#items` using `insertAdjacentHTML`  
     - Clears the input after adding
 
     
-    <p class="answer-xl"></p>
+    <p class="answer-lg"></p>
