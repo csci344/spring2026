@@ -319,7 +319,7 @@ Circle the best answer for each question.
 
     What happens when the user clicks the button?  
 
-        <p class="answer-md"></p>
+    <p class="answer-sm"></p>
 
     
 

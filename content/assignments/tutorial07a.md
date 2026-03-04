@@ -26,7 +26,7 @@ points: 6
 
 Before working on the exercises, familiarize yourself with these array methods:
 
-{% collapsible %}
+{% collapsible closed%}
 ### 1. forEach
 `forEach` invokes a callback function on every element in an array. It doesn't return a value. Rather, it's used for side effects like printing or modifying elements.
 
@@ -47,7 +47,7 @@ numbers.forEach((num) => {
 });
 ```
 
-{% collapsible %}
+{% collapsible closed %}
 ### 2. map
 Like `forEach`, `map` invokes a callback function on every element in an array. The callback function returns a value for each element, and these return values become the elements in the new array. The key difference from `forEach` is that `map` returns a new array with the transformed values, while the original array remains unchanged.
 
@@ -56,7 +56,7 @@ const numbers = [1, 2, 3];
 const doubled = numbers.map((num) => num * 2);  // [2, 4, 6]
 ```
 
-{% collapsible %}
+{% collapsible closed %}
 ### 3. filter
 `filter` creates a new array with only the elements that pass a test. The callback function must return `true` or `false` for each element. Elements where the callback returns `true` are included in the new array, while elements where it returns `false` are excluded. The original array is not modified.
 
@@ -65,7 +65,7 @@ const numbers = [1, 2, 3, 4, 5];
 const evens = numbers.filter((num) => num % 2 === 0);  // [2, 4]
 ```
 
-{% collapsible %}
+{% collapsible closed %}
 ### 4. toSorted
 `toSorted` creates a sorted copy of an array. It doesn't modify the original array. Without a comparison function, it sorts elements as strings (which works for numbers but may not give the expected order). You can provide a comparison function that takes two elements (`a` and `b`) and returns a negative number if `a` should come before `b`, zero if they're equal, or a positive number if `a` should come after `b`.
 

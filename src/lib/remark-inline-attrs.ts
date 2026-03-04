@@ -1,4 +1,4 @@
-import type { Root, Content } from 'remark-parse/lib';
+import type { Root, Content } from 'mdast';
 
 /**
  * Simple remark plugin to support Kramdown-style inline attribute lists:
@@ -27,11 +27,11 @@ export default function remarkInlineAttrs() {
       const children = parent.children;
 
       for (let i = 0; i < children.length; i++) {
-        const node = children[i] as any;
+        const node = children[i];
 
         // Recurse into nested parents (lists, blockquotes, etc.)
-        if (node && typeof node === 'object' && Array.isArray(node.children)) {
-          processChildren(node);
+        if (node && typeof node === 'object' && 'children' in node && Array.isArray(node.children)) {
+          processChildren(node as { children: Content[] });
         }
 
         // Look for a paragraph that is just an inline-attrs marker
@@ -39,8 +39,8 @@ export default function remarkInlineAttrs() {
         let markerText: string | null = null;
         let markerAttrs: string | null = null;
         
-        if (node.type === 'paragraph' && Array.isArray(node.children) && node.children.length === 1) {
-          const child = node.children[0] as any;
+        if (node.type === 'paragraph' && 'children' in node && Array.isArray(node.children) && node.children.length === 1) {
+          const child = node.children[0];
           if (child.type === 'text') {
             const text = String(child.value || '').trim();
             const match = text.match(/^\{\:\s+([^}]+)\}$/);
@@ -81,11 +81,11 @@ export default function remarkInlineAttrs() {
               // If that doesn't work, try next sibling (marker before element - also supported)
               const prevIndex = i - 1;
               const nextIndex = i + 1;
-              let targetNode: any = null;
+              let targetNode: Content | null = null;
               
               // First, try previous sibling (marker after element)
               if (prevIndex >= 0) {
-                const prevSibling = children[prevIndex] as any;
+                const prevSibling = children[prevIndex];
                 // Skip if previous sibling is also a marker paragraph
                 if (prevSibling && prevSibling.type !== 'paragraph') {
                   targetNode = prevSibling;
@@ -94,7 +94,7 @@ export default function remarkInlineAttrs() {
               
               // If no previous sibling or it's not suitable, try next sibling (marker before element)
               if (!targetNode && nextIndex < children.length) {
-                const nextSibling = children[nextIndex] as any;
+                const nextSibling = children[nextIndex];
                 // Skip if next sibling is a marker paragraph
                 if (nextSibling && nextSibling.type !== 'paragraph') {
                   targetNode = nextSibling;
@@ -104,13 +104,13 @@ export default function remarkInlineAttrs() {
               // Special handling for tables: look backwards through siblings
               if (!targetNode && prevIndex >= 0) {
                 for (let j = prevIndex; j >= 0; j--) {
-                  const candidate = children[j] as any;
+                  const candidate = children[j];
                   if (candidate && candidate.type === 'table') {
                     targetNode = candidate;
                     break;
                   }
                   // Check if this node contains a table as its last child
-                  if (candidate && candidate.children && Array.isArray(candidate.children)) {
+                  if (candidate && 'children' in candidate && Array.isArray(candidate.children)) {
                     const lastChild = candidate.children[candidate.children.length - 1];
                     if (lastChild && lastChild.type === 'table') {
                       targetNode = lastChild;
@@ -120,18 +120,19 @@ export default function remarkInlineAttrs() {
                 }
               }
               
-              if (targetNode && typeof targetNode === 'object') {
-                targetNode.data = targetNode.data || {};
-                targetNode.data.hProperties = targetNode.data.hProperties || {};
+              if (targetNode && typeof targetNode === 'object' && 'type' in targetNode) {
+                const nodeWithData = targetNode as Content & { data?: { hProperties?: Record<string, unknown> } };
+                nodeWithData.data = nodeWithData.data || {};
+                nodeWithData.data.hProperties = nodeWithData.data.hProperties || {};
 
                 // Merge classes with any existing ones
-                const existing = targetNode.data.hProperties.className;
+                const existing = nodeWithData.data.hProperties.className;
                 let existingClasses: string[] = [];
 
                 if (typeof existing === 'string') {
                   existingClasses = existing.split(/\s+/);
                 } else if (Array.isArray(existing)) {
-                  existingClasses = existing;
+                  existingClasses = existing.filter((item): item is string => typeof item === 'string');
                 }
 
                 const mergedClasses = [...existingClasses];
@@ -143,12 +144,12 @@ export default function remarkInlineAttrs() {
 
                 if (mergedClasses.length > 0) {
                   const classString = mergedClasses.join(' ');
-                  targetNode.data.hProperties.className = mergedClasses;
-                  targetNode.data.hProperties.class = classString; // Also set 'class' for compatibility
+                  nodeWithData.data.hProperties.className = mergedClasses;
+                  nodeWithData.data.hProperties.class = classString; // Also set 'class' for compatibility
                 }
 
                 if (id) {
-                  targetNode.data.hProperties.id = id;
+                  nodeWithData.data.hProperties.id = id;
                 }
               }
 
@@ -164,13 +165,15 @@ export default function remarkInlineAttrs() {
                 // For tables, convert the marker to a data attribute comment that post-processing can find
                 // Replace the text content with a comment-like marker
                 const tableMarkerText = `<!-- TABLE-ATTR: ${attrs} -->`;
-                if (node.type === 'paragraph' && node.children && node.children[0]) {
-                  node.children[0].value = tableMarkerText;
+                if (node.type === 'paragraph' && 'children' in node && Array.isArray(node.children) && node.children[0] && 'value' in node.children[0]) {
+                  (node.children[0] as { value: string }).value = tableMarkerText;
                 }
                 // Change paragraph to html node so it's preserved
                 node.type = 'html';
-                node.children = undefined;
-                node.value = tableMarkerText;
+                if ('children' in node) {
+                  (node as { children?: unknown }).children = undefined;
+                }
+                (node as { value: string }).value = tableMarkerText;
               }
             }
       }

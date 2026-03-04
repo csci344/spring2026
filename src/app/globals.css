@@ -1119,11 +1119,32 @@ pre code {
 }
 
 .prose details > summary {
-    @apply cursor-pointer font-semibold select-none text-xl leading-snug;
+    @apply cursor-pointer font-semibold select-none leading-snug;
     list-style: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+/* Level-specific sizes matching prose headings */
+.prose details.collapsible-h1 > summary {
+    @apply text-3xl md:text-4xl;
+}
+
+.prose details.collapsible-h2 > summary {
+    @apply text-xl md:text-2xl;
+}
+
+.prose details.collapsible-h3 > summary {
+    @apply text-lg md:text-xl;
+}
+
+.prose details.collapsible-h4 > summary {
+    @apply md:text-lg;
+}
+
+.prose details.collapsible-h5 > summary {
+    /* Base size, no explicit text size needed */
 }
   
 .prose details > summary::-webkit-details-marker {

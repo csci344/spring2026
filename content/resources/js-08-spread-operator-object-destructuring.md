@@ -9,6 +9,7 @@ heading_max_level: 3
 
 The spread operator and object destructuring are two powerful features in JavaScript that allow you to manipulate arrays and objects more easily. You will commonly see these two techniques in sample code and in the wild, so it's important to understand how they work.
 
+{% collapsible closed %}
 ## 1. Spread Operator
 The spread operator (`...`) is like a way to "unpack" or "spread out" the contents of an array or object. Think of it like opening a package and taking all the items out. You can <a href="https://dev.to/marinamosti/understanding-the-spread-operator-in-javascript-485j" target="_blank">read more about the spread operator here</a>.
 
@@ -78,6 +79,7 @@ const numbers = [1, 2, 3];
 Math.max(...numbers);  // Same as Math.max(1, 2, 3)
 ```
 
+{% collapsible closed %}
 ## 2. Object Destructuring
 
 Object destructuring allows you to get specific items from an object. It's just a convenient shortcut.
@@ -158,14 +160,15 @@ const { data: { username } } = response;
 // username = 'coder123'
 ```
 
+{% collapsible %}
 ## 3. Practice Exercises
 
 Practice using destructuring and the spread operator with arrays and objects. These patterns are essential for working with data in JavaScript.
 
-### Setup
-
-1. Create a folder for this practice (e.g., `destructuring-practice`).
-2. Each exercise will be a separate `.mjs` file that you can run with Node.js.
+> ### Setup
+> 
+> 1. Create a folder for this practice (e.g., `destructuring-practice`).
+> 2. Each exercise will be a separate `.mjs` file that you can run with Node.js.
 
 ### Exercise 1: Object Destructuring
 
@@ -193,7 +196,7 @@ alice@example.com
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const user = {
@@ -232,7 +235,7 @@ green
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const colors = ['red', 'green', 'blue', 'yellow'];
@@ -265,7 +268,7 @@ Run: `node exercise3-spread-arrays.mjs`. Expected output:
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const todos1 = ['Buy groceries', 'Finish homework'];
@@ -298,7 +301,7 @@ Run: `node exercise4-spread-objects.mjs`. Expected output:
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const basicInfo = { name: "Bob", age: 30 };
@@ -332,7 +335,7 @@ Run: `node exercise5-copy-array.mjs`. Expected output:
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const original = [1, 2, 3, 4, 5];
@@ -369,7 +372,7 @@ Run: `node exercise6-copy-object.mjs`. Expected output:
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const original = { name: "Charlie", age: 28, city: "Boston" };
@@ -413,7 +416,7 @@ Diana
 ```
 
 {% collapsible closed %}
-### Show Answer
+#### Show Answer
 
 ```javascript
 const user = {

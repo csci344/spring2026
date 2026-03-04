@@ -25,7 +25,7 @@ points: 6
 
 Before working on the exercises, familiarize yourself with these patterns:
 
-{% collapsible %}
+{% collapsible closed %}
 ### 1. Destructuring
 Destructuring allows you to extract values from arrays or properties from objects into separate variables. It's a convenient way to access data without repeatedly using dot notation or bracket notation.
 
@@ -43,7 +43,7 @@ const person = { firstName: "Bob", yearsOld: 25 };
 const { firstName: first, yearsOld: age } = person;  // first = 'Bob', age = 25
 ```
 
-{% collapsible %}
+{% collapsible closed %}
 ### 2. Copying Objects and Arrays
 The spread operator (`...`) can be used to create copies of arrays and objects. When copying objects, this creates a "shallow" copy<sup><a href="#footnote-1">1</a></sup> where top-level properties are independent, but nested arrays or objects are still shared between the original and copy.
 

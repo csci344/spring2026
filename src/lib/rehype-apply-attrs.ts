@@ -1,16 +1,15 @@
-import type { Root, Element } from 'hast';
-import type { Plugin } from 'unified';
+import type { Root, Element, Content } from 'hast';
 
 /**
  * Rehype plugin to ensure hProperties on all nodes are properly applied.
  * remark-rehype should convert data.hProperties to properties, but this ensures
  * it works correctly for all element types.
  */
-export default function rehypeApplyAttrs(): Plugin<[], Root> {
+export default function rehypeApplyAttrs() {
   return function transformer(tree: Root) {
-    function visit(node: any): void {
-      if (node.type === 'element' && node.data?.hProperties) {
-        const props = node.data.hProperties as Record<string, any>;
+    function visit(node: Root | Content): void {
+      if (node.type === 'element' && 'data' in node && node.data && typeof node.data === 'object' && 'hProperties' in node.data) {
+        const props = node.data.hProperties as Record<string, unknown>;
         const element = node as Element;
         
         // Ensure className is converted to class attribute
@@ -70,14 +69,14 @@ export default function rehypeApplyAttrs(): Plugin<[], Root> {
         }
         
         // Ensure id is set
-        if (props.id) {
+        if (props.id && typeof props.id === 'string') {
           element.properties = element.properties || {};
           element.properties.id = props.id;
         }
       }
       
       // Recursively visit children
-      if (node.children && Array.isArray(node.children)) {
+      if ('children' in node && Array.isArray(node.children)) {
         for (const child of node.children) {
           visit(child);
         }

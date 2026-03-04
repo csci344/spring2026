@@ -1,15 +1,14 @@
-import type { Root, Element } from 'hast';
-import type { Plugin } from 'unified';
+import type { Root, Element, Content } from 'hast';
 
 /**
  * Rehype plugin to ensure hProperties on table nodes are properly applied.
  * This handles cases where rehype-stringify might not apply hProperties correctly to tables.
  */
-export default function rehypeTableAttrs(): Plugin<[], Root> {
+export default function rehypeTableAttrs() {
   return function transformer(tree: Root) {
-    function visit(node: any): void {
-      if (node.type === 'element' && node.tagName === 'table' && node.data?.hProperties) {
-        const props = node.data.hProperties as Record<string, any>;
+    function visit(node: Root | Content): void {
+      if (node.type === 'element' && node.tagName === 'table' && 'data' in node && node.data && typeof node.data === 'object' && 'hProperties' in node.data) {
+        const props = node.data.hProperties as Record<string, unknown>;
         const element = node as Element;
         
         // Ensure className is converted to class attribute
@@ -41,14 +40,14 @@ export default function rehypeTableAttrs(): Plugin<[], Root> {
         }
         
         // Ensure id is set
-        if (props.id) {
+        if (props.id && typeof props.id === 'string') {
           element.properties = element.properties || {};
           element.properties.id = props.id;
         }
       }
       
       // Recursively visit children
-      if (node.children && Array.isArray(node.children)) {
+      if ('children' in node && Array.isArray(node.children)) {
         for (const child of node.children) {
           visit(child);
         }
