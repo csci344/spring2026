@@ -10,6 +10,13 @@ order: 7
 points: 6
 ---
 
+<!-- .info -->
+> ## Update: Walthrough Videos for Part C
+> If you get stuck or need help, I have made some <a href="https://drive.google.com/drive/folders/1uxwTOusr3mEQQWchtz-3iIjtw1TibkC6?usp=drive_link" target="_blank">walkthrough videos</a>. 
+> 
+> Please try to do as much as you can on your own before referring to the videos: following along can be helpful for learning, but it doesn't engage your brain in the same way as trying to solve these problems on your own. Good luck!
+
+
 ## Overview
 This tutorial focuses on **higher-order array functions** (`forEach`, `map`, `filter`, `toSorted`), **destructuring and object copying**, and **DOM manipulation**. Complete 3 exercises that build on each other.
 

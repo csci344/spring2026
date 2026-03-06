@@ -1141,15 +1141,15 @@ pre code {
 }
 
 .prose details.collapsible-h2 > summary {
-    @apply text-xl md:text-2xl;
+    @apply text-xl md:text-2xl font-bold;
 }
 
 .prose details.collapsible-h3 > summary {
-    @apply text-lg md:text-xl;
+    @apply text-lg md:text-xl font-bold;
 }
 
 .prose details.collapsible-h4 > summary {
-    @apply md:text-lg;
+    @apply md:text-lg font-bold;
 }
 
 .prose details.collapsible-h5 > summary {

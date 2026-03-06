@@ -11,6 +11,13 @@ order: 7
 points: 6
 ---
 
+<!-- .info -->
+> ## Walthrough Videos Available
+> If you get stuck or need help, I have made some <a href="https://drive.google.com/drive/folders/1uxwTOusr3mEQQWchtz-3iIjtw1TibkC6?usp=drive_link" target="_blank">walkthrough videos</a>. 
+> 
+> Please try to do as much as you can on your own before referring to the videos: following along can be helpful for learning, but it doesn't engage your brain in the same way as trying to solve these problems on your own. Good luck!
+
+
 > ## Goal
 > Build a UNCA Course Search interface for the Computer Science Department that allows users to search and filter courses. This exercise combines the array methods you practiced in Part A (`filter`, `map`, `forEach`) with DOM manipulation to create an interactive web application.
 
@@ -35,6 +42,8 @@ Download the course data file and save it as `course-data.js` in your `03-course
 
 <a href="/spring2026/course-files/tutorials/tutorial07/course-data.js" class="nu-button">Download Course Data <i class="fas fa-download"></i></a>
 
+
+{% collapsible %}
 ## Create the HTML File (`index.html`)
 
 Copy this starter HTML:
@@ -78,6 +87,8 @@ Copy this starter HTML:
 > ### Utilizing New Events!
 > In the HTML code above, notice that instead of tying functionality to the `onclick` event, we're hooking into the `onkeyup` and `onchange` events (look carefully above).
 
+
+{% collapsible %}
 ## Create the CSS File (`style.css`)
 
 Copy this starter CSS:
@@ -184,9 +195,10 @@ header {
 }
 ```
 
-## Create the JavaScript File (`main.js`)
 
 {% collapsible %}
+## Create the JavaScript File (`main.js`)
+
 ### 1. Global Variables
 
 ```javascript
@@ -194,7 +206,6 @@ let searchTerm = "";
 let openOnly = false;
 ```
 
-{% collapsible %}
 ### 2. Helper Functions
 
 #### 2.1. `isClassFull(course)`
@@ -270,7 +281,6 @@ Some samples of how the cards should look for open and closed courses:
 ```
 
 
-{% collapsible %}
 ### 3. Main Functions
 
 #### 3.1. `showMatchingCourses()`
@@ -302,7 +312,6 @@ function filterCourses() {
 
 In the HTML starter code above, the text input and checkbox already call `filterCourses()` using `onkeyup` and `onchange` attributes.
 
-{% collapsible %}
 ### 4. Initial Render
 
 At the bottom of your `main.js` file, call `showMatchingCourses()` once so that all courses display when the page loads:
