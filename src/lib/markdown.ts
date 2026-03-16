@@ -439,6 +439,14 @@ export async function getPostData(id: string, subdirectory?: string): Promise<Po
     }
   }
 
+  // Fix nested anchors where a link-wrapping step has wrapped an existing URL link
+  // Pattern: <a ...href="URL"...><a ...href="URL"...>URL text</a></a>
+  // We keep the outer <a> (with attributes like target/rel) and drop the inner one.
+  contentHtml = contentHtml.replace(
+    /<a([^>]*href="(https?:\/\/[^"]+)"[^>]*)>\s*<a([^>]*href="\2"[^>]*)>([\s\S]*?)<\/a>\s*<\/a>/g,
+    '<a$1>$4</a>'
+  );
+
   // Combine the data with the id and contentHtml
   return {
     id,

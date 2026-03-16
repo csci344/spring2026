@@ -7,7 +7,7 @@
  * @param {string} username: Your username for the course API
  * @param {string} password: Your password for the course API 
  */
-export async function getAccessToken(rootURL, username, password) {
+async function getAccessToken(rootURL, username, password) {
     const postData = {
         "username": username,
         "password": password

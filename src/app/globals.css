@@ -169,6 +169,10 @@ blockquote .hljs, blockquote code {
     @apply bg-white dark:bg-black;
 }
 
+li .hljs, li pre {
+    @apply mb-6;
+}
+
 .dark blockquote {
   background-color: #1f2937 !important;
   border-color: #4b5563 !important;

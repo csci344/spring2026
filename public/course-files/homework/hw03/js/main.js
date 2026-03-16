@@ -1,4 +1,7 @@
-import { getAccessToken } from "./utilities.js";
+// requires utilities.js to be loaded first:
+// included in index.html
+
+
 const rootURL = "https://photo-app-secured.herokuapp.com";
 let token = null;
 let username = "webdev";
@@ -29,6 +32,14 @@ function showNav() {
 
 
 
+
+
+// replaces current post HTML with new post HTML:
+async function redrawPost(postData) {
+    // const template = getPostHTML(postData);
+    // const post = document.querySelector(`#post-${postData.id}`);
+    // post.outerHTML = template;
+}
 
 // after all of the functions are defined, invoke initialize at the bottom:
 initializeScreen();

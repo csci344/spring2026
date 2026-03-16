@@ -11,7 +11,7 @@ points: 6
 ---
 
 ## Introductory Slides
-* <a href="https://docs.google.com/presentation/d/1mzNNpxuYxLasm4AEuBoSh6NvkLj4f4PO/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Tutorial 8 Slides</a>
+* <a href="https://docs.google.com/presentation/d/17eIgQI8n4uxi5dKlG1EJtEypjqYajfTs/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true" target="_blank">Tutorial 8 Slides</a>
 
 ## Overview
 In this tutorial, we will be getting started on some concepts that should help you in [Homework 3](hw03). Specifically, we will:

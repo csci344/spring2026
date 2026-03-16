@@ -119,7 +119,7 @@ const original = {
 
 // Use spread operator to create a shallow copy
 // Modify the copy's name property
-// Modify the copy's courses array (add a new course)
+// Modify the copy's courses array (add a new course, e.g., 'CSCI 370')
 // Print both original and copy to see the difference
 ```
 
@@ -131,7 +131,7 @@ Run: `node exercise3-shallow-copy.mjs`. Expected output:
 { 
     name: 'Eve', 
     age: 20, 
-    courses: [ 'CSCI 182', 'CSCI 344' ] 
+    courses: [ 'CSCI 182', 'CSCI 344', 'CSCI 370' ]  // what?!? The array is still a pointer
 }
 // Copy: 
 { 
@@ -142,6 +142,13 @@ Run: `node exercise3-shallow-copy.mjs`. Expected output:
 ```
 
 **Note:** Notice that modifying the copy's `courses` array also modifies the original! This is because spread only does a "shallow" copy - nested arrays/objects are still shared.
+
+If you want to do a deep copy (that will actually copy the array instead of copying a pointer to the original array), here's a sneaky trick:
+
+{% no-copy %}
+```js
+    const deepCopy = JSON.parse(JSON.stringify(original));
+```
 
 
 
