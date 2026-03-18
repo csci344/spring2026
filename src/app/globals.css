@@ -221,6 +221,10 @@ ol ul li {
     @apply !mb-0;
 }
   
+.list-spaced li {
+    @apply mb-6;
+}
+
 .extra-list-spacing li {
     @apply mb-12;
 }

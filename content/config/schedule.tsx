@@ -909,12 +909,7 @@ export const baseTopics = [
         date: "Mo, Mar 16",
         topic: "Intro to HTTP & Fetch API",
         description: (
-          <>
-            <ul>
-              <li>Introduction to HTTP protocol</li>
-              <li>HTTP methods and status codes</li>
-              <li>Using the Fetch API</li>
-            </ul>
+          <>Introduction to HTTP protocol + the REST API
           </>
         ),
         activities: [
@@ -936,16 +931,11 @@ export const baseTopics = [
         topic: "Async/await + Fetch API Practice",
         description: (
           <>
-            <ul>
-              <li>Async/await vs Promises</li>
-              <li>Making GET, POST, PUT, DELETE requests</li>
-              <li>Error handling and response parsing</li>
-            </ul>
+            Practice with the Fetch API + await / async using the provided examples.
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Fetch Examples", url: "/course-files/lectures/lecture15.zip", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1OKooAmrmhYwYE83lVjV_kLD41s0ToOZ7/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
           {
