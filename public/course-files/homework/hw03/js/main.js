@@ -4,12 +4,13 @@
 
 const rootURL = "https://photo-app-secured.herokuapp.com";
 let token = null;
-let username = "webdev";
+let username = "webdev";   // change to your username :)
 let password = "password";
 
 async function initializeScreen() {
     token = await getToken();
     showNav();
+    // invoke all of the Part 1 functions here
 }
 
 async function getToken() {
@@ -34,12 +35,10 @@ function showNav() {
 
 
 
-// replaces current post HTML with new post HTML:
-async function redrawPost(postData) {
-    // const template = getPostHTML(postData);
-    // const post = document.querySelector(`#post-${postData.id}`);
-    // post.outerHTML = template;
-}
 
-// after all of the functions are defined, invoke initialize at the bottom:
+
+
+
+// after all of the functions are defined, 
+// invoke initialize at the bottom:
 initializeScreen();
