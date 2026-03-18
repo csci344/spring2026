@@ -23,8 +23,8 @@ You will complete **one** of the Lecture 15 UI activities:
     <a class="button" href="/spring2026/course-files/lectures/lecture16.zip">Download</a>
 
 1. Decide whether you want to make an app about:
-    * recipes (MealDB)
-    * restaurants (Yelp)
+    * recipes (MealDB):  <a href="/spring2026/course-files/demos/lecture16/recipes/index.html" target="_blank">Demo</a>
+    * restaurants (Yelp):  <a href="/spring2026/course-files/demos/lecture16/restaurants/index.html" target="_blank">Demo</a>
 
 1. Open the corresponding UI starter files in:
    `lecture15/interfaces`

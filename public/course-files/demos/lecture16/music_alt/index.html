@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Search</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Song Search</h1>
+    </header>
+    <main class="container">
+        <div class="form">
+            <input type="text" id="search-input" placeholder="Search for a song" onkeydown="handleSongKeydown(event)">
+            <button id="search-button" onclick="handleSongSearch()">Search</button>
+        </div>
+        <div id="results"></div>
+
+        <section class="player">
+            <h2>Song Preview</h2>
+            <audio id="preview-player" controls></audio>
+            <p id="preview-status">Search for a song, then click "Play Preview" on a result.</p>
+        </section>
+    </main>
+    
+</body>
+</html>
