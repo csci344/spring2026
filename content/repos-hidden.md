@@ -9,7 +9,7 @@ draft: 0
 | 1 | Brady Jenkins | <a href="https://github.com/bcjenkins1/CSCI-344/" target="_blank" rel="noopener">repo</a> | <a href="https://bcjenkins1.github.io/CSCI-344/" target="_blank" rel="noopener">website</a> |  |
 | 2 | Cornell Chin | <a href="https://github.com/Apiznel/csci344" target="_blank" rel="noopener">repo</a> | <a href="https://apiznel.github.io/csci344/" target="_blank" rel="noopener">website</a> |  |
 | 3 | David McKenzie | <a href="https://github.com/dmckenzi-star/csci344-coursework" target="_blank" rel="noopener">repo</a> | <a href="https://dmckenzi-star.github.io/csci344-coursework/" target="_blank" rel="noopener">website</a> |  |
-| 4 | Ethan Rink | <a href="https://github.com/erink-school/csci344" target="_blank" rel="noopener">repo</a> | <a href="https://erink-school.github.io/csci344/" target="_blank" rel="noopener">website</a> | What's happening here? |
+| 4 | Ethan Rink | <a href="https://github.com/erink-school/csci344" target="_blank" rel="noopener">repo</a> | <a href="https://erink-school.github.io/csci344/" target="_blank" rel="noopener">website</a> | |
 | 5 | Henry Shaw | <a href="https://github.com/wshaw1/csci344" target="_blank" rel="noopener">repo</a> | <a href="https://wshaw1.github.io/csci344/" target="_blank" rel="noopener">website</a> |  |
 | 6 | Jack Neal | <a href="https://github.com/jneal2003/csci344-coursework" target="_blank" rel="noopener">repo</a> | <a href="https://jneal2003.github.io/csci344-coursework/" target="_blank" rel="noopener">website</a> |  |
 | 7 | Kelly Medlock | <a href="https://github.com/KellyMedlock/csci344" target="_blank" rel="noopener">repo</a> | <a href="https://kellymedlock.github.io/csci344/" target="_blank" rel="noopener">website</a> |  |

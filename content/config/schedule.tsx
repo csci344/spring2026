@@ -1101,17 +1101,37 @@ export const baseTopics = [
             </ul>
           </>
         ),
+        activities: [
+          {
+            title: "Practice Exam 2: JavaScript Review",
+            url: "/exams/exam02-practice",
+            draft: 0
+          },
+          {
+            title: "Exam 2 Review Activity",
+            url: "/activities/exam02-practice-activity",
+            draft: 0
+          },
+          {
+            title: "Practice Interactive Quizzes",
+            url: "/quizzes",
+            draft: 0
+          }
+        ],
       },
       {
         date: "Mo, Apr 6",
         topic: "Exam 2",
         description: (
           <>
+            <p>
+                Exam 2 will be held on April 8th during class. 
+                It will cover all of the JavaScript topics covered 
+                between Feb 18th and March 25th (no React).</p>
             <ul>
               <li>JavaScript: DOM manipulation, event handlers</li>
-              <li>JavaScript: Higher-order functions, closures</li>
+              <li>JavaScript: Higher-order functions (`forEach`, `map`, `filter`, `toSorted`)</li>
               <li>JavaScript: Async/await and Fetch API</li>
-              <li>React: Components, props, state, effects</li>
             </ul>
           </>
         ),
