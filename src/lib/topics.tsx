@@ -92,6 +92,26 @@ interface BaseTopic {
 type TopicsArray = Topic[];
 type BaseTopicsArray = BaseTopic[];
 
+function getAssignmentTitleShort(assignment: { type?: string; num?: string | number }): string {
+  if (assignment.type === 'homework') {
+    return `HW ${assignment.num}`;
+  }
+
+  if (assignment.type === 'tutorial') {
+    return `Tutorial ${assignment.num}`;
+  }
+
+  if (assignment.type === 'project') {
+    return assignment.num ? `Project ${assignment.num}` : 'Project';
+  }
+
+  const typeLabel = assignment.type
+    ? assignment.type.charAt(0).toUpperCase() + assignment.type.slice(1)
+    : 'Assignment';
+
+  return assignment.num ? `${typeLabel} ${assignment.num}` : typeLabel;
+}
+
 // Date parsing utilities
 function parseMeetingDate(meetingDate: string): string | null {
   // Format: "Tu, Jan 13" -> "2026-01-13"
@@ -336,7 +356,7 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
       
       // Create auto-populated assignment entries for assigned (all matches, including drafts)
       const autoAssignedAssignments = matchingAssignmentsByAssigned.map((assignment) => {
-        const titleShort = assignment.type === 'homework' ? `HW ${assignment.num}` : `Tutorial ${assignment.num}`;
+        const titleShort = getAssignmentTitleShort(assignment);
         return {
           titleShort: titleShort,
           title: assignment.title,
@@ -349,7 +369,7 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
       
       // Create auto-populated assignment entries for due (all matches, including drafts)
       const autoDueAssignments = matchingAssignmentsByDue.map((assignment) => {
-        const titleShort = assignment.type === 'homework' ? `HW ${assignment.num}` : `Tutorial ${assignment.num}`;
+        const titleShort = getAssignmentTitleShort(assignment);
         return {
           titleShort: titleShort,
           title: assignment.title,
@@ -543,6 +563,7 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
         // Determine topic name based on assignment type
         const isTutorial = assignments.some(a => a.type === 'tutorial');
         const isHomework = assignments.some(a => a.type === 'homework');
+        const isProject = assignments.some(a => a.type === 'project');
         let topicName = 'Assignment';
         if (isTutorial && !isHomework) {
           topicName = 'Tutorial';
@@ -550,11 +571,13 @@ async function enrichTopicsWithMarkdown(baseTopics: BaseTopicsArray): Promise<To
           topicName = 'Homework';
         } else if (isTutorial && isHomework) {
           topicName = 'Tutorial & Homework';
+        } else if (isProject && !isTutorial && !isHomework) {
+          topicName = 'Project';
         }
         
         // Create auto-populated assignment entries
         const autoAssignedAssignments = assignments.map((assignment) => {
-          const titleShort = assignment.type === 'homework' ? `HW ${assignment.num}` : `Tutorial ${assignment.num}`;
+          const titleShort = getAssignmentTitleShort(assignment);
           return {
             titleShort: titleShort,
             title: assignment.title,
