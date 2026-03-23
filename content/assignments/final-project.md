@@ -2,7 +2,6 @@
 title: "Final Project"
 type: "project"
 draft: 1
-assigned_date: "2026-04-01"
 due_date: "2026-05-01"
 heading_max_level: 3
 order: 2

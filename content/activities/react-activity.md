@@ -1,21 +1,21 @@
 ---
 title: "Intro to React (Carousel + Server-Generated Gallery)"
-type: tutorial
-abbreviation: Activity 4
+type: activity
 draft: 1
-num: 4
+heading_max_level: 3
+ordering: 1
+start_date: "2026-03-25"
+due_date: "2026-03-25"
 ---
-
-<!--  -->
 
 
 ## 1. Don't forget to do the readings
 
-> ### Monday
+> ### Wednesday
 > * <span class="update">Required</span> <a href="https://react.dev/learn/describing-the-ui" target="_blank">Describing the UI</a>
 > * <span class="update">Recommended</span> <a href="https://beta.reactjs.org/learn/tutorial-tic-tac-toe" target="_blank">Tic Tac Toe</a>. You are strongly encouraged to do this on your own.
-> > 
-> ### Wednesday
+> 
+> ### Monday
 > * <span class="update">Required</span> <a href="https://beta.reactjs.org/learn/thinking-in-react" target="_blank">Thinking in React</a>
 > * <span class="update">Required</span> <a href="https://beta.reactjs.org/learn/sharing-state-between-components" target="_blank">Sharing state between components</a>
 > 
@@ -82,6 +82,7 @@ Now that you’ve created your starter files, you’re going to convert our app 
 
 5. After editing your `package.json` file, run **`npm run dev`** on the command line. When you do, you should see the following output:
 
+    {% no-copy %}
     ```bash
     **VITE** v5.2.6  ready in **307** ms
     ➜  **Local**:   http://localhost:**5173**/

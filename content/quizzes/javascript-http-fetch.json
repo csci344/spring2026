@@ -1,0 +1,202 @@
+{
+  "quizName": "HTTP Methods + Fetch API with Async/Await",
+  "start_date": "2026-03-18",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What does REST usually mean in the context of web APIs?",
+      "options": [
+        "A way of organizing API endpoints around resources and standard HTTP methods",
+        "A JavaScript library for sending requests",
+        "A special kind of database query language",
+        "A browser feature that automatically parses JSON"
+      ],
+      "correct": 0,
+      "explanation": "REST is a common approach to API design where data is modeled as resources and manipulated with standard HTTP methods such as `GET`, `POST`, `PATCH`, and `DELETE`."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "Which URL is the best example of a REST-style resource endpoint for a collection of bookmarks?",
+      "options": [
+        "`/doCreateBookmarkNow`",
+        "`/bookmark-action`",
+        "`/api/bookmarks`",
+        "`/runBookmarkScript`"
+      ],
+      "correct": 2,
+      "explanation": "REST-style endpoints are usually noun-based resources. `/api/bookmarks` names the resource collection rather than describing an action in the URL."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "In a REST-style API, which combination best matches the action 'delete bookmark with id 42'?",
+      "options": [
+        "`GET /api/bookmarks/42`",
+        "`POST /api/bookmarks/delete/42`",
+        "`DELETE /api/bookmarks/42`",
+        "`PUT /api/deleteBookmark?id=42`"
+      ],
+      "correct": 2,
+      "explanation": "In a REST-style API, the URL usually identifies the resource and the HTTP method describes the action. `DELETE /api/bookmarks/42` means delete the bookmark resource with id `42`."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "Which mapping of HTTP methods to actions is best?",
+      "options": [
+        "1. `GET` = retrieve data\n2. `POST` = create data\n3. `PATCH` = update part of a resource\n4. `DELETE` = remove a resource",
+        "1. `GET` = create data\n2. `POST` = retrieve data\n3. `PATCH` = remove data\n4. `DELETE` = sort data",
+        "1. `GET` = remove data\n2. `POST` = patch data\n3. `PATCH` = retrieve data\n4. `DELETE` = create data",
+        "`GET`, `POST`, `PATCH`, and `DELETE` all do basically the same thing"
+      ],
+      "correct": 0,
+      "explanation": "These methods have different jobs: `GET` retrieves, `POST` creates, `PATCH` partially updates, and `DELETE` removes."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "What does the `fetch()` function return immediately?",
+      "options": [
+        "A JSON object",
+        "A Promise",
+        "An array of results",
+        "The final response body as a string"
+      ],
+      "correct": 1,
+      "explanation": "`fetch()` returns a Promise right away. That Promise eventually resolves to a `Response` object."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "Why do we often write `const response = await fetch(url);` inside an `async` function?",
+      "options": [
+        "Because `await` turns the response into JSON automatically",
+        "Because `await` pauses until the Promise resolves and gives us the `Response` object",
+        "Because `await` converts the request into a `POST` request",
+        "Because `await` makes the code run multiple times"
+      ],
+      "correct": 1,
+      "explanation": "`await` pauses the async function until the Promise from `fetch()` resolves, so `response` becomes the resulting `Response` object."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What is the job of the `async` keyword in `async function loadData() { ... }`?",
+      "options": [
+        "It lets you use `await` inside the function",
+        "It automatically converts every response into JSON",
+        "It makes the function run faster",
+        "It sends the HTTP request to the server"
+      ],
+      "correct": 0,
+      "explanation": "Marking a function as `async` allows you to use `await` inside it and means the function returns a Promise."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "After you run `const response = await fetch(url);`, what does `await response.json()` do?",
+      "options": [
+        "It sends the request headers",
+        "It converts the response body from JSON text into a JavaScript value",
+        "It checks whether the HTTP method was `GET`",
+        "It restarts the request if there was an error"
+      ],
+      "correct": 1,
+      "explanation": "`response.json()` reads the response body and parses it from JSON into a JavaScript object or array."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "In the code below, what is missing if you want to send JSON data to the server?\n\n```javascript\nawait fetch('/api/posts', {\n  method: 'POST',\n  body: { caption: 'Hello' }\n});\n```",
+      "options": [
+        "Nothing is missing",
+        "`await response.json()` before `fetch()`",
+        "`headers: { 'Content-Type': 'application/json' }` and `JSON.stringify(...)` for the body",
+        "`method: 'GET'` instead of `POST`"
+      ],
+      "correct": 2,
+      "explanation": "When posting JSON, you usually set the `Content-Type` header to `application/json` and convert the body with `JSON.stringify(...)`."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\n```javascript\nasync function loadPosts() {\n  const response = await fetch('/api/posts');\n  const data = response.json();\n  console.log(data);\n}\n```",
+      "options": [
+        "Nothing is wrong",
+        "`fetch` cannot be used inside an async function",
+        "`response.json()` also returns a Promise, so it should usually be awaited",
+        "`console.log` cannot print API data"
+      ],
+      "correct": 2,
+      "explanation": "`response.json()` is asynchronous and returns a Promise, so you usually want `const data = await response.json();`."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "Based on this Homework 3 helper, what data is being sent to the server to get a token?\n\n```javascript\nconst postData = {\n  username: username,\n  password: password\n};\nconst response = await fetch(`${rootURL}/api/token/`, {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json'\n  },\n  body: JSON.stringify(postData)\n});\n```",
+      "options": [
+        "Just the bearer token",
+        "A JSON object containing the username and password",
+        "Only the username in a query string",
+        "Nothing, because login requests never send data"
+      ],
+      "correct": 1,
+      "explanation": "This code builds a `postData` object with `username` and `password`, then sends it as JSON in the request body."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "In the Homework 3 code below, what does this line mean?\n\n```javascript\ntoken = await getToken();\n```",
+      "options": [
+        "The code is deleting the token from the server",
+        "The code is waiting for an asynchronous login helper to return the access token",
+        "The code is turning the token into JSON",
+        "The code is making the token public so anyone can use it"
+      ],
+      "correct": 1,
+      "explanation": "`getToken()` is asynchronous, so `await` pauses until it finishes. The returned access token is then stored in the `token` variable."
+    },
+    {
+      "id": "q13",
+      "type": "multiple-choice",
+      "question": "Based on this Homework 3 helper, what does `return data.access_token;` represent?\n\n```javascript\nconst data = await response.json();\nreturn data.access_token;\n```",
+      "options": [
+        "The CSS class for the logged-in user",
+        "The authentication token returned by the server after a successful login request",
+        "A list of posts that belong to the current user",
+        "A boolean that says whether the fetch request used `GET` or `POST`"
+      ],
+      "correct": 1,
+      "explanation": "After the login response is parsed as JSON, `data.access_token` is the token value returned by the server for authenticated requests."
+    },
+    {
+      "id": "q14",
+      "type": "multiple-choice",
+      "question": "If a later `fetch` request needs authentication, where should the token usually go?",
+      "options": [
+        "Inside the HTML of the page",
+        "Inside the `Authorization` header as `Bearer ${token}`",
+        "As the name of the HTTP method",
+        "Inside `response.json()`"
+      ],
+      "correct": 1,
+      "explanation": "For authenticated API requests, the token is commonly sent in the `Authorization` header using the bearer-token format."
+    },
+    {
+      "id": "q15",
+      "type": "multiple-choice",
+      "question": "If you want to create a bookmark by sending `{ post_id: 42 }` as JSON to a protected endpoint, which example is best?",
+      "options": [
+        "```javascript\nawait fetch('/api/bookmarks', {\n  method: 'GET',\n  body: { post_id: 42 }\n});\n```",
+        "```javascript\nawait fetch('/api/bookmarks', {\n  method: 'DELETE',\n  headers: { 'Content-Type': 'application/json' }\n});\n```",
+        "```javascript\nawait fetch('/api/bookmarks', {\n  method: 'POST',\n  headers: {\n    'Content-Type': 'application/json',\n    'Authorization': `Bearer ${token}`\n  },\n  body: JSON.stringify({ post_id: 42 })\n});\n```",
+        "```javascript\nawait fetch('/api/bookmarks', {\n  method: 'POST',\n  body: { post_id: 42 }\n});\n```"
+      ],
+      "correct": 2,
+      "explanation": "To post JSON data to a protected endpoint, use `POST`, stringify the body, set `Content-Type` to `application/json`, and include the bearer token in the `Authorization` header."
+    }
+  ]
+}

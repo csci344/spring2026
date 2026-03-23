@@ -58,28 +58,28 @@
     {
       "id": "q05",
       "type": "multiple-choice",
-      "question": "What does the `reduce` method return?",
+      "question": "In the code below, what is inside the parentheses of `map(...)`, and what is its job?\n\n```javascript\nconst numbers = [1, 2, 3];\nconst doubled = numbers.map(n => n * 2);\n```",
       "options": [
-        "The original array",
-        "A new array",
-        "A single accumulated value",
-        "Nothing (undefined)"
+        "A conditional statement; its job is to decide whether each item stays in the array",
+        "A loop header; its job is to repeat the entire `map` call until the array is finished",
+        "A variable declaration; its job is to store the final result of the `map`",
+        "A callback function; its job is to run once per item and return the transformed value for the new array"
       ],
-      "correct": 2,
-      "explanation": "The `reduce` method executes a reducer function on each element, resulting in a single output value (the accumulated result)."
+      "correct": 3,
+      "explanation": "Inside the parentheses is a callback function: `n => n * 2`. `map` calls that function once for each item in the array, and whatever the function returns becomes the corresponding value in the new array."
     },
     {
       "id": "q06",
       "type": "multiple-choice",
-      "question": "What will this code output?\n\n```javascript\nconst numbers = [1, 2, 3, 4, 5];\nconst sum = numbers.reduce((acc, n) => acc + n, 0);\nconsole.log(sum);\n```",
+      "question": "In the code below, what is inside the parentheses of `filter(...)`, and what is its job?\n\n```javascript\nconst numbers = [1, 2, 3, 4, 5];\nconst bigNumbers = numbers.filter(n => n > 3);\n```",
       "options": [
-        "15",
-        "[1, 2, 3, 4, 5]",
-        "0",
-        "Error"
+        "A callback function; its job is to run once per item and return `true` or `false` to decide whether that item stays in the new array",
+        "A callback function; its job is to transform each item into a different value for a new array",
+        "A loop header; its job is to keep repeating until the array becomes shorter",
+        "A variable declaration; its job is to store the final filtered array"
       ],
       "correct": 0,
-      "explanation": "The `reduce` method accumulates values. Starting with 0, it adds each number: 0+1+2+3+4+5 = 15."
+      "explanation": "Inside the parentheses is a callback function: `n => n > 3`. `filter` calls that function once for each item in the array. If the function returns `true`, the item is kept in the new array; if it returns `false`, the item is left out."
     },
     {
       "id": "q07",
@@ -123,15 +123,15 @@
     {
       "id": "q10",
       "type": "multiple-choice",
-      "question": "What will this code output?\n\n```javascript\nconst todos = [\n    { text: 'Task 1', completed: true },\n    { text: 'Task 2', completed: false },\n    { text: 'Task 3', completed: true }\n];\nconst count = todos.reduce((acc, todo) => {\n    return todo.completed ? acc + 1 : acc;\n}, 0);\nconsole.log(count);\n```",
+      "question": "In the code below, what is inside the parentheses of `toSorted(...)`, and what is its job?\n\n```javascript\nconst numbers = [10, 3, 25, 7];\nconst sortedNumbers = numbers.toSorted((a, b) => b - a);\n```",
       "options": [
-        "1",
-        "2",
-        "3",
-        "Error"
+        "A callback function; its job is to compare two items and tell JavaScript which one should come first in the sorted array",
+        "A callback function; its job is to decide whether each item should stay in the array",
+        "A callback function; its job is to transform each item into a new value",
+        "A loop header; its job is to repeat the sort until every number has been doubled"
       ],
-      "correct": 1,
-      "explanation": "The `reduce` counts how many todos have `completed: true`. There are 2 completed todos, so the result is 2."
+      "correct": 0,
+      "explanation": "Inside the parentheses is a comparison callback function: `(a, b) => b - a`. `toSorted` uses that function to compare pairs of items and decide their order in the new sorted array. In this case, `b - a` sorts the numbers from largest to smallest."
     },
     {
       "id": "q11",

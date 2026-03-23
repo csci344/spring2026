@@ -907,9 +907,9 @@ export const baseTopics = [
     meetings: [
       {
         date: "Mo, Mar 16",
-        topic: "Intro to HTTP & Fetch API",
+        topic: "Intro to HTTP",
         description: (
-          <>Introduction to HTTP protocol + the REST API
+          <>Introduction to HTTP protocol + REST API design
           </>
         ),
         activities: [
@@ -960,6 +960,20 @@ export const baseTopics = [
             ),
           },
         ],
+      },
+      {
+        date: "Mo, Mar 23",
+        topic: "JavaScript Review + Fetch Work Day",
+        description: (
+          <>
+            <ul>
+              <li>Review <code className="language-javascript">forEach</code>, <code className="language-javascript">map</code>, <code className="language-javascript">filter</code>, and <code className="language-javascript">sort</code> / <code className="language-javascript">toSorted</code></li>
+              <li>Review HTTP methods and the <code className="language-javascript">fetch</code> workflow</li>
+              <li>Continue <a href="/assignments/tutorial08">Tutorial 8</a> / <a href="/assignments/hw03">Homework 3</a> work on posts + bookmarks</li>
+              <li>Bridge from vanilla JavaScript rendering to React</li>
+            </ul>
+          </>
+        ),
       }
     ],
   },
@@ -971,7 +985,7 @@ export const baseTopics = [
       "React is a popular JavaScript library for building user interfaces, especially single-page applications (SPAs). It allows developers to create reusable components and manage the state of an application efficiently through a virtual DOM. React's declarative approach simplifies UI development and is widely adopted in modern web development.",
     meetings: [
       {
-        date: "Mo, Mar 23",
+        date: "We, Mar 25",
         topic: "React I: Components, JSX, Props",
         description: (
           <>
@@ -984,8 +998,7 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
-          { title: "Hands-on React Activity", url: "/activities/react-activity", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1Ww7nIhg5XDOG4HHUYqLYxTo_pdn-1tzA/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 1 },
         ],
         readings: [
           {
@@ -1005,7 +1018,7 @@ export const baseTopics = [
         ],
       },
       {
-        date: "We, Mar 25",
+        date: "Mo, Mar 30",
         topic: "React II: State & Effects",
         description: (
           <>
@@ -1027,7 +1040,7 @@ export const baseTopics = [
         ],
       },
       {
-        date: "Mo, Mar 30",
+        date: "We, Apr 1",
         topic: "React III: Sharing State & Syncing with External Data",
         description: (
           <>
@@ -1072,12 +1085,12 @@ export const baseTopics = [
 
   {
     id: 13,
-    title: "Exam 2: JavaScript & React",
+    title: "Exam 2: JavaScript",
     description:
-      "Comprehensive exam covering JavaScript (DOM, higher-order functions, closures, async/await, Fetch API) and React (components, props, state, effects).",
+      "Comprehensive exam covering JavaScript (DOM, higher-order functions, closures, async/await, Fetch API).",
     meetings: [
       {
-        date: "We, Apr 1",
+        date: "Fr, Apr 3",
         topic: "Exam 2 Review",
         description: (
           <>
@@ -1085,13 +1098,12 @@ export const baseTopics = [
               <li>Review of JavaScript: DOM manipulation, event handlers</li>
               <li>Review of JavaScript: Higher-order functions, closures</li>
               <li>Review of JavaScript: Async/await and Fetch API</li>
-              <li>Review of React: Components, props, state, effects</li>
             </ul>
           </>
         ),
       },
       {
-        date: "Fr, Apr 3",
+        date: "Mo, Apr 6",
         topic: "Exam 2",
         description: (
           <>
@@ -1109,50 +1121,28 @@ export const baseTopics = [
 
   {
     id: 14,
-    title: "Servers & APIs",
+    title: "Applied React",
+    description:
+      "Applying React to the Photo App project, including components, props, state, effects, and client-side data fetching patterns.",
+    meetings: [
+        {
+            date: "We, Apr 8",
+            topic: 'Tutorial 10: Getting started with HW4',
+        },
+        {
+            date: "Fr, Apr 10",
+            topic: "TBD"
+        }
+    ]
+  },
+  {
+    id: 15,
+    title: "Design your own API + App",
     description:
       "Understanding how to design and build RESTful APIs, including HTTP methods, endpoint design, authentication, and security. Students will learn to create their own API endpoints using a config-driven approach.",
     meetings: [
       {
-        date: "Mo, Apr 6",
-        topic: "HTTP & REST Fundamentals",
-        description: (
-          <>
-            <ul>
-              <li>Server-side templates vs REST API</li>
-              <li>Understanding REST architecture</li>
-              <li>HTTP methods and RESTful design</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "`", draft: 1 },
-        ],
-        assigned: {
-          titleShort: "HW3",
-          title: "Building a \"Vanilla\" JavaScript Client",
-          url: "/assignments/hw03/",
-          draft: 0,
-        },
-        readings: [
-          {
-            citation: (
-              <>
-                <a href="https://nickjanetakis.com/blog/server-side-templates-vs-rest-api-and-javascript-front-end" target="_blank">Server Side Templates vs REST API and Javascript Front-End</a>. Janetakis, Nick (Oct., 2017).
-              </>
-            ),
-          },
-          {
-            citation: (
-              <>
-                Avraham, Shif Ben (Sept. 5, 2017). <a href="https://medium.com/extend/what-is-rest-a-simple-explanation-for-beginners-part-1-introduction-b4a072f8740f" target="_blank">What is REST — A Simple Explanation for Beginners</a>.
-              </>
-            ),
-          },
-        ],
-      },
-      {
-        date: "We, Apr 8",
+        date: "Mo, Apr 13",
         topic: "Defining Endpoints: Config-Driven API Design",
         description: (
           <>
@@ -1167,79 +1157,17 @@ export const baseTopics = [
           { title: "Slides", url: "#", draft: 1 },
         ],
       },
-
-    ],
-  },
-  {
-    id: 15,
-    title: "React + APIs Integration",
-    description:
-      "Integrating React applications with custom APIs, working with student-designed endpoints, and building full-stack applications.",
-    meetings: [
-      {
-        date: "Mo, Apr 13",
-        topic: "Final Project: API Design Workshop",
-        description: (
-          <>
-            <ul>
-              <li>Final project assigned</li>
-              <li>API design workshop</li>
-              <li>Designing your own API endpoints via config</li>
-            </ul>
-          </>
-        ),
-      },
-      {
-        date: "We, Apr 15",
-        topic: "React with Custom APIs",
-        description: (
-          <>
-            <ul>
-              <li>Using student-designed endpoints in React</li>
-              <li>Connecting React components to custom APIs</li>
-              <li>Handling API responses and errors</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Slides", url: "#", draft: 1 },
-        ],
-      },
       {
         date: "Fr, Apr 17",
-        topic: "Advanced React Patterns & Project Work",
-        description: (
-          <>
-            <ul>
-              <li>Advanced React patterns</li>
-              <li>Final project work time</li>
-              <li>API integration troubleshooting</li>
-            </ul>
-          </>
-        ),
-        activities: [
-          { title: "Tutorial 10", url: "/assignments/tutorial10", draft: 0 },
-        ],
-      },
-      {
-        date: "Mo, Apr 20",
-        topic: "Final Project Work Day",
-        description: (
-          <>
-            <ul>
-              <li>In-class time to work on final project</li>
-              <li>API endpoint testing and debugging</li>
-              <li>Frontend-backend integration</li>
-            </ul>
-          </>
-        ),
-      },
+        topic: "TBD"
+      }
+
     ],
   },
 
   {
     id: 16,
-    title: "Final Project",
+    title: "Special Topics",
     description:
       "Students will design their own API endpoints using a config-driven approach and build a React application that consumes those endpoints. This project integrates all concepts learned throughout the course.",
     meetings: [
@@ -1277,7 +1205,7 @@ export const baseTopics = [
       },
       {
         date: "We, Apr 24",
-        topic: "Final Project Work Day",
+        topic: "Web Sockets",
         description: (
           <>
             <ul>
@@ -1292,7 +1220,7 @@ export const baseTopics = [
       },
       {
         date: "Mo, Apr 27",
-        topic: "Final Project Due",
+        topic: "Data Visualization",
         description: (
           <>
             <ul>
