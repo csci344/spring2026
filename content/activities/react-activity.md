@@ -1,7 +1,7 @@
 ---
 title: "Intro to React (Carousel + Server-Generated Gallery)"
 type: activity
-draft: 1
+draft: 0
 heading_max_level: 3
 ordering: 1
 start_date: "2026-03-25"
