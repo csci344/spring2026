@@ -9,6 +9,7 @@ due_date: "2026-03-25"
 ---
 
 
+{% collapsible closed %}
 ## 1. Don't forget to do the readings
 
 > ### Wednesday
@@ -20,6 +21,7 @@ due_date: "2026-03-25"
 > * <span class="update">Required</span> <a href="https://beta.reactjs.org/learn/sharing-state-between-components" target="_blank">Sharing state between components</a>
 > 
 
+{% collapsible closed %}
 ## 2. Setup
 1. Open your entire `csci344` folder in VS Code.
 1. Create a new folder inside of your `csci344/lectures` folder called `intro-to-react`.
@@ -60,6 +62,7 @@ due_date: "2026-03-25"
 
 When you’re done, preview your HTML page in the browser using VS Code’s Live Server. If you did it correctly, you should see your HTML, and the background should be navy blue.
 
+{% collapsible closed %}
 ## 3. Convert your code to a React project
 
 Now that you’ve created your starter files, you’re going to convert our app into a React app. You will do this from the command line (Windows users use GitBash, Mac users use Terminal):
@@ -103,6 +106,7 @@ A few things just happened:
 
 We’ll talk more about what each of these terms mean in future lessons.
 
+{% collapsible closed %}
 ## 4. Modify Your HTML & JavaScript
 
 Now, we’re going to make a few changes to our HTML and JavaScript to make it a React App.
@@ -172,13 +176,17 @@ Now, go and check <a href="http://localhost:5173/" target="_blank">http://localh
 You have now successfully configured your computer to run React applications. A few notes:
 
 1. The `main.jsx` script essentially injects our first component, `App`, into the DOM.
-1. Notice that App.jsx uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.
+1. Notice that `App.jsx` uses JSX instead of building strings using template literals (the backtick). Just a minor syntax adjustment.
 1. Currently, the App component doesn't do much, but in the subsequent steps, we're going to make it more interesting.
 
+{% collapsible closed %}
 ## 5. Create your first component
 Say we want to make a card for each student in this class with their name, major, photo, and some links to their socials. We can do this by making a component, which standardizizes the way that the information is processed and presented. Let's try making one inside of your `src` folder:
 
-1. Create a new component called **Profile.jsx** and a corresponding stylesheet called **Profile.css**
+1. Create two new files:
+    * A component called **Profile.jsx** and
+    * A corresponding stylesheet called **Profile.css**
+    
 2. Inside of Profile.jsx, import the stylesheet to link the two files together as follows:
 
     ```jsx
@@ -302,6 +310,7 @@ See if you can figure out how to get different people’s profile pics to show u
 
 1. Feel free to style your card by editing your `Profile.css` file.
 
+{% collapsible closed %}
 ## 6. Working with Data
 Components are often rendered "on-the-fly," in response to a user event or server request. 
 
@@ -412,6 +421,7 @@ See if you can modify your `App.jsx` file to iterate through the following array
 We have now seen an approach to generating components from data. But how do we get data from a server?! Great question! We will. But before we do that, we need to cover one more big idea: **state**
 
 
+{% collapsible closed %}
 ## 7. Working with State
 **“State Variables”** enable a component to dynamically redraw after a state change -- usually caused by a user interaction or an external process like retrieving data from a server). In React, we don't target DOM elements. Instead, we just redraw our components. The process for getting state variables to work is as follows:
 
@@ -481,6 +491,7 @@ Can you figure out how to modify the `ButtonCount` component so that it initiali
     1. Create a state variable and setter using React's built-in `useState` function
     1. Invoke the setter function to set the state variable, which will automatically redraw the component.
 
+{% collapsible closed %}
 ## 8. Working with External Data
 We are finally ready to work with external data. Managing external data can be tricky because you're reaching outside of the immediate app to synchronize with another server. In programming, actions like this are called "side effects," because the `fetch` function is accessing something outside of it's immediate scope.
 
