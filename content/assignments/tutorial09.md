@@ -169,6 +169,40 @@ First, ensure that you have completed the tutorial requirements:
 
 Remember that your Browser doesn't understand React because it uses some language features that aren't HTML, CSS, or JavaScript. **We therefore need to "transpile" our code so that it can be displayed on our GitHub server.** To do this:
 
+### Bundling Instructions
+1. Create a new script entry in your `package.json` file to teach vite how to publish your react. It should look something like this:
+
+    ```json
+    {
+        ...
+        "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1",
+            "dev": "vite dev",
+            "build":"vite build"   <-- NEW ENTRY HERE
+        },
+        ...
+    }
+    ```
+1. Create a new file in the root of your `tutorial09` folder called `vite.config.js`
+1. Paste in the following code:
+
+    ```js
+    import { defineConfig } from "vite";
+
+    export default defineConfig({
+        base: "",
+        build: {
+            rollupOptions: {
+                output: {
+                    entryFileNames: "main.js",
+                    assetFileNames: "main.css",
+                    chunkFileNames: "chunk.js",
+                    manualChunks: undefined,
+                },
+            },
+        },
+    });
+    ```
 1. Navigate to your `tutorial09` folder on the command line and run the following:<br> `npm run build`. 
     * This should transpile your code in a folder called `dist`.  
 1. Next, make sure you link to the compiled version of your code (`tutorial09/dist/index.html`) from your homepage.
