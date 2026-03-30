@@ -1,0 +1,137 @@
+{
+  "quizName": "React Setup Basics",
+  "start_date": "2026-03-25",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What is a bundler in front-end development?",
+      "options": [
+        "A website where developers download React components",
+        "A special JavaScript keyword for grouping variables together",
+        "A tool that combines and processes project files so the browser can load the app more efficiently",
+        "A browser extension used to inspect HTML"
+      ],
+      "correct": 2,
+      "explanation": "A bundler takes source files such as JavaScript, CSS, and images, processes them, and prepares them for the browser. In React projects, this is especially important because the browser does not directly understand JSX and some other modern project features on its own. Tools like Vite help transform that code into regular browser-ready JavaScript and package the files together so the app can run."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "Why do projects often use a bundler when building a React app?",
+      "options": [
+        "Because browsers cannot display images without a bundler",
+        "Because React only works on servers",
+        "Because a bundler automatically writes all of your components for you",
+        "Because a bundler helps process modules and other assets into files the browser can use"
+      ],
+      "correct": 3,
+      "explanation": "React projects usually have many modules and assets. A bundler helps turn them into a browser-friendly build."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What is the main job of `package.json` in a JavaScript project?",
+      "options": [
+        "It stores the HTML for the home page",
+        "It stores CSS class names used by the app",
+        "It describes the project, its scripts, and its dependencies",
+        "It contains the final bundled code sent to the browser"
+      ],
+      "correct": 2,
+      "explanation": "`package.json` is the project's configuration file for metadata, scripts such as `npm run dev`, and dependencies such as React or Vite."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "If `react` and `vite` are listed in `package.json`, what does that usually mean?",
+      "options": [
+        "They are built-in browser features",
+        "They are dependencies the project uses and can install with npm",
+        "They are comments for the instructor only",
+        "They are files that should be deleted after the first run"
+      ],
+      "correct": 1,
+      "explanation": "Dependencies listed in `package.json` are packages the project needs. npm can install them into `node_modules`."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "What is Vite?",
+      "options": [
+        "A CSS framework for making buttons",
+        "A development tool and build tool commonly used to create modern front-end apps",
+        "A React component library made by Meta",
+        "A database for storing React props"
+      ],
+      "correct": 1,
+      "explanation": "Vite helps run a development server and build front-end projects such as React apps."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "After running `npm install`, which command usually starts a Vite development server?",
+      "options": [
+        "`npm run html`",
+        "`node package.json`",
+        "`npm run dev`",
+        "`react start vite`"
+      ],
+      "correct": 2,
+      "explanation": "In most Vite projects, the `dev` script is set up in `package.json`, so `npm run dev` starts the development server."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "Why do we run Vite during development?",
+      "options": [
+        "To convert JavaScript into Python",
+        "To publish the app directly to the internet",
+        "To create a GitHub repository automatically",
+        "To launch a development server so we can preview the app and see changes while we work"
+      ],
+      "correct": 3,
+      "explanation": "During development, Vite gives us a local server and a fast workflow for viewing and testing the app as we edit files."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "What is React?",
+      "options": [
+        "A JavaScript library for building user interfaces from components",
+        "A command-line tool for installing npm",
+        "A database language for storing HTML",
+        "A browser built specifically for developers"
+      ],
+      "correct": 0,
+      "explanation": "React is a JavaScript library for building UIs by composing components."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "Which description of Ant Design (`antd`) is best?",
+      "options": [
+        "A package manager used instead of npm",
+        "A bundler that replaces Vite",
+        "A React library that provides prebuilt UI components such as buttons, forms, and modals",
+        "A file where you define React state"
+      ],
+      "correct": 2,
+      "explanation": "Ant Design, often imported as `antd`, is a React component library with ready-made UI pieces."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "Which workflow is most typical for starting work on an existing React + Vite project?",
+      "options": [
+        "`npm run dev`, then `npm install`",
+        "`npm install`, then `npm run dev`",
+        "`vite install`, then `react run`",
+        "Open `package.json` in the browser and click Run"
+      ],
+      "correct": 1,
+      "explanation": "First install the project's dependencies with `npm install`, then start the dev server with `npm run dev`."
+    }
+  ]
+}

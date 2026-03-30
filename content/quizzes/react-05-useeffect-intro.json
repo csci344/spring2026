@@ -1,0 +1,163 @@
+{
+  "quizName": "React useEffect Intro with State and Fetch",
+  "start_date": "2026-04-01",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What is `useEffect` mainly used for in React apps?",
+      "options": [
+        "To define CSS styles inside a component",
+        "To handle side effects such as fetching data after a component renders",
+        "To replace `return` inside JSX",
+        "To create props for child components"
+      ],
+      "correct": 1,
+      "explanation": "`useEffect` is commonly used for side effects, such as loading data, working with timers, or synchronizing with something outside the component."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "Why is fetching data often put inside `useEffect` instead of directly in the body of the component?",
+      "options": [
+        "Because `fetch()` only works inside `useEffect`",
+        "Because React does not allow functions inside components",
+        "Because `useEffect` automatically converts responses into JSX",
+        "Because the component body should stay focused on calculating what to render, while `useEffect` handles side-effect work like fetching"
+      ],
+      "correct": 3,
+      "explanation": "The component body is meant to describe the UI. Fetching is a side effect, so `useEffect` is the usual place for it."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "Which import correctly brings `useEffect` into a React component?",
+      "options": [
+        "`import useEffect from 'react';`",
+        "`import effect from 'react';`",
+        "`import { useEffect } from 'react';`",
+        "`import React.useEffect from 'react';`"
+      ],
+      "correct": 2,
+      "explanation": "`useEffect` is a named export from React, so it is imported with curly braces."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "What does this code usually mean?\n\n```javascript\nuseEffect(() => {\n  loadPosts();\n}, []);\n```",
+      "options": [
+        "Run `loadPosts()` once after the component first renders",
+        "Run `loadPosts()` after every single render forever",
+        "Run `loadPosts()` only when a button is clicked",
+        "Prevent `loadPosts()` from ever running"
+      ],
+      "correct": 0,
+      "explanation": "An empty dependency array `[]` usually means the effect runs once after the component first renders."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "When fetching data from the server, why might we write `const [posts, setPosts] = useState([]);` before using `useEffect`?",
+      "options": [
+        "Because `useEffect` can only run if all state starts as an empty array",
+        "Because React requires all variables to begin with `set`",
+        "So the browser knows to use `POST` instead of `GET`",
+        "So there is state available to store the fetched posts after the request finishes"
+      ],
+      "correct": 3,
+      "explanation": "We often create state first so there is somewhere to store the data once the fetch request completes."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "What is the job of `setPosts(data)` after a fetch succeeds?",
+      "options": [
+        "It sends the data back to the server",
+        "It updates the state so React can re-render with the new posts",
+        "It converts `data` into HTML automatically",
+        "It prevents the component from rendering again"
+      ],
+      "correct": 1,
+      "explanation": "After data is loaded, the setter updates state. React then re-renders so the UI can show the fetched results."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What does this code do?\n\n```javascript\nconst [posts, setPosts] = useState([]);\n\nuseEffect(() => {\n  async function loadPosts() {\n    const response = await fetch('/api/posts');\n    const data = await response.json();\n    setPosts(data);\n  }\n\n  loadPosts();\n}, []);\n```",
+      "options": [
+        "It creates a CSS class called `posts`",
+        "It sends posts to the server every time the user types",
+        "It loads posts after the component renders and stores them in state",
+        "It resets `posts` to an empty array after every fetch"
+      ],
+      "correct": 2,
+      "explanation": "This is the common beginner pattern: create state, fetch data inside `useEffect`, parse the JSON, then store the result with the state setter."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "Why do many examples define an inner `async function loadPosts() { ... }` inside `useEffect` and then call it?",
+      "options": [
+        "Because the effect callback itself is usually written as a normal function, so an inner async helper is a common pattern",
+        "Because React only allows one line of code inside `useEffect`",
+        "Because `fetch` cannot be awaited inside any other function",
+        "Because state setters only work inside nested functions"
+      ],
+      "correct": 0,
+      "explanation": "A very common beginner pattern is to define an inner async function inside the effect and then call it, rather than making the effect callback itself async."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\n```javascript\nconst [posts, setPosts] = useState([]);\n\nuseEffect(() => {\n  const response = fetch('/api/posts');\n  const data = response.json();\n  setPosts(data);\n}, []);\n```",
+      "options": [
+        "Nothing is wrong",
+        "The code should use `delete` instead of `fetch`",
+        "React does not allow `setPosts` inside `useEffect`",
+        "Both `fetch()` and `response.json()` are asynchronous, so this code is missing `await` handling"
+      ],
+      "correct": 3,
+      "explanation": "`fetch()` returns a Promise, and `response.json()` is also asynchronous. In beginner React code, this is usually handled with `await` inside an async helper function."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "What is the big picture workflow when using `useEffect` with `fetch` and state?",
+      "options": [
+        "Create props, fetch CSS, and export the component twice",
+        "Create state, fetch data in `useEffect`, update state with the result, and let React re-render the UI",
+        "Call `setState` in HTML, then import the response into JSX",
+        "Use `useEffect` instead of `useState` so no state is needed"
+      ],
+      "correct": 1,
+      "explanation": "A common beginner pattern is: make a state variable, load data in `useEffect`, store the result in state, and let React re-render using that new data."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "What is the job of the second argument in `useEffect(() => { ... }, [count])`?",
+      "options": [
+        "It stores the JSX that the effect should render",
+        "It creates a brand new state variable",
+        "It tells React when to run the effect based on which values changed",
+        "It converts the fetch response into JSON automatically"
+      ],
+      "correct": 2,
+      "explanation": "The second argument is called the dependency array. React uses it to decide when the effect should run again."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "What does this code usually mean?\n\n```javascript\nuseEffect(() => {\n  console.log('count changed');\n}, [count]);\n```",
+      "options": [
+        "Run the effect after the first render and again whenever `count` changes",
+        "Run the effect only once and then never again",
+        "Run the effect only when the component is deleted",
+        "Run the effect every time any variable anywhere in the app changes"
+      ],
+      "correct": 0,
+      "explanation": "When `count` is in the dependency array, React runs the effect after the initial render and again whenever `count` changes."
+    }
+  ]
+}

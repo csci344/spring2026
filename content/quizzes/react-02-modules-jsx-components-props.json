@@ -1,0 +1,215 @@
+{
+  "quizName": "React Modules, JSX, Components, and Props",
+  "start_date": "2026-03-30",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What does `import` do in JavaScript modules?",
+      "options": [
+        "It sends a file to the server",
+        "It brings in code that was exported from another file",
+        "It automatically creates a React component",
+        "It turns JSX into HTML"
+      ],
+      "correct": 1,
+      "explanation": "`import` lets one file use values, functions, or components that were exported from another module."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What does `export` do in a JavaScript module?",
+      "options": [
+        "It deletes a variable after the file runs",
+        "It converts JSX into plain text",
+        "It makes a value available for other files to import",
+        "It only works inside `App.jsx`"
+      ],
+      "correct": 2,
+      "explanation": "`export` marks something so other files can import and use it."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What is special about `export default`?",
+      "options": [
+        "It means the exported value cannot be imported anywhere else",
+        "It means the file is only for CSS",
+        "It automatically runs the function when the file loads",
+        "A file can have only one default export, and importers can choose its local name"
+      ],
+      "correct": 3,
+      "explanation": "A module can have one default export. When importing it, you do not use curly braces and you can choose the local name."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "Which import correctly matches this export?\n\n```javascript\nexport default function Button() {\n  return <button>Click me</button>;\n}\n```",
+      "options": [
+        "`import { Button } from './Button';`",
+        "`import Button from './Button';`",
+        "`import default Button from './Button';`",
+        "`import './Button' as Button;`"
+      ],
+      "correct": 1,
+      "explanation": "Default exports are imported without curly braces, so `import Button from './Button';` is correct."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "Which import correctly matches this export?\n\n```javascript\nexport function add(a, b) {\n  return a + b;\n}\n```",
+      "options": [
+        "`import { add } from './math';`",
+        "`import add from './math';`",
+        "`import math.add from './math';`",
+        "`import * add from './math';`"
+      ],
+      "correct": 0,
+      "explanation": "Named exports are imported with curly braces, so `import { add } from './math';` is correct."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "What is JSX?",
+      "options": [
+        "A database used by React",
+        "A browser feature that replaces CSS",
+        "A syntax extension that lets us write HTML-like markup inside JavaScript",
+        "A special file type that cannot include JavaScript"
+      ],
+      "correct": 2,
+      "explanation": "JSX lets us write UI markup in a way that looks similar to HTML while still working inside JavaScript."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What does this component render?\n\n```javascript\nfunction Welcome() {\n  return <h1>Hello world</h1>;\n}\n```",
+      "options": [
+        "A paragraph with the text Hello world",
+        "A heading element with the text Hello world",
+        "Nothing, because components cannot return JSX",
+        "An error, because `return` is not allowed in a function"
+      ],
+      "correct": 1,
+      "explanation": "The component returns JSX for an `h1`, so it renders a heading that says `Hello world`."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "Why do React component names usually start with a capital letter?",
+      "options": [
+        "Because lowercase component names automatically run faster",
+        "Because JavaScript requires all functions to start with capital letters",
+        "Because JSX does not allow lowercase letters",
+        "Because React uses capitalization to distinguish custom components from built-in HTML tags"
+      ],
+      "correct": 3,
+      "explanation": "React treats uppercase names like `Greeting` as components and lowercase names like `div` as built-in HTML elements."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What are props in React?",
+      "options": [
+        "Inputs passed from a parent component to a child component",
+        "Special loops used inside JSX",
+        "CSS files attached to a component",
+        "Errors created by missing imports"
+      ],
+      "correct": 0,
+      "explanation": "Props are values passed into a component so it can display or use data from its parent."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "What does this code do?\n\n```javascript\nfunction Greeting({ name }) {\n  return <h1>Hello {name}</h1>;\n}\n```\n\nIf it is rendered as `<Greeting name=\"Ada\" />`, what appears on the page?",
+      "options": [
+        "`Hello undefined`",
+        "`Hello Ada`",
+        "`name=\"Ada\"`",
+        "Nothing, because props cannot be used inside JSX"
+      ],
+      "correct": 1,
+      "explanation": "The component destructures the `name` prop from the props object. Since the component is rendered with `name=\"Ada\"`, the page shows `Hello Ada`."
+    },
+    {
+      "id": "q11",
+      "type": "multiple-choice",
+      "question": "What is wrong with this component?\n\n```javascript\nfunction Card() {\n  return (\n    <h2>Title</h2>\n    <p>Description</p>\n  );\n}\n```",
+      "options": [
+        "Nothing is wrong",
+        "The component must be exported first",
+        "The component is returning two sibling JSX elements without wrapping them in one parent element",
+        "The `p` tag is not allowed in React"
+      ],
+      "correct": 2,
+      "explanation": "A component must return one parent JSX element. The `h2` and `p` should be wrapped in a `div` or fragment."
+    },
+    {
+      "id": "q12",
+      "type": "multiple-choice",
+      "question": "What is the error in this JSX?\n\n```javascript\nfunction App() {\n  return <img src=\"cat.png\">;\n}\n```",
+      "options": [
+        "No error",
+        "`src` is not allowed in JSX",
+        "Images can only be used inside CSS",
+        "React requires `img` to be written with a closing slash, like `<img src=\"cat.png\" />`"
+      ],
+      "correct": 3,
+      "explanation": "In JSX, self-closing tags such as `img` should be written with `/>`."
+    },
+    {
+      "id": "q13",
+      "type": "multiple-choice",
+      "question": "What does this code do?\n\n```javascript\nfunction Profile({ username }) {\n  return <p>User: {username}</p>;\n}\n```\n\nIf it is rendered as `<Profile username=\"sam\" />`, what appears?",
+      "options": [
+        "`User: sam`",
+        "`User: {username}`",
+        "`Profile sam`",
+        "Nothing, because destructuring props is not allowed"
+      ],
+      "correct": 0,
+      "explanation": "The component destructures the `username` prop directly from the props object. Since `username=\"sam\"` is passed in, the page renders `User: sam`."
+    },
+    {
+      "id": "q14",
+      "type": "multiple-choice",
+      "question": "Consider this component:\n\n```javascript\nfunction Header({ title = 'Welcome' }) {\n  return <h1>{title}</h1>;\n}\n```\n\nWhat will `<Header />` render?",
+      "options": [
+        "An `h1` containing `Welcome`",
+        "Nothing, because `title` was not passed in",
+        "An error, because default values are not allowed in component parameters",
+        "An `h1` containing `undefined`"
+      ],
+      "correct": 0,
+      "explanation": "Because the `title` prop has a default value of `'Welcome'`, the component can still render that text even when no `title` prop is passed."
+    },
+    {
+      "id": "q15",
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\n```javascript\nfunction greeting() {\n  return <h1>Hello</h1>;\n}\n\nexport default greeting;\n```\n\nLater it is used like this:\n\n```javascript\n<greeting />\n```",
+      "options": [
+        "Nothing is wrong",
+        "Default exports cannot be functions",
+        "React will treat `greeting` like a built-in HTML tag because it starts with a lowercase letter",
+        "JSX cannot render headings"
+      ],
+      "correct": 2,
+      "explanation": "In JSX, lowercase names are treated like HTML tags. React components should start with a capital letter, such as `Greeting`."
+    },
+    {
+      "id": "q16",
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\n```javascript\nfunction Greeting({ name }) {\n  return <h1>Hello {name}</h1>;\n}\n\nfunction App() {\n  return <Greeting username=\"Ada\" />;\n}\n```",
+      "options": [
+        "Nothing is wrong; the page will show `Hello Ada`",
+        "The `Greeting` component must use `export default` to receive props",
+        "React components cannot be nested inside other components",
+        "The prop name does not match. The component expects `name`, but `App` passes `username`"
+      ],
+      "correct": 3,
+      "explanation": "The `Greeting` component expects a prop called `name`, but `App` passes `username`. Because the prop names do not match, `name` will be `undefined` unless the component provides a default value."
+    }
+  ]
+}

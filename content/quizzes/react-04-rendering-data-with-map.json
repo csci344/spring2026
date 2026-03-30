@@ -1,0 +1,85 @@
+{
+  "quizName": "React Rendering Data with map",
+  "start_date": "2026-04-01",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "Why do React developers often use `map()` when rendering data?",
+      "options": [
+        "Because `map()` changes CSS styles automatically",
+        "Because `map()` turns each item in an array into a new value, often a JSX element",
+        "Because `map()` is required for all React components",
+        "Because `map()` stores state for each list item"
+      ],
+      "correct": 1,
+      "explanation": "In React, `map()` is commonly used to transform an array of data into an array of JSX elements for rendering."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What does this code render?\n\n```javascript\nconst fruits = ['apple', 'banana', 'cherry'];\n\nfunction App() {\n  return (\n    <ul>\n      {fruits.map(fruit => <li>{fruit}</li>)}\n    </ul>\n  );\n}\n```",
+      "options": [
+        "A paragraph containing all three fruit names",
+        "A single list item containing the word `fruit`",
+        "An unordered list with one `li` per fruit",
+        "Nothing, because `map()` cannot be used in JSX"
+      ],
+      "correct": 2,
+      "explanation": "The `map()` call creates one `<li>` element for each fruit in the array, so the component renders a list of fruit names."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What is wrong with this React code?\n\n```javascript\nconst colors = ['red', 'blue'];\n\nfunction App() {\n  return (\n    <div>\n      {colors.map(color => <p>{color}</p>)}\n    </div>\n  );\n}\n```",
+      "options": [
+        "React does not allow `map()` inside a component",
+        "The array must be stored in state before it can be rendered",
+        "The `p` tag cannot be created inside JavaScript",
+        "Nothing is wrong; the component returns JSX elements created from the array"
+      ],
+      "correct": 3,
+      "explanation": "This is valid. The component returns an array of JSX elements, which React can render."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "What does this code do?\n\n```javascript\nconst people = [\n  { id: 1, name: 'Ada' },\n  { id: 2, name: 'Grace' }\n];\n\nfunction App() {\n  return (\n    <div>\n      {people.map(person => (\n        <p key={person.id}>{person.name}</p>\n      ))}\n    </div>\n  );\n}\n```",
+      "options": [
+        "It renders one paragraph for each person",
+        "It renders only the first person",
+        "It creates a JavaScript error because objects cannot be used with `map()`",
+        "It changes the `people` array into strings permanently"
+      ],
+      "correct": 0,
+      "explanation": "The `map()` call transforms each person object into a `<p>` element, so React renders one paragraph per person."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "Why is a `key` prop usually added when rendering a list with `map()`?",
+      "options": [
+        "Because `key` makes the text bold by default",
+        "Because React uses `key` to track list items more reliably when rendering updates",
+        "Because `map()` does not work without `key` in JavaScript",
+        "Because `key` is how components receive props"
+      ],
+      "correct": 1,
+      "explanation": "When rendering lists, React uses `key` to identify items more reliably across renders. A stable key helps React update the UI correctly."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "What usually happens if you render a list with `map()` but do not include a `key` prop on the repeated elements?",
+      "options": [
+        "React will always crash immediately",
+        "The list will never appear on the page",
+        "React will usually show a warning and list updates may become harder for React to track correctly",
+        "JavaScript will automatically add keys for you using the variable name"
+      ],
+      "correct": 2,
+      "explanation": "If list items do not have a `key`, React will usually show a warning. The UI may still render, but React has a harder time tracking which items changed between renders."
+    }
+  ]
+}

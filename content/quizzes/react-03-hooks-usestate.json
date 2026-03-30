@@ -1,0 +1,137 @@
+{
+  "quizName": "React Hooks and useState",
+  "start_date": "2026-03-30",
+  "draft": 0,
+  "questions": [
+    {
+      "id": "q01",
+      "type": "multiple-choice",
+      "question": "What is a React hook?",
+      "options": [
+        "A built-in function that lets function components use React features such as state",
+        "A special kind of CSS class for components",
+        "A package manager command for installing React libraries",
+        "A syntax rule for naming files in Vite"
+      ],
+      "correct": 0,
+      "explanation": "React hooks are built-in functions such as `useState` and `useEffect` that let function components use React features."
+    },
+    {
+      "id": "q02",
+      "type": "multiple-choice",
+      "question": "What is the main purpose of `useState()`?",
+      "options": [
+        "To import components from other files",
+        "To store data that can change over time and trigger a re-render when updated",
+        "To create CSS rules inside JavaScript",
+        "To loop through arrays in JSX"
+      ],
+      "correct": 1,
+      "explanation": "`useState()` lets a component remember changing data. When that state changes, React re-renders the component."
+    },
+    {
+      "id": "q03",
+      "type": "multiple-choice",
+      "question": "What does this line do?\n\n```javascript\nconst [count, setCount] = useState(0);\n```",
+      "options": [
+        "It creates a prop called `count` and a CSS class called `setCount`",
+        "It creates two separate components",
+        "It creates a state variable called `count` and a function called `setCount` to update it",
+        "It creates an array that React cannot change"
+      ],
+      "correct": 2,
+      "explanation": "This destructures the array returned by `useState(0)`. `count` holds the current value, and `setCount` updates it."
+    },
+    {
+      "id": "q04",
+      "type": "multiple-choice",
+      "question": "In `useState(0)`, what does the `0` mean?",
+      "options": [
+        "It means the state can only hold numbers",
+        "It tells React to render the component zero times",
+        "It is the index of the component in the page",
+        "It is the initial state value"
+      ],
+      "correct": 3,
+      "explanation": "The argument passed to `useState(...)` is the initial value of the state variable."
+    },
+    {
+      "id": "q05",
+      "type": "multiple-choice",
+      "question": "What usually happens when `setCount(count + 1)` is called?",
+      "options": [
+        "The component updates the state and re-renders",
+        "React reloads the entire website from scratch",
+        "The browser closes the component",
+        "The `count` variable becomes a string"
+      ],
+      "correct": 0,
+      "explanation": "Calling the setter updates state and tells React to re-render the component with the new value."
+    },
+    {
+      "id": "q06",
+      "type": "multiple-choice",
+      "question": "What will this component show after the button is clicked once?\n\n```javascript\nfunction Counter() {\n  const [count, setCount] = useState(0);\n\n  return (\n    <button onClick={() => setCount(count + 1)}>\n      {count}\n    </button>\n  );\n}\n```",
+      "options": [
+        "`0`",
+        "`1`",
+        "`count + 1`",
+        "An error, because buttons cannot use state"
+      ],
+      "correct": 1,
+      "explanation": "The initial state is `0`. After one click, `setCount(count + 1)` updates it to `1`, so the button shows `1`."
+    },
+    {
+      "id": "q07",
+      "type": "multiple-choice",
+      "question": "What is wrong with this code?\n\n```javascript\nfunction Counter() {\n  let count = 0;\n\n  return (\n    <button onClick={() => count = count + 1}>\n      {count}\n    </button>\n  );\n}\n```",
+      "options": [
+        "Nothing is wrong; this is the best way to update React data",
+        "Buttons cannot contain numbers in React",
+        "Regular variables do not cause React to re-render the component the way state does",
+        "React does not allow variables inside components"
+      ],
+      "correct": 2,
+      "explanation": "A normal variable like `count` does not persist and trigger re-renders the way React state does. `useState` should be used for changing UI data."
+    },
+    {
+      "id": "q08",
+      "type": "multiple-choice",
+      "question": "Which line correctly imports `useState`?",
+      "options": [
+        "`import useState from 'react';`",
+        "`import React.useState from 'react';`",
+        "`import state from 'react';`",
+        "`import { useState } from 'react';`"
+      ],
+      "correct": 3,
+      "explanation": "`useState` is a named export from React, so it is imported with curly braces."
+    },
+    {
+      "id": "q09",
+      "type": "multiple-choice",
+      "question": "What does this code do?\n\n```javascript\nconst [name, setName] = useState('Ada');\n```",
+      "options": [
+        "It creates state that starts as the string `'Ada'`",
+        "It creates a prop called `name`",
+        "It creates a component called `setName`",
+        "It means `name` can never change"
+      ],
+      "correct": 0,
+      "explanation": "This creates a piece of state named `name` with an initial value of `'Ada'`, plus a setter function named `setName`."
+    },
+    {
+      "id": "q10",
+      "type": "multiple-choice",
+      "question": "In beginner React examples, why is `useState` often introduced with buttons and counters?",
+      "options": [
+        "Because counters are the only thing `useState` can do",
+        "Because button clicks make it easy to see how updating state changes what is rendered",
+        "Because React requires every app to have a counter first",
+        "Because `useState` only works inside `button` elements"
+      ],
+      "correct": 1,
+      "explanation": "Counters are a simple way to show the core idea of state: user interaction changes data, and the component re-renders to show the new value."
+    }
+  ]
+}
