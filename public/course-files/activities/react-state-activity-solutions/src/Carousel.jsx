@@ -4,25 +4,22 @@ import "./Carousel.css";
 
 export default function Carousel({ gallery }) {
     const [idx, setIdx] = useState(0);
-    console.log(gallery);
     const currentImageUrl = gallery[idx];
 
     // effect to reset counter each time a new gallery is set:
     useEffect(() => setIdx(0), [gallery]);
 
     function previous() {
-        console.log("previous");
         idx > 0 ? setIdx(idx - 1) : setIdx(gallery.length - 1);
-    };
+    }
 
     function next() {
-        console.log("next");
         idx < gallery.length - 1 ? setIdx(idx + 1) : setIdx(0);
     }
     return (
         <div className="carousel">
             {/* Image and Caption */}
-            <img src={currentImageUrl} />
+            <img src={currentImageUrl} alt={`Photo ${idx + 1}`} />
             <p className="progress">
                 Photo {idx + 1} of {gallery.length}
             </p>

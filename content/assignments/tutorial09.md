@@ -170,7 +170,7 @@ First, ensure that you have completed the tutorial requirements:
 Remember that your Browser doesn't understand React because it uses some language features that aren't HTML, CSS, or JavaScript. **We therefore need to "transpile" our code so that it can be displayed on our GitHub server.** To do this:
 
 ### Bundling Instructions
-1. Create a new script entry in your `package.json` file to teach vite how to publish your react. It should look something like this:
+1. Create a new script entry in your `package.json` file to teach vite how to publish your react. It should look something like this;
 
     ```json
     {

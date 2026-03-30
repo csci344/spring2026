@@ -1029,6 +1029,9 @@ export const baseTopics = [
             </ul>
           </>
         ),
+        activities: [
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1Ww7nIhg5XDOG4HHUYqLYxTo_pdn-1tzA/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
+        ],
         readings: [
           {
             citation: (
