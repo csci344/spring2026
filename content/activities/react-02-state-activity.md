@@ -19,7 +19,7 @@ due_date: "2026-03-30"
 > * Explain why shared state should live in a parent component
 
 ## 1. Download the starter files
-<a href="/spring2026/course-files/activities/react-state-activity.zip" class="nu-button">Starter Code <i class="fas fa-download"></i></a> <a href="/spring2026/course-files/activities/react-state-activity-solutions.zip" class="button">Solutions <i class="fas fa-download"></i></a>
+<a href="/spring2026/course-files/activities/react-02-state-activity.zip" class="nu-button">Starter Code <i class="fas fa-download"></i></a> <a href="/spring2026/course-files/activities/react-02-state-activity-solutions.zip" class="button">Solutions <i class="fas fa-download"></i></a>
 
 
 ## 2. Install the dependencies
