@@ -1083,6 +1083,13 @@ export const baseTopics = [
           },
         ],
       },
+      {
+        date: "Fri, Apr 3",
+        topic: "React IV: Sharing State & Syncing with External Data Continued",
+        description: (
+            <>Today we will be finishing up our previous activity from Wednesday.</>
+        )
+      }
     ],
   },
 
@@ -1093,7 +1100,7 @@ export const baseTopics = [
       "Comprehensive exam covering JavaScript (DOM, higher-order functions, closures, async/await, Fetch API).",
     meetings: [
       {
-        date: "Fr, Apr 3",
+        date: "Mo, Apr 6",
         topic: "Exam 2 Review",
         description: (
           <>
@@ -1123,7 +1130,7 @@ export const baseTopics = [
         ],
       },
       {
-        date: "Mo, Apr 6",
+        date: "We, Apr 8",
         topic: "Exam 2",
         description: (
           <>
@@ -1144,17 +1151,13 @@ export const baseTopics = [
 
   {
     id: 14,
-    title: "Applied React",
+    title: "Getting Started with HW4: Photo App + React",
     description:
       "Applying React to the Photo App project, including components, props, state, effects, and client-side data fetching patterns.",
     meetings: [
         {
-            date: "We, Apr 8",
-            topic: 'Tutorial 10: Getting started with HW4',
-        },
-        {
             date: "Fr, Apr 10",
-            topic: "TBD"
+            topic: 'Tutorial 10: Getting started with HW4',
         }
     ]
   },
