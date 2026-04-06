@@ -17,4 +17,5 @@ Here are some basic concepts and practice problems for the JavaScript portion of
 6. [Higher Order Array Functions](js-06-higher-order-array-functions)
 7. [Higher Order Practice](js-07-higher-order-practice)
 8. [The Spread Operator & Object Destructuring](js-08-spread-operator-object-destructuring)
+9. [Async/Await + Fetch API](js-09-fetch-async-await)
 

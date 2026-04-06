@@ -1113,19 +1113,98 @@ export const baseTopics = [
         ),
         activities: [
           {
-            title: "Practice Exam 2: JavaScript Review",
+            title: "Exam 2 Practice: JavaScript Paper-Based Exam",
             url: "/exams/exam02-practice",
             draft: 0
           },
           {
-            title: "Exam 2 Review Activity",
+            title: "Exam 2 Practice: Activity",
             url: "/activities/exam02-practice-activity",
             draft: 0
           },
           {
-            title: "Practice Interactive Quizzes",
+            title: "Exam 2 Practice: Interactive Quizzes",
             url: "/quizzes",
             draft: 0
+          },
+        ],
+        readings: [
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-00-intro">Introduction</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-01-dom-cheatsheet">DOM Cheatsheet</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-01-java-comparison">JavaScript vs Java: Quick Reference</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-02-basic-programming-practice">Basic Programming Practice</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-03-basic-programming">Basic Programming in JavaScript</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-04-the-dom">Working with the DOM</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-05-dom-practice">DOM Practice Problems</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/spring2026/resources/js-06-higher-order-array-functions">Higher Order Array Functions</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/resources/js-07-higher-order-practice">Higher Order Array Functions: Practice</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/resources/js-08-spread-operator-object-destructuring">Object Destructuring & the Spread Operator</a>
+              </>
+            ),
+          },
+          {
+            citation: (
+              <>
+                JavaScript resource: <a href="/resources/js-09-fetch-async-await">Async/Await + Fetch API</a>
+              </>
+            ),
           }
         ],
       },
