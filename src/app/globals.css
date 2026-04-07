@@ -247,11 +247,15 @@ ol ul li {
     @apply mb-12;
 }
   
-.list-spaced li {
-    @apply mb-4;
+.list-spaced > li, .alpha-list > li {
+    @apply !mb-2;
 }
 
-.alpha-list {
+.list-extra-spaced > li {
+    @apply mb-12;
+}
+
+.alpha-list, .alpha-list-spaced {
     list-style: lower-alpha;
     padding-left: 1rem;
 }

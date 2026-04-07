@@ -1224,6 +1224,12 @@ export const baseTopics = [
             </ul>
           </>
         ),
+        activities: [
+          { title: "Exam 2: JavaScript Paper-Based Exam",
+            url: "/exams/exam02",
+            draft: 0
+          }
+        ]
       },
     ],
   },
