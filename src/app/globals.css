@@ -251,8 +251,13 @@ ol ul li {
     @apply !mb-2;
 }
 
+
+.list-medium-spaced > li {
+    @apply !mb-6;
+}
+
 .list-extra-spaced > li {
-    @apply mb-12;
+    @apply !mb-12;
 }
 
 .alpha-list, .alpha-list-spaced {
@@ -1119,7 +1124,7 @@ pre code {
 
 .answer-xl {
     @apply mb-4 border border-black dark:border-white p-4 rounded-lg;
-    height: 450px;
+    height: 420px;
 }
 
 

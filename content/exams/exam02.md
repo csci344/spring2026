@@ -13,6 +13,8 @@ points: 100
 ## Introduction
 This is a paper-based 75-minute JavaScript exam. It focuses on reading code, reasoning about what code will do, and writing short JavaScript snippets by hand.
 
+**Name:** ______________________________________
+
 > ### Guidelines
 > * Read each prompt carefully.
 > * For multiple-choice questions, clearly circle or mark your answer(s).
@@ -20,19 +22,163 @@ This is a paper-based 75-minute JavaScript exam. It focuses on reading code, rea
 > * For code-writing questions, keep your solution short and focused.
 > * Unless a prompt says otherwise, assume all selectors match real elements and the code runs in a browser without syntax errors.
 
-## 1. Multiple Choice + Select All [25pts] <a id="part-1-multiple-choice--select-all-25pts"></a>
+<!-- .list-extra-spaced -->
+1. [4 pts] Consider the following:
+
+    {% no-copy %}
+    ```javascript
+    let myList = [[1, 8], [6, 9], [0, 7], [3, 2]];
+    let result = myList.length;
+    ```
+
+    <!-- .list-medium-spaced -->
+    1. What is the VALUE stored in `result`?  ______________________________
+    1. What is the DATA TYPE of `result`?     ______________________________
+
+
+
+<div class="page-break"></div>
+
+2. [4 pts] Consider the following:
+
+    {% no-copy %}
+    ```javascript
+    let myList = [[1, 8], [6, 9], [0, 7], [3, 2]];
+    let result = myList[2][1] * myList[3][0];
+    ```
+
+    <!-- .list-medium-spaced -->
+    1. What is the VALUE stored in `result`? ______________________________
+    1. What is the DATA TYPE of `result`?    ______________________________
+
+
+
+3. [4 pts] Consider the following:
+
+    {% no-copy %}
+    ```javascript
+    let a = 4;
+    let b = 6;
+    let c = false;
+    let result = c || !(b <= a);
+    ```
+
+    <!-- .list-medium-spaced -->
+    1. What is the VALUE stored in `result`?  ______________________________
+    1. What is the DATA TYPE of `result`?     ______________________________
+
+
+4. [4 pts] After the following code block runs, what prints to the screen?
+
+    {% no-copy %}
+    ```javascript
+    let a = false;
+    let b = true;
+    let c = true;
+    let result = null;
+
+    if (a || !c) {
+        result = 'rose';
+    } else if (!b || !a) {
+        result = 'tulip';
+    } else if (b) {
+        result = 'daisy';
+    } else {
+        result = 'buttercup';
+    }
+    console.log(result);
+    ```
+
+    <p class="answer-sm"></p>
+
+<div class="page-break"></div>
 
 <!-- .list-extra-spaced -->
-1. Circle the true statements:
+5. [8 pts] Consider the following code:
+
+    {% no-copy %}
+    ```javascript
+    function f1(a, b) {
+        return b / a + 1;
+    }
+
+    function f2(a, b) {
+        return (a - b) * 2;
+    }
+
+    let x = f1(2, 4);
+    let y = f2(5, x);
+    let z = f1(f2(2, 1), y);
+    console.log(x, y, z);
+    ```
+
+    <!-- .list-medium-spaced -->
+    1. What is the value stored in `x`?   ______________________________
+    1. What is the value stored in `y`?   ______________________________
+    1. What is the value stored in `z`?   ______________________________
+
+
+6. [4 pts] What will this code output? Circle the correct answer below:
+
+    {% no-copy %}
+    ```javascript
+    console.log(5 == '5');
+    console.log(5 === '5');
+    ```
+    <!-- .alpha-list -->
+    - `true` then `true`
+    - `true` then `false`
+    - `false` then `true`
+    - `false` then `false`
+
+
+<div class="page-break"></div>
+
+<!-- .list-extra-spaced -->
+7. [4 pts] In your own words, explain the difference between `let` and `const`.
+
+    <p class="answer-md"></p>
+
+8. [4 pts] What will this code output? Circle the correct answer below:
+
+    {% no-copy %}
+    ```javascript
+    function greet(name = 'Guest') {
+      console.log('Hello, ' + name);
+    }
+    greet();
+    greet('Alice');
+    ```
+    <!-- .alpha-list -->
+    - `Hello, Guest` then `Hello, Alice`
+    - `Hello, undefined` then `Hello, Alice`
+    - `Hello, Guest` then `Hello, Guest`
+    - Error
+
+9. [4 pts] Which of the following function definitions are written correctly? Circle all that apply.
 
     <!-- .alpha-list -->
-    - `map(...)` returns a new transformed array.
-    - `filter(...)` accepts a callback function as an argument that should return `true` or `false`.
-    - `forEach(...)` returns a new transformed array.
-    - `toSorted(...)` returns a sorted copy.
-    - `forEach(...)` is most useful when you want a return value to store in a new variable.
+    - `function double(x) { return x * 2; }`
+    - `const double = (x) => x * 2;`
+    - `const double = x =>  x * 2;`
+    - `const double = (x) => { x * 2; }`
+    - `const double = (x) => { return x * 2; }`
+    - `function = double(x) { return x * 2; }`
 
-1. What will this code output? Circle the correct answer below:
+
+<div class="page-break"></div>
+
+<!-- .list-extra-spaced -->
+10. [4 pts] Circle the true statements:
+
+    <!-- .alpha-list -->
+    - `myArray.map(...)` returns a new transformed array.
+    - `myArray.filter(...)` accepts a callback function as an argument that should return `true` or `false`.
+    - `myArray.forEach(...)` returns a new transformed array.
+    - `myArray.toSorted(...)` returns a sorted copy.
+    - `myArray.forEach(...)` is most useful when you want a return value to store in a new variable.
+
+11. [4 pts] What will this code output? Circle the correct answer below:
 
     {% no-copy %}
     ```javascript
@@ -47,178 +193,26 @@ This is a paper-based 75-minute JavaScript exam. It focuses on reading code, rea
     - `{ theme: 'light', compact: true, fontSize: 'large' }`  
     - Error
 
-1. Circle the true statements.
-
-    <!-- .alpha-list -->
-    - `document.querySelectorAll('.item')` returns every matching element.
-    - The current text typed into an `<input>` is usually read with `textContent`.
-    - `event.preventDefault()` is commonly used in submit handlers.
-    - `classList.add('active')` removes a class if it already exists.
-    - `insertAdjacentHTML('beforeend', html)` inserts HTML before the target element itself.
-
-
-1. Explain what happens each time the button is clicked.
-
-    {% no-copy %}
-    ```javascript
-    const button = document.querySelector('#toggle');
-    const panel = document.querySelector('.panel');
-
-    button.addEventListener('click', () => {
-      panel.classList.toggle('open');
-
-      if (panel.classList.contains('open')) {
-        button.textContent = 'Hide details';
-      } else {
-        button.textContent = 'Show details';
-      }
-    });
-    ```
+12. [6 pts] Name 3 HTTP methods and describe their purpose.
 
     <p class="answer-lg"></p>
-1. Suppose the input already contains `pear`, and then the JavaScript below runs once. What new HTML is added to the page?
 
-    {% no-copy %}
-    ```html
-    <input id="fruit" value="pear" />
-    <ul id="list"></ul>
-    ```
+<div class="page-break"></div>
 
-    {% no-copy %}
-    ```javascript
-    const input = document.querySelector('#fruit');
-    const list = document.querySelector('#list');
-
-    list.insertAdjacentHTML('beforeend', `<li>${input.value.toUpperCase()}</li>`);
-    ```
-
-    <p class="answer-md"></p>
-1. In your own words, when would you use `textContent` instead of `innerHTML`?
-
-    <p class="answer-md"></p>
-1. What is wrong with this code, and how would you fix it?
-
-    {% no-copy %}
-    ```javascript
-    const cards = document.querySelectorAll('.card');
-    cards.style.backgroundColor = 'yellow';
-    ```
-
-    <p class="answer-md"></p>
-
-1. Use `map(...)` to transform the array of objects below into an array of HTML strings:
-
-    {% no-copy %}
-    ```javascript
-    const books = [
-      { id: 1, title: 'Parable of the Sower', author: 'Octavia Butler' },
-      { id: 2, title: 'Dune', author: 'Frank Herbert' },
-      { id: 3, title: 'Kindred', author: 'Octavia Butler' }
-    ];
-    ```
-
-    Expected output:
-
-    {% no-copy %}
-    ```javascript
-    [
-      '<p><strong>Parable of the Sower</strong>Octavia Butler</p>',
-      '<p><strong>Dune</strong>Frank Herbert</p>',
-      '<p><strong>Kindred</strong>Octavia Butler</p>'
-    ]
-    ```
-
-    <p class="answer-lg"></p>
-2. Use `filter(...)` to create a new array containing only the assignments whose `completed` value is `false`.
-
-    {% no-copy %}
-    ```javascript
-    const assignments = [
-      { id: 1, title: 'Quiz 1', completed: true },
-      { id: 2, title: 'Tutorial 10', completed: false },
-      { id: 3, title: 'Homework 4', completed: false },
-      { id: 4, title: 'Reflection', completed: true }
-    ];
-    ```
-
-    Expected output:
-
-    {% no-copy %}
-    ```javascript
-    [
-      { id: 2, title: 'Tutorial 10', completed: false },
-      { id: 3, title: 'Homework 4', completed: false }
-    ]
-    ```
-
-    <p class="answer-lg"></p>
-3. Write a function and event handler so that when the user clicks a button labeled `Show Results`, your code uses `forEach(...)` to append one `<p>` element per student inside the element with id `results`.
-
-    {% no-copy %}
-    ```javascript
-    const students = [
-      { id: 1, name: 'Ava' },
-      { id: 2, name: 'Leo' },
-      { id: 3, name: 'Mina' }
-    ];
-    ```
-
-    You may assume these elements already exist:
-
-    {% no-copy %}
-    ```html
-    <button id="show-results">Show Results</button>
-    <section id="results"></section>
-    ```
-
-    Expected result after the button is clicked:
-
-    {% no-copy %}
-    ```html
-    <button id="show-results">Show Results</button>
-    <section id="results">
-      <p>Ava</p>
-      <p>Leo</p>
-      <p>Mina</p>
-    </section>
-    ```
-
-
+<!-- .list-extra-spaced -->
+13. [6 pts] What is the purpose of a bearer token? Why do we put the bearer token in the `Authorization` header?
 
     <p class="answer-lg"></p>
 
 
-1. Identify **two** problems in this function.
-
-    {% no-copy %}
-    ```javascript
-    async function createComment(text, token) {
-      const response = await fetch('/api/comments', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': token
-        },
-        body: { text: text }
-      });
-
-      const data = response.json();
-      return data;
-    }
-    ```
+14. [6 pts] In your own words, what does `fetch()` do, and why do we usually use it with `async` / `await`?
 
     <p class="answer-lg"></p>
 
-1. Parsons Problem: Put these lines in the correct order to complete a function that fetches data from `/api/students` and renders each student's name inside `#results`.
+<div class="page-break"></div>
 
-    Assume this element already exists:
-
-    {% no-copy %}
-    ```html
-    <section id="results"></section>
-    ```
-
-    Write the correct order using the letters only (for example: `B, D, A, C, ...`).
+<!-- .list-extra-spaced -->
+15. [8 pts] Put these lines in the correct order to complete a function that fetches data from `/api/students` and renders each student's name inside `#results`.
 
     <!-- .alpha-list -->
     - ```const html = students.map(student => `<p>${student.name}</p>`).join('');```
@@ -228,18 +222,54 @@ This is a paper-based 75-minute JavaScript exam. It focuses on reading code, rea
     - `}`
     - `const students = await response.json();`
 
-    <p class="answer-md"></p>
-1. What is the purpose of a bearer token? Why do we put the bearer token in the `Authorization` header?
-
-    <p class="answer-md"></p>
-
-
-1. [5pts] Use `map(...)` to create a new array of HTML strings from the student objects below. Each string should look like this:
+    <!-- .mt-4 -->
+    Assume this element already exists:
 
     {% no-copy %}
     ```html
-    <p><strong>Alice:</strong> Computer Science</p>
+    <section id="results"></section>
     ```
+
+
+    Write the correct function in the area below:
+    <p class="answer-lg"></p>
+
+
+<div class="page-break"></div>
+
+<!-- .list-extra-spaced -->
+16. [10 pts] Write a function named `courseToHTML(course)` that takes a course object (like the one shown below) and returns the following string. 
+
+    {% no-copy %}
+    ```html
+    <article class="course">
+      <h3>JavaScript</h3>
+      <p>Room: RB 244</p>
+      <p>Credits: 3</p>
+      <p>Instructor: Walter Jones</p>
+    </article>
+    ```
+
+    - Use a template literal.  
+    - Your function should work for any course object (not just a course on JavaScript) 
+
+
+    {% no-copy %}
+    ```javascript
+    const course = {
+      title: "JavaScript",
+      room: "RB 244",
+      credits: 3, 
+      instructors: [{ fullName: 'Walter Jones' }]
+    };
+    ```
+
+    <p class="answer-lg"></p>
+
+<div class="page-break"></div>
+
+<!-- .list-extra-spaced -->
+17. [8 pts] Use `filter(...)` to create a new array containing only the students whose major is `"Computer Science"`.
 
     {% no-copy %}
     ```javascript
@@ -252,40 +282,36 @@ This is a paper-based 75-minute JavaScript exam. It focuses on reading code, rea
     ];
     ```
 
-    <p class="answer-lg"></p>
-1. [5pts] Use `filter(...)` to create a new array containing only the students whose major is `"Computer Science"`.
+    <p class="answer-xl"></p>
 
-    {% no-copy %}
-    ```javascript
-    const students = [
-      { name: "Alice", age: 20, grade: 85, major: "Computer Science" },
-      { name: "Bob", age: 21, grade: 92, major: "Mathematics" },
-      { name: "Charlie", age: 19, grade: 78, major: "Computer Science" },
-      { name: "Diana", age: 22, grade: 95, major: "Physics" },
-      { name: "Eve", age: 20, grade: 88, major: "Computer Science" }
-    ];
-    ```
 
-    <p class="answer-lg"></p>
-1. [5pts] Add a click event handler to the button below. When the user clicks the button, the paragraph with id `message` should display `Welcome to the exam review!`
+<div class="page-break"></div>
+
+<!-- .list-extra-spaced -->
+18. [12 pts] Write a function and event handler so that when the user clicks a button labeled `Show Mascot`, your code updates the image and caption in the DOM.
+
+    You may assume these elements already exist:
 
     {% no-copy %}
     ```html
-    <button id="show-message">Show Message</button>
-    <p id="message"></p>
+    <button id="show-mascot">Show Mascot</button>
+    <img id="mascot" src="" alt="">
+    <p id="caption"></p>
     ```
 
-    <p class="answer-lg"></p>
-1. [5pts] Loop through the `topics` array below and append one `<li>` per topic inside the element with id `topic-list`.
+    When the button is clicked:
+    1. set the image `src` to `"bulldog.png"`
+    1. set the image `alt` to `"Bulldog mascot"`
+    1. set the paragraph text to `UNCA Bulldogs`
 
-    {% no-copy %}
-    ```javascript
-    const topics = ["DOM", "Events", "fetch"];
-    ```
+    Expected result after the button is clicked:
 
     {% no-copy %}
     ```html
-    <ul id="topic-list"></ul>
+    <button id="show-mascot">Show Mascot</button>
+    <img id="mascot" src="bulldog.png" alt="Bulldog mascot">
+    <p id="caption">UNCA Bulldogs</p>
     ```
 
-    <p class="answer-lg"></p>
+    In the section below, write the JavaScript (and if necessary, also rewrite the HTML button code). 
+    <p class="answer-xl"></p>
