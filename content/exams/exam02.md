@@ -22,6 +22,100 @@ This is a paper-based 75-minute JavaScript exam. It focuses on reading code, rea
 > * For code-writing questions, keep your solution short and focused.
 > * Unless a prompt says otherwise, assume all selectors match real elements and the code runs in a browser without syntax errors.
 
+<blockquote class="info">
+
+{% collapsible closed %}
+## Answer Key
+
+{% no-copy %}
+```js
+1. Value: 4
+   Data type: number
+
+2. Value: 21
+   Data type: number
+
+3. Value: true
+   Data type: boolean
+
+4. tulip
+
+5. x = 3
+   y = 4
+   z = 3
+
+6. B -  true then false
+
+7. Sample answer:
+   `let` can be reassigned; `const` cannot be reassigned after it is created.
+   For objects and arrays, a `const` variable cannot be reassigned to a new object/array,
+   but the contents of that object or array can still change.
+
+8. A - Hello, Guest then Hello, Alice
+
+9. Correct definitions: A, B, C, and E
+
+10. True statements: A, B, and D
+
+11. D - { theme: 'light', compact: true, fontSize: 'large' }
+
+12. Sample answer:
+   GET = retrieve data
+   POST = create/send new data
+   PATCH = update part of a resource
+   DELETE = remove a resource
+
+13. Sample answer:
+   A bearer token is a token that proves the user is authenticated.
+   We put it in the Authorization header because that is the standard place to send
+   authentication credentials with an HTTP request.
+
+14. Sample answer:
+   `fetch()` sends an HTTP request to a server or API.
+   We usually use it with `async` / `await` because the request takes time and
+   `fetch()` returns a Promise, so we need to wait for the response.
+
+15.
+   async function loadStudents() {
+     const response = await fetch('/api/students');
+     const students = await response.json();
+     const html = students.map(student => `<p>${student.name}</p>`).join('');
+     document.querySelector('#results').innerHTML = html;
+   }
+
+16.
+   function courseToHTML(course) {
+     return `
+       <article class="course">
+         <h3>${course.title}</h3>
+         <p>Room: ${course.room}</p>
+         <p>Credits: ${course.credits}</p>
+         <p>Instructor: ${course.instructors[0].fullName}</p>
+       </article>
+     `;
+   }
+
+17.
+   const csStudents = students.filter(student => student.major === "Computer Science");
+
+18.
+   function showMascot() {
+     const mascot = document.querySelector('#mascot');
+     const caption = document.querySelector('#caption');
+     mascot.src = 'bulldog.png';
+     mascot.alt = 'Bulldog mascot';
+     caption.textContent = 'UNCA Bulldogs';
+   }
+
+   // You can either attach the event handler using JavaScript....
+   document.querySelector('#show-mascot').addEventListener('click', showMascot);
+
+   // ...or you can attach the event handler via HTML:
+   <button id="show-mascot" onclick="showMascot()">Show Mascot</button>
+```
+
+</blockquote>
+
 <!-- .list-extra-spaced -->
 1. [4 pts] Consider the following:
 

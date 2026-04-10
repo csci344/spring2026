@@ -3,9 +3,9 @@ title: "Final Project"
 type: "project"
 num: "(Overview)"
 draft: 1
-assigned_date: "2026-04-13"
+assigned_date: "2026-04-15"
 heading_max_level: 3
-# hide_from_list: 1
+hide_from_list: 1
 order: 2
 points: 100
 toc: false

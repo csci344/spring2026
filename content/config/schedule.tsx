@@ -1243,6 +1243,10 @@ export const baseTopics = [
         {
             date: "Fr, Apr 10",
             topic: 'Tutorial 10: Getting started with HW4',
+        },
+        {
+            date: "Mon, Apr 13",
+            topic: 'More work on HW4 (class optional if you submit Tutorial 10 before class)',
         }
     ]
   },
@@ -1253,7 +1257,7 @@ export const baseTopics = [
       "Understanding how to design and build RESTful APIs, including HTTP methods, endpoint design, authentication, and security. Students will learn to create their own API endpoints using a config-driven approach.",
     meetings: [
       {
-        date: "Mo, Apr 13",
+        date: "Wed, Apr 15",
         topic: "Defining Endpoints: Config-Driven API Design",
         description: (
           <>
@@ -1267,10 +1271,6 @@ export const baseTopics = [
         activities: [
           { title: "Slides", url: "#", draft: 1 },
         ],
-      },
-      {
-        date: "Fr, Apr 17",
-        topic: "TBD"
       }
 
     ],
@@ -1284,7 +1284,7 @@ export const baseTopics = [
     meetings: [
       {
         date: "Mo, Apr 22",
-        topic: "Security & Authentication for APIs",
+        topic: "Web Security & Hacking",
         description: (
           <>
             <ul>
