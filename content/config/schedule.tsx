@@ -1269,7 +1269,7 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/1lciCmXJ_Bo3-XEKobG0ALNydd_uvVXf6/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
       }
 
