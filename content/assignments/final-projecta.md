@@ -6,7 +6,7 @@ num: "(Part 1)"
 due_date: "2026-04-22"
 heading_max_level: 3
 order: 2
-points: 100
+points: 50
 toc: false
 ---
 
@@ -25,10 +25,10 @@ This part is about:
 
 Return to the [Final Project overview](final-project) for the full project scope, starter ideas, and core requirements.
 
+Before you begin, please make a copy of <a href="https://docs.google.com/document/d/1yOonKYELRyCZfgvIGj_-M_QKSQZvZbF4nI1m_wP6zyw/edit?usp=sharing" target="_blank">this document</a>, which you will submit to Moodle.
+
 <span id="app-concept"></span>
 ## 1. App Concept
-
-### What to do
 
 Write a short description of your app. Explain:
 
@@ -37,27 +37,21 @@ Write a short description of your app. Explain:
 3. what the primary user action will be
 4. what kind of data the app will store or display
 
-### What to turn in
-
-<p class="answer-lg">Submit a 3-5 sentence app concept description.</p>
-
 {% collapsible closed %}
 ### Need help starting your app concept?
 
 You can use this sentence starter:
 
-`My app is called ____. It helps users ____. The main thing a user will do is ____. The app will store or display ____.`
+> My app is called ____. It helps users ____. The main thing a user will do is ____. The app will store or display ____.
 
 PhotoApp example:
 
-`My app is called PhotoApp. It helps users organize and manage their photos. The main thing a user will do is log in, view their photos, and add or edit photo information. The app will store photo titles, captions, dates, album names, and user profile data.`
+> My app is called PhotoApp. It helps users organize and manage their photos. The main thing a user will do is log in, view photos in their feed, and bookmark / like /comment on photos. The app will store photo titles, captions, dates, album names, and user profile data.
 
 Keep this short. You do not need to describe every feature yet.
 
 <span id="endpoint-design"></span>
 ## 2. Endpoint Design
-
-### What to do
 
 Design **at least 2 API endpoints** for your app.
 
@@ -70,9 +64,6 @@ Your endpoint plan should show:
 
 Your endpoints should make it possible to support the CRUD behavior in your app.
 
-### What to turn in
-
-<p class="answer-lg">Your API YAML file.</p>
 
 {% collapsible closed %}
 ### Need help thinking about endpoints?
@@ -85,21 +76,18 @@ Example:
 - `POST /api/photos` = create a new photo record
 - `PATCH /api/photos/:id` = update one photo
 - `DELETE /api/photos/:id` = delete one photo
-- `GET /api/albums` = get the user's albums
 
 PhotoApp example resources:
 
 - `photos`
-- `albums`
-- `profile`
+- `bookmarks`
+- `comments`
 
 If you are not sure what to include, start by listing the main kinds of data your app needs.
 
 
 <span id="wireframes"></span>
 ## 3. Wireframes
-
-### What to do
 
 Create wireframes for **2-3 screens** in Figma.
 
@@ -114,51 +102,27 @@ Your wireframes should include:
 - Grayscale only (no color)
 - Boxes + text labels only
 - Focus on layout, hierarchy, and flow, not styling
-
-Each wireframe should clearly label:
-
-1. The page title or screen name
-2. The main button, form, or action the user is supposed to use on that screen
-3. Where the main content appears
-   - for example: list, map, chart, profile area, detail panel, or form
-4. Where the user will create, edit, or delete data
-5. Where your third-party components will appear (at least two):
-   - for example: map, chart, calendar, date picker, modal, or widget
-
-### What to turn in
-
-<p class="answer-md">You will submit a link to Figma wireframe and a short explanation of your layout decisions.</p>
+- Consider both mobile and desktop layouts
+- Think about how your screens will enable your user to add / edit / delete data
 
 {% collapsible closed %}
 ### Need help understanding wireframes?
 
-A wireframe is a simple layout drawing of your app.
+A wireframe is a simple layout drawing of your app. It is **not** the final design.
 
-It is **not** the final design.
+* **Use:** boxes, labels, buttons, arrows if needed
+* **Do not worry about:** colors, fonts, polished styling
 
-Use:
+#### PhotoApp wireframe example (Mobile):
 
-- boxes
-- labels
-- buttons
-- arrows if needed
+<img class="screenshot frame" src="/spring2026/images/homework/final-project/mobile-wireframe.png" />
 
-Do not worry about:
+#### PhotoApp wireframe example (Desktop):
 
-- colors
-- fonts
-- polished styling
-
-PhotoApp wireframe example:
-
-1. login screen
-2. photo gallery screen
-3. add/edit photo form screen
+<img class="screenshot-md frame" src="/spring2026/images/homework/final-project/desktop-wireframe.png" />
 
 <span id="visual-direction"></span>
-## 4. Show What Your App Will Look Like
-
-### What to do
+## 4. High-Fidelity Mockup (Colors and Fonts)
 
 Create a styled mockup based on one of your wireframes.
 
@@ -183,9 +147,6 @@ Your styled mockup should show:
 - Color must not be the only way information is conveyed.
 - Visual design should support usability, not distract from it.
 
-### What to turn in
-
-<p class="answer-md">You will submit a link to Figma wireframe (same link as above) and a short explanation of your design choices.</p>
 
 {% collapsible closed %}
 ### Need help explaining your design choices?
@@ -203,18 +164,18 @@ PhotoApp example:
 
 ## Stage 1 Submission
 
-Before you submit, make sure you have all of the following. Stage 1 is worth **100 points total**.
+Before you submit, make sure you have all of the following. Stage 1 is worth **50 points total**.
 
 <!-- .last-col-nowrap -->
 | | Points | Name of Task | Description of Task | Section |
 |--|--|--|--|--|
-| [ ] | 10 | App concept description | A short app concept description explains what your app does, who it is for, and what the main user action is. | [1](#app-concept) |
-| [ ] | 20 | API plan | An API plan includes at least 2 endpoints. Each endpoint includes the route, HTTP method, purpose, and data it sends or receives. | [2](#endpoint-design) |
-| [ ] | 10 | Wireframes | You created at least 3 wireframes in Figma. | [3](#wireframes) |
-| [ ] | 10 | Wireframe: Login screen | One wireframe shows the login screen. | [3](#wireframes) |
-| [ ] | 10 | Wireframe: Main app screen | One wireframe shows the main app screen. | [3](#wireframes) |
-| [ ] | 15 | Wireframe: CRUD workflow | At least one wireframe or screen state shows how the user will create, edit, or delete data. | [3](#wireframes) |
-| [ ] | 15 | Styled mockup | A styled mockup is based on one of your wireframes and shows your visual design choices. | [4](#visual-direction) |
-| [ ] | 10 | Explain your design choices | A short explanation tells why you made your main visual choices. | [4](#visual-direction) |
+| [ ] | 5 | App concept description | A short app concept description explains what your app does, who it is for, and what the main user action is. | [1](#app-concept) |
+| [ ] | 10 | API plan | An API plan includes at least 2 endpoints. Each endpoint includes the route, HTTP method, purpose, and data it sends or receives. | [2](#endpoint-design) |
+| [ ] | 5 | Wireframes | You created at least 3 wireframes in Figma. | [3](#wireframes) |
+| [ ] | 5 | Wireframe: Login screen | One wireframe shows the login screen. | [3](#wireframes) |
+| [ ] | 5 | Wireframe: Main app screen | One wireframe shows the main app screen. | [3](#wireframes) |
+| [ ] | 10 | Wireframe: CRUD workflow | At least one wireframe or screen state shows how the user will create, edit, or delete data. | [3](#wireframes) |
+| [ ] | 5 | Styled mockup | A styled mockup is based on one of your wireframes and shows your visual design choices. | [4](#visual-direction) |
+| [ ] | 5 | Explain your design choices | A short explanation tells why you made your main visual choices. | [4](#visual-direction) |
 
 <a href="/spring2026/assignments/final-project" class="nu-button">← Back to Final Project Overview</a>
