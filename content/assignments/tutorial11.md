@@ -83,7 +83,7 @@ When you run **`npm run generate`**, the script writes sample data as CSV files 
 Install the **Edit CSV** extension in VS Code, open the CSVs in **`data/sample-data/`**, and change the sample values so the data fits a **sneaker store** (for example, rename brands or products to sneakers instead of the generic placeholders). Save your files, then run **`npm run seed -- --yes`**.
 
 > If you want to link to custom images, there are some located in `public/student/images/sneakers`. 
-> - A valid sample URL path that you could use is: `/student/images/sneakers/snearker_0_0.png`. 
+> - A valid sample URL path that you could use is: `/student/images/sneakers/sneaker_0_0.png`. 
 > - Feel free to copy other images to the `public/student/images` folder.
 
 If you change **`api.config.yaml`**, run **`npm run generate`** again before **`npm run seed`** so the database and CSV templates match your resources.
