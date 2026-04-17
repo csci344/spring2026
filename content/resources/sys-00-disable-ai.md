@@ -3,7 +3,7 @@ title: "Disabling AI Features in VS Code"
 group: "System Configuration"
 group_order: 0
 order: 0
-quicklink: 1
+quicklink: 0
 ---
 
 In this course, we aim to build **foundational programming skills**, particularly in functional and event-driven programming. To ensure you are developing these skills yourself, you are **strictly required to disable all AI-powered code completion and generation features** within your code editor while working on assignments. 
