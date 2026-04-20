@@ -1339,7 +1339,7 @@ export const baseTopics = [
             </ul>
           </>
         ),
-      },,
+      },
       {
         date: "Mo, Apr 27",
         topic: "Final Project Implementation Workshop II",

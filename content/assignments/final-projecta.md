@@ -3,7 +3,7 @@ title: "1. Planning and Wireframing"
 type: "project"
 draft: 0
 num: "(Part 1)"
-due_date: "2026-04-22"
+due_date: "2026-04-24"
 heading_max_level: 3
 order: 2
 points: 50
