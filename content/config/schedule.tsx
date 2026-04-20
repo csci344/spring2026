@@ -1283,7 +1283,7 @@ export const baseTopics = [
       "Students will design their own API endpoints using a config-driven approach and build a React application that consumes those endpoints. This project integrates all concepts learned throughout the course.",
     meetings: [
       {
-        date: "Mo, Apr 22",
+        date: "Mo, Apr 20",
         topic: "Web Security & Hacking",
         description: (
           <>
@@ -1295,7 +1295,7 @@ export const baseTopics = [
           </>
         ),
         activities: [
-          { title: "Slides", url: "#", draft: 1 },
+          { title: "Slides", url: "https://docs.google.com/presentation/d/16HbBgT1g7lPlN-74aYAfA2UgHlw8M1qv/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", draft: 0 },
         ],
         readings: [
           {
@@ -1315,8 +1315,8 @@ export const baseTopics = [
         ],
       },
       {
-        date: "We, Apr 24",
-        topic: "Web Sockets",
+        date: "We, Apr 22",
+        topic: "Data Visualization",
         description: (
           <>
             <ul>
@@ -1330,13 +1330,24 @@ export const baseTopics = [
         ],
       },
       {
-        date: "Mo, Apr 27",
-        topic: "Data Visualization",
+        date: "Fr, Apr 24",
+        topic: "Final Project Implementation Workshop I",
         description: (
           <>
             <ul>
               <li>Final project presentations</li>
-              <li>Course reflection and synthesis</li>
+            </ul>
+          </>
+        ),
+      },,
+      {
+        date: "Mo, Apr 27",
+        topic: "Final Project Implementation Workshop II",
+        description: (
+          <>
+            <ul>
+              <li>Work-in progress presentations</li>
+              <li>Time for in-class work</li>
             </ul>
           </>
         ),

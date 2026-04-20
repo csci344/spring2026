@@ -27,7 +27,7 @@ Return to the [Final Project overview](final-project) for the full project scope
 
 You will submit a copy of the proposal document (see below) to Moodle as either a Word document or PDF file.
 
-<a class="nu-button" href="https://docs.google.com/document/d/1yOonKYELRyCZfgvIGj_-M_QKSQZvZbF4nI1m_wP6zyw/edit?usp=sharing" target="_blank">Final Proposal Document</a> 
+<a class="nu-button" href="https://docs.google.com/document/d/1yOonKYELRyCZfgvIGj_-M_QKSQZvZbF4nI1m_wP6zyw/copy" target="_blank">Final Proposal Document</a> 
 
 
 ## 1. App Concept <span id="app-concept"></span>
