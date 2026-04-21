@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "zip": "bash ./public/course-files/build/build.sh",
     "stylelint": "stylelint \"**/*.css\" --ignore-path .gitignore",
     "export": "next build",
     "deploy": "npm run build && touch out/.nojekyll"

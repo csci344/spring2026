@@ -71,7 +71,7 @@ Here is what each rule means in plain language:
 2. **One main user workflow** means there is one clear thing the user can do from start to finish.
 3. **At least 2 API endpoints** means your client should talk to at least two routes such as `/api/photos` and `/api/albums`.
 4. **Login** means the user must sign in with the starter authentication code from class.
-5. **User-specific data** means two different users should not see the exact same personal data.
+5. **User-specific data or behavior** means accounts should matter in some meaningful way. That might mean users see their own records, have different permissions, or the app tracks who created or edited an item.
 6. **CRUD** means the user can create, read, update, and delete the main kind of item in the app.
 7. **Third-party components** means tools or libraries you did not build yourself, such as a map, chart, date picker, modal, lightbox, or UI component library.
 
@@ -85,7 +85,7 @@ Here is one example of an app that meets the project rules:
 - **Main resource:** `photos`
 - **Second resource:** `albums`
 - **Possible endpoints:** `/api/photos`, `/api/albums`, `/api/profile`
-- **User-specific behavior:** each user sees only their own photos and albums
+- **User-specific behavior:** the app tracks who owns or created photos and albums, and the interface changes meaningfully based on the logged-in user
 - **CRUD example:** create a photo entry, view photos, edit a caption, delete a photo
 - **Third-party components:** image lightbox, date picker, chart of uploads by month
 

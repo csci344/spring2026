@@ -7,7 +7,6 @@ due_date: "2026-04-24"
 heading_max_level: 3
 order: 2
 points: 50
-toc: false
 ---
 
 [← Review the Final Project Overview](final-project)
@@ -67,7 +66,7 @@ Each **resource** in **`api.config.yaml`** has a **`path`** and **`operations`**
 
 Example HTTP routes you might end up with:
 
-- `GET /api/photos` = get the user's photos
+- `GET /api/photos` = get photo records for the app or current user, depending on your design
 - `POST /api/photos` = create a new photo record
 - `PATCH /api/photos/:id` = update one photo
 - `DELETE /api/photos/:id` = delete one photo
