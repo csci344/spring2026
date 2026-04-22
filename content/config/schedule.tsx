@@ -1325,9 +1325,6 @@ export const baseTopics = [
             </ul>
           </>
         ),
-        activities: [
-          { title: "Tutorial 11", url: "/assignments/tutorial11", draft: 0 },
-        ],
       },
       {
         date: "Fr, Apr 24",
