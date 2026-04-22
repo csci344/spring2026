@@ -11,6 +11,21 @@ points: 100
 
 [← Review the Final Project Overview](final-project)
 
+<!-- .info -->
+> ## Updates
+> Here is an example of a sample final project (simple and kinda boring, but meets the requirements):
+> <!-- .compact -->
+> - Frontend (User Interface): <a href="https://api-client.unca.info/" target="_blank">https://api-client.unca.info/</a>
+> - Backend (API Server): <a href="https://api-generator.unca.info/" target="_blank">https://api-generator.unca.info/</a>
+> 
+> <!-- .mt-6 -->
+> To test / examine the UI and API:
+>
+> <!-- .compact -->
+> - username: **admin**
+> - password **password**
+> - <a href="https://github.com/csci344/api-generator/blob/main/examples/plants/api.config.yaml" target="blank">Link to API YAML file</a> (backend)
+
 ## Goal
 After your design work is approved, you will build the app. This stage should result in a small, complete single-page app with a structure similar in spirit to the sample frontend provided to you in the starter code (provided below):
 

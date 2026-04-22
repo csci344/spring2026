@@ -152,7 +152,7 @@ At this point, you are not using the `items` prop yet. You are only confirming t
 {% collapsible closed %}
 ### 4.4. Fetch data from your API
 
-Now go to the component where your app should load data from the server. In many projects, this will be `App.jsx` or a page component.
+Now go to the component where your app should load data from the server (I recommend `components/Homepage.jsx`).
 
 Create state to hold the server data:
 
@@ -180,9 +180,9 @@ useEffect(() => {
 }, []);
 ```
 
-Replace `YOUR_API_PATH_HERE` with the path you want from your API.
+Replace `YOUR_API_PATH_HERE` with the path you want from your API (e.g., `/api/plants`).
 
-If you need sample data, you can generate an API here:
+Feel free to use the sample plant data available at:
 [https://api-generator.unca.info/](https://api-generator.unca.info/)
 
 The important idea here is:
