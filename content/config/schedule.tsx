@@ -1332,19 +1332,20 @@ export const baseTopics = [
         description: (
           <>
             <ul>
-              <li>Final project presentations</li>
+              <li>Final project planning -- share out</li>
+              <li>Implementation tips and tricks</li>
+              <li>Time for in-class work</li>
             </ul>
           </>
         ),
       },
       {
         date: "Mo, Apr 27",
-        topic: "Final Project Implementation Workshop II",
+        topic: "Final Exam Review Session",
         description: (
           <>
             <ul>
-              <li>Work-in progress presentations</li>
-              <li>Time for in-class work</li>
+              <li>We will be going over practice problems for the final exam (which is cumulative)</li>
             </ul>
           </>
         ),

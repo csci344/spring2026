@@ -4,8 +4,8 @@ type: activity
 draft: 0
 heading_max_level: 3
 ordering: 1
-start_date: "2026-04-22"
-due_date: "2026-04-22"
+start_date: "2026-04-24"
+due_date: "2026-04-24"
 ---
 
 > ## Learning Goals
