@@ -3,7 +3,7 @@ title: "2. App Implementation"
 type: "project"
 draft: 0
 num: "(Part 2)"
-due_date: "2026-05-01"
+due_date: "2026-05-05"
 heading_max_level: 3
 order: 2
 points: 100
