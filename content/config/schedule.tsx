@@ -1349,6 +1349,15 @@ export const baseTopics = [
             </ul>
           </>
         ),
+        activities: [
+            {
+                title: "Slides", 
+                "url": "https://docs.google.com/presentation/d/1DTDvE9mqKO_IZcni4gBIkN9-BaGvbuqw/edit?usp=sharing&ouid=113376576186080604800&rtpof=true&sd=true", 
+                draft: 0
+            },
+            { title: "Final Exam Practice", url: "/exams/final-exam-practice", draft: 0 },
+            { title: "Final Exam Study Guide", url: "/exams/final-exam-study-guide", draft: 0 }
+        ],
       },
     ],
   },
@@ -1362,6 +1371,21 @@ export const baseTopics = [
       {
         date: "We, May 6",
         topic: "Final Exam",
+        description: (
+            <>
+              <p>
+                  The final exam is cumulative. 
+              </p>
+              <ul>
+                <li>The exam is paper-based.</li>
+                <li>Please review the practice exam materials and study guide (from Monday, April 27th). </li>
+                <li> You make bring a 1-page cheatsheet (front and back).</li>
+              </ul>
+            </>
+          ),
+        activities: [
+          { title: "Final Exam", url: "/exams/final-exam", draft: 1 },
+        ],
       },
     ],
   },
