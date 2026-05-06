@@ -1384,7 +1384,7 @@ export const baseTopics = [
             </>
           ),
         activities: [
-          { title: "Final Exam", url: "/exams/final-exam", draft: 1 },
+          { title: "Final Exam", url: "/exams/final-exam", draft: 0 },
         ],
       },
     ],

@@ -118,6 +118,13 @@ th {
   width: 50%;
 }
 
+.exam-answer-table .answer-line-cell::after {
+  content: "";
+  display: block;
+  height: 1.25rem;
+  border-bottom: 1px solid currentColor;
+}
+
 /* a {
   @apply border-b-2 hover:border-b-2;
   border-color: var(--primary);
@@ -235,12 +242,17 @@ ol ul li {
   @apply !mb-0;
 }
 
+
 .list-tight li, .compact li {
     @apply !mb-0;
 }
   
 .list-spaced li {
-    @apply mb-6;
+    @apply !mb-6;
+}
+
+.list-spaced-more li {
+    @apply !mb-8;
 }
 
 .extra-list-spacing li {
